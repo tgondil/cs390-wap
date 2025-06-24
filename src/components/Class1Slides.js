@@ -99,33 +99,205 @@ const Class1Slides = () => {
       title: 'Frontend vs Backend',
       content: (
         <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8">Understanding the Web Stack</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border border-green-400/30">
-              <div className="text-center mb-6">
-                <div className="text-4xl mb-4">🎨</div>
-                <h3 className="text-2xl font-bold text-white">Frontend</h3>
-                <p className="text-green-100">What users see and interact with</p>
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">Understanding the Web Stack</h2>
+          
+          {/* Interactive comparison */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 relative">
+            {/* Connection line animation */}
+            <div className="hidden lg:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+              <div className="flex items-center space-x-2">
+                <div className="w-8 h-0.5 bg-white/30 animate-pulse"></div>
+                <div className="bg-white/20 backdrop-blur rounded-full p-2">
+                  <div className="text-white text-sm">⚡</div>
+                </div>
+                <div className="w-8 h-0.5 bg-white/30 animate-pulse"></div>
               </div>
-              <ul className="space-y-3 text-green-100">
-                <li className="flex items-center"><span className="mr-2">✨</span> User Interface (UI)</li>
-                <li className="flex items-center"><span className="mr-2">🎯</span> User Experience (UX)</li>
-                <li className="flex items-center"><span className="mr-2">📱</span> Responsive Design</li>
-                <li className="flex items-center"><span className="mr-2">⚡</span> Interactive Features</li>
-              </ul>
             </div>
-            <div className="bg-orange-500/20 backdrop-blur rounded-xl p-8 border border-orange-400/30">
-              <div className="text-center mb-6">
-                <div className="text-4xl mb-4">⚙️</div>
-                <h3 className="text-2xl font-bold text-white">Backend</h3>
-                <p className="text-orange-100">Server logic and data management</p>
+
+            {/* Frontend Card */}
+            <div className="group bg-green-500/20 backdrop-blur rounded-xl p-8 border border-green-400/30 
+                          hover:bg-green-500/30 hover:border-green-300/50 hover:scale-105 
+                          transition-all duration-500 cursor-pointer relative overflow-hidden">
+              
+              {/* Animated background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-4 left-4 w-2 h-2 bg-green-300 rounded-full animate-ping"></div>
+                <div className="absolute top-8 right-8 w-1 h-1 bg-green-400 rounded-full animate-pulse"></div>
+                <div className="absolute bottom-6 left-12 w-1.5 h-1.5 bg-green-200 rounded-full animate-bounce"></div>
               </div>
-              <ul className="space-y-3 text-orange-100">
-                <li className="flex items-center"><span className="mr-2">🗄️</span> Database Operations</li>
-                <li className="flex items-center"><span className="mr-2">🔐</span> Authentication</li>
-                <li className="flex items-center"><span className="mr-2">📡</span> API Endpoints</li>
-                <li className="flex items-center"><span className="mr-2">🔒</span> Business Logic</li>
+
+              <div className="text-center mb-6 relative z-10">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🎨</div>
+                <h3 className="text-2xl font-bold text-white group-hover:text-green-100 transition-colors">Frontend</h3>
+                <p className="text-green-100 group-hover:text-green-50 transition-colors">What users see and interact with</p>
+              </div>
+              
+              <ul className="space-y-3 text-green-100 relative z-10">
+                {[
+                  { icon: '✨', text: 'User Interface (UI)', delay: '0ms' },
+                  { icon: '🎯', text: 'User Experience (UX)', delay: '100ms' },
+                  { icon: '📱', text: 'Responsive Design', delay: '200ms' },
+                  { icon: '⚡', text: 'Interactive Features', delay: '300ms' }
+                ].map((item, index) => (
+                  <li key={index} 
+                      className="flex items-center group-hover:translate-x-2 transition-transform duration-300 
+                               hover:text-white hover:scale-105 cursor-pointer"
+                      style={{ transitionDelay: item.delay }}>
+                    <span className="mr-3 text-lg group-hover:animate-bounce">{item.icon}</span>
+                    <span>{item.text}</span>
+                  </li>
+                ))}
               </ul>
+
+              {/* Tech stack preview */}
+              <div className="mt-6 p-4 bg-white/10 rounded-lg opacity-0 group-hover:opacity-100 
+                            transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                <div className="text-sm text-green-100 mb-2">Technologies:</div>
+                <div className="flex flex-wrap gap-2">
+                  {['React', 'HTML', 'CSS', 'JavaScript'].map((tech, index) => (
+                    <span key={index} className="bg-green-400/20 text-green-100 px-2 py-1 rounded text-xs">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Backend Card */}
+            <div className="group bg-orange-500/20 backdrop-blur rounded-xl p-8 border border-orange-400/30 
+                          hover:bg-orange-500/30 hover:border-orange-300/50 hover:scale-105 
+                          transition-all duration-500 cursor-pointer relative overflow-hidden">
+              
+              {/* Animated background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-6 right-6 w-2 h-2 bg-orange-300 rounded-full animate-ping"></div>
+                <div className="absolute top-12 left-6 w-1 h-1 bg-orange-400 rounded-full animate-pulse"></div>
+                <div className="absolute bottom-8 right-10 w-1.5 h-1.5 bg-orange-200 rounded-full animate-bounce"></div>
+              </div>
+
+              <div className="text-center mb-6 relative z-10">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">⚙️</div>
+                <h3 className="text-2xl font-bold text-white group-hover:text-orange-100 transition-colors">Backend</h3>
+                <p className="text-orange-100 group-hover:text-orange-50 transition-colors">Server logic and data management</p>
+              </div>
+              
+              <ul className="space-y-3 text-orange-100 relative z-10">
+                {[
+                  { icon: '🗄️', text: 'Database Operations', delay: '0ms' },
+                  { icon: '🔐', text: 'Authentication', delay: '100ms' },
+                  { icon: '📡', text: 'API Endpoints', delay: '200ms' },
+                  { icon: '🔒', text: 'Business Logic', delay: '300ms' }
+                ].map((item, index) => (
+                  <li key={index} 
+                      className="flex items-center group-hover:translate-x-2 transition-transform duration-300 
+                               hover:text-white hover:scale-105 cursor-pointer"
+                      style={{ transitionDelay: item.delay }}>
+                    <span className="mr-3 text-lg group-hover:animate-bounce">{item.icon}</span>
+                    <span>{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Tech stack preview */}
+              <div className="mt-6 p-4 bg-white/10 rounded-lg opacity-0 group-hover:opacity-100 
+                            transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                <div className="text-sm text-orange-100 mb-2">Technologies:</div>
+                <div className="flex flex-wrap gap-2">
+                  {['Node.js', 'Express', 'MongoDB', 'APIs'].map((tech, index) => (
+                    <span key={index} className="bg-orange-400/20 text-orange-100 px-2 py-1 rounded text-xs">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Interactive workflow demonstration */}
+          <div className="mt-12 bg-white/10 backdrop-blur rounded-xl p-8">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">How They Work Together</h3>
+            <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
+              
+              {/* User */}
+              <div className="text-center">
+                <div className="bg-blue-500/20 rounded-full p-4 mb-2 hover:bg-blue-500/30 transition-colors cursor-pointer">
+                  <span className="text-3xl">👤</span>
+                </div>
+                <div className="text-white text-sm">User</div>
+              </div>
+
+              {/* Arrow 1 */}
+              <div className="hidden md:block">
+                <div className="flex items-center space-x-2 animate-pulse">
+                  <span className="text-green-400">→</span>
+                  <span className="text-xs text-green-300">clicks/types</span>
+                </div>
+              </div>
+
+              {/* Frontend */}
+              <div className="text-center group cursor-pointer">
+                <div className="bg-green-500/20 rounded-full p-4 mb-2 group-hover:bg-green-500/30 
+                              transition-colors group-hover:scale-110 transform duration-300">
+                  <span className="text-3xl">🎨</span>
+                </div>
+                <div className="text-white text-sm group-hover:text-green-200 transition-colors">Frontend</div>
+              </div>
+
+              {/* Arrow 2 */}
+              <div className="hidden md:block">
+                <div className="flex items-center space-x-2 animate-pulse">
+                  <span className="text-orange-400">→</span>
+                  <span className="text-xs text-orange-300">sends request</span>
+                </div>
+              </div>
+
+              {/* Backend */}
+              <div className="text-center group cursor-pointer">
+                <div className="bg-orange-500/20 rounded-full p-4 mb-2 group-hover:bg-orange-500/30 
+                              transition-colors group-hover:scale-110 transform duration-300">
+                  <span className="text-3xl">⚙️</span>
+                </div>
+                <div className="text-white text-sm group-hover:text-orange-200 transition-colors">Backend</div>
+              </div>
+
+              {/* Arrow 3 */}
+              <div className="hidden md:block">
+                <div className="flex items-center space-x-2 animate-pulse">
+                  <span className="text-purple-400">→</span>
+                  <span className="text-xs text-purple-300">queries</span>
+                </div>
+              </div>
+
+              {/* Database */}
+              <div className="text-center">
+                <div className="bg-purple-500/20 rounded-full p-4 mb-2 hover:bg-purple-500/30 transition-colors cursor-pointer">
+                  <span className="text-3xl">🗄️</span>
+                </div>
+                <div className="text-white text-sm">Database</div>
+              </div>
+            </div>
+
+            {/* Interactive example */}
+            <div className="mt-8 text-center">
+              <div className="bg-gray-800/50 rounded-lg p-4 text-left max-w-2xl mx-auto">
+                <div className="text-green-400 text-sm mb-1">Example: User Login</div>
+                <div className="text-white text-sm space-y-1">
+                  <div><span className="text-green-300">Frontend:</span> User enters email/password → validates format → sends to backend</div>
+                  <div><span className="text-orange-300">Backend:</span> Receives request → checks database → verifies password → creates session</div>
+                  <div><span className="text-purple-300">Database:</span> Stores user data → returns user info if valid</div>
+                  <div><span className="text-blue-300">Response:</span> Backend sends result → Frontend shows success/error → User sees outcome</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to action */}
+          <div className="text-center mt-8">
+            <div className="bg-gradient-to-r from-green-500/20 to-orange-500/20 backdrop-blur rounded-xl p-6 border border-white/20">
+              <div className="text-white text-lg mb-2">💡 Key Takeaway</div>
+              <div className="text-white/80">
+                Frontend and Backend work together seamlessly - you'll learn to build <strong>both sides</strong> in this course!
+              </div>
             </div>
           </div>
         </div>
