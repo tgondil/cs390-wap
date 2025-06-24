@@ -1,10 +1,16 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { courseData } from '../data/courseData';
+import Class1Slides from '../components/Class1Slides';
 
 const ClassPage = () => {
   const { classNumber } = useParams();
   const classNum = parseInt(classNumber);
+  
+  // Special handling for Class 1 - use slide presentation
+  if (classNum === 1) {
+    return <Class1Slides />;
+  }
   
   // Find the specific class data
   const findClassData = () => {
