@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+// Custom CSS for animations
+const customStyles = `
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+`;
+
 // Interactive Social Media Demo Component
 const InteractiveSocialMediaDemo = () => {
   const [activeStep, setActiveStep] = useState(null);
@@ -427,6 +438,24 @@ const TerminalSimulator = () => {
     }
   });
   const [lastAction, setLastAction] = useState(null);
+  const [animatingFolder, setAnimatingFolder] = useState(null);
+  const [creatingItem, setCreatingItem] = useState(null);
+
+  // Trigger animations based on lastAction
+  useEffect(() => {
+    if (lastAction) {
+      if (lastAction.type === 'mkdir') {
+        setCreatingItem(lastAction.name);
+        setTimeout(() => setCreatingItem(null), 1000);
+      } else if (lastAction.type === 'cd') {
+        setAnimatingFolder(lastAction.to);
+        setTimeout(() => setAnimatingFolder(null), 800);
+      } else if (lastAction.type === 'ls') {
+        setAnimatingFolder('opening');
+        setTimeout(() => setAnimatingFolder(null), 600);
+      }
+    }
+  }, [lastAction]);
 
   const executeCommand = () => {
     if (!input.trim()) return;
@@ -549,26 +578,116 @@ const TerminalSimulator = () => {
     }
   };
 
-  // File System Visualization Component
-  const FileSystemVisualization = () => {
-    const renderFileSystemItem = (name, item, isHighlighted = false) => (
-      <div 
-        key={name} 
-        className={`flex items-center space-x-2 p-2 rounded transition-all duration-300 ${
-          isHighlighted ? 'bg-blue-100 border-2 border-blue-400 shadow-lg transform scale-105' : 'bg-gray-50'
-        }`}
-      >
-        {item.type === 'directory' ? (
-          <div className="text-2xl">📁</div>
+  // Folder Icon Component with animations
+  const FolderIcon = ({ isOpen = false, isAnimating = false, size = "large" }) => {
+    const sizeClasses = {
+      small: "w-8 h-8",
+      medium: "w-12 h-12", 
+      large: "w-16 h-16",
+      xlarge: "w-24 h-24"
+    };
+
+    return (
+      <div className={`${sizeClasses[size]} relative transition-all duration-300 ${isAnimating ? 'transform scale-110' : ''}`}>
+        {isOpen ? (
+          <svg viewBox="0 0 100 100" className="w-full h-full">
+            {/* Open folder */}
+            <defs>
+              <linearGradient id="folderGradientOpen" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#ffd700" />
+                <stop offset="100%" stopColor="#ffb347" />
+              </linearGradient>
+            </defs>
+            <path 
+              d="M10 25 L90 25 L85 75 L5 75 Z" 
+              fill="url(#folderGradientOpen)" 
+              stroke="#e6a000" 
+              strokeWidth="2"
+              className="drop-shadow-lg"
+            />
+            <path 
+              d="M10 25 L35 25 L40 15 L60 15 L65 25 L90 25" 
+              fill="none" 
+              stroke="#e6a000" 
+              strokeWidth="2"
+            />
+            {/* Folder contents indicator */}
+            <circle cx="25" cy="45" r="3" fill="#4a90e2" />
+            <circle cx="40" cy="50" r="3" fill="#4a90e2" />
+            <circle cx="55" cy="45" r="3" fill="#4a90e2" />
+          </svg>
         ) : (
-          <div className="text-2xl">📄</div>
+          <svg viewBox="0 0 100 100" className="w-full h-full">
+            {/* Closed folder */}
+            <defs>
+              <linearGradient id="folderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#4a90e2" />
+                <stop offset="100%" stopColor="#357abd" />
+              </linearGradient>
+            </defs>
+            <path 
+              d="M10 30 L90 30 L90 75 L10 75 Z" 
+              fill="url(#folderGradient)" 
+              stroke="#2c5282" 
+              strokeWidth="2"
+              className="drop-shadow-md"
+            />
+            <path 
+              d="M10 30 L35 30 L40 20 L60 20 L65 30" 
+              fill="url(#folderGradient)" 
+              stroke="#2c5282" 
+              strokeWidth="2"
+            />
+          </svg>
         )}
-        <span className={`text-sm ${isHighlighted ? 'font-bold text-blue-700' : 'text-gray-700'}`}>
-          {name}
-        </span>
       </div>
     );
+  };
 
+  // File Icon Component with animations
+  const FileIcon = ({ name, isCreating = false }) => {
+    const isPackageJson = name === 'package.json';
+    
+    return (
+      <div className={`w-12 h-12 relative transition-all duration-500 ${isCreating ? 'animate-bounce scale-0' : 'scale-100'}`}>
+        <svg viewBox="0 0 100 100" className="w-full h-full">
+          <defs>
+            <linearGradient id="fileGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor={isPackageJson ? "#22c55e" : "#f3f4f6"} />
+              <stop offset="100%" stopColor={isPackageJson ? "#16a34a" : "#e5e7eb"} />
+            </linearGradient>
+          </defs>
+          <path 
+            d="M20 10 L70 10 L80 20 L80 90 L20 90 Z" 
+            fill="url(#fileGradient)" 
+            stroke={isPackageJson ? "#15803d" : "#9ca3af"} 
+            strokeWidth="2"
+          />
+          <path 
+            d="M70 10 L70 20 L80 20" 
+            fill="none" 
+            stroke={isPackageJson ? "#15803d" : "#9ca3af"} 
+            strokeWidth="2"
+          />
+          {isPackageJson && (
+            <text x="50" y="55" textAnchor="middle" fontSize="12" fill="white" fontWeight="bold">
+              npm
+            </text>
+          )}
+        </svg>
+        {isCreating && (
+          <div className="absolute -top-2 -right-2">
+            <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center animate-ping">
+              <span className="text-white text-xs">✨</span>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  // File System Visualization Component
+  const FileSystemVisualization = () => {
     const getCurrentDirectoryContents = () => {
       return fileSystem[currentDirectory]?.contents || {};
     };
@@ -579,78 +698,63 @@ const TerminalSimulator = () => {
       switch (lastAction.type) {
         case 'pwd':
           return (
-            <div className="bg-green-100 border border-green-400 rounded p-3 mb-4">
-              <div className="flex items-center space-x-2">
-                <span className="text-2xl">📍</span>
-                <span className="text-green-700 font-medium">Current location: {lastAction.path}</span>
+            <div className="bg-gradient-to-r from-green-100 to-green-200 border border-green-400 rounded-lg p-4 mb-4 animate-fade-in">
+              <div className="flex items-center space-x-3">
+                <div className="text-3xl animate-pulse">📍</div>
+                <div>
+                  <div className="text-green-800 font-semibold">Current Location</div>
+                  <div className="text-green-700 font-mono text-sm">{lastAction.path}</div>
+                </div>
               </div>
             </div>
           );
         case 'ls':
           return (
-            <div className="bg-blue-100 border border-blue-400 rounded p-3 mb-4">
-              <div className="flex items-center space-x-2 mb-2">
-                <span className="text-2xl">👀</span>
-                <span className="text-blue-700 font-medium">Listing directory contents:</span>
+            <div className="bg-gradient-to-r from-blue-100 to-blue-200 border border-blue-400 rounded-lg p-4 mb-4 animate-fade-in">
+              <div className="flex items-center space-x-3">
+                <div className="text-3xl">🔍</div>
+                <div>
+                  <div className="text-blue-800 font-semibold">Directory Contents</div>
+                  <div className="text-blue-700 text-sm">
+                    {lastAction.items.length === 0 ? 'No items found' : `Found ${lastAction.items.length} items`}
+                  </div>
+                </div>
               </div>
-              {lastAction.items.length === 0 ? (
-                <p className="text-gray-600 text-sm">Directory is empty</p>
-              ) : (
-                <p className="text-blue-600 text-sm">{lastAction.items.length} items found</p>
-              )}
             </div>
           );
         case 'mkdir':
           return (
-            <div className="bg-green-100 border border-green-400 rounded p-3 mb-4">
-              <div className="flex items-center space-x-2">
-                <span className="text-2xl">✨</span>
-                <span className="text-green-700 font-medium">Created new directory: {lastAction.name}</span>
+            <div className="bg-gradient-to-r from-purple-100 to-purple-200 border border-purple-400 rounded-lg p-4 mb-4 animate-fade-in">
+              <div className="flex items-center space-x-3">
+                <div className="text-3xl animate-bounce">📁</div>
+                <div>
+                  <div className="text-purple-800 font-semibold">Folder Created!</div>
+                  <div className="text-purple-700 font-mono text-sm">{lastAction.name}</div>
+                </div>
               </div>
             </div>
           );
         case 'cd':
           return (
-            <div className="bg-purple-100 border border-purple-400 rounded p-3 mb-4">
-              <div className="flex items-center space-x-2">
-                <span className="text-2xl">🚀</span>
-                <span className="text-purple-700 font-medium">Moved to: {lastAction.to}</span>
-              </div>
-            </div>
-          );
-        case 'node-version':
-          return (
-            <div className="bg-green-100 border border-green-400 rounded p-3 mb-4">
-              <div className="flex items-center space-x-2">
-                <span className="text-2xl">⚡</span>
-                <span className="text-green-700 font-medium">Node.js is installed and working!</span>
-              </div>
-            </div>
-          );
-        case 'npm-version':
-          return (
-            <div className="bg-red-100 border border-red-400 rounded p-3 mb-4">
-              <div className="flex items-center space-x-2">
-                <span className="text-2xl">📦</span>
-                <span className="text-red-700 font-medium">npm package manager is ready!</span>
+            <div className="bg-gradient-to-r from-indigo-100 to-indigo-200 border border-indigo-400 rounded-lg p-4 mb-4 animate-fade-in">
+              <div className="flex items-center space-x-3">
+                <div className="text-3xl">🚪</div>
+                <div>
+                  <div className="text-indigo-800 font-semibold">Entered Directory</div>
+                  <div className="text-indigo-700 font-mono text-sm">{lastAction.to}</div>
+                </div>
               </div>
             </div>
           );
         case 'npm-init':
           return (
-            <div className="bg-yellow-100 border border-yellow-400 rounded p-3 mb-4">
-              <div className="flex items-center space-x-2">
-                <span className="text-2xl">🎉</span>
-                <span className="text-yellow-700 font-medium">Project initialized with package.json!</span>
-              </div>
-            </div>
-          );
-        case 'clear':
-          return (
-            <div className="bg-gray-100 border border-gray-400 rounded p-3 mb-4">
-              <div className="flex items-center space-x-2">
-                <span className="text-2xl">🧹</span>
-                <span className="text-gray-700 font-medium">Terminal cleared!</span>
+            <div className="bg-gradient-to-r from-yellow-100 to-yellow-200 border border-yellow-400 rounded-lg p-4 mb-4 animate-fade-in">
+              <div className="flex items-center space-x-3">
+                <div className="text-3xl animate-spin">⚙️</div>
+                <div>
+                  <div className="text-yellow-800 font-semibold">Project Initialized!</div>
+                  <div className="text-yellow-700 text-sm">package.json created</div>
+                </div>
               </div>
             </div>
           );
@@ -663,41 +767,81 @@ const TerminalSimulator = () => {
     const contentItems = Object.entries(contents);
 
     return (
-      <div className="bg-white rounded-lg shadow-lg p-6 border">
-        <h3 className="text-lg font-semibold mb-4 flex items-center space-x-2">
-          <span className="text-2xl">🗂️</span>
-          <span>File System Visualization</span>
-        </h3>
+      <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl shadow-xl p-8 border-2 border-gray-200">
+        <div className="flex items-center space-x-3 mb-6">
+          <div className="text-3xl">🖥️</div>
+          <h3 className="text-xl font-bold text-gray-800">File System Explorer</h3>
+        </div>
         
         {renderActionFeedback()}
         
-        <div className="border-t pt-4">
-          <div className="flex items-center space-x-2 mb-3">
-            <span className="text-xl">📁</span>
-            <span className="font-medium text-gray-800">{currentDirectory}</span>
+        {/* Current Directory Display */}
+        <div className="bg-white rounded-lg p-6 border-2 border-gray-300 mb-6 shadow-inner">
+          <div className="flex items-center space-x-3 mb-4">
+            <FolderIcon 
+              isOpen={animatingFolder === 'opening' || contentItems.length > 0} 
+              isAnimating={animatingFolder === 'opening'}
+              size="large"
+            />
+            <div>
+              <div className="text-sm text-gray-600">Current Directory</div>
+              <div className="font-mono text-lg font-semibold text-gray-800">{currentDirectory}</div>
+            </div>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          {/* Directory Contents */}
+          <div className="border-t pt-4">
             {contentItems.length === 0 ? (
-              <div className="col-span-full text-center py-8 text-gray-500">
-                <div className="text-4xl mb-2">📂</div>
-                <p>Empty directory</p>
-                <p className="text-sm">Use 'mkdir' to create folders</p>
+              <div className="text-center py-12">
+                <div className="text-6xl mb-4 opacity-50">📂</div>
+                <p className="text-gray-500 mb-2">This directory is empty</p>
+                <p className="text-sm text-gray-400">Try: <code className="bg-gray-200 px-1 rounded">mkdir my-folder</code></p>
               </div>
             ) : (
-              contentItems.map(([name, item]) => 
-                renderFileSystemItem(
-                  name, 
-                  item, 
-                  lastAction?.type === 'mkdir' && lastAction?.name === name
-                )
-              )
+              <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                {contentItems.map(([name, item]) => (
+                  <div 
+                    key={name}
+                    className={`flex flex-col items-center space-y-2 p-3 rounded-lg transition-all duration-300 hover:bg-gray-50 ${
+                      creatingItem === name ? 'animate-pulse bg-green-50 border-2 border-green-300' : ''
+                    }`}
+                  >
+                    {item.type === 'directory' ? (
+                      <FolderIcon 
+                        isOpen={false}
+                        isAnimating={creatingItem === name}
+                        size="medium"
+                      />
+                    ) : (
+                      <FileIcon 
+                        name={name} 
+                        isCreating={creatingItem === name}
+                      />
+                    )}
+                    <span className={`text-xs text-center font-medium truncate w-full ${
+                      creatingItem === name ? 'text-green-700 font-bold' : 'text-gray-700'
+                    }`}>
+                      {name}
+                    </span>
+                  </div>
+                ))}
+              </div>
             )}
           </div>
         </div>
         
-        <div className="mt-4 text-xs text-gray-500 bg-gray-50 rounded p-2">
-          <strong>Pro tip:</strong> Try commands like 'mkdir my-project', 'cd my-project', 'npm init' to see the file system change in real-time!
+        {/* Command Guide */}
+        <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+          <div className="flex items-center space-x-2 mb-2">
+            <div className="text-xl">💡</div>
+            <span className="font-semibold text-blue-800">Try these commands:</span>
+          </div>
+          <div className="grid grid-cols-2 gap-2 text-sm">
+            <code className="bg-white px-2 py-1 rounded border">mkdir my-project</code>
+            <code className="bg-white px-2 py-1 rounded border">cd my-project</code>
+            <code className="bg-white px-2 py-1 rounded border">npm init</code>
+            <code className="bg-white px-2 py-1 rounded border">ls</code>
+          </div>
         </div>
       </div>
     );
@@ -761,6 +905,15 @@ const TerminalSimulator = () => {
 const Class1Slides = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Inject custom styles
+  useEffect(() => {
+    const styleSheet = document.createElement("style");
+    styleSheet.type = "text/css";
+    styleSheet.innerText = customStyles;
+    document.head.appendChild(styleSheet);
+    return () => document.head.removeChild(styleSheet);
+  }, []);
+
   // Slide content data
   const slides = [
     {
@@ -814,6 +967,158 @@ const Class1Slides = () => {
         </div>
       ),
       bgGradient: 'from-indigo-600 to-blue-700'
+    },
+    {
+      id: 'grading',
+      title: 'Assessment & Success',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8">How You'll Be Evaluated</h2>
+          <p className="text-xl text-cyan-100 text-center mb-8">
+            Everything is designed to support your learning and growth! 🌟
+          </p>
+          
+          <div className="max-w-5xl mx-auto">
+            {/* Pie Chart Section */}
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
+              
+              {/* Pie Chart */}
+              <div className="relative">
+                <svg width="300" height="300" viewBox="0 0 300 300" className="transform -rotate-90">
+                  {/* Weekly Homework - 35% (126 degrees) */}
+                  <circle
+                    cx="150"
+                    cy="150"
+                    r="120"
+                    fill="none"
+                    stroke="#10b981"
+                    strokeWidth="40"
+                    strokeDasharray="264 754"
+                    strokeDashoffset="0"
+                    className="transition-all duration-1000 hover:stroke-width-45"
+                  />
+                  
+                  {/* Mini-Projects - 25% (90 degrees) */}
+                  <circle
+                    cx="150"
+                    cy="150"
+                    r="120"
+                    fill="none"
+                    stroke="#3b82f6"
+                    strokeWidth="40"
+                    strokeDasharray="188 754"
+                    strokeDashoffset="-264"
+                    className="transition-all duration-1000 hover:stroke-width-45"
+                  />
+                  
+                  {/* Final Capstone - 30% (108 degrees) */}
+                  <circle
+                    cx="150"
+                    cy="150"
+                    r="120"
+                    fill="none"
+                    stroke="#a855f7"
+                    strokeWidth="40"
+                    strokeDasharray="226 754"
+                    strokeDashoffset="-452"
+                    className="transition-all duration-1000 hover:stroke-width-45"
+                  />
+                  
+                  {/* Participation & Labs - 10% (36 degrees) */}
+                  <circle
+                    cx="150"
+                    cy="150"
+                    r="120"
+                    fill="none"
+                    stroke="#f97316"
+                    strokeWidth="40"
+                    strokeDasharray="75 754"
+                    strokeDashoffset="-678"
+                    className="transition-all duration-1000 hover:stroke-width-45"
+                  />
+                </svg>
+                
+                {/* Center label */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-white text-2xl font-bold">Grade</div>
+                    <div className="text-white text-lg">Distribution</div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Legend */}
+              <div className="space-y-6">
+                {[
+                  { 
+                    component: 'Weekly Homework', 
+                    percentage: '35%', 
+                    icon: '📝', 
+                    color: 'bg-green-500',
+                    description: '11 hands-on assignments that build your skills progressively'
+                  },
+                  { 
+                    component: 'Mini-Projects', 
+                    percentage: '25%', 
+                    icon: '🛠️', 
+                    color: 'bg-blue-500',
+                    description: '3 milestone projects at key learning stages'
+                  },
+                  { 
+                    component: 'Final Capstone', 
+                    percentage: '30%', 
+                    icon: '🚀', 
+                    color: 'bg-purple-500',
+                    description: 'Your showcase project - build something amazing!'
+                  },
+                  { 
+                    component: 'Participation & Labs', 
+                    percentage: '10%', 
+                    icon: '🤝', 
+                    color: 'bg-orange-500',
+                    description: 'In-class activities, peer reviews, and engagement'
+                  }
+                ].map((item, index) => (
+                  <div key={index} 
+                       className="group flex items-center space-x-4 p-4 rounded-xl bg-white/10 backdrop-blur border border-white/20 
+                                hover:bg-white/20 hover:scale-105 transition-all duration-300 cursor-pointer min-w-96">
+                    
+                    <div className={`w-6 h-6 ${item.color} rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}></div>
+                    
+                    <div className="flex items-center space-x-3 flex-1">
+                      <span className="text-2xl group-hover:scale-110 transition-transform duration-300">{item.icon}</span>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between mb-1">
+                          <span className="text-lg font-semibold text-white">{item.component}</span>
+                          <span className="text-xl font-bold text-white bg-white/20 px-3 py-1 rounded-lg group-hover:bg-white/30 transition-colors">
+                            {item.percentage}
+                          </span>
+                        </div>
+                        <p className="text-cyan-100 text-sm group-hover:text-white transition-colors">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom encouragement */}
+            <div className="mt-12 text-center">
+              <div className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-xl p-8 border border-emerald-400/30 max-w-3xl mx-auto">
+                <div className="text-3xl mb-4">🎉</div>
+                <h3 className="text-2xl font-bold text-white mb-3">You've Got This!</h3>
+                <p className="text-emerald-100 text-lg">
+                  Everything here is structured to support your success. Show up, participate, and enjoy building amazing things! 
+                  There are lots of extra credit opportunities to go above and beyond.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-cyan-600 to-blue-700'
     },
     {
       id: 'journey',
@@ -1246,683 +1551,23 @@ const Class1Slides = () => {
       bgGradient: 'from-teal-600 to-blue-700'
     },
     {
-      id: 'web-fundamentals',
-      title: 'Web Development Fundamentals',
-      content: (
-        <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8 text-center">How the Web Actually Works</h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Client-Server Diagram */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white">🌐 Client-Server Architecture</h3>
-              
-              <div className="bg-gray-900/50 rounded-xl p-6 relative">
-                {/* Client Side */}
-                <div className="text-center mb-8">
-                  <div className="bg-blue-500/20 border-2 border-blue-400/50 rounded-xl p-6 mb-4 hover:scale-105 transition-colors">
-                    <div className="text-4xl mb-2">💻</div>
-                    <div className="text-white font-bold text-lg">Client (Your Browser)</div>
-                    <div className="text-blue-200 text-sm">Chrome, Firefox, Safari</div>
-                  </div>
-                  
-                  {/* Arrow Down */}
-                  <div className="flex justify-center items-center my-6">
-                    <div className="flex flex-col items-center">
-                      <div className="text-white text-sm mb-1">HTTP Request</div>
-                      <div className="text-2xl animate-bounce">⬇️</div>
-                      <div className="text-white text-sm mt-1">GET /homepage</div>
-                    </div>
-                  </div>
-                  
-                  {/* Internet Cloud */}
-                  <div className="bg-gray-700/50 rounded-full p-4 mx-auto w-24 h-24 flex items-center justify-center mb-6">
-                    <span className="text-3xl">☁️</span>
-                  </div>
-                  
-                  {/* Arrow Down */}
-                  <div className="flex justify-center items-center my-6">
-                    <div className="flex flex-col items-center">
-                      <div className="text-white text-sm mb-1">Travels across</div>
-                      <div className="text-2xl animate-bounce">⬇️</div>
-                      <div className="text-white text-sm mt-1">the Internet</div>
-                    </div>
-                  </div>
-                  
-                  {/* Server Side */}
-                  <div className="bg-orange-500/20 border-2 border-orange-400/50 rounded-xl p-6 hover:scale-105 transition-transform">
-                    <div className="text-4xl mb-2">🖥️</div>
-                    <div className="text-white font-bold text-lg">Server (Remote Computer)</div>
-                    <div className="text-orange-200 text-sm">Processes requests & sends responses</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Detailed Explanation */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white">🔍 What Happens Step by Step</h3>
-              
-              <div className="space-y-4">
-                {[
-                  {
-                    step: '1',
-                    title: 'User Action',
-                    description: 'You type a URL or click a link in your browser',
-                    example: 'google.com',
-                    icon: '👆',
-                    color: 'blue'
-                  },
-                  {
-                    step: '2',
-                    title: 'DNS Lookup',
-                    description: 'Browser finds the server\'s IP address',
-                    example: '172.217.9.78',
-                    icon: '🔍',
-                    color: 'green'
-                  },
-                  {
-                    step: '3',
-                    title: 'HTTP Request',
-                    description: 'Browser sends a request to the server',
-                    example: 'GET /search?q=cats',
-                    icon: '📤',
-                    color: 'purple'
-                  },
-                  {
-                    step: '4',
-                    title: 'Server Processing',
-                    description: 'Server processes the request and prepares response',
-                    example: 'Database query, business logic',
-                    icon: '⚙️',
-                    color: 'orange'
-                  },
-                  {
-                    step: '5',
-                    title: 'HTTP Response',
-                    description: 'Server sends back HTML, CSS, JS, and data',
-                    example: '200 OK + webpage content',
-                    icon: '📥',
-                    color: 'red'
-                  },
-                  {
-                    step: '6',
-                    title: 'Browser Rendering',
-                    description: 'Browser displays the webpage to you',
-                    example: 'Cute cat pictures appear!',
-                    icon: '🎨',
-                    color: 'teal'
-                  }
-                ].map((item, index) => (
-                  <div key={index} className={`bg-${item.color}-500/20 border border-${item.color}-400/30 rounded-lg p-4 hover:scale-105 transition-transform`}>
-                    <div className="flex items-start space-x-4">
-                      <div className={`bg-${item.color}-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold`}>
-                        {item.step}
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <span className="text-xl">{item.icon}</span>
-                          <div className="text-white font-semibold">{item.title}</div>
-                        </div>
-                        <div className="text-gray-300 text-sm mb-1">{item.description}</div>
-                        <div className="text-xs text-gray-400 italic">{item.example}</div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* HTTP Basics */}
-          <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl p-6 border border-white/20">
-            <h3 className="text-xl font-bold text-white mb-4 text-center">📡 HTTP: The Language of the Web</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="text-lg font-semibold text-purple-300 mb-3">Common HTTP Methods</h4>
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center space-x-3">
-                    <span className="bg-green-500 text-white px-2 py-1 rounded text-xs font-bold">GET</span>
-                    <span className="text-gray-300">Retrieve data (like loading a webpage)</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <span className="bg-blue-500 text-white px-2 py-1 rounded text-xs font-bold">POST</span>
-                    <span className="text-gray-300">Send data (like submitting a form)</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <span className="bg-yellow-500 text-white px-2 py-1 rounded text-xs font-bold">PUT</span>
-                    <span className="text-gray-300">Update existing data</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <span className="bg-red-500 text-white px-2 py-1 rounded text-xs font-bold">DELETE</span>
-                    <span className="text-gray-300">Remove data</span>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold text-blue-300 mb-3">HTTP Status Codes</h4>
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center space-x-3">
-                    <span className="bg-green-600 text-white px-2 py-1 rounded text-xs font-bold">200</span>
-                    <span className="text-gray-300">OK - Request successful</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <span className="bg-yellow-600 text-white px-2 py-1 rounded text-xs font-bold">404</span>
-                    <span className="text-gray-300">Not Found - Page doesn't exist</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <span className="bg-red-600 text-white px-2 py-1 rounded text-xs font-bold">500</span>
-                    <span className="text-gray-300">Server Error - Something went wrong</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <span className="bg-orange-600 text-white px-2 py-1 rounded text-xs font-bold">401</span>
-                    <span className="text-gray-300">Unauthorized - Login required</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Your Role as Full-Stack Developer */}
-          <div className="text-center">
-            <div className="bg-gradient-to-r from-green-500/20 via-blue-500/20 to-purple-500/20 rounded-xl p-8 border border-white/20">
-              <h3 className="text-2xl font-bold text-white mb-4">🎯 Your Role as a Full-Stack Developer</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="text-center">
-                  <div className="text-4xl mb-3">🎨</div>
-                  <div className="text-white font-bold text-lg mb-2">Frontend Developer</div>
-                  <div className="text-gray-300 text-sm">
-                    You'll build what users see and interact with - the client side of the equation
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl mb-3">⚙️</div>
-                  <div className="text-white font-bold text-lg mb-2">Backend Developer</div>
-                  <div className="text-gray-300 text-sm">
-                    You'll build the server, database, and APIs that power the frontend
-                  </div>
-                </div>
-              </div>
-              <div className="mt-6 text-blue-200">
-                <strong>Full-Stack = Frontend + Backend</strong> - You'll understand and build the complete picture!
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
-      bgGradient: 'from-indigo-600 to-purple-700'
-    },
-    {
-      id: 'nodejs-installation',
-      title: 'Node.js Installation Walkthrough',
-      content: (
-        <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8 text-center">Installing Node.js Step-by-Step</h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Installation Steps */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white">📥 Installation Process</h3>
-              
-              <div className="space-y-4">
-                {[
-                  {
-                    step: '1',
-                    title: 'Visit nodejs.org',
-                    description: 'Go to the official Node.js website',
-                    details: 'Download the LTS (Long Term Support) version - it\'s more stable',
-                    icon: '🌐'
-                  },
-                  {
-                    step: '2',
-                    title: 'Choose Your OS',
-                    description: 'Select Windows, macOS, or Linux installer',
-                    details: 'The website auto-detects your operating system',
-                    icon: '💻'
-                  },
-                  {
-                    step: '3',
-                    title: 'Run the Installer',
-                    description: 'Double-click the downloaded file',
-                    details: 'Follow the installation wizard - accept default settings',
-                    icon: '⚙️'
-                  },
-                  {
-                    step: '4',
-                    title: 'Verify Installation',
-                    description: 'Open terminal and test Node.js',
-                    details: 'Run: node --version and npm --version',
-                    icon: '✅'
-                  }
-                ].map((item, index) => (
-                  <div key={index} className="bg-green-500/20 border border-green-400/30 rounded-lg p-4 hover:scale-105 transition-transform">
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
-                        {item.step}
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <span className="text-xl">{item.icon}</span>
-                          <div className="text-white font-semibold">{item.title}</div>
-                        </div>
-                        <div className="text-gray-300 text-sm mb-1">{item.description}</div>
-                        <div className="text-xs text-green-200 italic">{item.details}</div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* What You Get */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white">📦 What Node.js Includes</h3>
-              
-              <div className="space-y-4">
-                <div className="bg-blue-500/20 border border-blue-400/30 rounded-lg p-6">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <span className="text-3xl">🟢</span>
-                    <div>
-                      <div className="text-white font-bold text-lg">Node.js Runtime</div>
-                      <div className="text-blue-200 text-sm">JavaScript engine that runs outside the browser</div>
-                    </div>
-                  </div>
-                  <div className="text-gray-300 text-sm">
-                    Built on Chrome's V8 engine - the same one that powers Chrome browser's JavaScript execution
-                  </div>
-                </div>
-
-                <div className="bg-purple-500/20 border border-purple-400/30 rounded-lg p-6">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <span className="text-3xl">📦</span>
-                    <div>
-                      <div className="text-white font-bold text-lg">npm (Node Package Manager)</div>
-                      <div className="text-purple-200 text-sm">World's largest software library registry</div>
-                    </div>
-                  </div>
-                  <div className="text-gray-300 text-sm">
-                    Over 2 million packages available - from web frameworks to utility libraries
-                  </div>
-                </div>
-
-                <div className="bg-orange-500/20 border border-orange-400/30 rounded-lg p-6">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <span className="text-3xl">🛠️</span>
-                    <div>
-                      <div className="text-white font-bold text-lg">Development Tools</div>
-                      <div className="text-orange-200 text-sm">Built-in debugging and development utilities</div>
-                    </div>
-                  </div>
-                  <div className="text-gray-300 text-sm">
-                    Command line tools, debugger, and performance monitoring
-                  </div>
-                </div>
-              </div>
-
-              {/* Version Check */}
-              <div className="bg-gray-900/70 rounded-xl p-6">
-                <h4 className="text-lg font-semibold text-white mb-3">🔍 Verify Your Installation</h4>
-                <div className="space-y-3">
-                  <div>
-                    <div className="text-gray-400 text-sm mb-1">Check Node.js version:</div>
-                    <div className="bg-black/50 rounded p-2 font-mono text-green-300">
-                      $ node --version
-                      <br />
-                      v18.17.0
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-gray-400 text-sm mb-1">Check npm version:</div>
-                    <div className="bg-black/50 rounded p-2 font-mono text-green-300">
-                      $ npm --version
-                      <br />
-                      9.6.7
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Troubleshooting */}
-          <div className="bg-yellow-500/20 border border-yellow-400/30 rounded-xl p-6">
-            <h3 className="text-lg font-bold text-white mb-4">🔧 Common Installation Issues</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-              <div>
-                <div className="text-yellow-300 font-semibold mb-2">❌ "node: command not found"</div>
-                <div className="text-gray-300 space-y-1">
-                  <div>• Restart your terminal/command prompt</div>
-                  <div>• On Windows: Add Node.js to PATH environment variable</div>
-                  <div>• Try reinstalling with administrator privileges</div>
-                </div>
-              </div>
-              <div>
-                <div className="text-yellow-300 font-semibold mb-2">⚠️ Permission errors on macOS/Linux</div>
-                <div className="text-gray-300 space-y-1">
-                  <div>• Use nvm (Node Version Manager) instead</div>
-                  <div>• Avoid using sudo with npm</div>
-                  <div>• Configure npm to use a different directory</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Next Steps */}
-          <div className="text-center">
-            <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-xl p-6 border border-white/20">
-              <h3 className="text-xl font-bold text-white mb-4">🎉 You're Ready to Code!</h3>
-              <div className="text-gray-300 mb-4">
-                With Node.js installed, you can now run JavaScript files outside the browser and use npm to install packages
-              </div>
-              <div className="text-blue-200">
-                Next up: We'll create your first Node.js program and explore the command line!
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
-      bgGradient: 'from-green-600 to-blue-700'
-    },
-    {
-      id: 'project-structure',
-      title: 'Project Organization',
-      content: (
-        <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8 text-center">Organizing Your Code Like a Pro</h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* File Structure */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white">📁 Typical Project Structure</h3>
-              
-              <div className="bg-gray-900/70 rounded-xl p-6 font-mono text-sm">
-                <div className="text-blue-400 mb-4">my-website/</div>
-                <div className="pl-4 space-y-1">
-                  <div className="text-green-300">├── index.html</div>
-                  <div className="text-gray-400 pl-4">└── Main HTML file</div>
-                  
-                  <div className="text-green-300">├── css/</div>
-                  <div className="text-gray-400 pl-4">│   └── styles.css</div>
-                  
-                  <div className="text-green-300">├── js/</div>
-                  <div className="text-gray-400 pl-4">│   └── script.js</div>
-                  
-                  <div className="text-green-300">├── images/</div>
-                  <div className="text-gray-400 pl-4">│   ├── logo.png</div>
-                  <div className="text-gray-400 pl-4">│   └── hero.jpg</div>
-                  
-                  <div className="text-green-300">├── package.json</div>
-                  <div className="text-gray-400 pl-4">└── Project configuration</div>
-                  
-                  <div className="text-green-300">├── README.md</div>
-                  <div className="text-gray-400 pl-4">└── Project documentation</div>
-                  
-                  <div className="text-green-300">└── .gitignore</div>
-                  <div className="text-gray-400 pl-4">└── Files to ignore in Git</div>
-                </div>
-              </div>
-
-              <div className="bg-blue-500/20 border border-blue-400/30 rounded-lg p-4">
-                <h4 className="text-white font-semibold mb-2">💡 Organization Tips</h4>
-                <ul className="text-blue-100 text-sm space-y-1">
-                  <li>• Keep related files together</li>
-                  <li>• Use descriptive folder names</li>
-                  <li>• Separate code, styles, and assets</li>
-                  <li>• Include documentation (README.md)</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Git Setup */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white">🔧 Setting Up Version Control</h3>
-              
-              <div className="space-y-4">
-                <div className="bg-purple-500/20 border border-purple-400/30 rounded-lg p-4">
-                  <h4 className="text-white font-semibold mb-3">📚 What is Git?</h4>
-                  <div className="text-purple-100 text-sm space-y-2">
-                    <div>Git tracks changes to your code over time</div>
-                    <div>Like "save points" in a video game - you can go back to any previous version</div>
-                    <div>Essential for collaboration and backup</div>
-                  </div>
-                </div>
-
-                <div className="bg-gray-800/70 rounded-lg p-4">
-                  <h4 className="text-white font-semibold mb-3">⚡ Quick Git Setup</h4>
-                  <div className="space-y-2 font-mono text-sm">
-                    <div className="text-gray-400"># Navigate to your project folder</div>
-                    <div className="text-green-300">cd my-website</div>
-                    
-                    <div className="text-gray-400 mt-3"># Initialize Git repository</div>
-                    <div className="text-green-300">git init</div>
-                    
-                    <div className="text-gray-400 mt-3"># Add all files to staging</div>
-                    <div className="text-green-300">git add .</div>
-                    
-                    <div className="text-gray-400 mt-3"># Make your first commit</div>
-                    <div className="text-green-300">git commit -m "Initial commit"</div>
-                  </div>
-                </div>
-
-                <div className="bg-orange-500/20 border border-orange-400/30 rounded-lg p-4">
-                  <h4 className="text-white font-semibold mb-3">🌐 GitHub Integration</h4>
-                  <div className="text-orange-100 text-sm space-y-2">
-                    <div>1. Create a repository on GitHub.com</div>
-                    <div>2. Connect your local project to GitHub</div>
-                    <div>3. Push your code to the cloud</div>
-                    <div>4. Share your work with the world!</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Best Practices */}
-          <div className="bg-gradient-to-r from-green-500/20 via-blue-500/20 to-purple-500/20 rounded-xl p-6 border border-white/20">
-            <h3 className="text-xl font-bold text-white mb-4 text-center">🎯 Professional Development Practices</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-3xl mb-2">📝</div>
-                <div className="text-white font-semibold mb-2">Clear Naming</div>
-                <div className="text-gray-300 text-sm">
-                  Use descriptive names for files and folders
-                  <br />
-                  <code className="text-green-300">userProfile.js</code> not <code className="text-red-300">file1.js</code>
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl mb-2">🔄</div>
-                <div className="text-white font-semibold mb-2">Regular Commits</div>
-                <div className="text-gray-300 text-sm">
-                  Save your progress frequently with Git
-                  <br />
-                  Small, focused commits are better
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl mb-2">📚</div>
-                <div className="text-white font-semibold mb-2">Documentation</div>
-                <div className="text-gray-300 text-sm">
-                  Write README files explaining your project
-                  <br />
-                  Future you will thank present you!
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Hands-on Exercise */}
-          <div className="bg-yellow-500/20 border border-yellow-400/30 rounded-xl p-6">
-            <h3 className="text-lg font-bold text-white mb-4">🏃‍♂️ Let's Practice Together!</h3>
-            <div className="text-yellow-100 space-y-2">
-              <div><strong>Exercise:</strong> Create your first project structure</div>
-              <div>1. Make a folder called "cs390-practice"</div>
-              <div>2. Add the folders and files shown in the structure above</div>
-              <div>3. Initialize Git in your project</div>
-              <div>4. Make your first commit</div>
-              <div>5. Create a simple HTML page with "Hello CS390!"</div>
-            </div>
-          </div>
-        </div>
-      ),
-      bgGradient: 'from-indigo-600 to-purple-700'
-    },
-    {
-      id: 'navigation',
-      title: 'Course Navigation',
-      content: (
-        <div className="text-center space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8">Ready for More?</h2>
-          <div className="space-y-6">
-            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
-              <div className="text-5xl mb-4">🎯</div>
-              <p className="text-xl text-blue-100 mb-6">
-                You've completed Class 1! Ready to continue your journey?
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link 
-                  to="/class/2" 
-                  className="bg-white text-blue-700 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-                >
-                  Class 2: Git & HTML/CSS/JS →
-                </Link>
-                <Link 
-                  to="/" 
-                  className="bg-white/20 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/30 transition-colors"
-                >
-                  ← Course Home
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
-      bgGradient: 'from-blue-600 to-purple-700'
-    },
-    {
       id: 'cli-commands',
-      title: 'Command Line Interface (CLI)',
+      title: 'Interactive CLI Practice',
       content: (
         <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8 text-center">Master the Command Line</h2>
-          <p className="text-xl text-gray-200 text-center mb-8">
-            The CLI is your gateway to professional development. Let's practice!
+          <h2 className="text-4xl font-bold text-white mb-8">Practice Terminal Commands</h2>
+          <p className="text-xl text-blue-100 text-center mb-8">
+            Try commands in the terminal below and watch the file system change in real-time!
           </p>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Left side: Interactive Terminal */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white">🖥️ Interactive Terminal Practice</h3>
-              <TerminalSimulator />
-              
-              <div className="bg-blue-500/20 border border-blue-400/30 rounded-xl p-4">
-                <h4 className="text-lg font-semibold text-white mb-2">🎯 Practice Challenge</h4>
-                <div className="text-blue-100 text-sm space-y-1">
-                  <div>1. Check your current directory with <code className="bg-white/20 px-1 rounded">pwd</code></div>
-                  <div>2. List files with <code className="bg-white/20 px-1 rounded">ls</code></div>
-                  <div>3. Create a project folder: <code className="bg-white/20 px-1 rounded">mkdir cs390-project</code></div>
-                  <div>4. Navigate into it: <code className="bg-white/20 px-1 rounded">cd cs390-project</code></div>
-                  <div>5. Check Node.js version: <code className="bg-white/20 px-1 rounded">node --version</code></div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right side: Command reference */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white">📚 Essential Commands Reference</h3>
-              
-              <div className="space-y-4">
-                <div className="bg-gray-800/60 rounded-lg p-4">
-                  <h4 className="text-lg font-semibold text-blue-300 mb-3">📁 File System Navigation</h4>
-                  <div className="space-y-2 text-sm">
-                    {[
-                      { cmd: 'pwd', desc: 'Print Working Directory - shows where you are', example: '/Users/student' },
-                      { cmd: 'ls', desc: 'List directory contents (macOS/Linux)', example: 'Documents  Desktop  hello.js' },
-                      { cmd: 'dir', desc: 'List directory contents (Windows)', example: 'Documents  Desktop  hello.js' },
-                      { cmd: 'cd <folder>', desc: 'Change Directory', example: 'cd Documents' },
-                      { cmd: 'cd ..', desc: 'Go up one directory level', example: 'Goes to parent folder' }
-                    ].map((item, index) => (
-                      <div key={index} className="border-l-2 border-blue-400 pl-3">
-                        <div className="text-green-300 font-mono">{item.cmd}</div>
-                        <div className="text-gray-300">{item.desc}</div>
-                        <div className="text-blue-200 text-xs italic">{item.example}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="bg-gray-800/60 rounded-lg p-4">
-                  <h4 className="text-lg font-semibold text-green-300 mb-3">📂 Creating & Managing</h4>
-                  <div className="space-y-2 text-sm">
-                    {[
-                      { cmd: 'mkdir <name>', desc: 'Create a new directory', example: 'mkdir my-website' },
-                      { cmd: 'touch <file>', desc: 'Create an empty file (Unix)', example: 'touch index.html' },
-                      { cmd: 'echo > <file>', desc: 'Create an empty file (Windows)', example: 'echo > index.html' }
-                    ].map((item, index) => (
-                      <div key={index} className="border-l-2 border-green-400 pl-3">
-                        <div className="text-green-300 font-mono">{item.cmd}</div>
-                        <div className="text-gray-300">{item.desc}</div>
-                        <div className="text-green-200 text-xs italic">{item.example}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="bg-gray-800/60 rounded-lg p-4">
-                  <h4 className="text-lg font-semibold text-purple-300 mb-3">🟢 Node.js & npm Commands</h4>
-                  <div className="space-y-2 text-sm">
-                    {[
-                      { cmd: 'node --version', desc: 'Check Node.js installation', example: 'v18.17.0' },
-                      { cmd: 'npm --version', desc: 'Check npm (Node Package Manager)', example: '9.6.7' },
-                      { cmd: 'node <file>.js', desc: 'Run a JavaScript file', example: 'node hello.js' },
-                      { cmd: 'npm init', desc: 'Create a new Node.js project', example: 'Creates package.json' }
-                    ].map((item, index) => (
-                      <div key={index} className="border-l-2 border-purple-400 pl-3">
-                        <div className="text-green-300 font-mono">{item.cmd}</div>
-                        <div className="text-gray-300">{item.desc}</div>
-                        <div className="text-purple-200 text-xs italic">{item.example}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-yellow-500/20 border border-yellow-400/30 rounded-xl p-4">
-                <div className="flex items-start space-x-3">
-                  <span className="text-2xl">💡</span>
-                  <div className="text-yellow-100">
-                    <strong>Pro Tips:</strong>
-                    <ul className="mt-2 text-sm space-y-1">
-                      <li>• Use Tab key for auto-completion</li>
-                      <li>• Press ↑ arrow to see previous commands</li>
-                      <li>• Type <code className="bg-white/20 px-1 rounded">clear</code> to clean the terminal</li>
-                      <li>• Practice daily - CLI skills are essential!</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Why CLI Matters */}
-          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-6 border border-white/20">
-            <h3 className="text-xl font-bold text-white mb-4 text-center">🎯 Why Learn the Command Line?</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-3xl mb-2">⚡</div>
-                <div className="text-white font-semibold">Speed</div>
-                <div className="text-gray-300 text-sm">Navigate and create files 10x faster than using GUI</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl mb-2">🔧</div>
-                <div className="text-white font-semibold">Developer Tools</div>
-                <div className="text-gray-300 text-sm">Git, npm, build tools - all use command line</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl mb-2">🌐</div>
-                <div className="text-white font-semibold">Server Management</div>
-                <div className="text-gray-300 text-sm">Deploy and manage web applications remotely</div>
-              </div>
+          <TerminalSimulator />
+          
+          <div className="bg-yellow-500/20 border border-yellow-400/30 rounded-xl p-6">
+            <div className="flex items-center space-x-3">
+              <span className="text-2xl">🎯</span>
+              <span className="text-yellow-100">
+                <strong>Learning Goal:</strong> Master these essential commands - you'll use them throughout the entire course!
+              </span>
             </div>
           </div>
         </div>
@@ -2005,24 +1650,14 @@ Today is: Mon Dec 09 2024`}
                 description: 'Reviewed syllabus and final project expectations'
               },
               {
-                icon: '🌐',
-                title: 'Web Fundamentals',
-                description: 'Understanding client-server architecture and HTTP'
-              },
-              {
                 icon: '🔧',
                 title: 'Environment Setup',
                 description: 'Installed Node.js, VS Code, and learned CLI basics'
               },
               {
                 icon: '⌨️',
-                title: 'CLI Mastery',
-                description: 'Practiced essential terminal commands interactively'
-              },
-              {
-                icon: '📁',
-                title: 'Project Organization',
-                description: 'Best practices for structuring code and using Git'
+                title: 'CLI Navigation',
+                description: 'Practiced essential terminal commands'
               },
               {
                 icon: '🟢',
@@ -2058,32 +1693,60 @@ Today is: Mon Dec 09 2024`}
               </div>
               <div className="flex items-start">
                 <span className="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-4 mt-0.5">2</span>
-                <span>Practice CLI commands using the interactive terminal we used today</span>
+                <span>Clone the class GitHub repository (link will be provided)</span>
               </div>
               <div className="flex items-start">
                 <span className="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-4 mt-0.5">3</span>
-                <span>Create your "cs390-practice" project with proper folder structure</span>
+                <span>Practice CLI commands - get comfortable navigating directories</span>
               </div>
               <div className="flex items-start">
                 <span className="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-4 mt-0.5">4</span>
                 <span>Create and run at least 3 different Node.js scripts</span>
-              </div>
-              <div className="flex items-start">
-                <span className="bg-yellow-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-4 mt-0.5">5</span>
-                <span>Create a simple "About Me" webpage using HTML and CSS</span>
               </div>
             </div>
           </div>
           <div className="bg-blue-500/20 border border-blue-400/30 rounded-xl p-6">
             <h4 className="text-xl font-semibold text-white mb-4">🚀 Next Class Preview:</h4>
             <p className="text-blue-100">
-              We'll dive deeper into Git version control, create our first GitHub repository, 
-              and refresh our HTML/CSS/JavaScript skills by building interactive webpages!
+              We'll dive into Git version control, create our first GitHub repository, 
+              and refresh our HTML/CSS/JavaScript skills by building a simple webpage!
             </p>
           </div>
         </div>
       ),
       bgGradient: 'from-violet-600 to-purple-700'
+    },
+    {
+      id: 'navigation',
+      title: 'Course Navigation',
+      content: (
+        <div className="text-center space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8">Ready for More?</h2>
+          <div className="space-y-6">
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
+              <div className="text-5xl mb-4">🎯</div>
+              <p className="text-xl text-blue-100 mb-6">
+                You've completed Class 1! Ready to continue your journey?
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link 
+                  to="/class/2" 
+                  className="bg-white text-blue-700 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                >
+                  Class 2: Git & HTML/CSS/JS →
+                </Link>
+                <Link 
+                  to="/" 
+                  className="bg-white/20 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/30 transition-colors"
+                >
+                  ← Course Home
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-blue-600 to-purple-700'
     }
   ];
 
