@@ -192,15 +192,6 @@ const InteractiveSocialMediaDemo = () => {
     simulateFlow('share', steps);
   };
 
-  const getLayerPosition = (layer) => {
-    switch (layer) {
-      case 'frontend': return 'translate-x-0';
-      case 'backend': return 'translate-x-80';
-      case 'database': return 'translate-x-160';
-      default: return 'translate-x-0';
-    }
-  };
-
   const getLayerColor = (layer) => {
     switch (layer) {
       case 'frontend': return 'bg-green-500';
