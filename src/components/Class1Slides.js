@@ -37,7 +37,7 @@ const InteractiveSocialMediaDemo = () => {
     for (let i = 0; i < steps.length; i++) {
       setCurrentStepIndex(i);
       setDataFlow(steps[i].data || '');
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Slower: 1.5s per step
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Faster: 1s per step
     }
     
     // Final update after animation
@@ -58,62 +58,17 @@ const InteractiveSocialMediaDemo = () => {
       setCurrentStepIndex(-1);
       setIsProcessing(false);
       setDataFlow('');
-    }, 1000);
+    }, 500);
   };
 
   const handleLike = () => {
     const steps = [
-      { 
-        step: 1, 
-        layer: 'frontend', 
-        title: 'User Interaction',
-        description: 'User clicks like button',
-        data: '{ action: "like", postId: 123 }'
-      },
-      { 
-        step: 2, 
-        layer: 'frontend', 
-        title: 'API Request',
-        description: 'Frontend sends HTTP request',
-        data: 'PATCH /api/posts/123/like\nHeaders: { Authorization: "Bearer jwt..." }'
-      },
-      { 
-        step: 3, 
-        layer: 'backend', 
-        title: 'Authentication',
-        description: 'Server verifies JWT token',
-        data: 'JWT decoded → userId: 456'
-      },
-      { 
-        step: 4, 
-        layer: 'backend', 
-        title: 'Business Logic',
-        description: 'Process like/unlike logic',
-        data: 'Current likes: 42 → New likes: 43'
-      },
-      { 
-        step: 5, 
-        layer: 'database', 
-        title: 'Database Update',
-        description: 'Update post in MongoDB',
-        data: 'db.posts.updateOne(\n  { _id: 123 },\n  { $inc: { likes: 1 } }\n)'
-      },
-      { 
-        step: 6, 
-        layer: 'backend', 
-        title: 'Response',
-        description: 'Send updated data back',
-        data: '{ success: true, likes: 43 }'
-      },
-      { 
-        step: 7, 
-        layer: 'frontend', 
-        title: 'UI Update',
-        description: 'Update React component state',
-        data: 'setState({ likes: 43, isLiked: true })'
-      }
+      { layer: 'frontend', title: 'User Click', description: 'Like button clicked', data: '{ action: "like", postId: 123 }' },
+      { layer: 'frontend', title: 'API Call', description: 'HTTP request sent', data: 'PATCH /api/posts/123/like' },
+      { layer: 'backend', title: 'Auth Check', description: 'JWT verified', data: 'userId: 456 ✓' },
+      { layer: 'database', title: 'Update DB', description: 'Increment likes', data: 'likes: 42 → 43' },
+      { layer: 'frontend', title: 'UI Update', description: 'State updated', data: 'setState({ likes: 43 })' }
     ];
-    
     simulateFlow('like', steps);
   };
 
@@ -121,85 +76,20 @@ const InteractiveSocialMediaDemo = () => {
     if (!newComment.trim()) return;
     
     const steps = [
-      { 
-        step: 1, 
-        layer: 'frontend', 
-        title: 'Form Submission',
-        description: 'User submits comment form',
-        data: `{ text: "${newComment}", postId: 123 }`
-      },
-      { 
-        step: 2, 
-        layer: 'frontend', 
-        title: 'API Request',
-        description: 'POST request to server',
-        data: 'POST /api/posts/123/comments\nBody: { text: "' + newComment + '" }'
-      },
-      { 
-        step: 3, 
-        layer: 'backend', 
-        title: 'Validation',
-        description: 'Validate user and input',
-        data: 'Auth: ✓ Valid\nText: ✓ Not empty\nLength: ✓ < 500 chars'
-      },
-      { 
-        step: 4, 
-        layer: 'database', 
-        title: 'Save Comment',
-        description: 'Add to comments collection',
-        data: 'db.comments.insertOne({\n  postId: 123,\n  userId: 456,\n  text: "' + newComment + '",\n  createdAt: new Date()\n})'
-      },
-      { 
-        step: 5, 
-        layer: 'backend', 
-        title: 'Response',
-        description: 'Return new comment data',
-        data: '{ id: 789, user: "You", text: "' + newComment + '", time: "now" }'
-      },
-      { 
-        step: 6, 
-        layer: 'frontend', 
-        title: 'UI Update',
-        description: 'Add comment to display',
-        data: 'comments.unshift(newComment)'
-      }
+      { layer: 'frontend', title: 'Form Submit', description: 'Comment posted', data: `{ text: "${newComment}" }` },
+      { layer: 'backend', title: 'Validation', description: 'Input validated', data: 'Length ✓, Auth ✓' },
+      { layer: 'database', title: 'Save Comment', description: 'Added to DB', data: 'db.comments.insert()' },
+      { layer: 'frontend', title: 'UI Update', description: 'Comment shown', data: 'comments.unshift(new)' }
     ];
-    
     simulateFlow('comment', steps);
   };
 
   const handleShare = () => {
     const steps = [
-      { 
-        step: 1, 
-        layer: 'frontend', 
-        title: 'Share Action',
-        description: 'User clicks share button',
-        data: '{ action: "share", postId: 123 }'
-      },
-      { 
-        step: 2, 
-        layer: 'backend', 
-        title: 'Generate Link',
-        description: 'Create shareable URL',
-        data: 'https://app.com/posts/123?share=true'
-      },
-      { 
-        step: 3, 
-        layer: 'database', 
-        title: 'Analytics',
-        description: 'Log share event',
-        data: 'db.analytics.insertOne({\n  event: "share",\n  postId: 123,\n  userId: 456\n})'
-      },
-      { 
-        step: 4, 
-        layer: 'frontend', 
-        title: 'Copy to Clipboard',
-        description: 'Link copied successfully',
-        data: 'navigator.clipboard.writeText(shareUrl)'
-      }
+      { layer: 'frontend', title: 'Share Click', description: 'Share initiated', data: '{ action: "share" }' },
+      { layer: 'backend', title: 'Generate URL', description: 'Create share link', data: 'https://app.com/posts/123' },
+      { layer: 'frontend', title: 'Copy Link', description: 'Copied to clipboard', data: 'navigator.clipboard.writeText()' }
     ];
-    
     simulateFlow('share', steps);
   };
 
@@ -212,192 +102,184 @@ const InteractiveSocialMediaDemo = () => {
     }
   };
 
-  const steps = [
-    { step: 1, layer: 'frontend', title: 'User Interaction', description: 'User clicks like button' },
-    { step: 2, layer: 'frontend', title: 'API Request', description: 'Frontend sends HTTP request' },
-    { step: 3, layer: 'backend', title: 'Authentication', description: 'Server verifies JWT token' },
-    { step: 4, layer: 'backend', title: 'Business Logic', description: 'Process like/unlike logic' },
-    { step: 5, layer: 'database', title: 'Database Update', description: 'Update post in MongoDB' },
-    { step: 6, layer: 'backend', title: 'Response', description: 'Send updated data back' },
-    { step: 7, layer: 'frontend', title: 'UI Update', description: 'Update React component state' }
+  const allSteps = [
+    { layer: 'frontend', title: 'User Click', description: 'Like button clicked' },
+    { layer: 'frontend', title: 'API Call', description: 'HTTP request sent' },
+    { layer: 'backend', title: 'Auth Check', description: 'JWT verified' },
+    { layer: 'database', title: 'Update DB', description: 'Increment likes' },
+    { layer: 'frontend', title: 'UI Update', description: 'State updated' }
   ];
 
   return (
-    <div className="space-y-8">
-      {/* Mock Social Media Post */}
-      <div className="bg-white rounded-xl p-6 max-w-md mx-auto shadow-lg">
-        <div className="flex items-center space-x-3 mb-4">
-          <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
-            AC
-          </div>
-          <div>
-            <div className="font-semibold text-gray-800">Alex Chen</div>
-            <div className="text-sm text-gray-500">2 hours ago</div>
-          </div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {/* Left Side: Mock Social Media Post */}
+      <div className="space-y-4">
+        <div className="text-center mb-4">
+          <h3 className="text-lg font-bold text-white mb-1">Interactive Demo</h3>
+          <p className="text-gray-300 text-sm">Click buttons to see data flow →</p>
         </div>
         
-        <p className="text-gray-800 mb-4">
-          Beautiful sunset at the beach today! 🌅 Perfect end to a perfect day.
-        </p>
-        
-        <div className="bg-gradient-to-r from-orange-400 to-pink-500 h-48 rounded-lg mb-4 flex items-center justify-center text-white font-bold text-lg">
-          🌅 Beach Sunset Photo
-        </div>
-        
-        <div className="flex items-center justify-between text-gray-600 border-t pt-4">
-          <button 
-            onClick={handleLike}
-            disabled={isProcessing}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gray-100 disabled:opacity-50 ${
-              isLiked ? 'text-red-500' : 'text-gray-600'
-            }`}
-          >
-            <span className="text-lg">{isLiked ? '❤️' : '🤍'}</span>
-            <span>{likes}</span>
-          </button>
-          
-          <button 
-            onClick={() => document.getElementById('comment-input').focus()}
-            disabled={isProcessing}
-            className="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors disabled:opacity-50"
-          >
-            <span className="text-lg">💬</span>
-            <span>{comments.length}</span>
-          </button>
-          
-          <button 
-            onClick={handleShare}
-            disabled={isProcessing}
-            className="flex items-center space-x-2 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors disabled:opacity-50"
-          >
-            <span className="text-lg">🔗</span>
-            <span>Share</span>
-          </button>
-        </div>
-        
-        {/* Comments Section */}
-        <div className="mt-4 space-y-3 max-h-32 overflow-y-auto">
-          {comments.map((comment, index) => (
-            <div key={index} className="flex space-x-2 text-sm">
-              <span className="font-semibold text-gray-800">{comment.user}</span>
-              <span className="text-gray-600">{comment.text}</span>
-              <span className="text-gray-400 text-xs">{comment.time}</span>
+        <div className="bg-white rounded-xl p-4 shadow-lg">
+          <div className="flex items-center space-x-3 mb-3">
+            <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+              AC
             </div>
-          ))}
-        </div>
-        
-        {/* Comment Input */}
-        <div className="mt-4 flex space-x-2">
-          <input
-            id="comment-input"
-            type="text"
-            value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
-            placeholder="Add a comment..."
-            disabled={isProcessing}
-            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 disabled:opacity-50"
-            onKeyPress={(e) => e.key === 'Enter' && !isProcessing && handleComment()}
-          />
-          <button
-            onClick={handleComment}
-            disabled={!newComment.trim() || isProcessing}
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-          >
-            Post
-          </button>
+            <div>
+              <div className="font-semibold text-gray-800 text-sm">Alex Chen</div>
+              <div className="text-xs text-gray-500">2 hours ago</div>
+            </div>
+          </div>
+          
+          <p className="text-gray-800 mb-3 text-sm">
+            Beautiful sunset at the beach today! 🌅
+          </p>
+          
+          <div className="bg-gradient-to-r from-orange-400 to-pink-500 h-32 rounded-lg mb-3 flex items-center justify-center text-white font-bold">
+            🌅 Beach Photo
+          </div>
+          
+          <div className="flex items-center justify-between text-gray-600 border-t pt-3">
+            <button 
+              onClick={handleLike}
+              disabled={isProcessing}
+              className={`flex items-center space-x-1 px-3 py-1 rounded-lg transition-all duration-300 hover:bg-gray-100 disabled:opacity-50 text-sm ${
+                isLiked ? 'text-red-500' : 'text-gray-600'
+              }`}
+            >
+              <span>{isLiked ? '❤️' : '🤍'}</span>
+              <span>{likes}</span>
+            </button>
+            
+            <button 
+              onClick={() => document.getElementById('comment-input').focus()}
+              disabled={isProcessing}
+              className="flex items-center space-x-1 px-3 py-1 rounded-lg hover:bg-gray-100 transition-colors disabled:opacity-50 text-sm"
+            >
+              <span>💬</span>
+              <span>{comments.length}</span>
+            </button>
+            
+            <button 
+              onClick={handleShare}
+              disabled={isProcessing}
+              className="flex items-center space-x-1 px-3 py-1 rounded-lg hover:bg-gray-100 transition-colors disabled:opacity-50 text-sm"
+            >
+              <span>🔗</span>
+              <span>Share</span>
+            </button>
+          </div>
+          
+          {/* Comments Section - Compact */}
+          <div className="mt-3 space-y-1 max-h-16 overflow-y-auto">
+            {comments.slice(0, 2).map((comment, index) => (
+              <div key={index} className="flex space-x-2 text-xs">
+                <span className="font-semibold text-gray-800">{comment.user}</span>
+                <span className="text-gray-600">{comment.text}</span>
+              </div>
+            ))}
+          </div>
+          
+          {/* Comment Input - Compact */}
+          <div className="mt-3 flex space-x-2">
+            <input
+              id="comment-input"
+              type="text"
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              placeholder="Add a comment..."
+              disabled={isProcessing}
+              className="flex-1 px-2 py-1 border border-gray-300 rounded text-sm focus:outline-none focus:border-blue-500 disabled:opacity-50"
+              onKeyPress={(e) => e.key === 'Enter' && !isProcessing && handleComment()}
+            />
+            <button
+              onClick={handleComment}
+              disabled={!newComment.trim() || isProcessing}
+              className="px-3 py-1 bg-blue-500 text-white rounded text-sm hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              Post
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Flow Diagram */}
-      <div className="bg-gray-900/50 rounded-xl p-8 relative overflow-hidden">
-        <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-white mb-2">Data Flow Visualization</h3>
-          <p className="text-gray-300">Click any action above to see the complete pipeline</p>
+      {/* Right Side: Data Flow Visualization */}
+      <div className="bg-gray-900/50 rounded-xl p-4">
+        <div className="text-center mb-4">
+          <h3 className="text-lg font-bold text-white mb-1">Data Flow Pipeline</h3>
+          <p className="text-gray-300 text-xs">Watch the request flow through the stack</p>
         </div>
 
-        {/* Architecture Layers */}
-        <div className="grid grid-cols-3 gap-8 mb-8">
-          {/* Frontend Layer */}
-          <div className={`bg-green-500/20 border-2 rounded-xl p-6 transition-all duration-500 ${
-            activeStep && ['frontend'].includes(steps[currentStepIndex]?.layer) 
+        {/* Architecture Layers - Horizontal */}
+        <div className="grid grid-cols-3 gap-3 mb-4">
+          <div className={`bg-green-500/20 border rounded-lg p-3 text-center transition-all duration-500 ${
+            activeStep && currentStepIndex >= 0 && allSteps[currentStepIndex]?.layer === 'frontend'
               ? 'border-green-400 bg-green-500/30 shadow-lg shadow-green-500/20' 
               : 'border-green-500/30'
           }`}>
-            <div className="text-center">
-              <div className="text-4xl mb-3">🎨</div>
-              <div className="text-white font-bold text-lg">Frontend</div>
-              <div className="text-green-200 text-sm">React Application</div>
-            </div>
+            <div className="text-2xl mb-1">🎨</div>
+            <div className="text-white font-bold text-sm">Frontend</div>
+            <div className="text-green-200 text-xs">React</div>
           </div>
 
-          {/* Backend Layer */}
-          <div className={`bg-orange-500/20 border-2 rounded-xl p-6 transition-all duration-500 ${
-            activeStep && ['backend'].includes(steps[currentStepIndex]?.layer) 
+          <div className={`bg-orange-500/20 border rounded-lg p-3 text-center transition-all duration-500 ${
+            activeStep && currentStepIndex >= 0 && allSteps[currentStepIndex]?.layer === 'backend'
               ? 'border-orange-400 bg-orange-500/30 shadow-lg shadow-orange-500/20' 
               : 'border-orange-500/30'
           }`}>
-            <div className="text-center">
-              <div className="text-4xl mb-3">⚙️</div>
-              <div className="text-white font-bold text-lg">Backend</div>
-              <div className="text-orange-200 text-sm">Express.js Server</div>
-            </div>
+            <div className="text-2xl mb-1">⚙️</div>
+            <div className="text-white font-bold text-sm">Backend</div>
+            <div className="text-orange-200 text-xs">Express</div>
           </div>
 
-          {/* Database Layer */}
-          <div className={`bg-purple-500/20 border-2 rounded-xl p-6 transition-all duration-500 ${
-            activeStep && ['database'].includes(steps[currentStepIndex]?.layer) 
+          <div className={`bg-purple-500/20 border rounded-lg p-3 text-center transition-all duration-500 ${
+            activeStep && currentStepIndex >= 0 && allSteps[currentStepIndex]?.layer === 'database'
               ? 'border-purple-400 bg-purple-500/30 shadow-lg shadow-purple-500/20' 
               : 'border-purple-500/30'
           }`}>
-            <div className="text-center">
-              <div className="text-4xl mb-3">🗄️</div>
-              <div className="text-white font-bold text-lg">Database</div>
-              <div className="text-purple-200 text-sm">MongoDB</div>
-            </div>
+            <div className="text-2xl mb-1">🗄️</div>
+            <div className="text-white font-bold text-sm">Database</div>
+            <div className="text-purple-200 text-xs">MongoDB</div>
           </div>
         </div>
 
         {/* Current Step Display */}
         {activeStep && currentStepIndex >= 0 && (
-          <div className="mb-8">
-            <div className="text-center mb-4">
-              <div className="inline-flex items-center space-x-4 bg-gray-800 rounded-lg px-6 py-4">
-                <div className={`w-4 h-4 rounded-full ${getLayerColor(steps[currentStepIndex]?.layer)}`}></div>
-                <div className="text-white">
-                  <div className="font-bold">Step {currentStepIndex + 1}: {steps[currentStepIndex]?.title}</div>
-                  <div className="text-sm text-gray-300">{steps[currentStepIndex]?.description}</div>
+          <div className="mb-4">
+            <div className="bg-gray-800 rounded-lg p-3">
+              <div className="flex items-center space-x-2 mb-2">
+                <div className={`w-3 h-3 rounded-full ${getLayerColor(allSteps[currentStepIndex]?.layer)}`}></div>
+                <div className="text-white text-sm font-bold">
+                  Step {currentStepIndex + 1}: {allSteps[currentStepIndex]?.title}
                 </div>
               </div>
+              <div className="text-gray-300 text-xs mb-2">{allSteps[currentStepIndex]?.description}</div>
+              
+              {dataFlow && (
+                <div className="bg-gray-900 rounded p-2">
+                  <pre className="text-green-300 text-xs font-mono whitespace-pre-wrap">{dataFlow}</pre>
+                </div>
+              )}
             </div>
-
-            {/* Data Flow */}
-            {dataFlow && (
-              <div className="bg-gray-800 rounded-lg p-4 mx-auto max-w-lg">
-                <div className="text-gray-400 text-xs mb-2">Data:</div>
-                <pre className="text-green-300 text-sm font-mono whitespace-pre-wrap">{dataFlow}</pre>
-              </div>
-            )}
           </div>
         )}
 
-        {/* Flow Steps Timeline */}
+        {/* Progress Steps */}
         {activeStep && (
-          <div className="space-y-4">
-            <div className="text-center text-white font-semibold mb-4">Request Flow Timeline</div>
-            <div className="flex flex-wrap justify-center gap-2">
-              {steps.map((step, index) => (
+          <div className="mb-4">
+            <div className="flex justify-center gap-1">
+              {allSteps.map((step, index) => (
                 <div key={index} className="flex items-center">
                   <div className={`
-                    w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-500
+                    w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-500
                     ${index <= currentStepIndex 
-                      ? `${getLayerColor(step.layer)} text-white shadow-lg` 
+                      ? `${getLayerColor(step.layer)} text-white` 
                       : 'bg-gray-600 text-gray-400'
                     }
                   `}>
-                    {step.step}
+                    {index + 1}
                   </div>
-                  {index < steps.length - 1 && (
-                    <div className={`w-8 h-0.5 transition-all duration-500 ${
+                  {index < allSteps.length - 1 && (
+                    <div className={`w-4 h-0.5 transition-all duration-500 ${
                       index < currentStepIndex ? 'bg-blue-400' : 'bg-gray-600'
                     }`}></div>
                   )}
@@ -409,9 +291,9 @@ const InteractiveSocialMediaDemo = () => {
 
         {/* Instructions */}
         {!activeStep && (
-          <div className="text-center text-blue-200 mt-8">
-            <div className="text-lg font-semibold mb-2">👆 Try the Interactive Demo!</div>
-            <div className="text-sm">Click Like ❤️, Comment 💬, or Share 🔗 to see the data flow in action</div>
+          <div className="text-center text-blue-200">
+            <div className="text-sm font-semibold mb-1">👆 Try It!</div>
+            <div className="text-xs">Click Like, Comment, or Share to see the pipeline</div>
           </div>
         )}
       </div>
@@ -902,6 +784,220 @@ const TerminalSimulator = () => {
   );
 };
 
+// Interactive Pie Chart Grading Component
+const PieChartGrading = () => {
+  const [hoveredSegment, setHoveredSegment] = useState(null);
+
+  const gradingData = [
+    { 
+      id: 'homework',
+      component: 'Weekly Homework', 
+      percentage: 35, 
+      icon: '📝', 
+      color: '#10b981',
+      bgColor: 'bg-green-500',
+      description: '11 hands-on assignments that build your skills progressively',
+      strokeDasharray: '264 754',
+      strokeDashoffset: '0'
+    },
+    { 
+      id: 'projects',
+      component: 'Mini-Projects', 
+      percentage: 25, 
+      icon: '🛠️', 
+      color: '#3b82f6',
+      bgColor: 'bg-blue-500',
+      description: '3 milestone projects at key learning stages',
+      strokeDasharray: '188 754',
+      strokeDashoffset: '-264'
+    },
+    { 
+      id: 'capstone',
+      component: 'Final Capstone', 
+      percentage: 30, 
+      icon: '🚀', 
+      color: '#a855f7',
+      bgColor: 'bg-purple-500',
+      description: 'Your showcase project - build something amazing!',
+      strokeDasharray: '226 754',
+      strokeDashoffset: '-452'
+    },
+    { 
+      id: 'participation',
+      component: 'Participation & Labs', 
+      percentage: 10, 
+      icon: '🤝', 
+      color: '#f97316',
+      bgColor: 'bg-orange-500',
+      description: 'In-class activities, peer reviews, and engagement',
+      strokeDasharray: '75 754',
+      strokeDashoffset: '-678'
+    }
+  ];
+
+  return (
+    <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
+      
+      {/* Interactive Pie Chart */}
+      <div className="relative">
+        <svg width="320" height="320" viewBox="0 0 320 320" className="transform -rotate-90">
+          {/* Background circle for better visual separation */}
+          <circle
+            cx="160"
+            cy="160"
+            r="140"
+            fill="none"
+            stroke="rgba(255,255,255,0.1)"
+            strokeWidth="2"
+          />
+          
+          {gradingData.map((item, index) => (
+            <g key={item.id}>
+              {/* Main segment */}
+              <circle
+                cx="160"
+                cy="160"
+                r="120"
+                fill="none"
+                stroke={item.color}
+                strokeWidth={hoveredSegment === item.id ? "55" : "40"}
+                strokeDasharray={item.strokeDasharray}
+                strokeDashoffset={item.strokeDashoffset}
+                className="transition-all duration-500 cursor-pointer"
+                style={{
+                  filter: hoveredSegment === item.id ? 'drop-shadow(0 0 20px rgba(255,255,255,0.6))' : 
+                          hoveredSegment && hoveredSegment !== item.id ? 'opacity(0.3)' : 'none',
+                  strokeLinecap: 'round'
+                }}
+                onMouseEnter={() => setHoveredSegment(item.id)}
+                onMouseLeave={() => setHoveredSegment(null)}
+              />
+              
+              {/* Highlight overlay on hover */}
+              {hoveredSegment === item.id && (
+                <circle
+                  cx="160"
+                  cy="160"
+                  r="120"
+                  fill="none"
+                  stroke="rgba(255,255,255,0.3)"
+                  strokeWidth="60"
+                  strokeDasharray={item.strokeDasharray}
+                  strokeDashoffset={item.strokeDashoffset}
+                  className="animate-pulse"
+                  style={{ strokeLinecap: 'round' }}
+                />
+              )}
+            </g>
+          ))}
+        </svg>
+        
+        {/* Dynamic Center Label */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center transition-all duration-300">
+            {hoveredSegment ? (
+              <div className="animate-fade-in">
+                <div className="text-white text-3xl font-bold">
+                  {gradingData.find(item => item.id === hoveredSegment)?.percentage}%
+                </div>
+                <div className="text-white text-lg">
+                  {gradingData.find(item => item.id === hoveredSegment)?.component}
+                </div>
+                <div className="text-4xl mt-2">
+                  {gradingData.find(item => item.id === hoveredSegment)?.icon}
+                </div>
+              </div>
+            ) : (
+              <div>
+                <div className="text-white text-2xl font-bold">Grade</div>
+                <div className="text-white text-lg">Distribution</div>
+                <div className="text-white/60 text-sm mt-2">Hover to explore</div>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+      
+      {/* Interactive Legend */}
+      <div className="space-y-4">
+        {gradingData.map((item, index) => (
+          <div 
+            key={item.id}
+            className={`group flex items-center space-x-4 p-4 rounded-xl backdrop-blur border transition-all duration-500 cursor-pointer min-w-96 ${
+              hoveredSegment === item.id 
+                ? 'bg-white/30 border-white/50 scale-110 shadow-2xl shadow-white/20' 
+                : hoveredSegment && hoveredSegment !== item.id
+                ? 'bg-white/5 border-white/10 opacity-40'
+                : 'bg-white/10 border-white/20 hover:bg-white/20 hover:scale-105'
+            }`}
+            onMouseEnter={() => setHoveredSegment(item.id)}
+            onMouseLeave={() => setHoveredSegment(null)}
+          >
+            
+            {/* Color indicator with glow effect */}
+            <div className={`w-6 h-6 ${item.bgColor} rounded-full flex-shrink-0 transition-all duration-300 ${
+              hoveredSegment === item.id ? 'scale-150 shadow-lg' : 'group-hover:scale-125'
+            }`}
+            style={{
+              boxShadow: hoveredSegment === item.id ? `0 0 20px ${item.color}` : 'none'
+            }}></div>
+            
+            <div className="flex items-center space-x-3 flex-1">
+              {/* Animated icon */}
+              <span className={`text-2xl transition-all duration-300 ${
+                hoveredSegment === item.id ? 'scale-125 animate-bounce' : 'group-hover:scale-110'
+              }`}>
+                {item.icon}
+              </span>
+              
+              <div className="flex-1">
+                <div className="flex items-center justify-between mb-1">
+                  <span className={`text-lg font-semibold text-white transition-all duration-300 ${
+                    hoveredSegment === item.id ? 'text-xl' : ''
+                  }`}>
+                    {item.component}
+                  </span>
+                  <span className={`font-bold text-white px-3 py-1 rounded-lg transition-all duration-300 ${
+                    hoveredSegment === item.id 
+                      ? 'text-2xl bg-white/40 scale-110 shadow-lg' 
+                      : 'text-xl bg-white/20 group-hover:bg-white/30'
+                  }`}>
+                    {item.percentage}%
+                  </span>
+                </div>
+                <p className={`text-sm transition-all duration-300 ${
+                  hoveredSegment === item.id 
+                    ? 'text-white font-medium' 
+                    : 'text-cyan-100 group-hover:text-white'
+                }`}>
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+        
+        {/* Interactive hint */}
+        <div className="text-center mt-6">
+          <div className={`text-sm transition-all duration-500 ${
+            hoveredSegment 
+              ? 'text-white/60' 
+              : 'text-cyan-200 animate-pulse'
+          }`}>
+            {hoveredSegment 
+              ? `💡 ${hoveredSegment === 'homework' ? 'Focus on consistent practice!' : 
+                     hoveredSegment === 'projects' ? 'Build impressive portfolio pieces!' :
+                     hoveredSegment === 'capstone' ? 'Your showcase masterpiece!' :
+                     'Show up and engage - it makes a difference!'}`
+              : '👆 Hover over any section to explore details'
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Class1Slides = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -980,141 +1076,7 @@ const Class1Slides = () => {
           
           <div className="max-w-5xl mx-auto">
             {/* Pie Chart Section */}
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
-              
-              {/* Pie Chart */}
-              <div className="relative">
-                <svg width="300" height="300" viewBox="0 0 300 300" className="transform -rotate-90">
-                  {/* Weekly Homework - 35% (126 degrees) */}
-                  <circle
-                    cx="150"
-                    cy="150"
-                    r="120"
-                    fill="none"
-                    stroke="#10b981"
-                    strokeWidth="40"
-                    strokeDasharray="264 754"
-                    strokeDashoffset="0"
-                    className="transition-all duration-1000 hover:stroke-width-45"
-                  />
-                  
-                  {/* Mini-Projects - 25% (90 degrees) */}
-                  <circle
-                    cx="150"
-                    cy="150"
-                    r="120"
-                    fill="none"
-                    stroke="#3b82f6"
-                    strokeWidth="40"
-                    strokeDasharray="188 754"
-                    strokeDashoffset="-264"
-                    className="transition-all duration-1000 hover:stroke-width-45"
-                  />
-                  
-                  {/* Final Capstone - 30% (108 degrees) */}
-                  <circle
-                    cx="150"
-                    cy="150"
-                    r="120"
-                    fill="none"
-                    stroke="#a855f7"
-                    strokeWidth="40"
-                    strokeDasharray="226 754"
-                    strokeDashoffset="-452"
-                    className="transition-all duration-1000 hover:stroke-width-45"
-                  />
-                  
-                  {/* Participation & Labs - 10% (36 degrees) */}
-                  <circle
-                    cx="150"
-                    cy="150"
-                    r="120"
-                    fill="none"
-                    stroke="#f97316"
-                    strokeWidth="40"
-                    strokeDasharray="75 754"
-                    strokeDashoffset="-678"
-                    className="transition-all duration-1000 hover:stroke-width-45"
-                  />
-                </svg>
-                
-                {/* Center label */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-white text-2xl font-bold">Grade</div>
-                    <div className="text-white text-lg">Distribution</div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Legend */}
-              <div className="space-y-6">
-                {[
-                  { 
-                    component: 'Weekly Homework', 
-                    percentage: '35%', 
-                    icon: '📝', 
-                    color: 'bg-green-500',
-                    description: '11 hands-on assignments that build your skills progressively'
-                  },
-                  { 
-                    component: 'Mini-Projects', 
-                    percentage: '25%', 
-                    icon: '🛠️', 
-                    color: 'bg-blue-500',
-                    description: '3 milestone projects at key learning stages'
-                  },
-                  { 
-                    component: 'Final Capstone', 
-                    percentage: '30%', 
-                    icon: '🚀', 
-                    color: 'bg-purple-500',
-                    description: 'Your showcase project - build something amazing!'
-                  },
-                  { 
-                    component: 'Participation & Labs', 
-                    percentage: '10%', 
-                    icon: '🤝', 
-                    color: 'bg-orange-500',
-                    description: 'In-class activities, peer reviews, and engagement'
-                  }
-                ].map((item, index) => (
-                  <div key={index} 
-                       className="group flex items-center space-x-4 p-4 rounded-xl bg-white/10 backdrop-blur border border-white/20 
-                                hover:bg-white/20 hover:scale-105 transition-all duration-300 cursor-pointer min-w-96">
-                    
-                    <div className={`w-6 h-6 ${item.color} rounded-full flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}></div>
-                    
-                    <div className="flex items-center space-x-3 flex-1">
-                      <span className="text-2xl group-hover:scale-110 transition-transform duration-300">{item.icon}</span>
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="text-lg font-semibold text-white">{item.component}</span>
-                          <span className="text-xl font-bold text-white bg-white/20 px-3 py-1 rounded-lg group-hover:bg-white/30 transition-colors">
-                            {item.percentage}
-                          </span>
-                        </div>
-                        <p className="text-cyan-100 text-sm group-hover:text-white transition-colors">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Bottom encouragement */}
-            <div className="mt-12 text-center">
-              <div className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-xl p-8 border border-emerald-400/30 max-w-3xl mx-auto">
-                <div className="text-3xl mb-4">🎉</div>
-                <h3 className="text-2xl font-bold text-white mb-3">You've Got This!</h3>
-                <p className="text-emerald-100 text-lg">
-                  Everything here is structured to support your success. Show up, participate, and enjoy building amazing things! 
-                  There are lots of extra credit opportunities to go above and beyond.
-                </p>
-              </div>
-            </div>
+            <PieChartGrading />
           </div>
         </div>
       ),
@@ -1160,108 +1122,66 @@ const Class1Slides = () => {
       id: 'frontend',
       title: 'Frontend Development',
       content: (
-        <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8 text-center">Frontend Development</h2>
-          <p className="text-2xl text-green-100 text-center mb-12">What users see and interact with</p>
+        <div className="space-y-6">
+          <h2 className="text-4xl font-bold text-white mb-6 text-center">Frontend Development</h2>
+          <p className="text-xl text-green-100 text-center mb-8">What users see and interact with</p>
           
           {/* Main Frontend Card */}
           <div className="max-w-4xl mx-auto">
-            <div className="group bg-green-500/20 backdrop-blur rounded-xl p-12 border border-green-400/30 
+            <div className="group bg-green-500/20 backdrop-blur rounded-xl p-8 border border-green-400/30 
                           hover:bg-green-500/30 hover:border-green-300/50 hover:scale-105 
                           transition-all duration-500 cursor-pointer relative overflow-hidden">
               
-              {/* Animated background pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-8 left-8 w-3 h-3 bg-green-300 rounded-full animate-ping"></div>
-                <div className="absolute top-16 right-12 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <div className="absolute bottom-12 left-20 w-2.5 h-2.5 bg-green-200 rounded-full animate-bounce"></div>
-                <div className="absolute top-1/3 right-1/4 w-1.5 h-1.5 bg-green-300 rounded-full animate-ping"></div>
-                <div className="absolute bottom-1/4 right-8 w-1 h-1 bg-green-400 rounded-full animate-pulse"></div>
-              </div>
-
-              <div className="text-center mb-8 relative z-10">
-                <div className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">🎨</div>
-                <h3 className="text-3xl font-bold text-white group-hover:text-green-100 transition-colors mb-4">Frontend</h3>
-                <p className="text-xl text-green-100 group-hover:text-green-50 transition-colors">The visual and interactive layer of web applications</p>
+              <div className="text-center mb-6 relative z-10">
+                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">🎨</div>
+                <h3 className="text-2xl font-bold text-white group-hover:text-green-100 transition-colors mb-2">Frontend</h3>
+                <p className="text-lg text-green-100 group-hover:text-green-50 transition-colors">The visual and interactive layer of web applications</p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
                 <div>
-                  <h4 className="text-xl font-semibold text-white mb-4">Core Responsibilities:</h4>
-                  <ul className="space-y-4 text-green-100">
+                  <h4 className="text-lg font-semibold text-white mb-3">Core Responsibilities:</h4>
+                  <ul className="space-y-2 text-green-100 text-sm">
                     {[
-                      { icon: '✨', text: 'User Interface (UI) Design', desc: 'Buttons, forms, navigation, layouts' },
-                      { icon: '🎯', text: 'User Experience (UX)', desc: 'Intuitive interactions and workflows' },
-                      { icon: '📱', text: 'Responsive Design', desc: 'Works on desktop, tablet, and mobile' },
-                      { icon: '⚡', text: 'Interactive Features', desc: 'Animations, real-time updates' }
+                      { icon: '✨', text: 'User Interface Design' },
+                      { icon: '🎯', text: 'User Experience' },
+                      { icon: '📱', text: 'Responsive Design' },
+                      { icon: '⚡', text: 'Interactive Features' }
                     ].map((item, index) => (
-                      <li key={index} 
-                          className="group-hover:translate-x-2 transition-transform duration-300 
-                                   hover:text-white hover:scale-105 cursor-pointer p-2 rounded-lg hover:bg-white/10"
-                          style={{ transitionDelay: `${index * 100}ms` }}>
-                        <div className="flex items-start">
-                          <span className="mr-3 text-2xl group-hover:animate-bounce">{item.icon}</span>
-                          <div>
-                            <div className="font-semibold">{item.text}</div>
-                            <div className="text-sm text-green-200">{item.desc}</div>
-                          </div>
-                        </div>
+                      <li key={index} className="flex items-center space-x-2">
+                        <span className="text-lg">{item.icon}</span>
+                        <span>{item.text}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div>
-                  <h4 className="text-xl font-semibold text-white mb-4">Technologies You'll Learn:</h4>
-                  <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-white mb-3">User Actions:</h4>
+                  <ul className="space-y-2 text-green-100 text-sm">
                     {[
-                      { name: 'HTML', desc: 'Structure and content markup', icon: '🏗️' },
-                      { name: 'CSS', desc: 'Styling and visual design', icon: '🎨' },
-                      { name: 'JavaScript', desc: 'Interactivity and logic', icon: '⚡' },
-                      { name: 'React.js', desc: 'Component-based UI framework', icon: '⚛️' },
-                      { name: 'Tailwind CSS', desc: 'Utility-first styling', icon: '🌈' }
-                    ].map((tech, index) => (
-                      <div key={index} 
-                           className="bg-green-400/10 rounded-lg p-3 hover:bg-green-400/20 transition-colors cursor-pointer
-                                    transform hover:scale-105 duration-300"
-                           style={{ transitionDelay: `${index * 100}ms` }}>
-                        <div className="flex items-center space-x-3">
-                          <span className="text-xl">{tech.icon}</span>
-                          <div>
-                            <div className="font-semibold text-white">{tech.name}</div>
-                            <div className="text-sm text-green-200">{tech.desc}</div>
-                          </div>
-                        </div>
-                      </div>
+                      { icon: '👆', text: 'Click buttons' },
+                      { icon: '📝', text: 'Fill forms' },
+                      { icon: '📜', text: 'Scroll pages' },
+                      { icon: '📱', text: 'Resize windows' }
+                    ].map((item, index) => (
+                      <li key={index} className="flex items-center space-x-2">
+                        <span className="text-lg">{item.icon}</span>
+                        <span>{item.text}</span>
+                      </li>
                     ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Example showcase */}
-              <div className="mt-8 p-6 bg-white/10 rounded-lg opacity-0 group-hover:opacity-100 
-                            transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 relative z-10">
-                <h4 className="text-lg font-semibold text-white mb-3">Frontend in Action:</h4>
-                <div className="bg-gray-800/50 rounded-lg p-4">
-                  <div className="text-green-400 text-sm mb-2">What users experience:</div>
-                  <div className="text-white text-sm space-y-1">
-                    <div>👆 <strong>Click</strong> a button → Instant visual feedback</div>
-                    <div>📝 <strong>Fill</strong> a form → Real-time validation</div>
-                    <div>📱 <strong>Resize</strong> window → Layout adapts automatically</div>
-                    <div>✨ <strong>Hover</strong> elements → Smooth animations</div>
-                  </div>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Visual example */}
-          <div className="text-center mt-12">
-            <div className="bg-gradient-to-r from-green-500/20 to-teal-500/20 backdrop-blur rounded-xl p-8 border border-white/20 max-w-3xl mx-auto">
-              <div className="text-white text-xl mb-4">🌟 Think of Frontend Like...</div>
-              <div className="text-green-100 text-lg">
-                The <strong>storefront</strong> of a business - it's what customers see, touch, and interact with. 
-                Just like how a beautiful store layout guides customers and makes shopping enjoyable!
+          {/* Visual analogy */}
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-green-500/20 to-teal-500/20 backdrop-blur rounded-xl p-6 border border-white/20 max-w-2xl mx-auto">
+              <div className="text-white text-lg mb-2">🌟 Think of Frontend Like...</div>
+              <div className="text-green-100">
+                The <strong>storefront</strong> of a business - what customers see and interact with!
               </div>
             </div>
           </div>
@@ -1270,117 +1190,200 @@ const Class1Slides = () => {
       bgGradient: 'from-green-600 to-teal-700'
     },
     {
+      id: 'frontend-tech',
+      title: 'Frontend Technologies',
+      content: (
+        <div className="space-y-6">
+          <h2 className="text-4xl font-bold text-white mb-6 text-center">Frontend Tech Stack</h2>
+          <p className="text-xl text-green-100 text-center mb-8">The tools you'll master</p>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {[
+                { name: 'HTML', icon: '🏗️', color: 'from-orange-500 to-red-500' },
+                { name: 'CSS', icon: '🎨', color: 'from-blue-500 to-cyan-500' },
+                { name: 'JavaScript', icon: '⚡', color: 'from-yellow-500 to-orange-500' },
+                { name: 'React.js', icon: '⚛️', color: 'from-cyan-500 to-blue-500' },
+                { name: 'Tailwind CSS', icon: '🌈', color: 'from-purple-500 to-pink-500' },
+                { name: 'React Router', icon: '🚦', color: 'from-green-500 to-teal-500' }
+              ].map((tech, index) => (
+                <div key={index} 
+                     className="group bg-white/10 backdrop-blur rounded-xl p-4 border border-white/20 
+                              hover:bg-white/20 hover:scale-105 hover:border-white/40 
+                              transition-all duration-500 cursor-pointer relative overflow-hidden">
+                  
+                  <div className={`absolute inset-0 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
+                  
+                  <div className="relative z-10 text-center">
+                    <div className="text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">{tech.icon}</div>
+                    <h3 className="text-sm font-bold text-white">{tech.name}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Learning timeline */}
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-green-500/20 to-teal-500/20 backdrop-blur rounded-xl p-6 border border-white/20 max-w-3xl mx-auto">
+              <div className="text-white text-lg mb-4">🎯 Your Learning Journey</div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
+                <div className="bg-white/10 rounded-lg p-3">
+                  <div className="text-orange-300 font-semibold">Week 1</div>
+                  <div className="text-white text-xs">HTML/CSS/JS</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-3">
+                  <div className="text-blue-300 font-semibold">Week 2-3</div>
+                  <div className="text-white text-xs">React Basics</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-3">
+                  <div className="text-purple-300 font-semibold">Week 4</div>
+                  <div className="text-white text-xs">Styling</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-3">
+                  <div className="text-green-300 font-semibold">Week 8+</div>
+                  <div className="text-white text-xs">Full-Stack</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-emerald-600 to-green-700'
+    },
+    {
       id: 'backend',
       title: 'Backend Development',
       content: (
-        <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8 text-center">Backend Development</h2>
-          <p className="text-2xl text-orange-100 text-center mb-12">Server logic and data management</p>
+        <div className="space-y-6">
+          <h2 className="text-4xl font-bold text-white mb-6 text-center">Backend Development</h2>
+          <p className="text-xl text-orange-100 text-center mb-8">Server logic and data management</p>
           
           {/* Main Backend Card */}
           <div className="max-w-4xl mx-auto">
-            <div className="group bg-orange-500/20 backdrop-blur rounded-xl p-12 border border-orange-400/30 
+            <div className="group bg-orange-500/20 backdrop-blur rounded-xl p-8 border border-orange-400/30 
                           hover:bg-orange-500/30 hover:border-orange-300/50 hover:scale-105 
                           transition-all duration-500 cursor-pointer relative overflow-hidden">
               
-              {/* Animated background pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-12 right-12 w-3 h-3 bg-orange-300 rounded-full animate-ping"></div>
-                <div className="absolute top-20 left-16 w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                <div className="absolute bottom-16 right-20 w-2.5 h-2.5 bg-orange-200 rounded-full animate-bounce"></div>
-                <div className="absolute top-1/4 left-1/3 w-1.5 h-1.5 bg-orange-300 rounded-full animate-ping"></div>
-                <div className="absolute bottom-1/3 left-12 w-1 h-1 bg-orange-400 rounded-full animate-pulse"></div>
-              </div>
-
-              <div className="text-center mb-8 relative z-10">
-                <div className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">⚙️</div>
-                <h3 className="text-3xl font-bold text-white group-hover:text-orange-100 transition-colors mb-4">Backend</h3>
-                <p className="text-xl text-orange-100 group-hover:text-orange-50 transition-colors">The engine that powers web applications behind the scenes</p>
+              <div className="text-center mb-6 relative z-10">
+                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">⚙️</div>
+                <h3 className="text-2xl font-bold text-white group-hover:text-orange-100 transition-colors mb-2">Backend</h3>
+                <p className="text-lg text-orange-100 group-hover:text-orange-50 transition-colors">The engine that powers web applications</p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
                 <div>
-                  <h4 className="text-xl font-semibold text-white mb-4">Core Responsibilities:</h4>
-                  <ul className="space-y-4 text-orange-100">
+                  <h4 className="text-lg font-semibold text-white mb-3">Core Responsibilities:</h4>
+                  <ul className="space-y-2 text-orange-100 text-sm">
                     {[
-                      { icon: '🗄️', text: 'Database Operations', desc: 'Store, retrieve, and manage data' },
-                      { icon: '🔐', text: 'Authentication', desc: 'User login, security, permissions' },
-                      { icon: '📡', text: 'API Endpoints', desc: 'Routes for frontend communication' },
-                      { icon: '🔒', text: 'Business Logic', desc: 'Rules, calculations, workflows' }
+                      { icon: '🗄️', text: 'Database Operations' },
+                      { icon: '🔐', text: 'Authentication' },
+                      { icon: '📡', text: 'API Endpoints' },
+                      { icon: '🔒', text: 'Business Logic' }
                     ].map((item, index) => (
-                      <li key={index} 
-                          className="group-hover:translate-x-2 transition-transform duration-300 
-                                   hover:text-white hover:scale-105 cursor-pointer p-2 rounded-lg hover:bg-white/10"
-                          style={{ transitionDelay: `${index * 100}ms` }}>
-                        <div className="flex items-start">
-                          <span className="mr-3 text-2xl group-hover:animate-bounce">{item.icon}</span>
-                          <div>
-                            <div className="font-semibold">{item.text}</div>
-                            <div className="text-sm text-orange-200">{item.desc}</div>
-                          </div>
-                        </div>
+                      <li key={index} className="flex items-center space-x-2">
+                        <span className="text-lg">{item.icon}</span>
+                        <span>{item.text}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div>
-                  <h4 className="text-xl font-semibold text-white mb-4">Technologies You'll Learn:</h4>
-                  <div className="space-y-4">
+                  <h4 className="text-lg font-semibold text-white mb-3">Process Flow:</h4>
+                  <ul className="space-y-2 text-orange-100 text-sm">
                     {[
-                      { name: 'Node.js', desc: 'JavaScript runtime for servers', icon: '🟢' },
-                      { name: 'Express.js', desc: 'Web framework for APIs', icon: '🚂' },
-                      { name: 'MongoDB', desc: 'NoSQL database for data storage', icon: '🗄️' },
-                      { name: 'REST APIs', desc: 'Communication protocols', icon: '📡' },
-                      { name: 'JWT Auth', desc: 'Secure user authentication', icon: '🔐' }
-                    ].map((tech, index) => (
-                      <div key={index} 
-                           className="bg-orange-400/10 rounded-lg p-3 hover:bg-orange-400/20 transition-colors cursor-pointer
-                                    transform hover:scale-105 duration-300"
-                           style={{ transitionDelay: `${index * 100}ms` }}>
-                        <div className="flex items-center space-x-3">
-                          <span className="text-xl">{tech.icon}</span>
-                          <div>
-                            <div className="font-semibold text-white">{tech.name}</div>
-                            <div className="text-sm text-orange-200">{tech.desc}</div>
-                          </div>
-                        </div>
-                      </div>
+                      { icon: '📥', text: 'Receive Request' },
+                      { icon: '✅', text: 'Validate Data' },
+                      { icon: '🗄️', text: 'Query Database' },
+                      { icon: '📤', text: 'Send Response' }
+                    ].map((item, index) => (
+                      <li key={index} className="flex items-center space-x-2">
+                        <span className="text-lg">{item.icon}</span>
+                        <span>{item.text}</span>
+                      </li>
                     ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Example showcase */}
-              <div className="mt-8 p-6 bg-white/10 rounded-lg opacity-0 group-hover:opacity-100 
-                            transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 relative z-10">
-                <h4 className="text-lg font-semibold text-white mb-3">Backend in Action:</h4>
-                <div className="bg-gray-800/50 rounded-lg p-4">
-                  <div className="text-orange-400 text-sm mb-2">What happens behind the scenes:</div>
-                  <div className="text-white text-sm space-y-1">
-                    <div>📥 <strong>Receive</strong> request → Validate user input</div>
-                    <div>🗄️ <strong>Query</strong> database → Fetch or update data</div>
-                    <div>🔒 <strong>Process</strong> logic → Apply business rules</div>
-                    <div>📤 <strong>Send</strong> response → Return data to frontend</div>
-                  </div>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Visual example */}
-          <div className="text-center mt-12">
-            <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur rounded-xl p-8 border border-white/20 max-w-3xl mx-auto">
-              <div className="text-white text-xl mb-4">🏭 Think of Backend Like...</div>
-              <div className="text-orange-100 text-lg">
-                The <strong>warehouse and management system</strong> of a business - handling inventory, 
-                processing orders, managing accounts, and keeping everything running smoothly behind the scenes!
+          {/* Visual analogy */}
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur rounded-xl p-6 border border-white/20 max-w-2xl mx-auto">
+              <div className="text-white text-lg mb-2">🏭 Think of Backend Like...</div>
+              <div className="text-orange-100">
+                The <strong>warehouse and management</strong> - handling everything behind the scenes!
               </div>
             </div>
           </div>
         </div>
       ),
       bgGradient: 'from-orange-600 to-red-700'
+    },
+    {
+      id: 'backend-tech',
+      title: 'Backend Technologies',
+      content: (
+        <div className="space-y-6">
+          <h2 className="text-4xl font-bold text-white mb-6 text-center">Backend Tech Stack</h2>
+          <p className="text-xl text-orange-100 text-center mb-8">Server-side tools you'll master</p>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {[
+                { name: 'Node.js', icon: '🟢', color: 'from-green-500 to-emerald-500' },
+                { name: 'Express.js', icon: '🚂', color: 'from-gray-600 to-gray-800' },
+                { name: 'MongoDB', icon: '🗄️', color: 'from-green-600 to-green-800' },
+                { name: 'Mongoose', icon: '🔗', color: 'from-red-500 to-orange-500' },
+                { name: 'REST APIs', icon: '📡', color: 'from-blue-500 to-purple-500' },
+                { name: 'JWT Auth', icon: '🔐', color: 'from-purple-500 to-pink-500' }
+              ].map((tech, index) => (
+                <div key={index} 
+                     className="group bg-white/10 backdrop-blur rounded-xl p-4 border border-white/20 
+                              hover:bg-white/20 hover:scale-105 hover:border-white/40 
+                              transition-all duration-500 cursor-pointer relative overflow-hidden">
+                  
+                  <div className={`absolute inset-0 bg-gradient-to-br ${tech.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
+                  
+                  <div className="relative z-10 text-center">
+                    <div className="text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">{tech.icon}</div>
+                    <h3 className="text-sm font-bold text-white">{tech.name}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Code example */}
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur rounded-xl p-6 border border-white/20 max-w-3xl mx-auto">
+              <div className="text-white text-lg mb-4">📡 Example API Code</div>
+              <div className="bg-gray-900/50 rounded-lg p-4 text-left">
+                <div className="text-orange-400 text-xs mb-2">POST /api/users/login</div>
+                <pre className="text-white font-mono text-xs">
+{`app.post('/api/users/login', async (req, res) => {
+  const user = await User.findOne({ email: req.body.email });
+  const isValid = await bcrypt.compare(req.body.password, user.password);
+  
+  if (isValid) {
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
+    res.json({ success: true, token });
+  } else {
+    res.status(401).json({ error: 'Invalid credentials' });
+  }
+});`}
+                </pre>
+              </div>
+              <div className="text-orange-100 text-sm mt-3">
+                This is what you'll be writing by Week 7! 🚀
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-red-600 to-orange-700'
     },
     {
       id: 'frontend-backend-connection',
