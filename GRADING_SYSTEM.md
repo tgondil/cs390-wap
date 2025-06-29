@@ -5,12 +5,13 @@ This course emphasizes **learning by doing** with a practical approach to full-s
 
 ## Grade Distribution
 
-| Component | Percentage | Description |
-|-----------|------------|-------------|
-| **Weekly Homework** | 35% | 11 assignments (Week 12 has no homework) |
-| **Mini-Projects** | 25% | 3 milestone projects at key learning stages |
-| **Final Capstone Project** | 30% | Full-stack MERN application with presentation |
-| **Participation & Labs** | 10% | In-class activities, peer reviews, attendance |
+This course is designed to help you grow as a developer while encouraging creativity, curiosity, and collaboration. Everything here is structured to support your success, and I want you to feel confident and excited about what you’re building.
+
+Component	Percentage	Details
+Weekly Homework	35%	There are 11 weekly homework assignments. (Week 12 is homework-free so you can catch your breath!) These assignments are designed to help reinforce class concepts through hands-on practice. You can use any learning resources that help you understand the material, but please do not copy and paste code from large language models like ChatGPT or GitHub Copilot. Your submissions are checked for copy-pasting and go through multiple integrity checks. I’m required by Purdue to report any academic dishonesty. That said, the homeworks are genuinely easy and meant to help you grow. If you do the work yourself, you’ll be in great shape. The goal is for you to really learn and improve. :)
+Mini-Projects	25%	There are 3 mini-projects that come at important points in the course. These are focused less on perfect code and more on how you bring together what you’ve learned. You are welcome to use tools like ChatGPT or other LLMs however you like. These projects are about integration, planning, and creativity. Think of them as small check-ins where you get to experiment a bit more.
+Final Capstone Project	30%	This is your big final project. You’ll work in a team to create a full-stack MERN application and present it at the end of the course. You can use any tools, resources, or libraries you need. The focus is on building something that works and shows off your understanding of the full development process. It’s a chance to showcase everything you’ve learned in a real-world format.
+Participation and Labs	10%	This includes in-class activities, peer reviews, attendance, and general engagement. Each activity has clear instructions, and participation is tracked using timestamps, location, and IP addresses. There will be lots of extra credit opportunities to make up for missed sessions or just to go above and beyond. Showing up and participating consistently will make a big difference.
 
 ---
 
@@ -23,7 +24,7 @@ This course emphasizes **learning by doing** with a practical approach to full-s
   - 0-24 hours late: -10%
   - 24-48 hours late: -25%
   - 48-72 hours late: -50%
-  - Beyond 72 hours: 0 points (but still required for course completion)
+  - Beyond 72 hours: 0 points
 
 ### Homework Breakdown by Week
 

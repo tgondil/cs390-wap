@@ -12,6 +12,81 @@ const customStyles = `
   }
 `;
 
+// Reusable CodeBlock component with copy functionality
+const CodeBlock = ({ code, language = '', filename = '', className = '', showCopy = true }) => {
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
+
+  return (
+    <div className="relative group">
+      {filename && (
+        <div className="bg-gray-800 px-4 py-2 text-sm text-gray-300 rounded-t-lg border-b border-gray-600">
+          {filename}
+        </div>
+      )}
+      <div className={`bg-gray-900 rounded-lg ${filename ? 'rounded-t-none' : ''} p-4 relative ${className}`}>
+        {showCopy && (
+          <button
+            onClick={copyToClipboard}
+            className={`absolute top-2 right-2 px-3 py-1 rounded text-xs font-medium transition-all duration-200 z-10
+              ${copied 
+                ? 'bg-green-600 text-white' 
+                : 'bg-gray-700 text-gray-300 hover:bg-gray-600 opacity-0 group-hover:opacity-100'
+              }`}
+          >
+            {copied ? '✓ Copied!' : '📋 Copy'}
+          </button>
+        )}
+        <pre className="text-white font-mono text-sm overflow-x-auto whitespace-pre-wrap">
+          {code}
+        </pre>
+      </div>
+    </div>
+  );
+};
+
+// Inline code component with copy functionality for small snippets
+const InlineCode = ({ children, copyable = true }) => {
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = async () => {
+    if (!copyable) return;
+    try {
+      await navigator.clipboard.writeText(children);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
+
+  return (
+    <span className="relative inline-block group">
+      <code 
+        className={`bg-white/20 px-2 py-1 rounded text-sm font-mono ${copyable ? 'cursor-pointer hover:bg-white/30' : ''}`}
+        onClick={copyToClipboard}
+      >
+        {children}
+      </code>
+      {copyable && (
+        <span className={`absolute -top-8 left-1/2 transform -translate-x-1/2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 transition-opacity duration-200 pointer-events-none
+          ${copied ? 'opacity-100' : 'group-hover:opacity-100'}`}>
+          {copied ? '✓ Copied!' : 'Click to copy'}
+        </span>
+      )}
+    </span>
+  );
+};
+
 // Interactive Social Media Demo Component
 const InteractiveSocialMediaDemo = () => {
   const [activeStep, setActiveStep] = useState(null);
@@ -1012,6 +1087,7 @@ const Class1Slides = () => {
 
   // Slide content data
   const slides = [
+    // 1. Welcome
     {
       id: 'welcome',
       title: 'Welcome to CS390',
@@ -1032,37 +1108,246 @@ const Class1Slides = () => {
       ),
       bgGradient: 'from-blue-600 to-purple-700'
     },
+    
+    // 2. What is a Web Application?
     {
-      id: 'overview',
-      title: 'Course Overview',
+      id: 'what-is-web-app',
+      title: 'What is a Web Application?',
       content: (
         <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8">What We'll Build Together</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-              <div className="text-3xl mb-4">📱</div>
-              <h3 className="text-xl font-semibold text-white mb-2">Frontend Skills</h3>
-              <ul className="text-blue-100 space-y-2">
-                <li>• React.js for dynamic UIs</li>
-                <li>• Modern JavaScript (ES6+)</li>
-                <li>• Tailwind CSS for styling</li>
-                <li>• Single Page Applications</li>
-              </ul>
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">What is a Web Application?</h2>
+          
+          {/* Main Definition */}
+          <div className="text-center mb-12">
+            <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 backdrop-blur rounded-xl p-8 border border-white/20 max-w-4xl mx-auto">
+              <div className="text-white text-xl mb-4">
+                A web application is an <strong>interactive software program</strong> that runs in your web browser and can be accessed from anywhere with an internet connection.
+              </div>
+              <div className="text-cyan-100 text-lg">
+                Unlike traditional websites that just show information, web apps let you <strong>do things</strong>!
+              </div>
             </div>
-            <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-              <div className="text-3xl mb-4">⚙️</div>
-              <h3 className="text-xl font-semibold text-white mb-2">Backend Skills</h3>
-              <ul className="text-blue-100 space-y-2">
-                <li>• Node.js server development</li>
-                <li>• Express.js web framework</li>
-                <li>• MongoDB database</li>
-                <li>• RESTful API design</li>
-              </ul>
+          </div>
+
+          {/* Interactive Examples */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                name: 'Social Media',
+                icon: '📱',
+                examples: 'Instagram, Twitter, Facebook',
+                actions: ['Post photos', 'Like & comment', 'Send messages', 'Follow friends'],
+                color: 'from-pink-500 to-purple-500'
+              },
+              {
+                name: 'E-commerce',
+                icon: '🛒',
+                examples: 'Amazon, Shopify, eBay',
+                actions: ['Browse products', 'Add to cart', 'Make payments', 'Track orders'],
+                color: 'from-green-500 to-teal-500'
+              },
+              {
+                name: 'Productivity',
+                icon: '📊',
+                examples: 'Google Docs, Notion, Slack',
+                actions: ['Create documents', 'Collaborate live', 'Manage tasks', 'Share files'],
+                color: 'from-blue-500 to-indigo-500'
+              },
+              {
+                name: 'Entertainment',
+                icon: '🎵',
+                examples: 'Netflix, Spotify, YouTube',
+                actions: ['Stream videos', 'Create playlists', 'Rate content', 'Download offline'],
+                color: 'from-red-500 to-orange-500'
+              },
+              {
+                name: 'Finance',
+                icon: '💳',
+                examples: 'Banking apps, PayPal, Venmo',
+                actions: ['Transfer money', 'Pay bills', 'Check balance', 'Invest funds'],
+                color: 'from-emerald-500 to-green-500'
+              },
+              {
+                name: 'Education',
+                icon: '🎓',
+                examples: 'Khan Academy, Coursera, Duolingo',
+                actions: ['Take courses', 'Submit assignments', 'Track progress', 'Earn certificates'],
+                color: 'from-violet-500 to-purple-500'
+              }
+            ].map((category, index) => (
+              <div key={index} 
+                   className="group bg-white/10 backdrop-blur rounded-xl p-6 border border-white/20 
+                            hover:bg-white/20 hover:scale-105 hover:border-white/40 
+                            transition-all duration-500 cursor-pointer relative overflow-hidden">
+                
+                <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
+                
+                <div className="relative z-10">
+                  <div className="text-center mb-4">
+                    <div className="text-4xl mb-2 group-hover:scale-110 transition-transform duration-300">{category.icon}</div>
+                    <h3 className="text-lg font-bold text-white">{category.name}</h3>
+                    <p className="text-sm text-gray-300 mb-3">{category.examples}</p>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <div className="text-xs font-semibold text-white mb-2">You can:</div>
+                    {category.actions.map((action, actionIndex) => (
+                      <div key={actionIndex} className="flex items-center space-x-2 text-xs text-gray-200">
+                        <span className="text-green-400">•</span>
+                        <span>{action}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Key Characteristics */}
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 backdrop-blur rounded-xl p-6 border border-white/20 max-w-4xl mx-auto">
+              <h3 className="text-xl font-bold text-white mb-4">🔑 Key Characteristics of Web Applications</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                <div className="flex items-start space-x-3">
+                  <span className="text-xl">🌐</span>
+                  <div>
+                    <div className="text-white font-semibold">Accessible Anywhere</div>
+                    <div className="text-yellow-100 text-sm">Works on any device with a browser</div>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <span className="text-xl">⚡</span>
+                  <div>
+                    <div className="text-white font-semibold">Interactive</div>
+                    <div className="text-yellow-100 text-sm">Responds to user actions in real-time</div>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <span className="text-xl">🔄</span>
+                  <div>
+                    <div className="text-white font-semibold">Dynamic Content</div>
+                    <div className="text-yellow-100 text-sm">Content changes based on user data</div>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <span className="text-xl">💾</span>
+                  <div>
+                    <div className="text-white font-semibold">Persistent Data</div>
+                    <div className="text-yellow-100 text-sm">Saves and remembers user information</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Course Connection */}
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur rounded-xl p-6 border border-white/20 max-w-3xl mx-auto">
+              <div className="text-white text-lg mb-2">🎯 In This Course</div>
+              <div className="text-purple-100">
+                You'll learn to build <strong>complete web applications</strong> from scratch using the 
+                <strong className="text-white"> MERN stack</strong> (MongoDB, Express, React, Node.js)
+              </div>
             </div>
           </div>
         </div>
       ),
-      bgGradient: 'from-indigo-600 to-blue-700'
+      bgGradient: 'from-cyan-600 to-blue-700'
+    },
+    
+    // 3. Web Development Fundamentals - Client-Server Architecture
+    {
+      id: 'web-fundamentals',
+      title: 'Web Development Fundamentals',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">How Web Applications Work</h2>
+          
+          {/* Client-Server Architecture */}
+          <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">Client-Server Architecture</h3>
+            
+            <div className="flex flex-col lg:flex-row items-center justify-center space-y-6 lg:space-y-0 lg:space-x-12">
+              
+              {/* Client Side */}
+              <div className="text-center">
+                <div className="bg-green-500/20 rounded-xl p-6 mb-4 border border-green-400/30">
+                  <div className="text-5xl mb-3">💻</div>
+                  <h4 className="text-xl font-bold text-white mb-2">Client (Frontend)</h4>
+                  <p className="text-green-100 text-sm">Your web browser</p>
+                </div>
+                <div className="space-y-2 text-sm text-green-200">
+                  <div>• Displays user interface</div>
+                  <div>• Handles user interactions</div>
+                  <div>• Sends requests to server</div>
+                </div>
+              </div>
+
+              {/* Communication */}
+              <div className="flex flex-col items-center space-y-4">
+                <div className="flex items-center space-x-3">
+                  <span className="text-blue-400 text-2xl animate-pulse">→</span>
+                  <span className="text-blue-300 text-sm">HTTP Request</span>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl">🌐</div>
+                  <div className="text-white text-xs">Internet</div>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <span className="text-orange-300 text-sm">HTTP Response</span>
+                  <span className="text-orange-400 text-2xl animate-pulse">←</span>
+                </div>
+              </div>
+
+              {/* Server Side */}
+              <div className="text-center">
+                <div className="bg-orange-500/20 rounded-xl p-6 mb-4 border border-orange-400/30">
+                  <div className="text-5xl mb-3">🖥️</div>
+                  <h4 className="text-xl font-bold text-white mb-2">Server (Backend)</h4>
+                  <p className="text-orange-100 text-sm">Remote computer</p>
+                </div>
+                <div className="space-y-2 text-sm text-orange-200">
+                  <div>• Processes requests</div>
+                  <div>• Manages database</div>
+                  <div>• Sends responses back</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Step-by-step Process */}
+          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur rounded-xl p-6 border border-white/20">
+            <h3 className="text-xl font-bold text-white mb-4 text-center">🔄 What Happens When You Use a Web App</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { step: 1, title: 'User Action', description: 'You click a button or submit a form', icon: '👆' },
+                { step: 2, title: 'Request Sent', description: 'Browser sends HTTP request to server', icon: '📤' },
+                { step: 3, title: 'Server Processing', description: 'Server processes the request and data', icon: '⚙️' },
+                { step: 4, title: 'Database Query', description: 'Server retrieves/updates data if needed', icon: '🗄️' },
+                { step: 5, title: 'Response Sent', description: 'Server sends response back to browser', icon: '📥' },
+                { step: 6, title: 'UI Update', description: 'Browser updates what you see', icon: '🔄' }
+              ].map((item, index) => (
+                <div key={index} className="bg-white/10 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">{item.icon}</div>
+                  <div className="text-white font-semibold text-sm mb-1">Step {item.step}: {item.title}</div>
+                  <div className="text-gray-300 text-xs">{item.description}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Full-Stack Developer Role */}
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur rounded-xl p-6 border border-white/20 max-w-3xl mx-auto">
+              <div className="text-white text-lg mb-2">🎯 As a Full-Stack Developer</div>
+              <div className="text-purple-100">
+                You'll build <strong>both sides</strong>: the client (what users see) and the server (what processes their requests)
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-indigo-600 to-purple-700'
     },
     {
       id: 'grading',
@@ -1360,10 +1645,8 @@ const Class1Slides = () => {
           <div className="text-center">
             <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur rounded-xl p-6 border border-white/20 max-w-3xl mx-auto">
               <div className="text-white text-lg mb-4">📡 Example API Code</div>
-              <div className="bg-gray-900/50 rounded-lg p-4 text-left">
-                <div className="text-orange-400 text-xs mb-2">POST /api/users/login</div>
-                <pre className="text-white font-mono text-xs">
-{`app.post('/api/users/login', async (req, res) => {
+              <CodeBlock
+                code={`app.post('/api/users/login', async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
   const isValid = await bcrypt.compare(req.body.password, user.password);
   
@@ -1374,8 +1657,9 @@ const Class1Slides = () => {
     res.status(401).json({ error: 'Invalid credentials' });
   }
 });`}
-                </pre>
-              </div>
+                filename="server.js"
+                language="javascript"
+              />
               <div className="text-orange-100 text-sm mt-3">
                 This is what you'll be writing by Week 7! 🚀
               </div>
@@ -1479,31 +1763,6 @@ const Class1Slides = () => {
               </div>
             </div>
           </div>
-
-          {/* Call to action */}
-          <div className="text-center mt-12">
-            <div className="bg-gradient-to-r from-green-500/20 via-blue-500/20 to-orange-500/20 backdrop-blur rounded-xl p-8 border border-white/20 max-w-4xl mx-auto">
-              <div className="text-white text-2xl mb-4">🎯 Your Journey in This Course</div>
-              <div className="text-white/90 text-lg mb-6">
-                You'll master <strong>both frontend and backend</strong> development, learning how to build complete, 
-                full-stack web applications from scratch!
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-green-300 font-semibold mb-2">Weeks 1-4</div>
-                  <div className="text-white">Frontend Foundations</div>
-                </div>
-                <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-orange-300 font-semibold mb-2">Weeks 5-8</div>
-                  <div className="text-white">Backend Development</div>
-                </div>
-                <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-blue-300 font-semibold mb-2">Weeks 9-12</div>
-                  <div className="text-white">Full-Stack Integration</div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       ),
       bgGradient: 'from-blue-600 via-purple-600 to-pink-600'
@@ -1557,13 +1816,45 @@ const Class1Slides = () => {
       id: 'cli-commands',
       title: 'Interactive CLI Practice',
       content: (
-        <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8">Practice Terminal Commands</h2>
-          <p className="text-xl text-blue-100 text-center mb-8">
+        <div className="space-y-6">
+          <h2 className="text-4xl font-bold text-white mb-6">Practice Terminal Commands</h2>
+          <p className="text-xl text-blue-100 text-center mb-6">
             Try commands in the terminal below and watch the file system change in real-time!
           </p>
           
-          <TerminalSimulator />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Terminal Simulator */}
+            <div className="lg:col-span-2">
+              <TerminalSimulator />
+            </div>
+            
+            {/* Quick Command Reference */}
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-white text-center">Quick Reference</h3>
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4 space-y-3">
+                <div className="text-gray-300 text-sm mb-3">File System Navigation:</div>
+                <div className="space-y-2">
+                  <CodeBlock code="pwd" showCopy={true} className="text-xs p-2" />
+                  <CodeBlock code="ls" showCopy={true} className="text-xs p-2" />
+                  <CodeBlock code="cd foldername" showCopy={true} className="text-xs p-2" />
+                  <CodeBlock code="cd .." showCopy={true} className="text-xs p-2" />
+                </div>
+                
+                <div className="text-gray-300 text-sm mb-3 mt-4">Creating & Managing:</div>
+                <div className="space-y-2">
+                  <CodeBlock code="mkdir newfolder" showCopy={true} className="text-xs p-2" />
+                  <CodeBlock code="clear" showCopy={true} className="text-xs p-2" />
+                </div>
+                
+                <div className="text-gray-300 text-sm mb-3 mt-4">Node.js & npm:</div>
+                <div className="space-y-2">
+                  <CodeBlock code="node --version" showCopy={true} className="text-xs p-2" />
+                  <CodeBlock code="npm --version" showCopy={true} className="text-xs p-2" />
+                  <CodeBlock code="npm init" showCopy={true} className="text-xs p-2" />
+                </div>
+              </div>
+            </div>
+          </div>
           
           <div className="bg-yellow-500/20 border border-yellow-400/30 rounded-xl p-6">
             <div className="flex items-center space-x-3">
@@ -1585,34 +1876,33 @@ const Class1Slides = () => {
           <h2 className="text-4xl font-bold text-white mb-8">Hello World in Node.js</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="space-y-6">
-              <div className="bg-gray-900/70 rounded-xl p-6">
-                <div className="text-green-400 text-sm mb-2">hello.js</div>
-                <pre className="text-white font-mono text-lg">
-{`// Your first Node.js script
+              <CodeBlock
+                code={`// Your first Node.js script
 console.log("Hello, World!");
 console.log("Welcome to CS390!");
 
 // Show current date
 const now = new Date();
 console.log("Today is:", now.toDateString());`}
-                </pre>
-              </div>
-              <div className="bg-gray-900/70 rounded-xl p-6">
-                <div className="text-blue-400 text-sm mb-2">Terminal</div>
-                <pre className="text-green-300 font-mono">
-{`$ node hello.js
+                filename="hello.js"
+                language="javascript"
+              />
+              <CodeBlock
+                code={`$ node hello.js
 Hello, World!
 Welcome to CS390!
 Today is: Mon Dec 09 2024`}
-                </pre>
-              </div>
+                filename="Terminal"
+                language="bash"
+                className="bg-gray-900/70"
+              />
             </div>
             <div className="space-y-6">
               <h3 className="text-2xl font-semibold text-white">Let's Try It!</h3>
               <ol className="space-y-4 text-blue-100">
                 <li className="flex items-start">
                   <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
-                  Create a new file called <code className="bg-white/20 px-2 py-1 rounded">hello.js</code>
+                  Create a new file called <InlineCode>hello.js</InlineCode>
                 </li>
                 <li className="flex items-start">
                   <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</span>
@@ -1624,7 +1914,7 @@ Today is: Mon Dec 09 2024`}
                 </li>
                 <li className="flex items-start">
                   <span className="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">4</span>
-                  Run <code className="bg-white/20 px-2 py-1 rounded">node hello.js</code>
+                  Run <InlineCode>node hello.js</InlineCode>
                 </li>
               </ol>
               <div className="bg-green-500/20 border border-green-400/30 rounded-xl p-4">
