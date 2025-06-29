@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Hero from '../components/Hero';
-import WeeklyOverview from '../components/WeeklyOverview';
-import TechStackSection from '../components/TechStackSection';
-import CourseStats from '../components/CourseStats';
+import Hero from '../components/Class1/Hero';
+import WeeklyOverview from '../components/Class1/WeeklyOverview';
+import TechStackSection from '../components/Class1/TechStackSection';
+import CourseStats from '../components/Class1/CourseStats';
 
 const LandingPage = () => {
   return (

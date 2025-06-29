@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import ClassPage from './pages/ClassPage';
-import Navigation from './components/Navigation';
+import Navigation from './components/Class1/Navigation';
 
 function App() {
   return (

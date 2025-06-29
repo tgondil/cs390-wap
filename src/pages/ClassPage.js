@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { courseData } from '../data/courseData';
-import Class1Slides from '../components/Class1Slides';
+import Class1Slides from '../components/Class1/Class1Slides';
 
 const ClassPage = () => {
   const { classNumber } = useParams();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { techStack } from '../data/courseData';
+import { techStack } from '../../data/courseData';
 
 const TechStackSection = () => {
   const categories = {

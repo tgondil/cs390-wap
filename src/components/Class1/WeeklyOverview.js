@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { courseData } from '../data/courseData';
+import { courseData } from '../../data/courseData';
 
 const WeeklyOverview = () => {
   return (
