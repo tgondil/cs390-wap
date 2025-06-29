@@ -2,14 +2,19 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { courseData } from '../data/courseData';
 import Class1Slides from '../components/Class1/Class1Slides';
+import Class2Slides from '../components/Class1/Class2Slides';
 
 const ClassPage = () => {
   const { classNumber } = useParams();
   const classNum = parseInt(classNumber);
   
-  // Special handling for Class 1 - use slide presentation
+  // Special handling for Class 1 and 2 - use slide presentations
   if (classNum === 1) {
     return <Class1Slides />;
+  }
+  
+  if (classNum === 2) {
+    return <Class2Slides />;
   }
   
   // Find the specific class data
