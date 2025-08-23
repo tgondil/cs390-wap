@@ -12,7 +12,7 @@ Everything here is structured to support your success, and I want you to feel co
 
 ## 📚 Course Structure
 
-**Duration**: 12 weeks | **Classes**: 24 total (twice per week)  
+**Duration**: 16 weeks | **Classes**: 29 total (twice per week, holidays observed)  
 **Format**: Hands-on coding with mini-projects and a final capstone  
 **Philosophy**: Learn by building real applications you can deploy and share
 
@@ -38,9 +38,9 @@ Everything here is structured to support your success, and I want you to feel co
 * Refresh HTML, CSS, and JavaScript fundamentals with a hands-on approach
 * Understand how frontend and backend work together in modern web applications
 
-**Class 1: *Course Introduction & Environment Setup*** – We'll dive right into the exciting world of web development! After reviewing what we'll build together, you'll set up your development environment and learn the difference between frontend and backend development. We'll install **Node.js** and **VS Code**, then practice essential **CLI** commands. By the end, you'll create your first "Hello World" Node.js script to verify everything works perfectly.
+**Class 1: *Course Introduction & Environment Setup*** (Mon, Aug 25, 2025) – We'll dive right into the exciting world of web development! After reviewing what we'll build together, you'll set up your development environment and learn the difference between frontend and backend development. We'll install **Node.js** and **VS Code**, then practice essential **CLI** commands. By the end, you'll create your first "Hello World" Node.js script to verify everything works perfectly.
 
-**Class 2: *Git, GitHub & HTML/CSS/JS Refresher*** – Time to get your code online! You'll learn **Git** for version control, create your first repository, and push code to **GitHub**. Then we'll build a beautiful static webpage using semantic HTML and clean CSS styling. We'll add some JavaScript interactivity to bring your page to life. You'll finish with a complete website hosted on GitHub!
+**Class 2: *Git, GitHub & HTML/CSS/JS Refresher*** (Wed, Aug 27, 2025) – Time to get your code online! You'll learn **Git** for version control, create your first repository, and push code to **GitHub**. Then we'll build a beautiful static webpage using semantic HTML and clean CSS styling. We'll add some JavaScript interactivity to bring your page to life. You'll finish with a complete website hosted on GitHub!
 
 **Your Mission:** Create a personal "About Me" webpage that showcases your personality and push it to GitHub. This is your first step toward building an impressive developer portfolio.
 
@@ -56,9 +56,11 @@ Everything here is structured to support your success, and I want you to feel co
 * Create your first React application with reusable components
 * Use props to create dynamic, data-driven interfaces
 
-**Class 3: *Intro to React & Project Setup*** – **React is magic for building user interfaces!** We'll explore how React uses **JSX** and the virtual DOM to create fast, interactive web apps. You'll set up your first React project using **Vite** and create custom components. We'll cover essential ES6+ features like arrow functions and template literals that make React development enjoyable.
+(No class on Mon, Sep 1 – Labor Day)
 
-**Class 4: *JSX, Components & Props in Depth*** – Time to build something awesome! You'll create multiple components and learn how they work together. We'll dive deep into **props** – the way data flows between components. You'll use JavaScript's `array.map()` to render dynamic lists and add interactive elements with event handling.
+**Class 3: *Intro to React & Project Setup*** (Wed, Sep 3, 2025) – **React is magic for building user interfaces!** We'll explore how React uses **JSX** and the virtual DOM to create fast, interactive web apps. You'll set up your first React project using **Vite** and create custom components. We'll cover essential ES6+ features like arrow functions and template literals that make React development enjoyable.
+
+**Class 4: *JSX, Components & Props in Depth*** (Mon, Sep 8, 2025) – Time to build something awesome! You'll create multiple components and learn how they work together. We'll dive deep into **props** – the way data flows between components. You'll use JavaScript's `array.map()` to render dynamic lists and add interactive elements with event handling.
 
 **Your Mission:** Build a stunning "Team Members" gallery using React components and props. Make it interactive and watch your JavaScript skills level up!
 
@@ -74,9 +76,9 @@ Everything here is structured to support your success, and I want you to feel co
 * Style your applications quickly and professionally with **Tailwind CSS**
 * Build forms and manage user input like a pro
 
-**Class 5: *State and Event Handling in React*** – **This is where React gets exciting!** You'll learn about **state** – data that can change and automatically update your UI. Build interactive components like counters and forms that respond to user actions. Master the art of controlled inputs and understand React's data flow.
+**Class 5: *State and Event Handling in React*** (Wed, Sep 10, 2025) – **This is where React gets exciting!** You'll learn about **state** – data that can change and automatically update your UI. Build interactive components like counters and forms that respond to user actions. Master the art of controlled inputs and understand React's data flow.
 
-**Class 6: *Styling with Tailwind CSS*** – Time to make your apps look amazing! **Tailwind CSS** is a game-changer for rapid UI development. You'll learn the utility-first approach that lets you style components directly in JSX. Create responsive, modern designs faster than ever before.
+**Class 6: *Styling with Tailwind CSS*** (Mon, Sep 15, 2025) – Time to make your apps look amazing! **Tailwind CSS** is a game-changer for rapid UI development. You'll learn the utility-first approach that lets you style components directly in JSX. Create responsive, modern designs faster than ever before.
 
 **Your Mission:** Build an interactive "To-Do List" app that combines state management with beautiful Tailwind styling. Users can add, complete, and delete tasks with a smooth, professional interface.
 
@@ -92,9 +94,9 @@ Everything here is structured to support your success, and I want you to feel co
 * Build a complete single-page application with global state management
 * Apply professional development patterns used in industry
 
-**Class 7: *Multi-Page Application with React Router*** – **Your apps are about to get sophisticated!** Learn client-side routing to create multiple views without page reloads. Build navigation that feels smooth and modern. Handle URL parameters for dynamic pages.
+**Class 7: *Multi-Page Application with React Router*** (Wed, Sep 17, 2025) – **Your apps are about to get sophisticated!** Learn client-side routing to create multiple views without page reloads. Build navigation that feels smooth and modern. Handle URL parameters for dynamic pages.
 
-**Class 8: *Global State with Context API*** – Solve the challenge of sharing data across distant components with **React Context**. Create themes, user preferences, or authentication state that any component can access.
+**Class 8: *Global State with Context API*** (Mon, Sep 22, 2025) – Solve the challenge of sharing data across distant components with **React Context**. Create themes, user preferences, or authentication state that any component can access.
 
 **Your Mission:** Create a **Personal Portfolio SPA** that's so professional you could use it for job applications! Multiple pages, theme switching, and a contact form – this is portfolio gold! ⭐
 
@@ -110,9 +112,9 @@ Everything here is structured to support your success, and I want you to feel co
 * Create RESTful APIs that frontend applications can consume
 * Handle HTTP requests, responses, and errors professionally
 
-**Class 9: *Intro to Node.js and Express*** – **JavaScript everywhere!** Learn how Node.js brings JavaScript to the server. Set up your first **Express** server and create API endpoints that return JSON data. See how the backend provides data to frontend applications.
+**Class 9: *Intro to Node.js and Express*** (Wed, Sep 24, 2025) – **JavaScript everywhere!** Learn how Node.js brings JavaScript to the server. Set up your first **Express** server and create API endpoints that return JSON data. See how the backend provides data to frontend applications.
 
-**Class 10: *Building RESTful APIs*** – Build a complete REST API with **CRUD operations** (Create, Read, Update, Delete). Learn proper HTTP status codes, error handling, and API design patterns. Test your APIs with **Postman** like a professional developer.
+**Class 10: *Building RESTful APIs*** (Mon, Sep 29, 2025) – Build a complete REST API with **CRUD operations** (Create, Read, Update, Delete). Learn proper HTTP status codes, error handling, and API design patterns. Test your APIs with **Postman** like a professional developer.
 
 **Your Mission:** Create your own REST API for any resource you choose – books, movies, recipes, anything! Implement all CRUD operations and document them professionally.
 
@@ -128,9 +130,9 @@ Everything here is structured to support your success, and I want you to feel co
 * Use **Mongoose** to define data schemas and interact with your database
 * Replace in-memory data with persistent database storage
 
-**Class 11: *Intro to Databases and MongoDB*** – **Data that survives server restarts!** Learn the difference between SQL and NoSQL databases. Set up **MongoDB Atlas** in the cloud and connect your Express app. Define your first data schema with **Mongoose**.
+**Class 11: *Intro to Databases and MongoDB*** (Wed, Oct 1, 2025) – **Data that survives server restarts!** Learn the difference between SQL and NoSQL databases. Set up **MongoDB Atlas** in the cloud and connect your Express app. Define your first data schema with **Mongoose**.
 
-**Class 12: *CRUD with MongoDB via Mongoose*** – Replace your in-memory arrays with real database operations. Handle async operations with async/await. Add data validation and error handling. Your API now has permanent storage! 🎉
+**Class 12: *CRUD with MongoDB via Mongoose*** (Mon, Oct 6, 2025) – Replace your in-memory arrays with real database operations. Handle async operations with async/await. Add data validation and error handling. Your API now has permanent storage! 🎉
 
 **Your Mission:** Extend your API with database integration. Choose from advanced features like relationships between models, query filtering, or pagination.
 
@@ -146,9 +148,9 @@ Everything here is structured to support your success, and I want you to feel co
 * Create and verify **JSON Web Tokens (JWT)** for stateless authentication
 * Protect API routes and handle user sessions
 
-**Class 13: *Authentication Concepts & Signup Route*** – **Security is crucial!** Learn why we hash passwords and how JWT authentication works. Build user registration that stores hashed passwords safely.
+**Class 13: *Authentication Concepts & Signup Route*** (Wed, Oct 8, 2025) – **Security is crucial!** Learn why we hash passwords and how JWT authentication works. Build user registration that stores hashed passwords safely.
 
-**Class 14: *Login & Protected Routes with JWT*** – Complete your authentication system with login endpoints and protected routes. Only authenticated users can access certain API endpoints.
+**Class 14: *Login & Protected Routes with JWT*** (Wed, Oct 15, 2025) – Complete your authentication system with login endpoints and protected routes. Only authenticated users can access certain API endpoints.
 
 **Your Mission:** Add user-specific data to your API. Each user gets their own data, and you'll implement a "My Profile" endpoint.
 
@@ -164,9 +166,11 @@ Everything here is structured to support your success, and I want you to feel co
 * Manage loading states, errors, and user feedback
 * Deploy and test complete full-stack applications
 
-**Class 15: *Fetching Data from the Backend*** – **Your frontend and backend become one!** Configure **CORS** and make API calls from React. Display real database data in your components. Handle loading and error states gracefully.
+(No class on Mon, Oct 13 – Holiday)
 
-**Class 16: *Front-End Authentication & Protected Routes*** – Build login forms that obtain JWT tokens. Store authentication state and protect frontend routes. Create a complete authentication flow that users will love.
+**Class 15: *Fetching Data from the Backend*** (Mon, Oct 20, 2025) – **Your frontend and backend become one!** Configure **CORS** and make API calls from React. Display real database data in your components. Handle loading and error states gracefully.
+
+**Class 16: *Front-End Authentication & Protected Routes*** (Wed, Oct 22, 2025) – Build login forms that obtain JWT tokens. Store authentication state and protect frontend routes. Create a complete authentication flow that users will love.
 
 **Your Mission:** Build the complete frontend for your full-stack application. Registration, login, CRUD operations, and beautiful error handling – you've got this! ⭐
 
@@ -182,9 +186,9 @@ Everything here is structured to support your success, and I want you to feel co
 * Custom hooks and advanced state management patterns
 * How to scope and timeline a development project
 
-**Class 17: *State Management & React Hook Patterns*** – **Become a React expert!** Learn advanced patterns, custom hooks, and when to use different state management approaches.
+**Class 17: *State Management & React Hook Patterns*** (Mon, Oct 27, 2025) – **Become a React expert!** Learn advanced patterns, custom hooks, and when to use different state management approaches.
 
-**Class 18: *Final Project Kickoff & Design*** – **Dream big, plan smart!** Design your capstone project. Create user stories, plan your database, and set realistic timelines. Get feedback to ensure your project will be both achievable and impressive.
+**Class 18: *Final Project Kickoff & Design*** (Wed, Oct 29, 2025) – **Dream big, plan smart!** Design your capstone project. Create user stories, plan your database, and set realistic timelines. Get feedback to ensure your project will be both achievable and impressive.
 
 **Your Mission:** Submit your capstone project proposal and create the initial scaffolding. This is where your big idea becomes reality!
 
@@ -200,9 +204,9 @@ Everything here is structured to support your success, and I want you to feel co
 * Configure production databases and environment variables
 * Test and debug deployed applications
 
-**Class 19: *Deploying the Front-End to Vercel*** – **Your app goes global!** Deploy your React app to **Vercel** and your API to **Render**. Configure production environment variables and test everything works perfectly.
+**Class 19: *Deploying the Front-End to Vercel*** (Mon, Nov 3, 2025) – **Your app goes global!** Deploy your React app to **Vercel** and your API to **Render**. Configure production environment variables and test everything works perfectly.
 
-**Class 20: *Project Work – Build & Troubleshoot*** – Dedicated workshop time to build your capstone. Get help with challenges, conduct peer testing, and ensure you're on track for an amazing final project.
+**Class 20: *Project Work – Build & Troubleshoot*** (Wed, Nov 5, 2025) – Dedicated workshop time to build your capstone. Get help with challenges, conduct peer testing, and ensure you're on track for an amazing final project.
 
 **Your Mission:** Deploy your capstone project and complete all MVP features. Test the live version thoroughly – you're almost there! ⭐
 
@@ -218,15 +222,72 @@ Everything here is structured to support your success, and I want you to feel co
 * Performance optimization and mobile responsiveness
 * Professional documentation and presentation skills
 
-**Class 21: *Open Lab – Build Features & Testing*** – Workshop time for completing features and thorough testing. Conduct peer code reviews and ensure everything works flawlessly.
+**Class 21: *Open Lab – Build Features & Testing*** (Mon, Nov 10, 2025) – Workshop time for completing features and thorough testing. Conduct peer code reviews and ensure everything works flawlessly.
 
-**Class 22: *UI Polishing & Performance*** – **Make it shine!** Focus on professional styling, mobile responsiveness, and performance. Write excellent documentation and prepare presentation materials.
+**Class 22: *UI Polishing & Performance*** (Wed, Nov 12, 2025) – **Make it shine!** Focus on professional styling, mobile responsiveness, and performance. Write excellent documentation and prepare presentation materials.
 
 **Your Mission:** Finalize your project and prepare for your presentation. Test everything, polish the UI, and get ready to showcase your amazing work!
 
 ---
 
-### Week 12: Capstone Project Presentations & Wrap-Up
+### Week 12: Project Work – Milestone Demos & Feature Freeze
+
+**Level up your project with focus and feedback.** Prepare milestone demos, lock down scope, and plan final tasks.
+
+**What You'll Learn:**
+* Plan a feature freeze and cut non-critical scope
+* Structure milestone demos and collect actionable feedback
+* Prioritize final tasks and testing plan
+
+**Class 23: *Milestone Demos & Feedback*** (Mon, Nov 17, 2025) – In-class demos with structured feedback. Identify remaining gaps and finalize scope.
+
+**Class 24: *Feature Freeze & Final Sprint Planning*** (Wed, Nov 19, 2025) – Lock scope, create your final sprint plan, and assign testing ownership.
+
+---
+
+### Week 13: Thanksgiving Week – One Class (Wed off)
+
+**Keep momentum before the break.** Make focused progress and plan around the holiday.
+
+**What You'll Learn:**
+* Track progress effectively during short weeks
+* Plan tasks across a holiday break
+
+**Class 25: *Focused Build Session & Troubleshooting*** (Mon, Nov 24, 2025) – Deep work time with instructor support for blockers.
+
+(No class on Wed, Nov 26 – Thanksgiving break)
+
+---
+
+### Week 14: Performance, Accessibility & Code Quality
+
+**Polish your app to production quality.** Optimize performance and ensure accessibility.
+
+**What You'll Learn:**
+* Performance audits (bundle size, React profiler)
+* Accessibility testing and fixes (keyboard, color, semantics)
+* Code quality checks and refactors
+
+**Class 26: *Performance Optimization & Monitoring*** (Mon, Dec 1, 2025) – Optimize rendering, code-split, and add basic monitoring.
+
+**Class 27: *Accessibility & Quality Audits*** (Wed, Dec 3, 2025) – Run audits (Lighthouse), fix a11y issues, and finalize quality gates.
+
+---
+
+### Week 15: Final Polish & Presentation Prep
+
+**Get presentation-ready.** Tighten UX, finalize docs, and practice.
+
+**What You'll Learn:**
+* UX polish and final docs (README, setup, envs)
+* Presentation structure and storytelling
+* Dry runs and feedback loops
+
+(No new class numbers this week; continue work toward presentations.)
+
+---
+
+### Week 16: Capstone Project Presentations & Wrap-Up
 
 **Celebrate your achievements!** Present your completed full-stack applications.
 
@@ -236,9 +297,9 @@ Everything here is structured to support your success, and I want you to feel co
 * Receive feedback and celebrate with your peers
 * Plan your continued learning journey
 
-**Class 23: *Final Project Presentations (Part 1)*** – **Show off your amazing work!** Present your full-stack applications. Demonstrate features, discuss technical challenges, and inspire your classmates.
+**Class 28: *Final Project Presentations (Part 1)*** (Mon, Dec 8, 2025) – **Show off your amazing work!** Present your full-stack applications. Demonstrate features, discuss technical challenges, and inspire your classmates.
 
-**Class 24: *Final Project Presentations (Part 2) and Course Wrap-Up*** – Complete presentations and celebrate! Reflect on your incredible journey from HTML basics to full-stack developer. Discuss next steps and continued learning.
+**Class 29: *Final Project Presentations (Part 2) and Course Wrap-Up*** (Wed, Dec 10, 2025) – Complete presentations and celebrate! Reflect on your incredible journey from HTML basics to full-stack developer. Discuss next steps and continued learning.
 
 **Your Achievement:** You've built and deployed a complete MERN stack application! 🎉
 
@@ -250,7 +311,7 @@ This course is designed to support your growth while maintaining high standards.
 
 | Component | Weight | What This Means |
 |-----------|--------|-----------------|
-| **Weekly Homework** | 35% | 11 hands-on assignments that build your skills progressively (Week 12 is homework-free!) |
+| **Weekly Homework** | 35% | 15 hands-on assignments that build your skills progressively (Week 16 is homework-free!) |
 | **Mini-Projects** | 25% | 3 milestone projects that let you experiment and integrate what you've learned |
 | **Final Capstone Project** | 30% | Your showcase project – build something you're proud to show employers |
 | **Participation & Labs** | 10% | In-class activities, peer reviews, and collaborative learning |
