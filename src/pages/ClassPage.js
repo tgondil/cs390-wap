@@ -48,7 +48,7 @@ const ClassPage = () => {
   
   // Navigation helpers
   const prevClass = classNum > 1 ? classNum - 1 : null;
-  const nextClass = classNum < 24 ? classNum + 1 : null;
+  const nextClass = classNum < courseData.totalClasses ? classNum + 1 : null;
 
   return (
     <div className="min-h-screen bg-gray-50">

@@ -1,9 +1,9 @@
 export const courseData = {
   title: "CS390 Web Application Programming",
   subtitle: "Full-Stack MERN Development",
-  description: "This 12-week course meets twice per week (24 classes total) and guides students through building a full-stack website using the MERN stack (MongoDB, Express, React, Node.js).",
-  duration: "12 weeks",
-  totalClasses: 24,
+  description: "This 16-week course meets twice per week (29 classes total, with holidays observed) and guides students through building a full-stack website using the MERN stack (MongoDB, Express, React, Node.js).",
+  duration: "16 weeks",
+  totalClasses: 29,
   
   weeks: [
     {
@@ -371,11 +371,103 @@ export const courseData = {
     },
     {
       week: 12,
+      title: "Project Work – Milestone Demos & Feature Freeze",
+      description: "Prepare milestone demos, lock down scope, and plan final tasks",
+      classes: [
+        {
+          classNumber: 23,
+          title: "Milestone Demos & Feedback",
+          objectives: [
+            "Present in-progress capstone demos",
+            "Collect structured feedback and identify gaps",
+            "Finalize scope for remaining work",
+            "Create focused improvement list"
+          ],
+          toolsIntroduced: ["Peer review rubric", "Demo checklist"],
+          topics: ["Demo strategy", "Feedback capture", "Scope control", "Prioritization"],
+          homework: "Incorporate feedback and finalize feature list for feature freeze"
+        },
+        {
+          classNumber: 24,
+          title: "Feature Freeze & Final Sprint Planning",
+          objectives: [
+            "Define feature freeze and quality bar",
+            "Plan final sprint tasks and owners",
+            "Establish testing and acceptance criteria",
+            "Schedule dry runs for presentations"
+          ],
+          toolsIntroduced: ["Sprint planning", "Test checklist"],
+          topics: ["Feature freeze", "Testing plan", "Task ownership", "Risks & mitigations"],
+          homework: "Execute final sprint plan and begin formal testing"
+        }
+      ]
+    },
+    {
+      week: 13,
+      title: "Thanksgiving Week – One Class (Wed off)",
+      description: "Make focused progress and plan around the holiday",
+      classes: [
+        {
+          classNumber: 25,
+          title: "Focused Build Session & Troubleshooting",
+          objectives: [
+            "Unblock critical issues with instructor support",
+            "Triage bugs and prioritize",
+            "Stabilize core user flows",
+            "Update project status"
+          ],
+          toolsIntroduced: ["Debugging tools", "Issue tracking"],
+          topics: ["Debugging", "Prioritization", "Stabilization", "Status updates"],
+          homework: "Continue focused progress over the break"
+        }
+      ]
+    },
+    {
+      week: 14,
+      title: "Performance, Accessibility & Code Quality",
+      description: "Polish your app to production quality",
+      classes: [
+        {
+          classNumber: 26,
+          title: "Performance Optimization & Monitoring",
+          objectives: [
+            "Profile rendering and network performance",
+            "Apply code splitting and memoization",
+            "Optimize API usage and caching",
+            "Add basic monitoring"
+          ],
+          toolsIntroduced: ["React Profiler", "Lighthouse", "Code splitting"],
+          topics: ["Rendering performance", "Bundle size", "Caching", "Monitoring"],
+          homework: "Address top performance issues and measure improvements"
+        },
+        {
+          classNumber: 27,
+          title: "Accessibility & Quality Audits",
+          objectives: [
+            "Run a11y audits and fix issues",
+            "Ensure keyboard and screen reader support",
+            "Finalize code quality gates",
+            "Prepare release candidate"
+          ],
+          toolsIntroduced: ["Lighthouse", "Axe", "ARIA"],
+          topics: ["Accessibility", "Quality checks", "Documentation", "Release prep"],
+          homework: "Finish a11y fixes and finalize documentation"
+        }
+      ]
+    },
+    {
+      week: 15,
+      title: "Final Polish & Presentation Prep",
+      description: "Tighten UX, finalize docs, and practice",
+      classes: []
+    },
+    {
+      week: 16,
       title: "Capstone Project Presentations & Wrap-Up",
       description: "Present completed projects and celebrate achievements",
       classes: [
         {
-          classNumber: 23,
+          classNumber: 28,
           title: "Final Project Presentations (Part 1)",
           objectives: [
             "Present completed full-stack projects",
@@ -388,7 +480,7 @@ export const courseData = {
           homework: "None - focus on presentations"
         },
         {
-          classNumber: 24,
+          classNumber: 29,
           title: "Final Project Presentations (Part 2) and Course Wrap-Up",
           objectives: [
             "Complete remaining project presentations",

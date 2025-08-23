@@ -11,7 +11,7 @@ const WeeklyOverview = () => {
             Complete Course Breakdown
           </h2>
           <p className="text-xl text-gray-600">
-            24 interactive class sessions organized into 12 comprehensive weeks
+            {courseData.totalClasses} interactive class sessions organized into {courseData.weeks.length} comprehensive weeks
           </p>
         </div>
 
@@ -112,7 +112,7 @@ const WeeklyOverview = () => {
             Quick Class Navigation
           </h3>
           <div className="grid grid-cols-6 md:grid-cols-12 gap-2 max-w-4xl mx-auto">
-            {Array.from({ length: 24 }, (_, i) => i + 1).map((classNum) => (
+            {Array.from({ length: courseData.totalClasses }, (_, i) => i + 1).map((classNum) => (
               <Link
                 key={classNum}
                 to={`/class/${classNum}`}
