@@ -1361,6 +1361,97 @@ const Class1Slides = () => {
       bgGradient: 'from-indigo-600 to-blue-700'
     },
     {
+      id: 'web-applications',
+      title: 'What is a Web Application?',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8">🌐 What is a Web Application?</h2>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div className="bg-red-500/20 rounded-xl p-6">
+              <h3 className="text-xl font-semibold mb-4 text-red-300">📄 Traditional Website</h3>
+              <ul className="space-y-3 text-white/80">
+                <li className="flex items-center">
+                  <span className="mr-3">📰</span>
+                  Static content (news sites, blogs)
+                </li>
+                <li className="flex items-center">
+                  <span className="mr-3">👁️</span>
+                  Information consumption
+                </li>
+                <li className="flex items-center">
+                  <span className="mr-3">🔒</span>
+                  Limited user interaction
+                </li>
+                <li className="flex items-center">
+                  <span className="mr-3">📖</span>
+                  Read-only experience
+                </li>
+              </ul>
+              
+              <div className="mt-4 p-3 bg-white/10 rounded">
+                <h4 className="font-medium text-white mb-2">Examples:</h4>
+                <div className="text-sm text-white/70">
+                  Company websites, blogs, documentation sites, portfolios
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-blue-500/20 rounded-xl p-6">
+              <h3 className="text-xl font-semibold mb-4 text-blue-300">⚡ Web Application</h3>
+              <ul className="space-y-3 text-white/80">
+                <li className="flex items-center">
+                  <span className="mr-3">🎮</span>
+                  Dynamic, interactive experiences
+                </li>
+                <li className="flex items-center">
+                  <span className="mr-3">👥</span>
+                  User-generated content
+                </li>
+                <li className="flex items-center">
+                  <span className="mr-3">⚡</span>
+                  Real-time functionality
+                </li>
+                <li className="flex items-center">
+                  <span className="mr-3">🎯</span>
+                  Personalized experiences
+                </li>
+              </ul>
+              
+              <div className="mt-4 p-3 bg-white/10 rounded">
+                <h4 className="font-medium text-white mb-2">Examples:</h4>
+                <div className="text-sm text-white/70">
+                  Social media, online banking, streaming platforms, productivity tools
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl p-6">
+            <h3 className="text-xl font-semibold mb-4 text-purple-300">🚀 Key Differences</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="text-center">
+                <div className="text-3xl mb-2">🔄</div>
+                <h4 className="font-medium text-white mb-2">State Management</h4>
+                <p className="text-white/70 text-sm">Applications maintain user state and remember interactions</p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl mb-2">💾</div>
+                <h4 className="font-medium text-white mb-2">Data Persistence</h4>
+                <p className="text-white/70 text-sm">User data is stored and retrieved from databases</p>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl mb-2">🔐</div>
+                <h4 className="font-medium text-white mb-2">Authentication</h4>
+                <p className="text-white/70 text-sm">Users log in and have personalized experiences</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-green-600 to-teal-700'
+    },
+    {
       id: 'three-tier-overview',
       title: 'Three-Tier Architecture Overview',
       content: (
@@ -1425,8 +1516,8 @@ const Class1Slides = () => {
       bgGradient: 'from-slate-600 to-gray-700'
     },
     {
-      id: 'frontend-tier',
-      title: 'Frontend Development',
+      id: 'frontend-overview',
+      title: 'Frontend Development - Overview',
       content: (
         <div className="space-y-8">
           <h2 className="text-4xl font-bold text-white mb-8 text-center">🎨 Frontend Development</h2>
@@ -1497,10 +1588,25 @@ const Class1Slides = () => {
                 </div>
               </div>
             </div>
-
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-green-600 to-teal-700'
+    },
+    {
+      id: 'frontend-in-action',
+      title: 'Frontend Development - In Action',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">🎨 Frontend in Action</h2>
+          <p className="text-2xl text-green-100 text-center mb-8">
+            Real examples and technologies you'll master
+          </p>
+          
+          <div className="max-w-6xl mx-auto space-y-8">
             {/* Real Examples */}
             <div className="bg-white/10 backdrop-blur rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-6 text-center">Frontend in Action</h3>
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">Frontend Examples You Know</h3>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="text-center">
@@ -1582,8 +1688,8 @@ const Class1Slides = () => {
       bgGradient: 'from-green-600 to-teal-700'
     },
     {
-      id: 'backend-tier',
-      title: 'Backend Development',
+      id: 'backend-overview',
+      title: 'Backend Development - Overview',
       content: (
         <div className="space-y-8">
           <h2 className="text-4xl font-bold text-white mb-8 text-center">⚙️ Backend Development</h2>
@@ -1688,9 +1794,26 @@ const Class1Slides = () => {
               </div>
             </div>
 
+
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-orange-600 to-red-700'
+    },
+    {
+      id: 'backend-in-action',
+      title: 'Backend Development - In Action',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">⚙️ Backend in Action</h2>
+          <p className="text-2xl text-orange-100 text-center mb-8">
+            Real examples and technologies you'll master
+          </p>
+          
+          <div className="max-w-6xl mx-auto space-y-8">
             {/* Real Examples */}
             <div className="bg-white/10 backdrop-blur rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-6 text-center">Backend in Action</h3>
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">Backend Examples You Use Daily</h3>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="text-center">
@@ -2116,97 +2239,6 @@ const Class1Slides = () => {
         </div>
       ),
       bgGradient: 'from-indigo-600 to-purple-700'
-    },
-    {
-      id: 'web-applications',
-      title: 'What is a Web Application?',
-      content: (
-        <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8">🌐 What is a Web Application?</h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            <div className="bg-red-500/20 rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-4 text-red-300">📄 Traditional Website</h3>
-              <ul className="space-y-3 text-white/80">
-                <li className="flex items-center">
-                  <span className="mr-3">📰</span>
-                  Static content (news sites, blogs)
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-3">👁️</span>
-                  Information consumption
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-3">🔒</span>
-                  Limited user interaction
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-3">📖</span>
-                  Read-only experience
-                </li>
-              </ul>
-              
-              <div className="mt-4 p-3 bg-white/10 rounded">
-                <h4 className="font-medium text-white mb-2">Examples:</h4>
-                <div className="text-sm text-white/70">
-                  Company websites, blogs, documentation sites, portfolios
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-blue-500/20 rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-4 text-blue-300">⚡ Web Application</h3>
-              <ul className="space-y-3 text-white/80">
-                <li className="flex items-center">
-                  <span className="mr-3">🎮</span>
-                  Dynamic, interactive experiences
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-3">👥</span>
-                  User-generated content
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-3">⚡</span>
-                  Real-time functionality
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-3">🎯</span>
-                  Personalized experiences
-                </li>
-              </ul>
-              
-              <div className="mt-4 p-3 bg-white/10 rounded">
-                <h4 className="font-medium text-white mb-2">Examples:</h4>
-                <div className="text-sm text-white/70">
-                  Social media, online banking, streaming platforms, productivity tools
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl p-6">
-            <h3 className="text-xl font-semibold mb-4 text-purple-300">🚀 Key Differences</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="text-center">
-                <div className="text-3xl mb-2">🔄</div>
-                <h4 className="font-medium text-white mb-2">State Management</h4>
-                <p className="text-white/70 text-sm">Applications maintain user state and remember interactions</p>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl mb-2">💾</div>
-                <h4 className="font-medium text-white mb-2">Data Persistence</h4>
-                <p className="text-white/70 text-sm">User data is stored and retrieved from databases</p>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl mb-2">🔐</div>
-                <h4 className="font-medium text-white mb-2">Authentication</h4>
-                <p className="text-white/70 text-sm">Users log in and have personalized experiences</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
-      bgGradient: 'from-green-600 to-teal-700'
     },
     {
       id: 'html-css-fundamentals',
