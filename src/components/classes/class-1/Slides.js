@@ -1264,72 +1264,103 @@ const Class1Slides = () => {
   // Slide content data following README exactly
   const slides = [
     {
-      id: 'general-information',
-      title: 'General Information',
+      id: 'title-slide',
+      title: 'CS390 Web Applications Programming',
       content: (
-        <div className="text-center space-y-8">
-          <div className="text-6xl mb-8">📚</div>
-          <h1 className="text-5xl font-bold text-white mb-4">
-            CS390 Web Application Programming
-          </h1>
-          <h2 className="text-3xl font-semibold text-blue-100 mb-8">
-            General Course Information
-          </h2>
+        <div className="text-center space-y-12">
+          <div className="space-y-8">
+            <h1 className="text-6xl font-bold text-white mb-6">
+              CS390
+            </h1>
+            <h2 className="text-4xl font-semibold text-blue-100 mb-4">
+              Web Applications Programming
+            </h2>
+            <div className="text-2xl text-blue-200">
+              Class 1: Syllabus and Introduction to Web Applications
+            </div>
+          </div>
           
-          <div className="max-w-4xl mx-auto space-y-8">
-            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">📧 Contact Information</h3>
-              <div className="space-y-4">
-                <div className="text-center">
-                  <div className="text-lg font-semibold text-blue-300 mb-2">Instructor Email</div>
-                  <a 
-                    href="mailto:tgondil@purdue.edu" 
-                    className="text-2xl font-mono text-white bg-blue-600/20 px-6 py-3 rounded-lg border border-blue-400/30 hover:bg-blue-600/30 transition-colors inline-block"
-                  >
-                    tgondil@purdue.edu
-                  </a>
+          <div className="mt-16">
+            <div className="text-2xl font-medium text-white">
+              Tanay Gondil
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-blue-600 to-purple-700'
+    },
+    {
+      id: 'welcome-course-website',
+      title: 'Welcome to CS390',
+      content: (
+        <div className="text-center space-y-12">
+          <div className="space-y-8">
+            <h2 className="text-4xl font-bold text-white mb-8">
+              Welcome to CS390!
+            </h2>
+            
+            <div className="max-w-4xl mx-auto space-y-8">
+              <div className="text-2xl text-blue-200 leading-relaxed">
+                This entire course page and all of the slides are a website.
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
+                <div className="text-lg text-white/80 mb-6">
+                  Everything you see here - from these slides to course materials - 
+                  demonstrates the kind of interactive web applications you'll learn to build!
                 </div>
-                
-                <div className="mt-6 p-4 bg-yellow-500/20 rounded-lg border border-yellow-400/30">
-                  <h4 className="text-lg font-semibold text-yellow-200 mb-2">📋 Questions Policy</h4>
-                  <p className="text-white/80">
-                    For all course questions, <strong>you're expected to email me</strong>. 
-                    Most of the time you'll get a response by the end of the day.
-                  </p>
+              </div>
+
+              <div className="bg-blue-500/20 backdrop-blur rounded-xl p-8 border border-blue-400/30">
+                <h3 className="text-2xl font-bold text-blue-300 mb-6">📅 Class Schedule</h3>
+                <div className="text-lg text-white/90 mb-4">
+                  We'll be meeting <strong>thrice every week</strong>:
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="bg-white/10 rounded-lg p-4 text-center">
+                    <div className="text-xl font-bold text-white">Monday</div>
+                    <div className="text-blue-200 text-sm">Regular Class</div>
+                  </div>
+                  <div className="bg-white/20 rounded-lg p-4 text-center border-2 border-yellow-400/30">
+                    <div className="text-xl font-bold text-white">Tuesday</div>
+                    <div className="text-yellow-200 text-sm font-medium">PSO in PRCE 277</div>
+                  </div>
+                  <div className="bg-white/10 rounded-lg p-4 text-center">
+                    <div className="text-xl font-bold text-white">Wednesday</div>
+                    <div className="text-blue-200 text-sm">Regular Class</div>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">🌐 Course Website</h3>
-              <div className="text-center">
-                <a 
-                  href="#" 
-                  className="text-xl text-blue-300 hover:text-blue-200 underline transition-colors"
-                >
-                  Visit Course Website →
-                </a>
-                <p className="text-white/70 text-sm mt-2">
-                  Access slides, assignments, resources, and more
-                </p>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-green-600 to-teal-700'
+    },
+    {
+      id: 'contact-information',
+      title: 'Contact Information',
+      content: (
+        <div className="text-center space-y-12">
+          <div className="space-y-8">
+            <h2 className="text-4xl font-bold text-white mb-8">
+              Contact Information
+            </h2>
+            
+            <div className="space-y-6">
+              <div className="text-2xl text-blue-200 mb-8">
+                My email is
               </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white/10 rounded-lg p-6 text-center">
-                <div className="text-3xl mb-3">🎯</div>
-                <h3 className="font-semibold text-white mb-2">12 Week Course</h3>
-                <p className="text-gray-300 text-sm">Full-stack web development journey</p>
-              </div>
-              <div className="bg-white/10 rounded-lg p-6 text-center">
-                <div className="text-3xl mb-3">👥</div>
-                <h3 className="font-semibold text-white mb-2">Pair Programming</h3>
-                <p className="text-gray-300 text-sm">All projects done collaboratively</p>
-              </div>
-              <div className="bg-white/10 rounded-lg p-6 text-center">
-                <div className="text-3xl mb-3">🚀</div>
-                <h3 className="font-semibold text-white mb-2">Build a Startup</h3>
-                <p className="text-gray-300 text-sm">Final capstone project</p>
+              
+              <a 
+                href="mailto:tgondil@purdue.edu" 
+                className="text-4xl font-mono text-white bg-blue-600/20 px-8 py-4 rounded-lg border border-blue-400/30 hover:bg-blue-600/30 transition-colors inline-block"
+              >
+                tgondil@purdue.edu
+              </a>
+              
+              <div className="text-2xl text-blue-200 mt-8">
+                So any questions you have, direct to my email
               </div>
             </div>
           </div>
