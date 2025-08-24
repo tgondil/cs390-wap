@@ -65,173 +65,45 @@ const CodeBlock = ({ code, language = '', filename = '', className = '', showCop
 
 // PSO Information Component
 const PSOInformation = () => {
-  const [selectedPSO, setSelectedPSO] = useState(null);
-  
-  const psos = {
-    pso1: {
-      title: 'PSO 1: Problem Analysis & Requirements',
-      week: 'Week 4',
-      project: 'Personal Portfolio SPA',
-      description: 'Analyze user needs and define project requirements through hands-on building',
-      skills: [
-        'Identify target audience and user personas',
-        'Define functional and non-functional requirements',
-        'Create user stories and acceptance criteria',
-        'Plan project scope and deliverables'
-      ],
-      activities: [
-        'Pair programming on portfolio component architecture',
-        'User research interviews with classmates',
-        'Requirements documentation and wireframing',
-        'Technical feasibility analysis'
-      ],
-      extraCredit: 'Talk to a classmate about their approach to user research and portfolio design. Compare different methods for gathering requirements.'
-    },
-    pso2: {
-      title: 'PSO 2: Design Solutions & Architecture',
-      week: 'Week 8',
-      project: 'Full-Stack Authentication App',
-      description: 'Design system architecture and implement technical solutions collaboratively',
-      skills: [
-        'Design system architecture and data flow',
-        'Create technical specifications and API design',
-        'Implement security patterns and best practices',
-        'Plan database schema and relationships'
-      ],
-      activities: [
-        'Collaborative system design sessions',
-        'API design and documentation',
-        'Database modeling with partners',
-        'Security implementation and code review'
-      ],
-      extraCredit: 'Discuss different architectural approaches with a teammate. Document how various design patterns solve different problems.'
-    },
-    pso3: {
-      title: 'PSO 3: Implementation & Integration',
-      week: 'Week 10',
-      project: 'Deployment & Production App',
-      description: 'Implement production-ready solutions through collaborative development',
-      skills: [
-        'Deploy applications to production environments',
-        'Implement CI/CD pipelines and automation',
-        'Optimize performance and handle scale',
-        'Integrate third-party services and APIs'
-      ],
-      activities: [
-        'Pair programming on deployment scripts',
-        'Performance testing and optimization',
-        'Production monitoring setup',
-        'Integration testing with partners'
-      ],
-      extraCredit: 'Compare deployment strategies with classmates. Analyze different hosting platforms and their trade-offs.'
-    },
-    pso4: {
-      title: 'PSO 4: Communication & Presentation',
-      week: 'Week 12',
-      project: 'Final Capstone Presentation',
-      description: 'Communicate technical solutions effectively to stakeholders',
-      skills: [
-        'Present technical concepts to diverse audiences',
-        'Create compelling product demonstrations',
-        'Articulate design decisions and trade-offs',
-        'Handle Q&A and stakeholder feedback'
-      ],
-      activities: [
-        'Presentation preparation and practice',
-        'Demo script development with team',
-        'Stakeholder communication simulation',
-        'Peer feedback and iteration'
-      ],
-      extraCredit: 'Provide detailed feedback on another team\'s presentation approach. Analyze what makes technical communication effective.'
-    }
-  };
 
   return (
-    <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-      <h3 className="text-xl font-bold text-white mb-6">🎯 PSO Integration & Opportunities</h3>
+    <div className="space-y-6">
+      <h3 className="text-3xl font-bold text-white mb-6">🎯 What are PSOs?</h3>
       
-      <div className="mb-6">
-        <div className="bg-blue-500/20 rounded-lg p-4 mb-4">
-          <h4 className="text-lg font-semibold text-blue-300 mb-2">What are PSOs?</h4>
-          <p className="text-white/80 text-sm">
-            PSOs (Program Student Outcomes) are hands-on pair programming classes where you'll build something valuable together 
-            while demonstrating specific skills and competencies. Think of them as practical labs where concepts meet real-world application.
+      <div className="bg-white/10 backdrop-blur rounded-xl p-6">
+        <p className="text-white/90 text-xl mb-4">
+          PSOs are hands-on pair programming classes where you'll build something valuable together.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className="bg-blue-500/20 rounded-lg p-4">
+            <h4 className="text-lg font-semibold text-blue-300 mb-2">⏱️ 40-Minute Projects</h4>
+            <p className="text-white/80">
+              Short, focused coding sessions where you apply what you've learned in recent classes.
+            </p>
+          </div>
+          
+          <div className="bg-red-500/20 rounded-lg p-4">
+            <h4 className="text-lg font-semibold text-red-300 mb-2">🚫 No AI Allowed</h4>
+            <p className="text-white/80">
+              You're not allowed to use AI so you'll really learn what you're building.
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-green-500/20 rounded-lg p-4 mb-6">
+          <h4 className="text-lg font-semibold text-green-300 mb-2">📚 Build on Prior Learning</h4>
+          <p className="text-white/80">
+            You won't be building projects from scratch but rather using what you've learned in the classes so far.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-          {Object.entries(psos).map(([key, pso]) => (
-            <button
-              key={key}
-              onClick={() => setSelectedPSO(selectedPSO === key ? null : key)}
-              className={`p-3 rounded-lg border-2 transition-all duration-300 text-left ${
-                selectedPSO === key
-                  ? 'border-purple-400 bg-purple-500/20'
-                  : 'border-white/20 bg-white/5 hover:border-white/40 hover:bg-white/10'
-              }`}
-            >
-              <div className="font-semibold text-white text-sm mb-1">{pso.title.split(':')[0]}</div>
-              <div className="text-xs text-white/70">{pso.week}</div>
-              <div className="text-xs text-white/60 mt-1">{pso.project}</div>
-            </button>
-          ))}
-        </div>
-      </div>
 
-      {selectedPSO && (
-        <div className="bg-white/5 rounded-lg p-6 animate-fade-in">
-          <div className="mb-6">
-            <h4 className="text-xl font-bold text-white mb-2">{psos[selectedPSO].title}</h4>
-            <div className="flex items-center space-x-4 mb-3">
-              <span className="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                {psos[selectedPSO].week}
-              </span>
-              <span className="text-purple-300 font-medium">{psos[selectedPSO].project}</span>
-            </div>
-            <p className="text-white/80">{psos[selectedPSO].description}</p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div>
-              <h5 className="text-lg font-semibold text-white mb-3">💡 Skills You'll Develop</h5>
-              <ul className="space-y-2">
-                {psos[selectedPSO].skills.map((skill, index) => (
-                  <li key={index} className="text-white/80 text-sm flex items-start">
-                    <span className="mr-2 text-purple-400 mt-1">▸</span>
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div>
-              <h5 className="text-lg font-semibold text-white mb-3">🛠️ Collaborative Activities</h5>
-              <ul className="space-y-2">
-                {psos[selectedPSO].activities.map((activity, index) => (
-                  <li key={index} className="text-white/80 text-sm flex items-start">
-                    <span className="mr-2 text-blue-400 mt-1">▸</span>
-                    {activity}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="mt-6 p-4 bg-green-500/20 rounded-lg border border-green-400/30">
-            <h5 className="font-semibold text-green-300 mb-2">⭐ Extra Credit Opportunity (+1%)</h5>
-            <p className="text-green-200 text-sm">{psos[selectedPSO].extraCredit}</p>
-            <div className="mt-2 text-xs text-green-300">
-              📝 Submit reflection form at end of class to earn extra credit
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div className="mt-6 bg-yellow-500/20 rounded-lg p-4 border border-yellow-400/30">
-        <h4 className="font-semibold text-yellow-200 mb-2">💰 Total PSO Extra Credit</h4>
-        <div className="text-yellow-100 text-sm">
-          <p>4 PSOs × 1% each = <strong>+4% to your final grade</strong></p>
-          <p className="text-xs mt-1">Complete networking + PSO extra credit = +12% total bonus!</p>
+        <div className="bg-purple-500/20 rounded-lg p-4">
+          <h4 className="text-lg font-semibold text-purple-300 mb-2">🎯 Purpose</h4>
+          <p className="text-white/80">
+            PSOs are directly relevant to building your skills and getting good grades on the homeworks. 
+            Use them to practice, ask questions, and collaborate with classmates!
+          </p>
         </div>
       </div>
     </div>
@@ -472,11 +344,9 @@ const GradeCalculator = () => {
   const [miniProjects, setMiniProjects] = useState(85);
   const [capstone, setCapstone] = useState(85);
   const [participation, setParticipation] = useState(90);
-  const [extraCredit, setExtraCredit] = useState(0);
-
   const calculateFinalGrade = () => {
     const base = (homework * 0.35) + (miniProjects * 0.25) + (capstone * 0.30) + (participation * 0.10);
-    return Math.min(100, base + extraCredit);
+    return Math.min(100, base);
   };
 
   const getLetterGrade = (grade) => {
@@ -503,7 +373,7 @@ const GradeCalculator = () => {
         <div className="space-y-4">
           <div>
             <label className="block text-white text-sm font-medium mb-2">
-              Weekly Homework (35%): {homework}%
+              Weekly PSOs (35%): {homework}%
             </label>
             <input
               type="range"
@@ -557,19 +427,7 @@ const GradeCalculator = () => {
             />
           </div>
           
-          <div>
-            <label className="block text-white text-sm font-medium mb-2">
-              Extra Credit: +{extraCredit}%
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="20"
-              value={extraCredit}
-              onChange={(e) => setExtraCredit(parseInt(e.target.value))}
-              className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
-            />
-          </div>
+
         </div>
         
         <div className="bg-white/5 rounded-lg p-6 text-center">
@@ -584,8 +442,7 @@ const GradeCalculator = () => {
             {getLetterGrade(finalGrade)}
           </div>
           <div className="text-sm text-gray-300">
-            <div>Base: {(finalGrade - extraCredit).toFixed(1)}%</div>
-            <div>Extra Credit: +{extraCredit}%</div>
+            <div>Final Grade: {finalGrade.toFixed(1)}%</div>
           </div>
         </div>
       </div>
@@ -1389,7 +1246,7 @@ const Class1Slides = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
             <div className="bg-blue-500/20 rounded-lg p-4 text-center">
               <div className="text-2xl font-bold text-blue-300">35%</div>
-              <div className="text-sm text-white/80">Weekly Homework</div>
+              <div className="text-sm text-white/80">Weekly PSOs</div>
               <div className="text-xs text-white/60 mt-1">11 assignments</div>
             </div>
             <div className="bg-green-500/20 rounded-lg p-4 text-center">
@@ -1421,76 +1278,26 @@ const Class1Slides = () => {
         <div className="space-y-8">
           <h2 className="text-4xl font-bold text-white mb-8">🎁 Extra Credit Opportunities</h2>
           <p className="text-xl text-green-100 text-center mb-8">
-            Multiple ways to boost your grade throughout the semester!
+            Ways to boost your grade throughout the semester!
           </p>
           
-          <div className="max-w-5xl mx-auto space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border border-green-400/30">
-                <h3 className="text-2xl font-bold text-green-300 mb-6">🤝 Weekly Networking Challenge</h3>
-                <div className="space-y-4">
-                  <div className="bg-white/10 rounded-lg p-4">
-                    <h4 className="font-semibold text-white mb-2">How It Works</h4>
-                    <ul className="space-y-2 text-white/80 text-sm">
-                      <li>• <strong>First 10 minutes</strong> of every class</li>
-                      <li>• <strong>Talk to someone new</strong> you haven't met before</li>
-                      <li>• <strong>Submit a form</strong> about your conversation</li>
-                      <li>• <strong>Build connections</strong> for your final project team</li>
-                    </ul>
-                  </div>
-                  <div className="text-center p-4 bg-green-600/20 rounded-lg border border-green-400/30">
-                    <div className="text-3xl font-bold text-green-200">+8%</div>
-                    <div className="text-green-300 font-medium">Total Possible</div>
-                  </div>
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border border-green-400/30">
+              <h3 className="text-2xl font-bold text-green-300 mb-6">🤝 Meet Someone New and Get Extra Credit</h3>
+              <div className="space-y-4">
+                <div className="bg-white/10 rounded-lg p-4">
+                  <h4 className="font-semibold text-white mb-2">How It Works</h4>
+                  <ul className="space-y-2 text-white/80 text-sm">
+                    <li>• <strong>First 10 minutes</strong> of every class</li>
+                    <li>• <strong>Talk to someone new</strong> you haven't met before</li>
+                    <li>• <strong>Submit a form</strong> about your conversation</li>
+                    <li>• <strong>Build connections</strong> for your final project team</li>
+                  </ul>
                 </div>
-              </div>
-
-              <div className="bg-purple-500/20 backdrop-blur rounded-xl p-8 border border-purple-400/30">
-                <h3 className="text-2xl font-bold text-purple-300 mb-6">🎯 PSO Reflections</h3>
-                <div className="space-y-4">
-                  <div className="bg-white/10 rounded-lg p-4">
-                    <h4 className="font-semibold text-white mb-2">How It Works</h4>
-                    <ul className="space-y-2 text-white/80 text-sm">
-                      <li>• <strong>After each PSO session</strong> (4 total)</li>
-                      <li>• <strong>Talk to a classmate</strong> about their approach</li>
-                      <li>• <strong>Submit reflection form</strong> comparing solutions</li>
-                      <li>• <strong>Document learnings</strong> from collaboration</li>
-                    </ul>
-                  </div>
-                  <div className="text-center p-4 bg-purple-600/20 rounded-lg border border-purple-400/30">
-                    <div className="text-3xl font-bold text-purple-200">+4%</div>
-                    <div className="text-purple-300 font-medium">1% per PSO × 4</div>
-                  </div>
+                <div className="text-center p-4 bg-green-600/20 rounded-lg border border-green-400/30">
+                  <div className="text-3xl font-bold text-green-200">+8%</div>
+                  <div className="text-green-300 font-medium">Total Possible</div>
                 </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 backdrop-blur rounded-xl p-8 border border-yellow-400/30">
-              <h3 className="text-2xl font-bold text-yellow-300 mb-6 text-center">📈 Total Extra Credit Summary</h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-green-300">+8%</div>
-                  <div className="text-white font-medium">Networking</div>
-                  <div className="text-white/70 text-sm">Weekly conversations</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-purple-300">+4%</div>
-                  <div className="text-white font-medium">PSO Reflections</div>
-                  <div className="text-white/70 text-sm">Collaborative learning</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-5xl font-bold text-yellow-300">+12%</div>
-                  <div className="text-white font-bold text-lg">TOTAL POSSIBLE</div>
-                  <div className="text-yellow-200 text-sm">Maximum bonus to final grade</div>
-                </div>
-              </div>
-
-              <div className="text-center p-4 bg-white/10 rounded-lg">
-                <p className="text-white/90 font-medium">
-                  💡 <strong>Pro Tip:</strong> Students who actively participate in networking and PSO reflections 
-                  often perform better overall due to increased collaboration and peer learning!
-                </p>
               </div>
             </div>
           </div>
@@ -1505,84 +1312,47 @@ const Class1Slides = () => {
         <div className="space-y-8">
           <h2 className="text-4xl font-bold text-white mb-8">🎯 Course Philosophy</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/30 rounded-xl p-6 text-center">
-              <div className="text-4xl mb-4">🛠️</div>
-              <h3 className="text-xl font-semibold mb-3 text-blue-300">Learning by Doing</h3>
-              <p className="text-white/80">
-                Every concept is reinforced through hands-on practice. You'll build real applications, not just complete exercises.
-              </p>
-            </div>
-            
-            <div className="bg-gradient-to-br from-green-500/20 to-green-600/30 rounded-xl p-6 text-center">
-              <div className="text-4xl mb-4">📈</div>
-              <h3 className="text-xl font-semibold mb-3 text-green-300">Growth Mindset</h3>
-              <p className="text-white/80">
-                Emphasis on continuous learning and improvement. Mistakes are learning opportunities, not failures.
-              </p>
-            </div>
-            
-            <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/30 rounded-xl p-6 text-center">
-              <div className="text-4xl mb-4">🏆</div>
-              <h3 className="text-xl font-semibold mb-3 text-purple-300">Portfolio Building</h3>
-              <p className="text-white/80">
-                Create a portfolio of projects you'll be proud to show employers and use in your career.
-              </p>
-            </div>
+          <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur rounded-xl p-8 border border-green-400/30 mb-8">
+            <h3 className="text-2xl font-bold text-green-300 mb-6 text-center">🎯 My Goal: Your Success</h3>
+            <p className="text-white/90 text-lg text-center mb-4">
+              The ideal average grade for this class is an <strong className="text-green-300">A</strong>.
+            </p>
+            <p className="text-white/80 text-center">
+              I will provide you with all of the tools needed for you to achieve this.
+            </p>
           </div>
-          
+
           <div className="bg-white/10 backdrop-blur rounded-xl p-8">
-            <h3 className="text-xl font-semibold mb-6 text-yellow-300">🌟 Success Framework</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h4 className="font-semibold mb-4 text-white text-lg">You'll Succeed If You:</h4>
-                <ul className="space-y-3 text-white/80">
-                  <li className="flex items-start">
-                    <span className="mr-3 text-green-400 mt-1">✓</span>
-                    <span>Show up consistently and participate actively</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 text-green-400 mt-1">✓</span>
-                    <span>Ask questions when you're stuck</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 text-green-400 mt-1">✓</span>
-                    <span>Collaborate effectively with teammates</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 text-green-400 mt-1">✓</span>
-                    <span>Embrace challenges as learning opportunities</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 text-green-400 mt-1">✓</span>
-                    <span>Focus on understanding, not just completion</span>
-                  </li>
-                </ul>
+            <h3 className="text-xl font-semibold mb-6 text-yellow-300">📋 Course Expectations</h3>
+            
+            <div className="space-y-6">
+              <div className="bg-blue-500/20 rounded-lg p-6 border border-blue-400/30">
+                <h4 className="text-lg font-semibold text-blue-300 mb-3">🎯 PSO Focus</h4>
+                <p className="text-white/80">
+                  Complete PSOs independently to maximize your learning. These exercises are designed to be manageable and build your skills progressively.
+                </p>
               </div>
-              <div>
-                <h4 className="font-semibold mb-4 text-white text-lg">We'll Support You With:</h4>
-                <ul className="space-y-3 text-white/80">
-                  <li className="flex items-start">
-                    <span className="mr-3 text-blue-400 mt-1">▸</span>
-                    <span>Clear instructions and examples</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 text-blue-400 mt-1">▸</span>
-                    <span>Regular feedback and guidance</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 text-blue-400 mt-1">▸</span>
-                    <span>Collaborative learning environments</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 text-blue-400 mt-1">▸</span>
-                    <span>Multiple extra credit opportunities</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 text-blue-400 mt-1">▸</span>
-                    <span>Real-world applicable skills</span>
-                  </li>
-                </ul>
+
+              <div className="bg-purple-500/20 rounded-lg p-6 border border-purple-400/30">
+                <h4 className="text-lg font-semibold text-purple-300 mb-3">💼 Portfolio Development</h4>
+                <p className="text-white/80">
+                  Apply course concepts to build impressive portfolio projects for your resume. 
+                  Master coding fundamentals before relying on AI assistance.
+                </p>
+              </div>
+
+              <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg p-6 border border-green-400/30">
+                <h4 className="text-lg font-semibold text-green-300 mb-3">🚀 Final Capstone: Startup Application</h4>
+                <p className="text-white/80 mb-3">
+                  Build a monetizable application as your final project. 
+                  Develop a complete startup idea from concept to launch over 4 weeks.
+                </p>
+                <p className="text-white/70 text-sm mb-2">
+                  AI tools are welcome for the final project, provided you understand the implementation.
+                </p>
+                <p className="text-green-300 text-sm font-medium">
+                  📅 Final 4 weeks of the semester - details provided later
+                </p>
               </div>
             </div>
           </div>
@@ -1591,135 +1361,761 @@ const Class1Slides = () => {
       bgGradient: 'from-indigo-600 to-blue-700'
     },
     {
-      id: 'pair-programming',
-      title: 'Pair Programming Approach',
-      content: (
-        <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8">👥 All Projects = Pair Programming</h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div className="bg-blue-500/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold mb-4 text-blue-300">How It Works</h3>
-                <ul className="space-y-3 text-white/80">
-                  <li className="flex items-start">
-                    <span className="mr-3 text-blue-400 mt-1">🚀</span>
-                    <span>Every assignment done in pairs (starting Week 2)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 text-blue-400 mt-1">🔄</span>
-                    <span>PSO sessions are collaborative coding experiences</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 text-blue-400 mt-1">🎯</span>
-                    <span>Rotate partners throughout semester</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 text-blue-400 mt-1">❓</span>
-                    <span>Use PSOs to ask homework questions and get help</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="bg-green-500/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold mb-4 text-green-300">Benefits</h3>
-                <ul className="space-y-2 text-white/80 text-sm">
-                  <li>• Learn collaborative development practices</li>
-                  <li>• Build communication and teamwork skills</li>
-                  <li>• See different problem-solving approaches</li>
-                  <li>• Reduce individual stress and workload</li>
-                  <li>• Prepare for real-world team development</li>
-                  <li>• Build lasting professional relationships</li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="space-y-6">
-              <div className="bg-purple-500/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold mb-4 text-purple-300">Pair Programming Best Practices</h3>
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-medium text-white mb-2">👨‍💻 Driver & Navigator</h4>
-                    <p className="text-white/70 text-sm">One person types (Driver), one person guides and reviews (Navigator). Switch roles regularly!</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-medium text-white mb-2">💬 Communication</h4>
-                    <p className="text-white/70 text-sm">Talk through your thought process, ask questions, and explain your approach.</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-medium text-white mb-2">🎯 Shared Goals</h4>
-                    <p className="text-white/70 text-sm">Agree on the approach and ensure both partners understand the solution.</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-medium text-white mb-2">⏰ Time Management</h4>
-                    <p className="text-white/70 text-sm">Set clear session goals and take breaks to maintain focus and productivity.</p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="bg-yellow-500/20 rounded-lg p-4 border border-yellow-400/30">
-                <h4 className="font-medium text-yellow-200 mb-2">🏆 Success Tip</h4>
-                <p className="text-yellow-100 text-sm">
-                  The goal isn't to find the "smartest" partner—it's to find someone you communicate well with and can learn from together!
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-xl p-6">
-            <h3 className="text-xl font-semibold mb-4 text-indigo-300">🔄 Pair Programming Workflow</h3>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="text-center">
-                <div className="bg-white/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl">📋</span>
-                </div>
-                <h4 className="font-medium text-white mb-2">1. Plan Together</h4>
-                <p className="text-white/70 text-sm">Discuss approach and break down the problem</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-white/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl">⌨️</span>
-                </div>
-                <h4 className="font-medium text-white mb-2">2. Code & Navigate</h4>
-                <p className="text-white/70 text-sm">Driver codes while Navigator guides and reviews</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-white/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl">🔄</span>
-                </div>
-                <h4 className="font-medium text-white mb-2">3. Switch Roles</h4>
-                <p className="text-white/70 text-sm">Rotate every 15-30 minutes for balance</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-white/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
-                  <span className="text-2xl">✅</span>
-                </div>
-                <h4 className="font-medium text-white mb-2">4. Review & Refactor</h4>
-                <p className="text-white/70 text-sm">Test together and improve the solution</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
-      bgGradient: 'from-pink-600 to-rose-700'
-    },
-    {
-      id: 'three-tier-architecture',
-      title: 'Three-Tier Architecture',
+      id: 'three-tier-overview',
+      title: 'Three-Tier Architecture Overview',
       content: (
         <div className="space-y-8">
           <h2 className="text-4xl font-bold text-white mb-8">🏗️ Three-Tier Architecture</h2>
           <p className="text-xl text-blue-100 text-center mb-8">
             Modern web applications are built using a three-tier architecture that separates concerns and enables scalability.
           </p>
-          <ArchitectureDiagram />
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 text-center border border-green-400/30">
+                <div className="text-5xl mb-4">🎨</div>
+                <h3 className="text-2xl font-bold text-green-300 mb-4">Frontend</h3>
+                <p className="text-white/80">Presentation Tier</p>
+                <p className="text-green-200 text-sm mt-2">What users see and interact with</p>
+              </div>
+              
+              <div className="bg-orange-500/20 backdrop-blur rounded-xl p-8 text-center border border-orange-400/30">
+                <div className="text-5xl mb-4">⚙️</div>
+                <h3 className="text-2xl font-bold text-orange-300 mb-4">Backend</h3>
+                <p className="text-white/80">Logic Tier</p>
+                <p className="text-orange-200 text-sm mt-2">Server-side processing and business logic</p>
+              </div>
+              
+              <div className="bg-purple-500/20 backdrop-blur rounded-xl p-8 text-center border border-purple-400/30">
+                <div className="text-5xl mb-4">🗄️</div>
+                <h3 className="text-2xl font-bold text-purple-300 mb-4">Database</h3>
+                <p className="text-white/80">Data Tier</p>
+                <p className="text-purple-200 text-sm mt-2">Persistent data storage and retrieval</p>
+              </div>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
+              <h3 className="text-xl font-bold text-white mb-4 text-center">Why Separate into Tiers?</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-semibold text-blue-300 mb-3">Benefits:</h4>
+                  <ul className="space-y-2 text-white/80 text-sm">
+                    <li>• <strong>Separation of Concerns</strong> - Each tier has a specific responsibility</li>
+                    <li>• <strong>Scalability</strong> - Scale each tier independently as needed</li>
+                    <li>• <strong>Maintainability</strong> - Easier to update and debug specific layers</li>
+                    <li>• <strong>Team Collaboration</strong> - Different teams can work on different tiers</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-green-300 mb-3">Real-World Example:</h4>
+                  <p className="text-white/80 text-sm mb-2">
+                    Think of a restaurant:
+                  </p>
+                  <ul className="space-y-1 text-white/70 text-sm">
+                    <li>🎨 <strong>Frontend:</strong> Dining room & waiters (customer interface)</li>
+                    <li>⚙️ <strong>Backend:</strong> Kitchen & chefs (food preparation)</li>
+                    <li>🗄️ <strong>Database:</strong> Pantry & storage (ingredient storage)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       ),
-      bgGradient: 'from-teal-600 to-cyan-700'
+      bgGradient: 'from-slate-600 to-gray-700'
+    },
+    {
+      id: 'frontend-tier',
+      title: 'Frontend Development',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">🎨 Frontend Development</h2>
+          <p className="text-2xl text-green-100 text-center mb-8">
+            The part of a web application that users see and interact with
+          </p>
+          
+          <div className="max-w-6xl mx-auto space-y-8">
+            {/* Simple Analogy */}
+            <div className="bg-green-500/20 backdrop-blur rounded-xl p-6 text-center">
+              <h3 className="text-2xl font-bold text-green-300 mb-4">🏪 Think of it like a store...</h3>
+              <p className="text-xl text-white mb-4">
+                The frontend is like the <strong>storefront</strong> - it's what customers see, the layout of products, 
+                the signs, and how they interact with everything.
+              </p>
+              <p className="text-green-200">
+                Just like a store needs to be attractive, easy to navigate, and functional!
+              </p>
+            </div>
+
+            {/* What Frontend Does */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">What Does Frontend Do?</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div className="bg-green-500/20 rounded-lg p-4">
+                    <h4 className="text-lg font-semibold text-green-300 mb-2">👀 Visual Elements</h4>
+                    <ul className="text-white/80 space-y-1 text-sm">
+                      <li>• Colors, fonts, and layout</li>
+                      <li>• Buttons, menus, and forms</li>
+                      <li>• Images and videos</li>
+                      <li>• Overall design and branding</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-green-500/20 rounded-lg p-4">
+                    <h4 className="text-lg font-semibold text-green-300 mb-2">🖱️ User Interactions</h4>
+                    <ul className="text-white/80 space-y-1 text-sm">
+                      <li>• Clicking buttons</li>
+                      <li>• Filling out forms</li>
+                      <li>• Scrolling and navigation</li>
+                      <li>• Hover effects and animations</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="bg-green-500/20 rounded-lg p-4">
+                    <h4 className="text-lg font-semibold text-green-300 mb-2">📱 Device Compatibility</h4>
+                    <ul className="text-white/80 space-y-1 text-sm">
+                      <li>• Works on phones</li>
+                      <li>• Works on tablets</li>
+                      <li>• Works on computers</li>
+                      <li>• Adapts to screen sizes</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-green-500/20 rounded-lg p-4">
+                    <h4 className="text-lg font-semibold text-green-300 mb-2">⚡ Real-time Updates</h4>
+                    <ul className="text-white/80 space-y-1 text-sm">
+                      <li>• New messages appearing</li>
+                      <li>• Live notifications</li>
+                      <li>• Instant feedback</li>
+                      <li>• Dynamic content changes</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Real Examples */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">Frontend in Action</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="text-center">
+                  <div className="text-4xl mb-3">📸</div>
+                  <h4 className="font-semibold text-white mb-2">Instagram</h4>
+                  <p className="text-green-200 text-sm">Photo grid, stories, like buttons, comment forms</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-4xl mb-3">🛒</div>
+                  <h4 className="font-semibold text-white mb-2">Amazon</h4>
+                  <p className="text-green-200 text-sm">Product listings, search bar, shopping cart, checkout</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-4xl mb-3">🎬</div>
+                  <h4 className="font-semibold text-white mb-2">Netflix</h4>
+                  <p className="text-green-200 text-sm">Video player, movie rows, search, user profiles</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Technologies We'll Learn */}
+            <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">Frontend Technologies We'll Learn</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-lg font-semibold text-green-300 mb-4">Foundation Skills:</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🏗️</span>
+                      <div>
+                        <div className="font-semibold text-white">HTML</div>
+                        <div className="text-sm text-green-200">Structure - like the frame of a house</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🎨</span>
+                      <div>
+                        <div className="font-semibold text-white">CSS</div>
+                        <div className="text-sm text-green-200">Styling - like paint and decorations</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">⚡</span>
+                      <div>
+                        <div className="font-semibold text-white">JavaScript</div>
+                        <div className="text-sm text-green-200">Functionality - like the electrical system</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 className="text-lg font-semibold text-blue-300 mb-4">Advanced Tools:</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">⚛️</span>
+                      <div>
+                        <div className="font-semibold text-white">React.js</div>
+                        <div className="text-sm text-blue-200">Building blocks for complex interfaces</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🌈</span>
+                      <div>
+                        <div className="font-semibold text-white">Tailwind CSS</div>
+                        <div className="text-sm text-blue-200">Fast styling system</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-green-600 to-teal-700'
+    },
+    {
+      id: 'backend-tier',
+      title: 'Backend Development',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">⚙️ Backend Development</h2>
+          <p className="text-2xl text-orange-100 text-center mb-8">
+            The "behind the scenes" logic that makes everything work
+          </p>
+          
+          <div className="max-w-6xl mx-auto space-y-8">
+            {/* Simple Analogy */}
+            <div className="bg-orange-500/20 backdrop-blur rounded-xl p-6 text-center">
+              <h3 className="text-2xl font-bold text-orange-300 mb-4">🏭 Think of it like a restaurant kitchen...</h3>
+              <p className="text-xl text-white mb-4">
+                The backend is like the <strong>kitchen</strong> - customers can't see it, but it's where all the 
+                real work happens to prepare and deliver what they ordered.
+              </p>
+              <p className="text-orange-200">
+                The kitchen takes orders, prepares food, manages inventory, and sends meals to the dining room!
+              </p>
+            </div>
+
+            {/* What Backend Does - Step by Step */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">What Happens When You Click a Button?</h3>
+              
+              <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <div className="bg-orange-500/20 rounded-lg p-4 text-center">
+                    <div className="text-3xl mb-2">1️⃣</div>
+                    <h4 className="font-semibold text-orange-300 mb-2">Receives Request</h4>
+                    <p className="text-white/80 text-sm">Frontend sends: "User wants to post a photo"</p>
+                  </div>
+                  
+                  <div className="bg-orange-500/20 rounded-lg p-4 text-center">
+                    <div className="text-3xl mb-2">2️⃣</div>
+                    <h4 className="font-semibold text-orange-300 mb-2">Checks Permission</h4>
+                    <p className="text-white/80 text-sm">Is this user logged in? Are they allowed to post?</p>
+                  </div>
+                  
+                  <div className="bg-orange-500/20 rounded-lg p-4 text-center">
+                    <div className="text-3xl mb-2">3️⃣</div>
+                    <h4 className="font-semibold text-orange-300 mb-2">Processes Data</h4>
+                    <p className="text-white/80 text-sm">Saves the photo, creates post record, updates database</p>
+                  </div>
+                  
+                  <div className="bg-orange-500/20 rounded-lg p-4 text-center">
+                    <div className="text-3xl mb-2">4️⃣</div>
+                    <h4 className="font-semibold text-orange-300 mb-2">Sends Response</h4>
+                    <p className="text-white/80 text-sm">Tells frontend: "Success! Post created."</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Main Responsibilities */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">Backend's Main Jobs</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div className="bg-orange-500/20 rounded-lg p-4">
+                    <h4 className="text-lg font-semibold text-orange-300 mb-2">🔐 Security & Authentication</h4>
+                    <ul className="text-white/80 space-y-1 text-sm">
+                      <li>• Check if users are logged in</li>
+                      <li>• Verify passwords</li>
+                      <li>• Control who can access what</li>
+                      <li>• Keep data safe from hackers</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-orange-500/20 rounded-lg p-4">
+                    <h4 className="text-lg font-semibold text-orange-300 mb-2">💾 Data Management</h4>
+                    <ul className="text-white/80 space-y-1 text-sm">
+                      <li>• Save new information</li>
+                      <li>• Find and retrieve data</li>
+                      <li>• Update existing records</li>
+                      <li>• Delete when needed</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="bg-orange-500/20 rounded-lg p-4">
+                    <h4 className="text-lg font-semibold text-orange-300 mb-2">🧮 Business Logic</h4>
+                    <ul className="text-white/80 space-y-1 text-sm">
+                      <li>• Calculate prices and taxes</li>
+                      <li>• Apply discounts and rules</li>
+                      <li>• Send notifications</li>
+                      <li>• Process payments</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-orange-500/20 rounded-lg p-4">
+                    <h4 className="text-lg font-semibold text-orange-300 mb-2">📡 Communication</h4>
+                    <ul className="text-white/80 space-y-1 text-sm">
+                      <li>• Talk to the frontend</li>
+                      <li>• Connect to other services</li>
+                      <li>• Send emails and texts</li>
+                      <li>• Integrate with APIs</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Real Examples */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">Backend in Action</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="text-center">
+                  <div className="text-4xl mb-3">🛒</div>
+                  <h4 className="font-semibold text-white mb-2">Online Shopping</h4>
+                  <p className="text-orange-200 text-sm">Checks inventory, calculates shipping, processes payment, sends confirmation email</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-4xl mb-3">💬</div>
+                  <h4 className="font-semibold text-white mb-2">Chat Apps</h4>
+                  <p className="text-orange-200 text-sm">Delivers messages, stores chat history, manages user status, sends notifications</p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="text-4xl mb-3">🎵</div>
+                  <h4 className="font-semibold text-white mb-2">Music Streaming</h4>
+                  <p className="text-orange-200 text-sm">Recommends songs, tracks listening history, manages playlists, handles subscriptions</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Technologies We'll Learn */}
+            <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 backdrop-blur rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">Backend Technologies We'll Learn</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-lg font-semibold text-orange-300 mb-4">Core Tools:</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🟢</span>
+                      <div>
+                        <div className="font-semibold text-white">Node.js</div>
+                        <div className="text-sm text-orange-200">Runs JavaScript on the server</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🚂</span>
+                      <div>
+                        <div className="font-semibold text-white">Express.js</div>
+                        <div className="text-sm text-orange-200">Framework for building web servers</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 className="text-lg font-semibold text-red-300 mb-4">Key Concepts:</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">📡</span>
+                      <div>
+                        <div className="font-semibold text-white">APIs</div>
+                        <div className="text-sm text-red-200">How frontend talks to backend</div>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <span className="text-2xl">🔐</span>
+                      <div>
+                        <div className="font-semibold text-white">Authentication</div>
+                        <div className="text-sm text-red-200">Secure user login systems</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-orange-600 to-red-700'
+    },
+    {
+      id: 'database-tier',
+      title: 'Database Layer',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">🗄️ Database Layer</h2>
+          <p className="text-2xl text-purple-100 text-center mb-8">
+            Where all your app's information is stored permanently
+          </p>
+          
+          <div className="max-w-6xl mx-auto space-y-8">
+            {/* Simple Analogy */}
+            <div className="bg-purple-500/20 backdrop-blur rounded-xl p-6 text-center">
+              <h3 className="text-2xl font-bold text-purple-300 mb-4">🏛️ Think of it like a giant filing cabinet...</h3>
+              <p className="text-xl text-white mb-4">
+                The database is like a <strong>perfectly organized filing cabinet</strong> that never loses anything. 
+                It stores every piece of information and can find it instantly when needed.
+              </p>
+              <p className="text-purple-200">
+                Unlike your messy room, everything has its exact place and can be retrieved in milliseconds!
+              </p>
+            </div>
+
+            {/* What Data Looks Like */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">What Kind of Information Gets Stored?</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-purple-500/20 rounded-lg p-6 text-center">
+                  <div className="text-4xl mb-3">👤</div>
+                  <h4 className="font-semibold text-purple-300 mb-3">User Information</h4>
+                  <ul className="text-white/80 space-y-1 text-sm text-left">
+                    <li>• Name and email</li>
+                    <li>• Password (encrypted!)</li>
+                    <li>• Profile photo</li>
+                    <li>• Account settings</li>
+                    <li>• When they joined</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-purple-500/20 rounded-lg p-6 text-center">
+                  <div className="text-4xl mb-3">📝</div>
+                  <h4 className="font-semibold text-purple-300 mb-3">Content Data</h4>
+                  <ul className="text-white/80 space-y-1 text-sm text-left">
+                    <li>• Posts and photos</li>
+                    <li>• Comments and likes</li>
+                    <li>• Messages and chats</li>
+                    <li>• Videos and files</li>
+                    <li>• Shared content</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-purple-500/20 rounded-lg p-6 text-center">
+                  <div className="text-4xl mb-3">📊</div>
+                  <h4 className="font-semibold text-purple-300 mb-3">Activity Data</h4>
+                  <ul className="text-white/80 space-y-1 text-sm text-left">
+                    <li>• Login history</li>
+                    <li>• Purchase records</li>
+                    <li>• Search history</li>
+                    <li>• App usage stats</li>
+                    <li>• Preferences</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Database Operations */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">What Can You Do with a Database?</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="bg-purple-500/20 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">📝</div>
+                  <h4 className="font-semibold text-purple-300 mb-2">CREATE</h4>
+                  <p className="text-white/80 text-sm">Add new information</p>
+                  <p className="text-purple-200 text-xs mt-1">New user signs up</p>
+                </div>
+                
+                <div className="bg-purple-500/20 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">👀</div>
+                  <h4 className="font-semibold text-purple-300 mb-2">READ</h4>
+                  <p className="text-white/80 text-sm">Find and retrieve data</p>
+                  <p className="text-purple-200 text-xs mt-1">Show user's posts</p>
+                </div>
+                
+                <div className="bg-purple-500/20 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">✏️</div>
+                  <h4 className="font-semibold text-purple-300 mb-2">UPDATE</h4>
+                  <p className="text-white/80 text-sm">Change existing info</p>
+                  <p className="text-purple-200 text-xs mt-1">User edits profile</p>
+                </div>
+                
+                <div className="bg-purple-500/20 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">🗑️</div>
+                  <h4 className="font-semibold text-purple-300 mb-2">DELETE</h4>
+                  <p className="text-white/80 text-sm">Remove data</p>
+                  <p className="text-purple-200 text-xs mt-1">User deletes a post</p>
+                </div>
+              </div>
+              
+              <div className="mt-6 text-center">
+                <p className="text-purple-200 text-lg">
+                  These are called <strong>CRUD operations</strong> - the basic actions every database can do!
+                </p>
+              </div>
+            </div>
+
+            {/* Why Databases Are Important */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">Why Are Databases So Important?</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <span className="text-2xl mt-1">💾</span>
+                    <div>
+                      <h4 className="font-semibold text-purple-300">Permanent Storage</h4>
+                      <p className="text-white/80 text-sm">Data stays safe even if the server turns off</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <span className="text-2xl mt-1">⚡</span>
+                    <div>
+                      <h4 className="font-semibold text-purple-300">Super Fast</h4>
+                      <p className="text-white/80 text-sm">Can find any piece of data in milliseconds</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <span className="text-2xl mt-1">🔒</span>
+                    <div>
+                      <h4 className="font-semibold text-purple-300">Secure</h4>
+                      <p className="text-white/80 text-sm">Controls who can see and modify what</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-3">
+                    <span className="text-2xl mt-1">📈</span>
+                    <div>
+                      <h4 className="font-semibold text-purple-300">Scales Up</h4>
+                      <p className="text-white/80 text-sm">Can handle millions of users and billions of records</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <span className="text-2xl mt-1">🔄</span>
+                    <div>
+                      <h4 className="font-semibold text-purple-300">Reliable</h4>
+                      <p className="text-white/80 text-sm">Automatic backups ensure data never gets lost</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <span className="text-2xl mt-1">🔍</span>
+                    <div>
+                      <h4 className="font-semibold text-purple-300">Smart Search</h4>
+                      <p className="text-white/80 text-sm">Can find complex patterns and relationships in data</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Technologies We'll Learn */}
+            <div className="bg-gradient-to-r from-purple-500/20 to-indigo-500/20 backdrop-blur rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">Database Technology We'll Use</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="text-center">
+                  <div className="text-6xl mb-4">🍃</div>
+                  <h4 className="text-2xl font-semibold text-green-300 mb-4">MongoDB</h4>
+                  <p className="text-white/80 mb-4">
+                    A modern "NoSQL" database that stores data like JSON objects
+                  </p>
+                  <ul className="text-purple-200 space-y-2 text-sm">
+                    <li>• Easy to learn and use</li>
+                    <li>• Flexible data structure</li>
+                    <li>• Perfect for web apps</li>
+                    <li>• Used by Netflix, Facebook, eBay</li>
+                  </ul>
+                </div>
+                
+                <div className="bg-purple-500/20 rounded-lg p-6">
+                  <h4 className="text-lg font-semibold text-purple-300 mb-4">Example Data in MongoDB:</h4>
+                  <div className="bg-gray-900/50 rounded-lg p-4 text-left">
+                    <pre className="text-green-300 text-sm">
+{`{
+  "name": "Alex Chen",
+  "email": "alex@email.com", 
+  "posts": [
+    {
+      "text": "Having a great day!",
+      "likes": 42,
+      "date": "2024-01-15"
+    }
+  ],
+  "followers": 156
+}`}
+                    </pre>
+                  </div>
+                  <p className="text-purple-200 text-sm mt-3">
+                    Clean, readable, and easy to work with!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-purple-600 to-indigo-700'
+    },
+    {
+      id: 'instagram-example',
+      title: 'Instagram System Example',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">📸 Real-World Example: Instagram</h2>
+          <p className="text-xl text-blue-100 text-center mb-8">
+            How Instagram uses three-tier architecture to serve billions of users
+          </p>
+                     <SystemIntegrationDemo />
+        </div>
+      ),
+      bgGradient: 'from-blue-600 via-purple-600 to-pink-600'
+    },
+    {
+      id: 'mern-stack',
+      title: 'MERN Stack',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">🚀 MERN Stack</h2>
+          <p className="text-2xl text-blue-100 text-center mb-12">
+            The technology stack we'll be learning in this course
+          </p>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+              <div className="bg-gradient-to-br from-green-500/20 to-green-600/30 rounded-xl p-8 text-center border border-green-400/30 hover:scale-105 transition-transform duration-300">
+                <div className="text-5xl mb-4">🍃</div>
+                <h3 className="text-2xl font-bold text-green-300 mb-4">MongoDB</h3>
+                <p className="text-white/80 mb-4">Database</p>
+                <ul className="text-sm text-green-200 text-left space-y-1">
+                  <li>• NoSQL document database</li>
+                  <li>• Flexible JSON-like documents</li>
+                  <li>• Scalable and fast</li>
+                  <li>• Perfect for modern apps</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/30 rounded-xl p-8 text-center border border-blue-400/30 hover:scale-105 transition-transform duration-300">
+                <div className="text-5xl mb-4">🚂</div>
+                <h3 className="text-2xl font-bold text-blue-300 mb-4">Express.js</h3>
+                <p className="text-white/80 mb-4">Backend Framework</p>
+                <ul className="text-sm text-blue-200 text-left space-y-1">
+                  <li>• Fast web framework</li>
+                  <li>• RESTful API creation</li>
+                  <li>• Middleware support</li>
+                  <li>• Built on Node.js</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gradient-to-br from-cyan-500/20 to-cyan-600/30 rounded-xl p-8 text-center border border-cyan-400/30 hover:scale-105 transition-transform duration-300">
+                <div className="text-5xl mb-4">⚛️</div>
+                <h3 className="text-2xl font-bold text-cyan-300 mb-4">React.js</h3>
+                <p className="text-white/80 mb-4">Frontend Library</p>
+                <ul className="text-sm text-cyan-200 text-left space-y-1">
+                  <li>• Component-based UI</li>
+                  <li>• Virtual DOM</li>
+                  <li>• Reusable components</li>
+                  <li>• Rich ecosystem</li>
+                </ul>
+              </div>
+              
+              <div className="bg-gradient-to-br from-yellow-500/20 to-yellow-600/30 rounded-xl p-8 text-center border border-yellow-400/30 hover:scale-105 transition-transform duration-300">
+                <div className="text-5xl mb-4">🟢</div>
+                <h3 className="text-2xl font-bold text-yellow-300 mb-4">Node.js</h3>
+                <p className="text-white/80 mb-4">Runtime Environment</p>
+                <ul className="text-sm text-yellow-200 text-left space-y-1">
+                  <li>• JavaScript everywhere</li>
+                  <li>• Fast and scalable</li>
+                  <li>• NPM package manager</li>
+                  <li>• Event-driven architecture</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur rounded-xl p-8 border border-purple-400/30">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">🎯 Why MERN Stack?</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-lg font-semibold text-purple-300 mb-4">Advantages:</h4>
+                  <ul className="space-y-3 text-white/80">
+                    <li className="flex items-start">
+                      <span className="mr-3 text-purple-400 mt-1">✨</span>
+                      <span><strong>JavaScript Everywhere</strong> - Same language for frontend and backend</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-3 text-purple-400 mt-1">🚀</span>
+                      <span><strong>Fast Development</strong> - Rapid prototyping and deployment</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-3 text-purple-400 mt-1">📈</span>
+                      <span><strong>Highly Scalable</strong> - Handle millions of users</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-3 text-purple-400 mt-1">🌍</span>
+                      <span><strong>Industry Standard</strong> - Used by Netflix, Facebook, Airbnb</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h4 className="text-lg font-semibold text-blue-300 mb-4">Perfect For:</h4>
+                  <ul className="space-y-3 text-white/80">
+                    <li className="flex items-start">
+                      <span className="mr-3 text-blue-400 mt-1">💼</span>
+                      <span><strong>Startups</strong> - Quick time to market</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-3 text-blue-400 mt-1">📱</span>
+                      <span><strong>Social Apps</strong> - Real-time features</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-3 text-blue-400 mt-1">💰</span>
+                      <span><strong>E-commerce</strong> - Dynamic content</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="mr-3 text-blue-400 mt-1">🎯</span>
+                      <span><strong>Your Portfolio</strong> - Impressive to employers</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div className="text-center mt-8">
+              <div className="bg-gradient-to-r from-green-500/20 to-cyan-500/20 backdrop-blur rounded-xl p-6 border border-white/20 max-w-4xl mx-auto">
+                <div className="text-white text-xl mb-3">🎓 By the End of This Course:</div>
+                <div className="text-blue-100 text-lg">
+                  You'll be able to build complete full-stack applications using the MERN stack, 
+                  including your final startup project that you can deploy and potentially monetize!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-indigo-600 to-purple-700'
     },
     {
       id: 'web-applications',
