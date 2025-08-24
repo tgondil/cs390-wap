@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { courseData } from '../data/courseData';
-import Class1Slides from '../components/Class1/Class1Slides';
-import Class2Slides from '../components/Class1/Class2Slides';
+import Class1Slides from '../components/classes/class-1/Slides';
+import Class2Slides from '../components/classes/class-2/Slides';
 
 const ClassPage = () => {
   const { classNumber } = useParams();
@@ -66,11 +66,16 @@ const ClassPage = () => {
             </div>
           </div>
           
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">
             {classItem.title}
           </h1>
+          {courseData.classDates && courseData.classDates[classItem.classNumber] && (
+            <div className="text-gray-500">
+              {courseData.classDates[classItem.classNumber]}
+            </div>
+          )}
           
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 mt-4">
             {week.description}
           </p>
         </div>

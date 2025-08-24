@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import ClassPage from './pages/ClassPage';
 import Navigation from './components/Class1/Navigation';
+import SyllabusPage from './pages/SyllabusPage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/class/:classNumber" element={<ClassPage />} />
+          <Route path="/syllabus" element={<SyllabusPage />} />
         </Routes>
       </div>
     </Router>

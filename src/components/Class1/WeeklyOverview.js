@@ -44,9 +44,14 @@ const WeeklyOverview = () => {
                             Class {classItem.classNumber}
                           </span>
                         </div>
-                        <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                        <h4 className="text-lg font-semibold text-gray-900 mb-1">
                           {classItem.title}
                         </h4>
+                        {courseData.classDates && courseData.classDates[classItem.classNumber] && (
+                          <div className="text-sm text-gray-500">
+                            {courseData.classDates[classItem.classNumber]}
+                          </div>
+                        )}
                       </div>
                       <Link
                         to={`/class/${classItem.classNumber}`}

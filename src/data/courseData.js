@@ -494,7 +494,39 @@ export const courseData = {
         }
       ]
     }
-  ]
+  ],
+
+  classDates: {
+    1: "Mon, Aug 25, 2025",
+    2: "Wed, Aug 27, 2025",
+    3: "Wed, Sep 03, 2025",
+    4: "Mon, Sep 08, 2025",
+    5: "Wed, Sep 10, 2025",
+    6: "Mon, Sep 15, 2025",
+    7: "Wed, Sep 17, 2025",
+    8: "Mon, Sep 22, 2025",
+    9: "Wed, Sep 24, 2025",
+    10: "Mon, Sep 29, 2025",
+    11: "Wed, Oct 01, 2025",
+    12: "Mon, Oct 06, 2025",
+    13: "Wed, Oct 08, 2025",
+    14: "Wed, Oct 15, 2025",
+    15: "Mon, Oct 20, 2025",
+    16: "Wed, Oct 22, 2025",
+    17: "Mon, Oct 27, 2025",
+    18: "Wed, Oct 29, 2025",
+    19: "Mon, Nov 03, 2025",
+    20: "Wed, Nov 05, 2025",
+    21: "Mon, Nov 10, 2025",
+    22: "Wed, Nov 12, 2025",
+    23: "Mon, Nov 17, 2025",
+    24: "Wed, Nov 19, 2025",
+    25: "Mon, Nov 24, 2025",
+    26: "Mon, Dec 01, 2025",
+    27: "Wed, Dec 03, 2025",
+    28: "Mon, Dec 08, 2025",
+    29: "Wed, Dec 10, 2025"
+  }
 };
 
 export const techStack = [
