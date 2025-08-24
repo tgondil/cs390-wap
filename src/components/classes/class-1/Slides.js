@@ -2489,123 +2489,106 @@ const Class1Slides = () => {
       ),
       bgGradient: 'from-blue-600 via-purple-600 to-pink-600'
     },
-    {
-      id: 'mern-stack',
-      title: 'MERN Stack',
+        {
+      id: 'mern-introduction',
+      title: 'MERN Stack - Introduction',
       content: (
         <div className="space-y-8">
           <h2 className="text-4xl font-bold text-white mb-8 text-center">🚀 MERN Stack</h2>
-          <p className="text-2xl text-blue-100 text-center mb-12">
-            The technology stack we'll be learning in this course
+          <p className="text-2xl text-blue-100 text-center mb-8">
+            Your complete toolkit for building modern web applications
           </p>
           
+          {/* What is MERN? */}
+          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur rounded-xl p-8 border border-blue-400/30 mb-12 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">🤔 What does MERN stand for?</h3>
+            <div className="text-center text-white text-lg mb-6">
+              <span className="inline-block bg-green-500/30 px-4 py-2 rounded-lg mr-2 font-bold">M</span>
+              <span className="inline-block bg-blue-500/30 px-4 py-2 rounded-lg mr-2 font-bold">E</span>
+              <span className="inline-block bg-cyan-500/30 px-4 py-2 rounded-lg mr-2 font-bold">R</span>
+              <span className="inline-block bg-yellow-500/30 px-4 py-2 rounded-lg font-bold">N</span>
+            </div>
+            <p className="text-blue-100 text-lg text-center">
+              It's like a <strong>recipe</strong> - each ingredient has a specific purpose, and together they make something amazing!
+            </p>
+          </div>
+          
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-              <div className="bg-gradient-to-br from-green-500/20 to-green-600/30 rounded-xl p-8 text-center border border-green-400/30 hover:scale-105 transition-transform duration-300">
-                <div className="text-5xl mb-4">🍃</div>
-                <h3 className="text-2xl font-bold text-green-300 mb-4">MongoDB</h3>
-                <p className="text-white/80 mb-4">Database</p>
-                <ul className="text-sm text-green-200 text-left space-y-1">
-                  <li>• NoSQL document database</li>
-                  <li>• Flexible JSON-like documents</li>
-                  <li>• Scalable and fast</li>
-                  <li>• Perfect for modern apps</li>
-                </ul>
-              </div>
-              
-              <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/30 rounded-xl p-8 text-center border border-blue-400/30 hover:scale-105 transition-transform duration-300">
-                <div className="text-5xl mb-4">🚂</div>
-                <h3 className="text-2xl font-bold text-blue-300 mb-4">Express.js</h3>
-                <p className="text-white/80 mb-4">Backend Framework</p>
-                <ul className="text-sm text-blue-200 text-left space-y-1">
-                  <li>• Fast web framework</li>
-                  <li>• RESTful API creation</li>
-                  <li>• Middleware support</li>
-                  <li>• Built on Node.js</li>
-                </ul>
-              </div>
-              
-              <div className="bg-gradient-to-br from-cyan-500/20 to-cyan-600/30 rounded-xl p-8 text-center border border-cyan-400/30 hover:scale-105 transition-transform duration-300">
-                <div className="text-5xl mb-4">⚛️</div>
-                <h3 className="text-2xl font-bold text-cyan-300 mb-4">React.js</h3>
-                <p className="text-white/80 mb-4">Frontend Library</p>
-                <ul className="text-sm text-cyan-200 text-left space-y-1">
-                  <li>• Component-based UI</li>
-                  <li>• Virtual DOM</li>
-                  <li>• Reusable components</li>
-                  <li>• Rich ecosystem</li>
-                </ul>
-              </div>
-              
-              <div className="bg-gradient-to-br from-yellow-500/20 to-yellow-600/30 rounded-xl p-8 text-center border border-yellow-400/30 hover:scale-105 transition-transform duration-300">
-                <div className="text-5xl mb-4">🟢</div>
-                <h3 className="text-2xl font-bold text-yellow-300 mb-4">Node.js</h3>
-                <p className="text-white/80 mb-4">Runtime Environment</p>
-                <ul className="text-sm text-yellow-200 text-left space-y-1">
-                  <li>• JavaScript everywhere</li>
-                  <li>• Fast and scalable</li>
-                  <li>• NPM package manager</li>
-                  <li>• Event-driven architecture</li>
-                </ul>
-              </div>
-            </div>
+            {/* The Stack Breakdown */}
+            <h3 className="text-3xl font-bold text-white mb-8 text-center">🧩 The Backend Foundation</h3>
             
-            <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur rounded-xl p-8 border border-purple-400/30">
-              <h3 className="text-2xl font-bold text-white mb-6 text-center">🎯 Why MERN Stack?</h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="text-lg font-semibold text-purple-300 mb-4">Advantages:</h4>
-                  <ul className="space-y-3 text-white/80">
-                    <li className="flex items-start">
-                      <span className="mr-3 text-purple-400 mt-1">✨</span>
-                      <span><strong>JavaScript Everywhere</strong> - Same language for frontend and backend</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="mr-3 text-purple-400 mt-1">🚀</span>
-                      <span><strong>Fast Development</strong> - Rapid prototyping and deployment</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="mr-3 text-purple-400 mt-1">📈</span>
-                      <span><strong>Highly Scalable</strong> - Handle millions of users</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="mr-3 text-purple-400 mt-1">🌍</span>
-                      <span><strong>Industry Standard</strong> - Used by Netflix, Facebook, Airbnb</span>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h4 className="text-lg font-semibold text-blue-300 mb-4">Perfect For:</h4>
-                  <ul className="space-y-3 text-white/80">
-                    <li className="flex items-start">
-                      <span className="mr-3 text-blue-400 mt-1">💼</span>
-                      <span><strong>Startups</strong> - Quick time to market</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="mr-3 text-blue-400 mt-1">📱</span>
-                      <span><strong>Social Apps</strong> - Real-time features</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="mr-3 text-blue-400 mt-1">💰</span>
-                      <span><strong>E-commerce</strong> - Dynamic content</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="mr-3 text-blue-400 mt-1">🎯</span>
-                      <span><strong>Your Portfolio</strong> - Impressive to employers</span>
-                    </li>
-                  </ul>
+            <div className="space-y-8">
+              {/* MongoDB */}
+              <div className="bg-gradient-to-r from-green-500/20 to-green-600/30 rounded-xl p-8 border border-green-400/30">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                  <div className="text-center lg:text-left">
+                    <div className="text-6xl mb-4">🍃</div>
+                    <h4 className="text-3xl font-bold text-green-300 mb-2">MongoDB</h4>
+                    <p className="text-xl text-white/80 mb-4">The Database</p>
+                    <p className="text-green-200">
+                      Think of it as a <strong>digital filing cabinet</strong> that stores all your app's information
+                    </p>
+                  </div>
+                  
+                  <div className="lg:col-span-2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <h5 className="font-semibold text-green-300 mb-3">What it does:</h5>
+                        <ul className="text-white/80 space-y-2">
+                          <li>📝 Stores user profiles</li>
+                          <li>📷 Saves posts and photos</li>
+                          <li>💬 Keeps chat messages</li>
+                          <li>🔒 Remembers login info</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-green-300 mb-3">Why it's awesome:</h5>
+                        <ul className="text-white/80 space-y-2">
+                          <li>⚡ Super fast searches</li>
+                          <li>📈 Handles millions of users</li>
+                          <li>🔄 Works with JSON naturally</li>
+                          <li>🌍 Used by Facebook, Netflix</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            
-            <div className="text-center mt-8">
-              <div className="bg-gradient-to-r from-green-500/20 to-cyan-500/20 backdrop-blur rounded-xl p-6 border border-white/20 max-w-4xl mx-auto">
-                <div className="text-white text-xl mb-3">🎓 By the End of This Course:</div>
-                <div className="text-blue-100 text-lg">
-                  You'll be able to build complete full-stack applications using the MERN stack, 
-                  including your final startup project that you can deploy and potentially monetize!
+
+              {/* Express.js */}
+              <div className="bg-gradient-to-r from-blue-500/20 to-blue-600/30 rounded-xl p-8 border border-blue-400/30">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                  <div className="text-center lg:text-left">
+                    <div className="text-6xl mb-4">🚂</div>
+                    <h4 className="text-3xl font-bold text-blue-300 mb-2">Express.js</h4>
+                    <p className="text-xl text-white/80 mb-4">The Backend</p>
+                    <p className="text-blue-200">
+                      Like a <strong>smart waiter</strong> that takes orders from customers and brings back exactly what they need
+                    </p>
+                  </div>
+                  
+                  <div className="lg:col-span-2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <h5 className="font-semibold text-blue-300 mb-3">What it does:</h5>
+                        <ul className="text-white/80 space-y-2">
+                          <li>🔑 Handles user login</li>
+                          <li>📡 Creates API endpoints</li>
+                          <li>🛡️ Protects sensitive data</li>
+                          <li>🔄 Processes requests</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-blue-300 mb-3">Why we love it:</h5>
+                        <ul className="text-white/80 space-y-2">
+                          <li>🏃‍♂️ Fast and lightweight</li>
+                          <li>🧩 Easy to learn</li>
+                          <li>🔧 Tons of helpful tools</li>
+                          <li>📚 Great documentation</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2615,28 +2598,1595 @@ const Class1Slides = () => {
       bgGradient: 'from-indigo-600 to-purple-700'
     },
     {
-      id: 'html-css-fundamentals',
-      title: 'HTML & CSS Fundamentals',
+      id: 'mern-frontend',
+      title: 'MERN Stack - Frontend',
       content: (
         <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8">🔨 HTML & CSS Fundamentals</h2>
-          <p className="text-xl text-blue-100 text-center mb-8">
-            Building Your First Webpage - Interactive Practice
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">🚀 MERN Stack</h2>
+          <p className="text-2xl text-blue-100 text-center mb-8">
+            The frontend technologies that bring your apps to life
           </p>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            <div>
-              <HTMLBuilder />
+          <div className="max-w-6xl mx-auto">
+            {/* The Stack Breakdown */}
+            <h3 className="text-3xl font-bold text-white mb-8 text-center">🎨 The Frontend Powerhouse</h3>
+            
+            <div className="space-y-8">
+              {/* React.js */}
+              <div className="bg-gradient-to-r from-cyan-500/20 to-cyan-600/30 rounded-xl p-8 border border-cyan-400/30">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                  <div className="text-center lg:text-left">
+                    <div className="text-6xl mb-4">⚛️</div>
+                    <h4 className="text-3xl font-bold text-cyan-300 mb-2">React.js</h4>
+                    <p className="text-xl text-white/80 mb-4">The Frontend</p>
+                    <p className="text-cyan-200">
+                      Like <strong>LEGO blocks</strong> - build complex interfaces by snapping together reusable pieces
+                    </p>
+                  </div>
+                  
+                  <div className="lg:col-span-2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <h5 className="font-semibold text-cyan-300 mb-3">What it does:</h5>
+                        <ul className="text-white/80 space-y-2">
+                          <li>🎨 Creates beautiful UIs</li>
+                          <li>🔄 Updates content instantly</li>
+                          <li>📱 Works on all devices</li>
+                          <li>🎯 Handles user interactions</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-cyan-300 mb-3">Why it rocks:</h5>
+                        <ul className="text-white/80 space-y-2">
+                          <li>🧩 Reusable components</li>
+                          <li>⚡ Lightning fast</li>
+                          <li>👥 Huge community</li>
+                          <li>💼 High job demand</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Node.js */}
+              <div className="bg-gradient-to-r from-yellow-500/20 to-yellow-600/30 rounded-xl p-8 border border-yellow-400/30">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                  <div className="text-center lg:text-left">
+                    <div className="text-6xl mb-4">🟢</div>
+                    <h4 className="text-3xl font-bold text-yellow-300 mb-2">Node.js</h4>
+                    <p className="text-xl text-white/80 mb-4">The Runtime</p>
+                    <p className="text-yellow-200">
+                      The <strong>engine</strong> that runs JavaScript on the server - like having one language for everything!
+                    </p>
+                  </div>
+                  
+                  <div className="lg:col-span-2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <h5 className="font-semibold text-yellow-300 mb-3">What it does:</h5>
+                        <ul className="text-white/80 space-y-2">
+                          <li>⚙️ Runs JavaScript on servers</li>
+                          <li>📦 Manages packages (NPM)</li>
+                          <li>🔗 Connects all the pieces</li>
+                          <li>🚀 Powers the backend</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-yellow-300 mb-3">The magic:</h5>
+                        <ul className="text-white/80 space-y-2">
+                          <li>🎯 One language for everything</li>
+                          <li>⚡ Super fast performance</li>
+                          <li>📚 Millions of packages</li>
+                          <li>🌟 Easy to learn</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <CSSPlayground />
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-cyan-600 to-yellow-600'
+    },
+    {
+      id: 'mern-in-action',
+      title: 'MERN Stack - In Action',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">🤯 Why is MERN So Popular?</h2>
+          <p className="text-2xl text-blue-100 text-center mb-8">
+            Real-world success stories and career opportunities
+          </p>
+          
+          <div className="max-w-6xl mx-auto">
+            {/* Why MERN is Amazing */}
+            <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 backdrop-blur rounded-xl p-8 border border-purple-400/30">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div className="bg-white/10 rounded-xl p-6">
+                  <h4 className="text-xl font-semibold text-purple-300 mb-6 text-center">🎯 The Magic Formula</h4>
+                  <div className="space-y-4">
+                    <div className="flex items-start">
+                      <span className="mr-4 text-2xl">🧠</span>
+                      <div>
+                        <h5 className="font-semibold text-white mb-1">One Brain, One Language</h5>
+                        <p className="text-white/80 text-sm">Learn JavaScript once, use it everywhere! No need to switch between different programming languages.</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="mr-4 text-2xl">🚀</span>
+                      <div>
+                        <h5 className="font-semibold text-white mb-1">Lightning Fast Development</h5>
+                        <p className="text-white/80 text-sm">Build apps in weeks, not months. Perfect for startups and getting ideas to market quickly.</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="mr-4 text-2xl">💰</span>
+                      <div>
+                        <h5 className="font-semibold text-white mb-1">High-Paying Career Path</h5>
+                        <p className="text-white/80 text-sm">MERN developers are in huge demand with salaries often $80k-150k+ per year.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-white/10 rounded-xl p-6">
+                  <h4 className="text-xl font-semibold text-blue-300 mb-6 text-center">🌟 Real-World Success</h4>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
+                      <span className="font-semibold text-white">Netflix</span>
+                      <span className="text-blue-300 text-sm">React + Node.js</span>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
+                      <span className="font-semibold text-white">Instagram</span>
+                      <span className="text-blue-300 text-sm">React + Express</span>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
+                      <span className="font-semibold text-white">WhatsApp</span>
+                      <span className="text-blue-300 text-sm">React + Node.js</span>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-white/10 rounded-lg">
+                      <span className="font-semibold text-white">Airbnb</span>
+                      <span className="text-blue-300 text-sm">Full MERN Stack</span>
+                    </div>
+                    <div className="text-center mt-4">
+                      <p className="text-white/70 text-sm">These apps serve <strong>billions</strong> of users!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-purple-600 to-indigo-700'
+    },
+    {
+      id: 'html-basics',
+      title: 'HTML Basics',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">📝 HTML Basics</h2>
+          <p className="text-2xl text-blue-100 text-center mb-8">
+            Understanding the building blocks of web pages
+          </p>
+          
+          {/* Transition from MERN Frontend */}
+          <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 backdrop-blur rounded-xl p-8 border border-cyan-400/30 mb-12 max-w-5xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">🎯 From MERN to Reality</h3>
+            <p className="text-blue-100 text-lg text-center mb-6">
+              We learned about <strong>React</strong> in the MERN stack. But React is built on <strong>HTML</strong>! Let's start with the foundation.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+              <div className="bg-white/10 rounded-xl p-6">
+                <h4 className="text-lg font-semibold text-cyan-300 mb-4">🧩 HTML = Building Blocks</h4>
+                <ul className="text-white/80 space-y-2 text-sm">
+                  <li>• <strong>Tags</strong>: {'<h1>'}, {'<p>'}, {'<div>'} - containers for content</li>
+                  <li>• <strong>Elements</strong>: Complete tags with content inside</li>
+                  <li>• <strong>Attributes</strong>: Extra info like id, class, src</li>
+                  <li>• <strong>Structure</strong>: Organizes content logically</li>
+                </ul>
+              </div>
+              <div className="bg-white/10 rounded-xl p-6">
+                <h4 className="text-lg font-semibold text-blue-300 mb-4">🚀 Why HTML First?</h4>
+                <ul className="text-white/80 space-y-2 text-sm">
+                  <li>• <strong>Foundation</strong>: Every website starts here</li>
+                  <li>• <strong>React JSX</strong>: Is just HTML in JavaScript!</li>
+                  <li>• <strong>Simple Start</strong>: Build confidence before complexity</li>
+                  <li>• <strong>Real Skills</strong>: Used in every web framework</li>
+                </ul>
+              </div>
             </div>
           </div>
           
-          <AdvancedHTMLCSSDemo />
+          {/* HTML Tag Syntax */}
+          <div className="max-w-6xl mx-auto">
+            <h3 className="text-3xl font-bold text-white mb-8 text-center">🔖 HTML Tag Syntax</h3>
+            
+            <div className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-xl p-8 border border-indigo-400/30">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Basic Tag Pattern */}
+                <div>
+                  <h4 className="text-xl font-semibold text-indigo-300 mb-4">⚙️ The HTML Tag Pattern</h4>
+                  <div className="bg-black/50 rounded-lg p-6">
+                    <div className="text-center mb-6">
+                      <span className="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded text-sm">Every HTML Element Follows This Pattern</span>
+                    </div>
+                    <div className="font-mono text-lg text-center space-y-4">
+                      <div>
+                        <span className="text-green-300 text-xl">{'<tagname>'}</span>
+                      </div>
+                      <div className="text-white text-base">content goes here</div>
+                      <div>
+                        <span className="text-red-300 text-xl">{'</tagname>'}</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 bg-white/10 rounded p-4">
+                    <h5 className="text-indigo-300 font-semibold text-sm mb-3">🧩 The Two Parts:</h5>
+                    <div className="space-y-2 text-sm">
+                      <div><span className="text-green-300 font-mono">{'<tagname>'}</span> → Opening tag (starts the element)</div>
+                      <div><span className="text-red-300 font-mono">{'</tagname>'}</span> → Closing tag (ends the element)</div>
+                      <div><span className="text-white font-mono">content</span> → What goes between the tags</div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Real Examples */}
+                <div>
+                  <h4 className="text-xl font-semibold text-purple-300 mb-4">🎯 Real HTML Examples</h4>
+                  <div className="space-y-4">
+                    <div className="bg-black/50 rounded-lg p-4">
+                      <div className="text-center mb-4">
+                        <span className="bg-green-500/20 text-green-300 px-3 py-1 rounded text-sm">Heading Example</span>
+                      </div>
+                      <div className="font-mono text-sm text-center space-y-2">
+                        <div>
+                          <span className="text-green-300">{'<h1>'}</span>
+                          <span className="text-white">Welcome to My Website</span>
+                          <span className="text-red-300">{'</h1>'}</span>
+                        </div>
+                        <div className="text-xs text-gray-400 mt-2">Creates a big heading</div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-black/50 rounded-lg p-4">
+                      <div className="text-center mb-4">
+                        <span className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded text-sm">Paragraph Example</span>
+                      </div>
+                      <div className="font-mono text-sm text-center space-y-2">
+                        <div>
+                          <span className="text-green-300">{'<p>'}</span>
+                          <span className="text-white">This is a paragraph of text.</span>
+                          <span className="text-red-300">{'</p>'}</span>
+                        </div>
+                        <div className="text-xs text-gray-400 mt-2">Creates a paragraph</div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-black/50 rounded-lg p-4">
+                      <div className="text-center mb-4">
+                        <span className="bg-purple-500/20 text-purple-300 px-3 py-1 rounded text-sm">Container Example</span>
+                      </div>
+                      <div className="font-mono text-sm text-center space-y-2">
+                        <div>
+                          <span className="text-green-300">{'<div>'}</span>
+                          <span className="text-white">Content container</span>
+                          <span className="text-red-300">{'</div>'}</span>
+                        </div>
+                        <div className="text-xs text-gray-400 mt-2">Creates a container box</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* What's Next Preview */}
+          <div className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-xl p-8 border border-emerald-400/30 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-4 text-center">🔜 What's Next?</h3>
+            <div className="text-center">
+              <p className="text-emerald-100 text-lg mb-4">Now that we understand individual tags, let's see how they work together!</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-white/10 rounded p-4">
+                  <h4 className="text-emerald-300 font-semibold mb-2">🪆 HTML Nesting</h4>
+                  <p className="text-white/80 text-sm">How to put tags inside other tags for organization</p>
+                </div>
+                <div className="bg-white/10 rounded p-4">
+                  <h4 className="text-teal-300 font-semibold mb-2">🏗️ Page Structure</h4>
+                  <p className="text-white/80 text-sm">Building complete, organized web pages</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       ),
-      bgGradient: 'from-purple-600 to-pink-700'
+      bgGradient: 'from-blue-600 to-indigo-600'
+    },
+    {
+      id: 'html-structure',
+      title: 'HTML Structure & Nesting',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">🪆 HTML Structure & Nesting</h2>
+          <p className="text-2xl text-cyan-100 text-center mb-8">
+            How HTML tags work together to create organized content
+          </p>
+          
+          {/* HTML Nesting Concept */}
+          <div className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 backdrop-blur rounded-xl p-8 border border-emerald-400/30 mb-12 max-w-5xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">🏗️ What is HTML Nesting?</h3>
+            <p className="text-emerald-100 text-lg text-center mb-6">
+              Nesting means putting <strong>tags inside other tags</strong> - like boxes inside bigger boxes!
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+              <div className="bg-white/10 rounded-xl p-6">
+                <h4 className="text-lg font-semibold text-emerald-300 mb-4">📦 Think Like Containers</h4>
+                <ul className="text-white/80 space-y-2 text-sm">
+                  <li>• <strong>Outer Container</strong>: Holds everything together</li>
+                  <li>• <strong>Inner Elements</strong>: Specific content pieces</li>
+                  <li>• <strong>Organization</strong>: Related content grouped together</li>
+                  <li>• <strong>Structure</strong>: Creates hierarchy and meaning</li>
+                </ul>
+              </div>
+              <div className="bg-white/10 rounded-xl p-6">
+                <h4 className="text-lg font-semibold text-teal-300 mb-4">🎯 Why Nesting Matters</h4>
+                <ul className="text-white/80 space-y-2 text-sm">
+                  <li>• <strong>CSS Styling</strong>: Style containers and their contents</li>
+                  <li>• <strong>JavaScript</strong>: Find and manipulate specific sections</li>
+                  <li>• <strong>Accessibility</strong>: Screen readers understand relationships</li>
+                  <li>• <strong>SEO</strong>: Search engines understand page structure</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          {/* Nesting Examples */}
+          <div className="max-w-6xl mx-auto">
+            <h3 className="text-3xl font-bold text-white mb-8 text-center">📋 Nesting in Action</h3>
+            
+            <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-xl p-8 border border-cyan-400/30">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Simple Example */}
+                <div>
+                  <h4 className="text-xl font-semibold text-cyan-300 mb-4">📦 Simple Nesting Example</h4>
+                  <div className="bg-black/50 rounded-lg p-6">
+                    <div className="text-center mb-4">
+                      <span className="bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded text-sm">A Card Section</span>
+                    </div>
+                    <div className="font-mono text-sm space-y-1">
+                      <div className="text-orange-300">{'<div>'}</div>
+                      <div className="text-cyan-300 ml-4">{'<h2>About Me</h2>'}</div>
+                      <div className="text-pink-300 ml-4">{'<p>I love building websites!</p>'}</div>
+                      <div className="text-green-300 ml-4">{'<p>I\'m learning HTML and CSS.</p>'}</div>
+                      <div className="text-orange-300">{'</div>'}</div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 bg-white/10 rounded p-4">
+                    <h5 className="text-cyan-300 font-semibold text-sm mb-3">🎨 Visual Result:</h5>
+                    <div className="bg-black/30 rounded p-3 border-l-4 border-orange-400">
+                      <h6 className="font-bold text-white mb-2">About Me</h6>
+                      <p className="text-white/80 text-sm mb-2">I love building websites!</p>
+                      <p className="text-white/80 text-sm">I'm learning HTML and CSS.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Complex Example */}
+                <div>
+                  <h4 className="text-xl font-semibold text-blue-300 mb-4">🏠 Complex Page Structure</h4>
+                  <div className="bg-black/50 rounded-lg p-6">
+                    <div className="text-center mb-4">
+                      <span className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded text-sm">Complete Article</span>
+                    </div>
+                    <div className="font-mono text-xs space-y-1">
+                      <div className="text-purple-300">{'<article>'}</div>
+                      <div className="text-yellow-300 ml-2">{'<header>'}</div>
+                      <div className="text-cyan-300 ml-4">{'<h1>My First Blog Post</h1>'}</div>
+                      <div className="text-pink-300 ml-4">{'<p>Published on Jan 15, 2024</p>'}</div>
+                      <div className="text-yellow-300 ml-2">{'</header>'}</div>
+                      <div className="text-green-300 ml-2">{'<main>'}</div>
+                      <div className="text-orange-300 ml-4">{'<p>Welcome to my blog...</p>'}</div>
+                      <div className="text-red-300 ml-4">{'<p>Today I learned...</p>'}</div>
+                      <div className="text-green-300 ml-2">{'</main>'}</div>
+                      <div className="text-purple-300">{'</article>'}</div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 bg-white/10 rounded p-4">
+                    <h5 className="text-blue-300 font-semibold text-sm mb-3">🏗️ Structure Breakdown:</h5>
+                    <div className="space-y-1 text-xs text-white/80">
+                      <div>• <code className="text-purple-300">article</code> = The whole blog post</div>
+                      <div>• <code className="text-yellow-300">header</code> = Title and date section</div>
+                      <div>• <code className="text-green-300">main</code> = The actual content</div>
+                      <div>• Each has its own paragraphs and headings</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Nesting Rules */}
+          <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-xl p-8 border border-orange-400/30 max-w-6xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">📏 The Golden Rules of Nesting</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Correct Rules */}
+              <div>
+                <h4 className="text-xl font-semibold text-green-300 mb-4">✅ Do This (Correct)</h4>
+                <div className="space-y-4">
+                  <div className="bg-black/50 rounded p-4">
+                    <h5 className="text-green-300 text-sm mb-2">🎯 Proper Closing Order</h5>
+                    <div className="font-mono text-xs space-y-1">
+                      <div className="text-yellow-300">{'<div>'}</div>
+                      <div className="text-cyan-300 ml-2">{'<p>Content</p>'}</div>
+                      <div className="text-yellow-300">{'</div>'}</div>
+                    </div>
+                    <p className="text-white/70 text-xs mt-2">Last opened, first closed ✅</p>
+                  </div>
+                  
+                  <div className="bg-black/50 rounded p-4">
+                    <h5 className="text-green-300 text-sm mb-2">📐 Clean Indentation</h5>
+                    <div className="font-mono text-xs space-y-1">
+                      <div className="text-yellow-300">{'<section>'}</div>
+                      <div className="text-cyan-300 ml-4">{'<h2>Title</h2>'}</div>
+                      <div className="text-pink-300 ml-4">{'<p>Paragraph</p>'}</div>
+                      <div className="text-yellow-300">{'</section>'}</div>
+                    </div>
+                    <p className="text-white/70 text-xs mt-2">Easy to read and understand ✅</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Incorrect Examples */}
+              <div>
+                <h4 className="text-xl font-semibold text-red-300 mb-4">❌ Don't Do This (Wrong)</h4>
+                <div className="space-y-4">
+                  <div className="bg-black/50 rounded p-4 border-l-4 border-red-500">
+                    <h5 className="text-red-300 text-sm mb-2">💥 Overlapping Tags</h5>
+                    <div className="font-mono text-xs space-y-1">
+                      <div className="text-yellow-300">{'<div>'}</div>
+                      <div className="text-cyan-300 ml-2">{'<p>Content</div>'}</div>
+                      <div className="text-cyan-300">{'</p>'}</div>
+                    </div>
+                    <p className="text-red-200 text-xs mt-2">Tags overlap - breaks the page! ❌</p>
+                  </div>
+                  
+                  <div className="bg-black/50 rounded p-4 border-l-4 border-red-500">
+                    <h5 className="text-red-300 text-sm mb-2">🌪️ No Indentation</h5>
+                    <div className="font-mono text-xs space-y-1">
+                      <div className="text-yellow-300">{'<section>'}</div>
+                      <div className="text-cyan-300">{'<h2>Title</h2>'}</div>
+                      <div className="text-pink-300">{'<p>Paragraph</p>'}</div>
+                      <div className="text-yellow-300">{'</section>'}</div>
+                    </div>
+                    <p className="text-red-200 text-xs mt-2">Hard to read and debug ❌</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Best Practices */}
+          <div className="bg-gradient-to-r from-purple-500/20 to-indigo-500/20 rounded-xl p-6 border border-purple-400/30 max-w-4xl mx-auto">
+            <h3 className="text-xl font-bold text-white mb-4 text-center">💡 Pro Tips for Clean HTML Structure</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white/10 rounded p-4">
+                <h4 className="text-purple-300 font-semibold mb-2">🎯 Use Semantic Tags</h4>
+                <p className="text-white/80 text-sm">Use {'<header>'}, {'<main>'}, {'<section>'} instead of just {'<div>'}</p>
+              </div>
+              <div className="bg-white/10 rounded p-4">
+                <h4 className="text-indigo-300 font-semibold mb-2">📱 Think Mobile First</h4>
+                <p className="text-white/80 text-sm">Structure your HTML so it works on small screens</p>
+              </div>
+              <div className="bg-white/10 rounded p-4">
+                <h4 className="text-purple-300 font-semibold mb-2">🔍 Keep It Simple</h4>
+                <p className="text-white/80 text-sm">Don't nest too deeply - 3-4 levels is usually enough</p>
+              </div>
+              <div className="bg-white/10 rounded p-4">
+                <h4 className="text-indigo-300 font-semibold mb-2">✅ Validate Your Code</h4>
+                <p className="text-white/80 text-sm">Use tools to check your HTML is properly structured</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-cyan-600 to-blue-600'
+    },
+    {
+      id: 'html-in-action',
+      title: 'HTML in Action',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">🌐 HTML in Action</h2>
+          <p className="text-2xl text-blue-100 text-center mb-8">
+            See how HTML creates real web pages
+          </p>
+          
+          {/* Step by Step Building */}
+          <div className="max-w-6xl mx-auto">
+            <h3 className="text-3xl font-bold text-white mb-8 text-center">🏗️ Building a Webpage Step by Step</h3>
+            
+            <div className="bg-gradient-to-r from-indigo-500/20 to-blue-500/20 rounded-xl p-8 border border-indigo-400/30">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Step by Step HTML */}
+                <div>
+                  <h4 className="text-xl font-semibold text-indigo-300 mb-4">📝 The HTML Code</h4>
+                  <div className="bg-black/50 rounded-lg p-4 font-mono text-sm max-h-96 overflow-y-auto">
+                    <div className="space-y-1">
+                      <div className="text-gray-400 text-xs mb-2">Step 1: Basic structure</div>
+                      <div className="text-blue-300">{'<html>'}</div>
+                      <div className="text-green-300 ml-2">{'<head>'}</div>
+                      <div className="text-yellow-300 ml-4">{'<title>My First Website</title>'}</div>
+                      <div className="text-green-300 ml-2">{'</head>'}</div>
+                      <div className="text-orange-300 ml-2">{'<body>'}</div>
+                      
+                      <div className="text-gray-400 text-xs mt-4 mb-2">Step 2: Add header</div>
+                      <div className="text-red-300 ml-4">{'<header>'}</div>
+                      <div className="text-cyan-300 ml-6">{'<h1>Welcome to My Website</h1>'}</div>
+                      <div className="text-purple-300 ml-6">{'<nav>'}</div>
+                      <div className="text-white ml-8">{'<a href="#home">Home</a>'}</div>
+                      <div className="text-white ml-8">{'<a href="#about">About</a>'}</div>
+                      <div className="text-purple-300 ml-6">{'</nav>'}</div>
+                      <div className="text-red-300 ml-4">{'</header>'}</div>
+                      
+                      <div className="text-gray-400 text-xs mt-4 mb-2">Step 3: Add main content</div>
+                      <div className="text-green-300 ml-4">{'<main>'}</div>
+                      <div className="text-cyan-300 ml-6">{'<h2>About Me</h2>'}</div>
+                      <div className="text-pink-300 ml-6">{'<p>I love building websites!</p>'}</div>
+                      
+                      <div className="text-gray-400 text-xs mt-2 mb-1">Step 4: Add a list</div>
+                      <div className="text-purple-300 ml-6">{'<h3>My Skills:</h3>'}</div>
+                      <div className="text-purple-300 ml-6">{'<ul>'}</div>
+                      <div className="text-white ml-8">{'<li>HTML</li>'}</div>
+                      <div className="text-white ml-8">{'<li>CSS</li>'}</div>
+                      <div className="text-white ml-8">{'<li>JavaScript</li>'}</div>
+                      <div className="text-purple-300 ml-6">{'</ul>'}</div>
+                      <div className="text-green-300 ml-4">{'</main>'}</div>
+                      
+                      <div className="text-gray-400 text-xs mt-4 mb-2">Step 5: Add footer</div>
+                      <div className="text-blue-300 ml-4">{'<footer>'}</div>
+                      <div className="text-white ml-6">{'<p>© 2024 My Website</p>'}</div>
+                      <div className="text-blue-300 ml-4">{'</footer>'}</div>
+                      
+                      <div className="text-orange-300 ml-2 mt-2">{'</body>'}</div>
+                      <div className="text-blue-300">{'</html>'}</div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Visual Result */}
+                <div>
+                  <h4 className="text-xl font-semibold text-purple-300 mb-4">🎨 What It Creates</h4>
+                  <div className="bg-white rounded-lg p-4 min-h-96">
+                    {/* Header */}
+                    <div className="border-2 border-red-300 border-dashed mb-3 p-3 bg-red-50">
+                      <h1 className="text-xl font-bold text-gray-800 mb-2">Welcome to My Website</h1>
+                      <nav className="space-x-4">
+                        <a href="#" className="text-blue-600 underline text-sm">Home</a>
+                        <a href="#" className="text-blue-600 underline text-sm">About</a>
+                      </nav>
+                      <div className="text-xs text-red-600 mt-1 font-mono">{'<header>'}</div>
+                    </div>
+                    
+                    {/* Main Content */}
+                    <div className="border-2 border-green-300 border-dashed mb-3 p-3 bg-green-50">
+                      <h2 className="text-lg font-semibold text-gray-800 mb-2">About Me</h2>
+                      <p className="text-gray-600 mb-3">I love building websites!</p>
+                      
+                      <div className="border-2 border-purple-300 border-dashed p-2 bg-purple-50">
+                        <h3 className="font-semibold text-gray-700 mb-2">My Skills:</h3>
+                        <ul className="list-disc list-inside text-gray-600 space-y-1">
+                          <li>HTML</li>
+                          <li>CSS</li>
+                          <li>JavaScript</li>
+                        </ul>
+                        <div className="text-xs text-purple-600 mt-1 font-mono">{'<ul>'}</div>
+                      </div>
+                      
+                      <div className="text-xs text-green-600 mt-2 font-mono">{'<main>'}</div>
+                    </div>
+                    
+                    {/* Footer */}
+                    <div className="border-2 border-blue-300 border-dashed p-3 bg-blue-50">
+                      <p className="text-center text-gray-600 text-sm">© 2024 My Website</p>
+                      <div className="text-xs text-blue-600 mt-1 font-mono text-center">{'<footer>'}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Key HTML Elements */}
+          <div className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-xl p-8 border border-emerald-400/30 max-w-6xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">🧰 Essential HTML Elements</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white/10 rounded-xl p-4">
+                <h4 className="text-lg font-semibold text-emerald-300 mb-3">📦 Structure Elements</h4>
+                <div className="space-y-2 text-sm">
+                  <div><span className="text-red-300 font-mono">{'<header>'}</span> - Top of page</div>
+                  <div><span className="text-green-300 font-mono">{'<main>'}</span> - Main content</div>
+                  <div><span className="text-blue-300 font-mono">{'<footer>'}</span> - Bottom of page</div>
+                  <div><span className="text-orange-300 font-mono">{'<div>'}</span> - Generic container</div>
+                </div>
+              </div>
+              
+              <div className="bg-white/10 rounded-xl p-4">
+                <h4 className="text-lg font-semibold text-cyan-300 mb-3">📝 Content Elements</h4>
+                <div className="space-y-2 text-sm">
+                  <div><span className="text-cyan-300 font-mono">{'<h1>, <h2>, <h3>'}</span> - Headings</div>
+                  <div><span className="text-pink-300 font-mono">{'<p>'}</span> - Paragraphs</div>
+                  <div><span className="text-purple-300 font-mono">{'<ul>, <li>'}</span> - Lists</div>
+                  <div><span className="text-white font-mono">{'<a>'}</span> - Links</div>
+                </div>
+              </div>
+              
+              <div className="bg-white/10 rounded-xl p-4">
+                <h4 className="text-lg font-semibold text-yellow-300 mb-3">🎯 Special Elements</h4>
+                <div className="space-y-2 text-sm">
+                  <div><span className="text-yellow-300 font-mono">{'<img>'}</span> - Images</div>
+                  <div><span className="text-purple-300 font-mono">{'<nav>'}</span> - Navigation</div>
+                  <div><span className="text-green-300 font-mono">{'<title>'}</span> - Page title</div>
+                  <div><span className="text-blue-300 font-mono">{'<head>'}</span> - Page info</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-8 text-center">
+              <div className="bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-lg p-4 inline-block">
+                <p className="text-white font-semibold">💡 Each HTML element has a specific purpose!</p>
+                <p className="text-white/80 text-sm mt-1">Use semantic elements to create well-structured, accessible websites</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-teal-600 to-cyan-600'
+    },
+    {
+      id: 'css-fundamentals',
+      title: 'CSS Fundamentals',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">🎨 CSS Fundamentals</h2>
+          <p className="text-2xl text-blue-100 text-center mb-8">
+            Understanding CSS syntax and how to apply styles
+          </p>
+          
+          {/* What is CSS */}
+          <div className="bg-gradient-to-r from-pink-500/20 to-purple-500/20 backdrop-blur rounded-xl p-8 border border-pink-400/30 mb-12 max-w-5xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">🎭 What is CSS?</h3>
+            <p className="text-pink-100 text-lg text-center mb-6">
+              CSS (Cascading Style Sheets) is how we make HTML look <strong>beautiful and professional</strong>!
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+              <div className="bg-white/10 rounded-xl p-6">
+                <h4 className="text-lg font-semibold text-pink-300 mb-4">🎨 What CSS Does</h4>
+                <ul className="text-white/80 space-y-2 text-sm">
+                  <li>• <strong>Colors</strong>: Text, backgrounds, borders</li>
+                  <li>• <strong>Layout</strong>: Position and organize elements</li>
+                  <li>• <strong>Typography</strong>: Fonts, sizes, spacing</li>
+                  <li>• <strong>Effects</strong>: Shadows, animations, hover states</li>
+                </ul>
+              </div>
+              <div className="bg-white/10 rounded-xl p-6">
+                <h4 className="text-lg font-semibold text-purple-300 mb-4">🚀 Why CSS is Powerful</h4>
+                <ul className="text-white/80 space-y-2 text-sm">
+                  <li>• <strong>Separation</strong>: Keep style separate from content</li>
+                  <li>• <strong>Reusable</strong>: One CSS file styles entire website</li>
+                  <li>• <strong>Responsive</strong>: Adapts to different screen sizes</li>
+                  <li>• <strong>Professional</strong>: Makes websites look polished</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          {/* CSS Syntax Breakdown */}
+          <div className="max-w-6xl mx-auto">
+            <h3 className="text-3xl font-bold text-white mb-8 text-center">📝 CSS Syntax - The Building Blocks</h3>
+            
+            <div className="bg-gradient-to-r from-indigo-500/20 to-blue-500/20 rounded-xl p-8 border border-indigo-400/30">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Basic Syntax Pattern */}
+                <div>
+                  <h4 className="text-xl font-semibold text-indigo-300 mb-4">⚙️ The CSS Pattern</h4>
+                  <div className="bg-black/50 rounded-lg p-6">
+                    <div className="text-center mb-6">
+                      <span className="bg-indigo-500/20 text-indigo-300 px-3 py-1 rounded text-sm">Every CSS Rule Follows This Pattern</span>
+                    </div>
+                    <div className="font-mono text-lg text-center space-y-3">
+                      <div>
+                        <span className="text-yellow-300 text-xl">selector</span>
+                        <span className="text-white mx-2">{' {'}</span>
+                      </div>
+                      <div className="ml-8">
+                        <span className="text-green-300">property</span>
+                        <span className="text-white">:</span>
+                        <span className="text-blue-300 ml-1">value</span>
+                        <span className="text-white">;</span>
+                      </div>
+                      <div>
+                        <span className="text-white">{'}'}</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 bg-white/10 rounded p-4">
+                    <h5 className="text-indigo-300 font-semibold text-sm mb-3">🧩 The Three Parts:</h5>
+                    <div className="space-y-2 text-sm">
+                      <div><span className="text-yellow-300 font-mono">selector</span> → Which HTML element to style</div>
+                      <div><span className="text-green-300 font-mono">property</span> → What aspect to change (color, size, etc.)</div>
+                      <div><span className="text-blue-300 font-mono">value</span> → How to change it (blue, 20px, etc.)</div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Real Example */}
+                <div>
+                  <h4 className="text-xl font-semibold text-blue-300 mb-4">🎯 Real CSS Example</h4>
+                  <div className="bg-black/50 rounded-lg p-6">
+                    <div className="text-center mb-4">
+                      <span className="bg-blue-500/20 text-blue-300 px-3 py-1 rounded text-sm">Styling an h1 element</span>
+                    </div>
+                    <div className="font-mono text-sm space-y-2">
+                      <div>
+                        <span className="text-yellow-300 text-lg">h1</span>
+                        <span className="text-white ml-2">{' {'}</span>
+                      </div>
+                      <div className="ml-4 space-y-1">
+                        <div>
+                          <span className="text-green-300">color</span>
+                          <span className="text-white">:</span>
+                          <span className="text-blue-300 ml-1">blue</span>
+                          <span className="text-white">;</span>
+                        </div>
+                        <div>
+                          <span className="text-green-300">font-size</span>
+                          <span className="text-white">:</span>
+                          <span className="text-blue-300 ml-1">24px</span>
+                          <span className="text-white">;</span>
+                        </div>
+                        <div>
+                          <span className="text-green-300">text-align</span>
+                          <span className="text-white">:</span>
+                          <span className="text-blue-300 ml-1">center</span>
+                          <span className="text-white">;</span>
+                        </div>
+                      </div>
+                      <div>
+                        <span className="text-white">{'}'}</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 bg-white/10 rounded p-4">
+                    <h5 className="text-blue-300 font-semibold text-sm mb-3">📖 What This Does:</h5>
+                    <div className="space-y-2 text-sm text-white/80">
+                      <div>• Finds all <code className="text-yellow-300">{'<h1>'}</code> elements</div>
+                      <div>• Makes the text <span className="text-blue-400">blue</span></div>
+                      <div>• Sets font size to 24 pixels</div>
+                      <div>• Centers the text</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-pink-600 to-purple-600'
+    },
+    {
+      id: 'css-selectors',
+      title: 'CSS Selectors Basics',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">🎯 CSS Selectors Basics</h2>
+          <p className="text-2xl text-blue-100 text-center mb-8">
+            How to target and style specific HTML elements
+          </p>
+          
+          {/* Why Selectors Matter */}
+          <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 backdrop-blur rounded-xl p-8 border border-blue-400/30 mb-12 max-w-5xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">🔍 Why Selectors Are Important</h3>
+            <p className="text-blue-100 text-lg text-center mb-6">
+              Selectors are like <strong>addresses</strong> - they tell CSS exactly which HTML elements to style!
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+              <div className="bg-white/10 rounded-xl p-6">
+                <h4 className="text-lg font-semibold text-blue-300 mb-4">🎯 Precision Targeting</h4>
+                <ul className="text-white/80 space-y-2 text-sm">
+                  <li>• Style specific elements without affecting others</li>
+                  <li>• Create reusable styles for similar elements</li>
+                  <li>• Apply different styles to different parts of your page</li>
+                  <li>• Build consistent, organized stylesheets</li>
+                </ul>
+              </div>
+              <div className="bg-white/10 rounded-xl p-6">
+                <h4 className="text-lg font-semibold text-cyan-300 mb-4">🏠 Think Like Addresses</h4>
+                <ul className="text-white/80 space-y-2 text-sm">
+                  <li>• <strong>Element</strong>: "All houses" (all {'<p>'} tags)</li>
+                  <li>• <strong>ID</strong>: "123 Main St" (one specific element)</li>
+                  <li>• <strong>Class</strong>: "All blue houses" (elements with same class)</li>
+                  <li>• CSS uses these addresses to deliver styles!</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          {/* The Three Types Overview */}
+          <div className="max-w-6xl mx-auto">
+            <h3 className="text-3xl font-bold text-white mb-8 text-center">🔧 The Three Essential Selector Types</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Element Selector Overview */}
+              <div className="bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-xl p-6 border border-yellow-400/30">
+                <div className="text-center mb-4">
+                  <div className="text-4xl mb-3">🏷️</div>
+                  <h4 className="text-xl font-semibold text-yellow-300 mb-2">Element Selectors</h4>
+                </div>
+                
+                <div className="bg-black/50 rounded-lg p-4 mb-4">
+                  <div className="text-center mb-2">
+                    <span className="bg-yellow-500/20 text-yellow-300 px-2 py-1 rounded text-xs">Syntax</span>
+                  </div>
+                  <div className="font-mono text-sm text-center">
+                    <div className="text-yellow-300">h1 {'{ ... }'}</div>
+                    <div className="text-yellow-300">p {'{ ... }'}</div>
+                    <div className="text-yellow-300">div {'{ ... }'}</div>
+                  </div>
+                </div>
+                
+                <div className="bg-white/10 rounded p-3">
+                  <h5 className="text-yellow-300 font-semibold text-sm mb-2">🎯 Targets:</h5>
+                  <p className="text-white/80 text-xs mb-2"><strong>ALL elements</strong> of that HTML tag type</p>
+                  <p className="text-yellow-200 text-xs">Good for: Default styles, basic typography</p>
+                </div>
+              </div>
+              
+              {/* ID Selector Overview */}
+              <div className="bg-gradient-to-br from-blue-500/20 to-indigo-500/20 rounded-xl p-6 border border-blue-400/30">
+                <div className="text-center mb-4">
+                  <div className="text-4xl mb-3">🆔</div>
+                  <h4 className="text-xl font-semibold text-blue-300 mb-2">ID Selectors</h4>
+                </div>
+                
+                <div className="bg-black/50 rounded-lg p-4 mb-4">
+                  <div className="text-center mb-2">
+                    <span className="bg-blue-500/20 text-blue-300 px-2 py-1 rounded text-xs">Syntax</span>
+                  </div>
+                  <div className="font-mono text-sm text-center">
+                    <div className="text-blue-300">#header {'{ ... }'}</div>
+                    <div className="text-blue-300">#main {'{ ... }'}</div>
+                    <div className="text-blue-300">#footer {'{ ... }'}</div>
+                  </div>
+                </div>
+                
+                <div className="bg-white/10 rounded p-3">
+                  <h5 className="text-blue-300 font-semibold text-sm mb-2">🎯 Targets:</h5>
+                  <p className="text-white/80 text-xs mb-2"><strong>ONE specific element</strong> with that unique ID</p>
+                  <p className="text-blue-200 text-xs">Good for: Unique sections, special elements</p>
+                </div>
+              </div>
+              
+              {/* Class Selector Overview */}
+              <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-6 border border-purple-400/30">
+                <div className="text-center mb-4">
+                  <div className="text-4xl mb-3">🏷️</div>
+                  <h4 className="text-xl font-semibold text-purple-300 mb-2">Class Selectors</h4>
+                </div>
+                
+                <div className="bg-black/50 rounded-lg p-4 mb-4">
+                  <div className="text-center mb-2">
+                    <span className="bg-purple-500/20 text-purple-300 px-2 py-1 rounded text-xs">Syntax</span>
+                  </div>
+                  <div className="font-mono text-sm text-center">
+                    <div className="text-purple-300">.button {'{ ... }'}</div>
+                    <div className="text-purple-300">.card {'{ ... }'}</div>
+                    <div className="text-purple-300">.highlight {'{ ... }'}</div>
+                  </div>
+                </div>
+                
+                <div className="bg-white/10 rounded p-3">
+                  <h5 className="text-purple-300 font-semibold text-sm mb-2">🎯 Targets:</h5>
+                  <p className="text-white/80 text-xs mb-2"><strong>MULTIPLE elements</strong> with that class name</p>
+                  <p className="text-purple-200 text-xs">Good for: Reusable components, themes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Selector Priority Concept */}
+          <div className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-xl p-8 border border-emerald-400/30 max-w-6xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">⚡ Selector Power Levels</h3>
+            <p className="text-center text-emerald-100 mb-6">
+              When multiple selectors target the same element, CSS has rules for which wins!
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white/10 rounded-xl p-4 text-center">
+                <div className="text-2xl mb-2">🥉</div>
+                <h4 className="text-lg font-semibold text-yellow-300 mb-2">Element Selectors</h4>
+                <p className="text-white/80 text-sm mb-2">Weakest Priority</p>
+                <div className="bg-black/30 rounded p-2 font-mono text-xs">
+                  h1 {'{ color: blue; }'}
+                </div>
+              </div>
+              
+              <div className="bg-white/10 rounded-xl p-4 text-center">
+                <div className="text-2xl mb-2">🥈</div>
+                <h4 className="text-lg font-semibold text-purple-300 mb-2">Class Selectors</h4>
+                <p className="text-white/80 text-sm mb-2">Medium Priority</p>
+                <div className="bg-black/30 rounded p-2 font-mono text-xs">
+                  .title {'{ color: red; }'}
+                </div>
+              </div>
+              
+              <div className="bg-white/10 rounded-xl p-4 text-center">
+                <div className="text-2xl mb-2">🥇</div>
+                <h4 className="text-lg font-semibold text-blue-300 mb-2">ID Selectors</h4>
+                <p className="text-white/80 text-sm mb-2">Strongest Priority</p>
+                <div className="bg-black/30 rounded p-2 font-mono text-xs">
+                  #main-title {'{ color: green; }'}
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-6 text-center">
+              <div className="bg-gradient-to-r from-green-500/30 to-blue-500/30 rounded-lg p-4 inline-block">
+                <p className="text-white font-semibold text-sm">💡 Rule: More specific selectors win over less specific ones!</p>
+                <p className="text-white/80 text-xs mt-1">ID beats Class beats Element</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* What's Next Preview */}
+          <div className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-xl p-6 border border-indigo-400/30 max-w-4xl mx-auto">
+            <h3 className="text-xl font-bold text-white mb-4 text-center">🔜 Next: See Them in Action!</h3>
+            <div className="text-center">
+              <p className="text-indigo-100 mb-4">Ready to see detailed examples and learn when to use each selector type?</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="bg-white/10 rounded p-3">
+                  <h4 className="text-indigo-300 font-semibold mb-1">📋 Real Examples</h4>
+                  <p className="text-white/80 text-xs">Complete HTML + CSS demonstrations</p>
+                </div>
+                <div className="bg-white/10 rounded p-3">
+                  <h4 className="text-purple-300 font-semibold mb-1">🎯 Best Practices</h4>
+                  <p className="text-white/80 text-xs">When and how to use each selector type</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-emerald-600 to-teal-600'
+    },
+    {
+      id: 'css-selectors-advanced',
+      title: 'CSS Selectors - Power Levels',
+      content: (() => {
+        const SelectorBattleDemo = () => {
+          const [activeSelectors, setActiveSelectors] = useState({
+            element: true,
+            class: true,
+            id: true
+          });
+          
+          const toggleSelector = (type) => {
+            setActiveSelectors(prev => ({
+              ...prev,
+              [type]: !prev[type]
+            }));
+          };
+          
+          // Calculate the final styles based on active selectors
+          const getFinalStyles = () => {
+            let styles = {};
+            
+            // Element selector (weakest)
+            if (activeSelectors.element) {
+              styles.color = 'blue';
+              styles.fontSize = '2em';
+            }
+            
+            // Class selector (medium) - overrides element
+            if (activeSelectors.class) {
+              styles.color = 'red';
+              styles.fontWeight = 'bold';
+            }
+            
+            // ID selector (strongest) - overrides all
+            if (activeSelectors.id) {
+              styles.color = 'green';
+              styles.textDecoration = 'underline';
+            }
+            
+            return styles;
+          };
+          
+          const finalStyles = getFinalStyles();
+          
+          return (
+            <div className="space-y-8">
+              <h2 className="text-4xl font-bold text-white mb-8 text-center">⚡ CSS Selectors - Power Levels</h2>
+              <p className="text-2xl text-blue-100 text-center mb-8">
+                Toggle selectors to see how priority works when they compete!
+              </p>
+              
+              {/* The Battle Setup */}
+              <div className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 backdrop-blur rounded-xl p-8 border border-indigo-400/30 mb-12 max-w-5xl mx-auto">
+                <h3 className="text-2xl font-bold text-white mb-6 text-center">🥊 Interactive CSS Battle</h3>
+                <p className="text-indigo-100 text-lg text-center mb-6">
+                  Click the buttons below to turn selectors <strong>ON/OFF</strong> and watch the result change!
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                  <div className="bg-white/10 rounded-xl p-6">
+                    <h4 className="text-lg font-semibold text-indigo-300 mb-4">📋 The HTML</h4>
+                    <div className="bg-black/50 rounded-lg p-4">
+                      <div className="font-mono text-sm space-y-1">
+                        <div className="text-gray-400">{'<h1 id="main-title" class="big-heading">'}</div>
+                        <div className="text-gray-400 ml-2">Welcome to Our Site</div>
+                        <div className="text-gray-400">{'</h1>'}</div>
+                      </div>
+                    </div>
+                    <p className="text-indigo-200 text-sm mt-3">
+                      This h1 element can be targeted by all three selector types!
+                    </p>
+                  </div>
+                  <div className="bg-white/10 rounded-xl p-6">
+                    <h4 className="text-lg font-semibold text-purple-300 mb-4">🎮 Selector Controls</h4>
+                    <div className="space-y-3">
+                      <button
+                        onClick={() => toggleSelector('element')}
+                        className={`w-full p-3 rounded-lg font-semibold transition-all duration-300 ${
+                          activeSelectors.element 
+                            ? 'bg-yellow-500 text-black border-2 border-yellow-400' 
+                            : 'bg-gray-600 text-gray-300 border-2 border-gray-500'
+                        }`}
+                      >
+                        🥉 Element Selector (h1) {activeSelectors.element ? 'ON' : 'OFF'}
+                      </button>
+                      <button
+                        onClick={() => toggleSelector('class')}
+                        className={`w-full p-3 rounded-lg font-semibold transition-all duration-300 ${
+                          activeSelectors.class 
+                            ? 'bg-purple-500 text-white border-2 border-purple-400' 
+                            : 'bg-gray-600 text-gray-300 border-2 border-gray-500'
+                        }`}
+                      >
+                        🥈 Class Selector (.big-heading) {activeSelectors.class ? 'ON' : 'OFF'}
+                      </button>
+                      <button
+                        onClick={() => toggleSelector('id')}
+                        className={`w-full p-3 rounded-lg font-semibold transition-all duration-300 ${
+                          activeSelectors.id 
+                            ? 'bg-blue-500 text-white border-2 border-blue-400' 
+                            : 'bg-gray-600 text-gray-300 border-2 border-gray-500'
+                        }`}
+                      >
+                        🥇 ID Selector (#main-title) {activeSelectors.id ? 'ON' : 'OFF'}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* The Power Level Demo */}
+              <div className="max-w-6xl mx-auto">
+                <h3 className="text-3xl font-bold text-white mb-8 text-center">🏆 Live Power Level Demo</h3>
+                
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  {/* CSS Code */}
+                  <div>
+                    <h4 className="text-xl font-semibold text-white mb-4">🎨 Active CSS Rules</h4>
+                    <div className="bg-black/50 rounded-lg p-6">
+                      <div className="font-mono text-sm space-y-4">
+                        {/* Element Selector */}
+                        <div className={`rounded p-3 transition-all duration-300 ${
+                          activeSelectors.element 
+                            ? 'bg-yellow-500/20 border border-yellow-400/50' 
+                            : 'bg-gray-500/10 border border-gray-500/30 opacity-50'
+                        }`}>
+                          <div className="flex items-center mb-2">
+                            <span className="text-2xl mr-2">🥉</span>
+                            <span className={`font-semibold ${activeSelectors.element ? 'text-yellow-300' : 'text-gray-400'}`}>
+                              Element Selector {activeSelectors.element ? '(ACTIVE)' : '(DISABLED)'}
+                            </span>
+                          </div>
+                          <div className={activeSelectors.element ? 'text-yellow-300' : 'text-gray-500'}>h1 {'{'}</div>
+                          <div className={`ml-4 ${activeSelectors.element ? 'text-yellow-300' : 'text-gray-500'}`}>color: blue;</div>
+                          <div className={`ml-4 ${activeSelectors.element ? 'text-yellow-300' : 'text-gray-500'}`}>font-size: 2em;</div>
+                          <div className={activeSelectors.element ? 'text-yellow-300' : 'text-gray-500'}>{'}'}</div>
+                        </div>
+                        
+                        {/* Class Selector */}
+                        <div className={`rounded p-3 transition-all duration-300 ${
+                          activeSelectors.class 
+                            ? 'bg-purple-500/20 border border-purple-400/50' 
+                            : 'bg-gray-500/10 border border-gray-500/30 opacity-50'
+                        }`}>
+                          <div className="flex items-center mb-2">
+                            <span className="text-2xl mr-2">🥈</span>
+                            <span className={`font-semibold ${activeSelectors.class ? 'text-purple-300' : 'text-gray-400'}`}>
+                              Class Selector {activeSelectors.class ? '(ACTIVE)' : '(DISABLED)'}
+                            </span>
+                          </div>
+                          <div className={activeSelectors.class ? 'text-purple-300' : 'text-gray-500'}>.big-heading {'{'}</div>
+                          <div className={`ml-4 ${activeSelectors.class ? 'text-purple-300' : 'text-gray-500'}`}>color: red;</div>
+                          <div className={`ml-4 ${activeSelectors.class ? 'text-purple-300' : 'text-gray-500'}`}>font-weight: bold;</div>
+                          <div className={activeSelectors.class ? 'text-purple-300' : 'text-gray-500'}>{'}'}</div>
+                        </div>
+                        
+                        {/* ID Selector */}
+                        <div className={`rounded p-3 transition-all duration-300 ${
+                          activeSelectors.id 
+                            ? 'bg-blue-500/20 border border-blue-400/50' 
+                            : 'bg-gray-500/10 border border-gray-500/30 opacity-50'
+                        }`}>
+                          <div className="flex items-center mb-2">
+                            <span className="text-2xl mr-2">🥇</span>
+                            <span className={`font-semibold ${activeSelectors.id ? 'text-blue-300' : 'text-gray-400'}`}>
+                              ID Selector {activeSelectors.id ? '(ACTIVE)' : '(DISABLED)'}
+                            </span>
+                          </div>
+                          <div className={activeSelectors.id ? 'text-blue-300' : 'text-gray-500'}>#main-title {'{'}</div>
+                          <div className={`ml-4 ${activeSelectors.id ? 'text-blue-300' : 'text-gray-500'}`}>color: green;</div>
+                          <div className={`ml-4 ${activeSelectors.id ? 'text-blue-300' : 'text-gray-500'}`}>text-decoration: underline;</div>
+                          <div className={activeSelectors.id ? 'text-blue-300' : 'text-gray-500'}>{'}'}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Result */}
+                  <div>
+                    <h4 className="text-xl font-semibold text-white mb-4">🎯 Live Result</h4>
+                    
+                    {/* Visual Result */}
+                    <div className="bg-white/90 rounded-lg p-8 mb-6 transition-all duration-500">
+                      <div className="text-center">
+                        <h1 
+                          style={finalStyles}
+                          className="text-4xl transition-all duration-500"
+                        >
+                          Welcome to Our Site
+                        </h1>
+                      </div>
+                    </div>
+                    
+                    {/* Explanation */}
+                    <div className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-400/30 rounded-lg p-6">
+                      <h5 className="text-emerald-300 font-semibold text-lg mb-4">⚡ Current Winner Analysis</h5>
+                      
+                      <div className="space-y-3">
+                        <div className="flex items-center">
+                          <span className="text-2xl mr-3">
+                            {finalStyles.color === 'green' ? '🥇' : finalStyles.color === 'red' ? '🥈' : finalStyles.color === 'blue' ? '🥉' : '❌'}
+                          </span>
+                          <div>
+                            <span className="font-semibold" style={{color: finalStyles.color || '#gray'}}>
+                              Color: {finalStyles.color?.toUpperCase() || 'DEFAULT (BLACK)'}
+                            </span>
+                            <p className="text-white/80 text-sm">
+                              {finalStyles.color === 'green' ? 'From #main-title (ID - strongest)' :
+                               finalStyles.color === 'red' ? 'From .big-heading (Class - medium)' :
+                               finalStyles.color === 'blue' ? 'From h1 (Element - weakest)' :
+                               'No active color rules'}
+                            </p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center">
+                          <span className="text-2xl mr-3">{finalStyles.fontWeight ? '✅' : '❌'}</span>
+                          <div>
+                            <span className="text-purple-300 font-semibold">
+                              Font-weight: {finalStyles.fontWeight?.toUpperCase() || 'NORMAL'}
+                            </span>
+                            <p className="text-white/80 text-sm">
+                              {finalStyles.fontWeight ? 'From .big-heading (Class)' : 'No active bold rules'}
+                            </p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center">
+                          <span className="text-2xl mr-3">{finalStyles.textDecoration ? '✅' : '❌'}</span>
+                          <div>
+                            <span className="text-blue-300 font-semibold">
+                              Text-decoration: {finalStyles.textDecoration?.toUpperCase() || 'NONE'}
+                            </span>
+                            <p className="text-white/80 text-sm">
+                              {finalStyles.textDecoration ? 'From #main-title (ID)' : 'No active underline rules'}
+                            </p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center">
+                          <span className="text-2xl mr-3">{finalStyles.fontSize ? '✅' : '❌'}</span>
+                          <div>
+                            <span className="text-yellow-300 font-semibold">
+                              Font-size: {finalStyles.fontSize || 'DEFAULT'}
+                            </span>
+                            <p className="text-white/80 text-sm">
+                              {finalStyles.fontSize ? 'From h1 (Element)' : 'No active size rules'}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Power Level Rules */}
+              <div className="bg-gradient-to-r from-slate-500/20 to-gray-500/20 rounded-xl p-8 border border-slate-400/30 max-w-6xl mx-auto">
+                <h3 className="text-2xl font-bold text-white mb-6 text-center">📏 The Power Level Rules</h3>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="bg-white/10 rounded-xl p-4 text-center">
+                    <div className="text-3xl mb-3">🥇</div>
+                    <h4 className="text-lg font-semibold text-blue-300 mb-2">ID Selectors</h4>
+                    <div className="bg-black/30 rounded p-3 font-mono text-sm mb-3">
+                      #main-title
+                    </div>
+                    <p className="text-white/80 text-xs mb-2"><strong>Power Level: 100</strong></p>
+                    <p className="text-blue-200 text-xs">Always wins against class and element selectors</p>
+                  </div>
+                  
+                  <div className="bg-white/10 rounded-xl p-4 text-center">
+                    <div className="text-3xl mb-3">🥈</div>
+                    <h4 className="text-lg font-semibold text-purple-300 mb-2">Class Selectors</h4>
+                    <div className="bg-black/30 rounded p-3 font-mono text-sm mb-3">
+                      .big-heading
+                    </div>
+                    <p className="text-white/80 text-xs mb-2"><strong>Power Level: 10</strong></p>
+                    <p className="text-purple-200 text-xs">Beats element selectors, loses to ID selectors</p>
+                  </div>
+                  
+                  <div className="bg-white/10 rounded-xl p-4 text-center">
+                    <div className="text-3xl mb-3">🥉</div>
+                    <h4 className="text-lg font-semibold text-yellow-300 mb-2">Element Selectors</h4>
+                    <div className="bg-black/30 rounded p-3 font-mono text-sm mb-3">
+                      h1
+                    </div>
+                    <p className="text-white/80 text-xs mb-2"><strong>Power Level: 1</strong></p>
+                    <p className="text-yellow-200 text-xs">Weakest priority, always loses to class and ID</p>
+                  </div>
+                </div>
+                
+                <div className="mt-8 text-center">
+                  <div className="bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-lg p-6 inline-block">
+                    <h4 className="text-white font-bold text-lg mb-2">💡 Try It Yourself!</h4>
+                    <p className="text-white/90 mb-2">Turn selectors on and off to see <strong>specificity in action!</strong></p>
+                    <p className="text-white/80 text-sm">Notice how higher priority selectors override lower ones for the same property</p>
+                    <p className="text-white/70 text-xs mt-3">Non-conflicting properties from all active selectors still apply!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        };
+        
+        return <SelectorBattleDemo />;
+      })(),
+      bgGradient: 'from-blue-600 to-purple-600'
+    },
+    {
+      id: 'css-styling',
+      title: 'CSS Styling in Action',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">✨ CSS Styling in Action</h2>
+          <p className="text-2xl text-blue-100 text-center mb-8">
+            See the power of CSS transforms your HTML
+          </p>
+          
+          {/* Before and After Demo */}
+          <div className="max-w-6xl mx-auto">
+            <h3 className="text-3xl font-bold text-white mb-8 text-center">🔄 Before vs After CSS</h3>
+            
+            <div className="bg-gradient-to-r from-indigo-500/20 to-blue-500/20 rounded-xl p-8 border border-indigo-400/30">
+              <p className="text-center text-white/80 mb-6">Watch the same HTML transform with CSS styling!</p>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Before - Plain HTML */}
+                <div>
+                  <h4 className="text-xl font-semibold text-red-300 mb-4">❌ Before CSS (Plain HTML)</h4>
+                  <div className="bg-white rounded-lg p-6 min-h-80">
+                    <h1 className="text-black text-left" style={{fontSize: '2em', fontWeight: 'bold', margin: '16px 0'}}>My Awesome Website</h1>
+                    <p className="text-black" style={{margin: '16px 0'}}>Home About Contact</p>
+                    <h2 className="text-black text-left" style={{fontSize: '1.5em', fontWeight: 'bold', margin: '16px 0'}}>Welcome to My Site!</h2>
+                    <p className="text-black" style={{margin: '16px 0'}}>This is a paragraph explaining what this website is about. It contains useful information for visitors.</p>
+                    <p className="text-black font-bold" style={{margin: '16px 0'}}>My Favorite Things:</p>
+                    <ul className="text-black" style={{margin: '16px 0', paddingLeft: '20px'}}>
+                      <li>Coding websites</li>
+                      <li>Learning new technologies</li>
+                      <li>Building cool projects</li>
+                    </ul>
+                    <div className="border border-gray-300 p-4 text-center" style={{margin: '16px 0'}}>
+                      <span className="text-gray-500">🖼️ Image Here</span>
+                    </div>
+                    <p className="text-black text-center" style={{margin: '16px 0'}}>© 2024 My Website. All rights reserved.</p>
+                  </div>
+                  <div className="mt-4 text-center">
+                    <span className="bg-red-500/20 text-red-300 px-3 py-1 rounded text-sm">
+                      😞 Plain, boring, hard to read
+                    </span>
+                  </div>
+                </div>
+                
+                {/* After - With CSS */}
+                <div>
+                  <h4 className="text-xl font-semibold text-green-300 mb-4">✅ After CSS (Styled)</h4>
+                  <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg p-6 min-h-80">
+                    {/* Header */}
+                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-lg mb-4 shadow-lg">
+                      <h1 className="text-2xl font-bold text-center">My Awesome Website</h1>
+                      <nav className="text-center mt-2 space-x-4">
+                        <span className="text-blue-200 hover:text-white cursor-pointer">Home</span>
+                        <span className="text-blue-200 hover:text-white cursor-pointer">About</span>
+                        <span className="text-blue-200 hover:text-white cursor-pointer">Contact</span>
+                      </nav>
+                    </div>
+                    
+                    {/* Main Content */}
+                    <div className="bg-white/70 rounded-lg p-4 mb-4 shadow">
+                      <h2 className="text-xl font-semibold text-center text-gray-800 mb-3">Welcome to My Site!</h2>
+                      <p className="text-gray-600 text-center mb-4">This is a paragraph explaining what this website is about. It contains useful information for visitors.</p>
+                      
+                      <div className="bg-purple-50 rounded-lg p-3 mb-3">
+                        <h3 className="font-semibold text-purple-800 text-center mb-2">My Favorite Things:</h3>
+                        <ul className="list-disc list-inside text-purple-700 space-y-1">
+                          <li>Coding websites</li>
+                          <li>Learning new technologies</li>
+                          <li>Building cool projects</li>
+                        </ul>
+                      </div>
+                      
+                      <div className="bg-gradient-to-r from-yellow-200 to-orange-200 p-4 rounded-lg text-center shadow">
+                        <span className="text-orange-800 text-2xl">🖼️ Beautiful Image</span>
+                      </div>
+                    </div>
+                    
+                    {/* Footer */}
+                    <div className="bg-gray-800 text-white p-3 rounded-lg text-center shadow-lg">
+                      <p className="text-sm">© 2024 My Website. All rights reserved.</p>
+                    </div>
+                  </div>
+                  <div className="mt-4 text-center">
+                    <span className="bg-green-500/20 text-green-300 px-3 py-1 rounded text-sm">
+                      🎉 Beautiful, organized, professional!
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Common CSS Properties */}
+          <div className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-xl p-8 border border-emerald-400/30 max-w-6xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">🛠️ Essential CSS Properties</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white/10 rounded-xl p-4">
+                <h4 className="text-lg font-semibold text-emerald-300 mb-3">🎨 Colors & Backgrounds</h4>
+                <div className="bg-black/50 rounded p-3 font-mono text-xs mb-2">
+                  <div className="text-pink-300">{'color: #ff6b6b;'}</div>
+                  <div className="text-blue-300">{'background: linear-gradient(...);'}</div>
+                  <div className="text-purple-300">{'border: 2px solid blue;'}</div>
+                </div>
+                <p className="text-white/70 text-xs">Make elements colorful and eye-catching</p>
+              </div>
+              
+              <div className="bg-white/10 rounded-xl p-4">
+                <h4 className="text-lg font-semibold text-cyan-300 mb-3">📏 Spacing & Size</h4>
+                <div className="bg-black/50 rounded p-3 font-mono text-xs mb-2">
+                  <div className="text-yellow-300">{'margin: 20px;'}</div>
+                  <div className="text-green-300">{'padding: 15px;'}</div>
+                  <div className="text-orange-300">{'width: 100%;'}</div>
+                  <div className="text-red-300">{'height: 300px;'}</div>
+                </div>
+                <p className="text-white/70 text-xs">Control space around and inside elements</p>
+              </div>
+              
+              <div className="bg-white/10 rounded-xl p-4">
+                <h4 className="text-lg font-semibold text-blue-300 mb-3">✍️ Typography</h4>
+                <div className="bg-black/50 rounded p-3 font-mono text-xs mb-2">
+                  <div className="text-blue-300">{'font-family: Arial, sans-serif;'}</div>
+                  <div className="text-indigo-300">{'font-size: 18px;'}</div>
+                  <div className="text-purple-300">{'font-weight: bold;'}</div>
+                  <div className="text-pink-300">{'text-align: center;'}</div>
+                </div>
+                <p className="text-white/70 text-xs">Style text to look professional</p>
+              </div>
+              
+              <div className="bg-white/10 rounded-xl p-4">
+                <h4 className="text-lg font-semibold text-purple-300 mb-3">📱 Layout & Position</h4>
+                <div className="bg-black/50 rounded p-3 font-mono text-xs mb-2">
+                  <div className="text-cyan-300">{'display: flex;'}</div>
+                  <div className="text-teal-300">{'justify-content: center;'}</div>
+                  <div className="text-green-300">{'position: relative;'}</div>
+                  <div className="text-lime-300">{'z-index: 10;'}</div>
+                </div>
+                <p className="text-white/70 text-xs">Position elements exactly where you want</p>
+              </div>
+              
+              <div className="bg-white/10 rounded-xl p-4">
+                <h4 className="text-lg font-semibold text-orange-300 mb-3">✨ Effects & Animation</h4>
+                <div className="bg-black/50 rounded p-3 font-mono text-xs mb-2">
+                  <div className="text-yellow-300">{'box-shadow: 0 4px 8px rgba(...);'}</div>
+                  <div className="text-orange-300">{'border-radius: 10px;'}</div>
+                  <div className="text-red-300">{'transition: all 0.3s ease;'}</div>
+                  <div className="text-pink-300">{'transform: scale(1.1);'}</div>
+                </div>
+                <p className="text-white/70 text-xs">Add polish with shadows and animations</p>
+              </div>
+              
+              <div className="bg-white/10 rounded-xl p-4">
+                <h4 className="text-lg font-semibold text-pink-300 mb-3">📱 Responsive Design</h4>
+                <div className="bg-black/50 rounded p-3 font-mono text-xs mb-2">
+                  <div className="text-purple-300">{'@media (max-width: 768px) {'}</div>
+                  <div className="text-blue-300 ml-2">{'font-size: 14px;'}</div>
+                  <div className="text-purple-300">{'}'}</div>
+                </div>
+                <p className="text-white/70 text-xs">Adapt to phones, tablets, and desktops</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-purple-600 to-pink-600'
+    },
+    {
+      id: 'dom-introduction',
+      title: 'Understanding the DOM',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">🌳 Understanding the DOM</h2>
+          <p className="text-2xl text-blue-100 text-center mb-8">
+            How your styled HTML becomes interactive
+          </p>
+          
+          {/* Now that we have HTML + CSS */}
+          <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur rounded-xl p-8 border border-green-400/30 mb-12 max-w-5xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">🔄 From Static to Interactive</h3>
+            <p className="text-blue-100 text-lg text-center mb-6">
+              You now know HTML structure and CSS styling. But how do websites become <strong>interactive</strong>? Enter the DOM!
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+              <div className="bg-white/10 rounded-xl p-6">
+                <h4 className="text-lg font-semibold text-green-300 mb-4">📋 What is the DOM?</h4>
+                <p className="text-white/80 text-sm mb-4">
+                  The DOM (Document Object Model) is how browsers organize your HTML into a tree that JavaScript can interact with.
+                </p>
+                <ul className="text-white/70 space-y-2 text-sm">
+                  <li>• Converts HTML into a tree structure</li>
+                  <li>• Each HTML tag becomes a "node"</li>
+                  <li>• JavaScript can find and modify these nodes</li>
+                  <li>• CSS selectors use this same tree structure!</li>
+                </ul>
+              </div>
+              <div className="bg-white/10 rounded-xl p-6">
+                <h4 className="text-lg font-semibold text-blue-300 mb-4">🎯 Why You Need to Know This</h4>
+                <p className="text-white/80 text-sm mb-4">
+                  Understanding the DOM helps you understand how CSS selectors work and how React updates pages.
+                </p>
+                <ul className="text-white/70 space-y-2 text-sm">
+                  <li>• Foundation for all JavaScript frameworks</li>
+                  <li>• How React updates your page efficiently</li>
+                  <li>• Why CSS selectors work the way they do</li>
+                  <li>• Essential for debugging web applications</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          {/* Your HTML becomes a Tree */}
+          <div className="max-w-6xl mx-auto">
+            <h3 className="text-3xl font-bold text-white mb-8 text-center">🌳 Your HTML Becomes a Family Tree</h3>
+            
+            <div className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-xl p-8 border border-indigo-400/30">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Your HTML Code */}
+                <div>
+                  <h4 className="text-xl font-semibold text-indigo-300 mb-4">📝 Your HTML (from previous slides)</h4>
+                  <div className="bg-black/50 rounded-lg p-4 font-mono text-sm">
+                    <div className="text-blue-300">{'<html>'}</div>
+                    <div className="text-green-300 ml-2">{'<head>'}</div>
+                    <div className="text-yellow-300 ml-4">{'<title>My Awesome Website</title>'}</div>
+                    <div className="text-green-300 ml-2">{'</head>'}</div>
+                    <div className="text-orange-300 ml-2">{'<body>'}</div>
+                    <div className="text-red-300 ml-4">{'<header id="header">'}</div>
+                    <div className="text-cyan-300 ml-6">{'<h1>My Awesome Website</h1>'}</div>
+                    <div className="text-red-300 ml-4">{'</header>'}</div>
+                    <div className="text-pink-300 ml-4">{'<p class="highlight">Welcome!</p>'}</div>
+                    <div className="text-orange-300 ml-2">{'</body>'}</div>
+                    <div className="text-blue-300">{'</html>'}</div>
+                  </div>
+                </div>
+                
+                {/* DOM Tree */}
+                <div>
+                  <h4 className="text-xl font-semibold text-purple-300 mb-4">🌳 How Browser Sees It (DOM Tree)</h4>
+                  <div className="bg-black/50 rounded-lg p-4">
+                    <div className="space-y-2 text-sm">
+                      <div className="text-gray-300">📄 document</div>
+                      <div className="text-blue-300 ml-4">└── 🏠 html</div>
+                      <div className="text-green-300 ml-8">├── 🧠 head</div>
+                      <div className="text-yellow-300 ml-12">│   └── 📋 title</div>
+                      <div className="text-orange-300 ml-8">└── 🏢 body</div>
+                      <div className="text-red-300 ml-12">├── 📦 header (#header)</div>
+                      <div className="text-cyan-300 ml-16">│   └── 📢 h1</div>
+                      <div className="text-pink-300 ml-12">└── 📝 p (.highlight)</div>
+                    </div>
+                  </div>
+                  <div className="mt-4 text-center">
+                    <span className="bg-purple-500/20 text-purple-300 px-3 py-1 rounded text-xs">
+                      💡 CSS selectors navigate this exact tree structure!
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* How JavaScript Interacts */}
+          <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-xl p-8 border border-orange-400/30 max-w-6xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">🎮 How JavaScript Makes It Interactive</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white/10 rounded-xl p-6 text-center">
+                <div className="text-4xl mb-4">🔍</div>
+                <h4 className="text-lg font-semibold text-orange-300 mb-3">1. Find Elements</h4>
+                <div className="bg-black/30 rounded p-2 font-mono text-xs mb-2">
+                  document.querySelector('#header')
+                </div>
+                <p className="text-white/80 text-sm">
+                  JavaScript can find any element using the same selectors as CSS!
+                </p>
+              </div>
+              <div className="bg-white/10 rounded-xl p-6 text-center">
+                <div className="text-4xl mb-4">✏️</div>
+                <h4 className="text-lg font-semibold text-red-300 mb-3">2. Change Content</h4>
+                <div className="bg-black/30 rounded p-2 font-mono text-xs mb-2">
+                  element.textContent = 'New text!'
+                </div>
+                <p className="text-white/80 text-sm">
+                  Update text, add new elements, or remove existing ones instantly
+                </p>
+              </div>
+              <div className="bg-white/10 rounded-xl p-6 text-center">
+                <div className="text-4xl mb-4">🎨</div>
+                <h4 className="text-lg font-semibold text-yellow-300 mb-3">3. Change Styles</h4>
+                <div className="bg-black/30 rounded p-2 font-mono text-xs mb-2">
+                  element.style.color = 'blue'
+                </div>
+                <p className="text-white/80 text-sm">
+                  Modify any CSS property you learned about - colors, sizes, positions
+                </p>
+              </div>
+            </div>
+            <div className="mt-8 text-center">
+              <div className="bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-lg p-4 inline-block">
+                <p className="text-white font-semibold">🚀 This is exactly how React works behind the scenes!</p>
+                <p className="text-white/80 text-sm mt-2">React uses the DOM to efficiently update only the parts of your page that changed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-green-600 to-blue-600'
     },
     {
       id: 'getting-started',
