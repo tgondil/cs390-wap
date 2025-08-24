@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import spainImage from './spain.jpg';
 import { Link } from 'react-router-dom';
 
 // Custom CSS for animations
@@ -646,6 +647,362 @@ const CSSPlayground = () => {
 };
 
 // Advanced HTML/CSS Interactive Demo
+// Interactive Instagram Demo Component
+const InteractiveInstagramDemo = () => {
+  const [activeFlow, setActiveFlow] = useState(null);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [likes, setLikes] = useState(1247);
+  const [isLiked, setIsLiked] = useState(false);
+  const [comments, setComments] = useState([
+    { user: 'sarah_chen', text: 'Amazing shot! 📸', time: '2h' },
+    { user: 'mike_dev', text: 'Love the colors!', time: '3h' },
+    { user: 'alex_photographer', text: 'Where is this? 🌆', time: '5h' }
+  ]);
+  const [newComment, setNewComment] = useState('');
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const flowSteps = {
+    like: [
+      {
+        tier: 'frontend',
+        title: 'User Clicks Like',
+        description: 'React component handles click event',
+        data: '{ action: "like", postId: "12345" }',
+        color: 'from-green-500 to-green-600'
+      },
+      {
+        tier: 'frontend',
+        title: 'Send API Request',
+        description: 'Axios sends HTTP POST request',
+        data: 'POST /api/posts/12345/like\nHeaders: { Authorization: "Bearer jwt..." }',
+        color: 'from-green-500 to-green-600'
+      },
+      {
+        tier: 'backend',
+        title: 'Authenticate User',
+        description: 'Express middleware verifies JWT token',
+        data: 'JWT decoded → userId: 678',
+        color: 'from-orange-500 to-orange-600'
+      },
+      {
+        tier: 'backend',
+        title: 'Update Logic',
+        description: 'Check if already liked, toggle state',
+        data: 'if (!post.likes.includes(userId)) {\n  post.likes.push(userId)\n}',
+        color: 'from-orange-500 to-orange-600'
+      },
+      {
+        tier: 'database',
+        title: 'Save to Database',
+        description: 'MongoDB updates post document',
+        data: 'db.posts.updateOne(\n  { _id: "12345" },\n  { $addToSet: { likes: 678 } }\n)',
+        color: 'from-purple-500 to-purple-600'
+      },
+      {
+        tier: 'backend',
+        title: 'Send Response',
+        description: 'Return updated like count',
+        data: '{ success: true, likes: 1248, isLiked: true }',
+        color: 'from-orange-500 to-orange-600'
+      },
+      {
+        tier: 'frontend',
+        title: 'Update UI',
+        description: 'React state updates, UI re-renders',
+        data: 'setLikes(1248)\nsetIsLiked(true)',
+        color: 'from-green-500 to-green-600'
+      }
+    ],
+    comment: [
+      {
+        tier: 'frontend',
+        title: 'User Submits Comment',
+        description: 'Form submission triggers event',
+        data: '{ text: "Nice photo!", postId: "12345" }',
+        color: 'from-green-500 to-green-600'
+      },
+      {
+        tier: 'frontend',
+        title: 'Validate Input',
+        description: 'Check comment length and content',
+        data: 'if (text.length > 0 && text.length <= 500)',
+        color: 'from-green-500 to-green-600'
+      },
+      {
+        tier: 'backend',
+        title: 'Authenticate & Validate',
+        description: 'Verify user and sanitize input',
+        data: 'User: ✓ Valid\nText: ✓ Clean\nLength: ✓ < 500 chars',
+        color: 'from-orange-500 to-orange-600'
+      },
+      {
+        tier: 'database',
+        title: 'Save Comment',
+        description: 'Create new comment document',
+        data: 'db.comments.insertOne({\n  postId: "12345",\n  userId: 678,\n  text: "Nice photo!",\n  createdAt: new Date()\n})',
+        color: 'from-purple-500 to-purple-600'
+      },
+      {
+        tier: 'backend',
+        title: 'Return Data',
+        description: 'Send comment with user info',
+        data: '{ id: "abc123", user: "you", text: "Nice photo!", time: "now" }',
+        color: 'from-orange-500 to-orange-600'
+      },
+      {
+        tier: 'frontend',
+        title: 'Add to UI',
+        description: 'Prepend comment to list',
+        data: 'setComments([newComment, ...comments])',
+        color: 'from-green-500 to-green-600'
+      }
+    ]
+  };
+
+  const simulateFlow = async (action) => {
+    if (isAnimating) return;
+    
+    setIsAnimating(true);
+    setActiveFlow(action);
+    setCurrentStep(0);
+    
+    const steps = flowSteps[action];
+    
+    for (let i = 0; i < steps.length; i++) {
+      setCurrentStep(i);
+      await new Promise(resolve => setTimeout(resolve, 6000));
+    }
+    
+    // Execute the actual action
+    if (action === 'like') {
+      setIsLiked(!isLiked);
+      setLikes(prev => isLiked ? prev - 1 : prev + 1);
+    } else if (action === 'comment' && newComment.trim()) {
+      setComments(prev => [
+        { user: 'you', text: newComment, time: 'now' },
+        ...prev
+      ]);
+      setNewComment('');
+    }
+    
+    // Reset animation
+    setTimeout(() => {
+      setActiveFlow(null);
+      setCurrentStep(0);
+      setIsAnimating(false);
+    }, 1000);
+  };
+
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {/* Mock Instagram Post */}
+      <div className="bg-black rounded-2xl overflow-hidden shadow-2xl max-w-md mx-auto">
+        {/* Header */}
+        <div className="flex items-center p-4 border-b border-gray-800">
+          <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+            <span className="text-white font-bold text-sm">TG</span>
+          </div>
+          <div className="ml-3 flex-1">
+            <p className="text-white font-semibold text-sm">tanaygondil</p>
+            <p className="text-gray-400 text-xs">Barcelona, Spain</p>
+          </div>
+          <button className="text-white">
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Image */}
+        <div className="aspect-square relative overflow-hidden">
+          <img 
+            src={spainImage}
+            alt="Barcelona, Spain"
+            className="w-full h-full object-cover object-bottom"
+          />
+        </div>
+
+        {/* Action Buttons */}
+        <div className="p-4">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center space-x-4">
+              <button 
+                onClick={() => simulateFlow('like')}
+                disabled={isAnimating}
+                className={`transition-all duration-300 transform ${isAnimating ? 'scale-110' : 'hover:scale-110'} ${isLiked ? 'text-red-500' : 'text-white'} disabled:opacity-50`}
+              >
+                <svg className="w-7 h-7" fill={isLiked ? "currentColor" : "none"} stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+              <button 
+                onClick={() => document.getElementById('comment-input-demo').focus()}
+                className="text-white hover:scale-110 transition-transform"
+              >
+                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+              </button>
+              <button className="text-white hover:scale-110 transition-transform">
+                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+              </button>
+            </div>
+            <button className="text-white hover:scale-110 transition-transform">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Likes */}
+          <p className="text-white font-semibold text-sm mb-2">
+            {likes.toLocaleString()} likes
+          </p>
+
+          {/* Caption */}
+          <div className="mb-3">
+            <span className="text-white font-semibold text-sm">tanaygondil</span>
+            <span className="text-white text-sm ml-2">
+              camp jupiter
+            </span>
+          </div>
+
+          {/* Comments */}
+          <div className="space-y-1 mb-3 max-h-24 overflow-y-auto">
+            {comments.slice(0, 3).map((comment, index) => (
+              <div key={index} className="text-sm">
+                <span className="text-white font-semibold">{comment.user}</span>
+                <span className="text-white ml-2">{comment.text}</span>
+                <span className="text-gray-400 ml-2 text-xs">{comment.time}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Add Comment */}
+          <div className="flex items-center space-x-2">
+            <input
+              id="comment-input-demo"
+              type="text"
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              placeholder="Add a comment..."
+              disabled={isAnimating}
+              className="flex-1 bg-transparent border-none outline-none text-white text-sm placeholder-gray-400 disabled:opacity-50"
+              onKeyPress={(e) => {
+                if (e.key === 'Enter' && newComment.trim() && !isAnimating) {
+                  simulateFlow('comment');
+                }
+              }}
+            />
+            {newComment.trim() && (
+              <button
+                onClick={() => simulateFlow('comment')}
+                disabled={isAnimating}
+                className="text-blue-400 text-sm font-semibold hover:text-blue-300 disabled:opacity-50"
+              >
+                Post
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Flow Visualization */}
+      <div className="space-y-6">
+        <div className="text-center">
+          <h3 className="text-2xl font-bold text-white mb-2">Three-Tier Data Flow</h3>
+          <p className="text-blue-200">
+            {activeFlow ? `${activeFlow === 'like' ? 'Like' : 'Comment'} Request Pipeline` : 'Click an action to see the magic happen!'}
+          </p>
+        </div>
+
+        {/* Architecture Tiers */}
+        <div className="grid grid-cols-3 gap-4 mb-8">
+          <div className={`bg-green-500/20 border-2 rounded-xl p-4 text-center transition-all duration-500 ${
+            activeFlow && flowSteps[activeFlow][currentStep]?.tier === 'frontend' 
+              ? 'border-green-400 bg-green-500/30 shadow-lg shadow-green-500/20 scale-105' 
+              : 'border-green-500/30'
+          }`}>
+            <div className="text-3xl mb-2">🎨</div>
+            <div className="text-white font-bold">Frontend</div>
+            <div className="text-green-200 text-xs">React App</div>
+          </div>
+
+          <div className={`bg-orange-500/20 border-2 rounded-xl p-4 text-center transition-all duration-500 ${
+            activeFlow && flowSteps[activeFlow][currentStep]?.tier === 'backend' 
+              ? 'border-orange-400 bg-orange-500/30 shadow-lg shadow-orange-500/20 scale-105' 
+              : 'border-orange-500/30'
+          }`}>
+            <div className="text-3xl mb-2">⚙️</div>
+            <div className="text-white font-bold">Backend</div>
+            <div className="text-orange-200 text-xs">Express Server</div>
+          </div>
+
+          <div className={`bg-purple-500/20 border-2 rounded-xl p-4 text-center transition-all duration-500 ${
+            activeFlow && flowSteps[activeFlow][currentStep]?.tier === 'database' 
+              ? 'border-purple-400 bg-purple-500/30 shadow-lg shadow-purple-500/20 scale-105' 
+              : 'border-purple-500/30'
+          }`}>
+            <div className="text-3xl mb-2">🗄️</div>
+            <div className="text-white font-bold">Database</div>
+            <div className="text-purple-200 text-xs">MongoDB</div>
+          </div>
+        </div>
+
+        {/* Current Step */}
+        {activeFlow && (
+          <div className="bg-gray-900/50 rounded-xl p-6">
+            <div className="flex items-center mb-4">
+              <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${flowSteps[activeFlow][currentStep]?.color} mr-3`}></div>
+              <div>
+                <div className="text-white font-bold">
+                  Step {currentStep + 1}: {flowSteps[activeFlow][currentStep]?.title}
+                </div>
+                <div className="text-gray-300 text-sm">
+                  {flowSteps[activeFlow][currentStep]?.description}
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gray-800 rounded-lg p-4">
+              <div className="text-gray-400 text-xs mb-2">Data/Code:</div>
+              <pre className="text-green-300 text-sm font-mono whitespace-pre-wrap overflow-x-auto">
+                {flowSteps[activeFlow][currentStep]?.data}
+              </pre>
+            </div>
+          </div>
+        )}
+
+        {/* Progress Steps */}
+        {activeFlow && (
+          <div className="flex justify-center space-x-2">
+            {flowSteps[activeFlow].map((_, index) => (
+              <div
+                key={index}
+                className={`w-3 h-3 rounded-full transition-all duration-500 ${
+                  index <= currentStep ? 'bg-blue-400' : 'bg-gray-600'
+                }`}
+              />
+            ))}
+          </div>
+        )}
+
+        {!activeFlow && (
+          <div className="text-center text-blue-200 mt-8">
+            <div className="text-4xl mb-4">👆</div>
+            <p className="text-lg">Try liking the post or adding a comment!</p>
+            <p className="text-sm text-blue-300 mt-2">
+              Watch how each interaction flows through all three tiers
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
 const AdvancedHTMLCSSDemo = () => {
   const [activeTab, setActiveTab] = useState('modern-features');
   const [animationPlaying, setAnimationPlaying] = useState(false);
@@ -1888,8 +2245,8 @@ const Class1Slides = () => {
       bgGradient: 'from-orange-600 to-red-700'
     },
     {
-      id: 'database-tier',
-      title: 'Database Layer',
+      id: 'database-overview',
+      title: 'Database Layer - Overview',
       content: (
         <div className="space-y-8">
           <h2 className="text-4xl font-bold text-white mb-8 text-center">🗄️ Database Layer</h2>
@@ -1994,6 +2351,23 @@ const Class1Slides = () => {
               </div>
             </div>
 
+
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-purple-600 to-indigo-700'
+    },
+    {
+      id: 'database-in-action',
+      title: 'Database Layer - In Action',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">🗄️ Database in Action</h2>
+          <p className="text-2xl text-purple-100 text-center mb-8">
+            Why databases are essential and what technology we'll use
+          </p>
+          
+          <div className="max-w-6xl mx-auto space-y-8">
             {/* Why Databases Are Important */}
             <div className="bg-white/10 backdrop-blur rounded-xl p-8">
               <h3 className="text-2xl font-bold text-white mb-6 text-center">Why Are Databases So Important?</h3>
@@ -2108,9 +2482,9 @@ const Class1Slides = () => {
         <div className="space-y-8">
           <h2 className="text-4xl font-bold text-white mb-8 text-center">📸 Real-World Example: Instagram</h2>
           <p className="text-xl text-blue-100 text-center mb-8">
-            How Instagram uses three-tier architecture to serve billions of users
+            Click like or comment to see the three-tier architecture in action!
           </p>
-                     <SystemIntegrationDemo />
+          <InteractiveInstagramDemo />
         </div>
       ),
       bgGradient: 'from-blue-600 via-purple-600 to-pink-600'
@@ -2263,29 +2637,6 @@ const Class1Slides = () => {
         </div>
       ),
       bgGradient: 'from-purple-600 to-pink-700'
-    },
-    {
-      id: 'system-integration',
-      title: 'System Integration & Data Flow',
-      content: (
-        <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8">🔄 System Integration & Data Flow</h2>
-          <p className="text-xl text-blue-100 text-center mb-8">
-            Understanding how frontend, backend, and database work together in real-world scenarios
-          </p>
-          
-          <SystemIntegrationDemo />
-          
-          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-6">
-            <h3 className="text-xl font-semibold mb-4 text-blue-300">🎯 Key Takeaway</h3>
-            <p className="text-white/80 text-lg">
-              Modern web applications are complex systems where frontend, backend, and database work together seamlessly. 
-              Understanding data flow and system integration is crucial for building scalable, secure, and performant applications.
-            </p>
-          </div>
-        </div>
-      ),
-      bgGradient: 'from-slate-600 to-gray-700'
     },
     {
       id: 'getting-started',
