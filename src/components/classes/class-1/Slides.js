@@ -61,80 +61,7 @@ const CodeBlock = ({ code, language = '', filename = '', className = '', showCop
   );
 };
 
-// Live Poll Component for Course Welcome  
-const LivePoll = () => {
-  const [selectedOption, setSelectedOption] = useState('');
-  const [hasVoted, setHasVoted] = useState(false);
-  const [results, setResults] = useState({
-    'Complete beginner': 15,
-    'Some HTML/CSS experience': 35,
-    'Built a few websites': 28,
-    'JavaScript experience': 18,
-    'Backend development': 4
-  });
 
-  const handleVote = (option) => {
-    if (!hasVoted) {
-      setSelectedOption(option);
-      setHasVoted(true);
-      setResults(prev => ({
-        ...prev,
-        [option]: prev[option] + 1
-      }));
-    }
-  };
-
-  const totalVotes = Object.values(results).reduce((sum, count) => sum + count, 0);
-
-  return (
-    <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-      <h3 className="text-xl font-bold text-white mb-4">📊 Live Poll: Your Web Development Experience?</h3>
-      
-      {!hasVoted ? (
-        <div className="space-y-3">
-          {Object.keys(results).map((option, index) => (
-            <button
-              key={index}
-              onClick={() => handleVote(option)}
-              className="w-full text-left p-3 bg-white/5 hover:bg-white/10 rounded-lg transition-colors border border-white/20 hover:border-white/40"
-            >
-              <span className="text-white">{option}</span>
-            </button>
-          ))}
-        </div>
-      ) : (
-        <div className="space-y-3">
-          <div className="text-green-400 font-semibold mb-4">✓ Thanks for voting! Here are the results:</div>
-          {Object.entries(results).map(([option, count], index) => {
-            const percentage = ((count / totalVotes) * 100).toFixed(1);
-            const isSelected = option === selectedOption;
-            
-            return (
-              <div key={index} className={`p-3 rounded-lg border ${isSelected ? 'border-green-400 bg-green-500/20' : 'border-white/20 bg-white/5'}`}>
-                <div className="flex justify-between items-center mb-2">
-                  <span className={`${isSelected ? 'text-green-300 font-semibold' : 'text-white'}`}>
-                    {option} {isSelected && '← Your choice'}
-                  </span>
-                  <span className="text-white font-bold">{percentage}%</span>
-                </div>
-                <div className="w-full bg-gray-700 rounded-full h-2">
-                  <div 
-                    className={`h-2 rounded-full transition-all duration-1000 ${isSelected ? 'bg-green-400' : 'bg-blue-500'}`}
-                    style={{ width: `${percentage}%` }}
-                  ></div>
-                </div>
-                <div className="text-xs text-gray-400 mt-1">{count} votes</div>
-              </div>
-            );
-          })}
-          <div className="text-center text-gray-300 text-sm mt-4">
-            Total responses: {totalVotes}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
 
 // PSO Information Component
 const PSOInformation = () => {
@@ -304,7 +231,7 @@ const PSOInformation = () => {
         <h4 className="font-semibold text-yellow-200 mb-2">💰 Total PSO Extra Credit</h4>
         <div className="text-yellow-100 text-sm">
           <p>4 PSOs × 1% each = <strong>+4% to your final grade</strong></p>
-          <p className="text-xs mt-1">Complete networking + PSO extra credit = +10% total bonus!</p>
+          <p className="text-xs mt-1">Complete networking + PSO extra credit = +12% total bonus!</p>
         </div>
       </div>
     </div>
@@ -537,75 +464,7 @@ const ArchitectureDiagram = () => {
   );
 };
 
-// Daily Networking Activity Component
-const NetworkingActivity = () => {
-  const [currentPerson, setCurrentPerson] = useState('');
-  const [reflection, setReflection] = useState('');
-  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = () => {
-    if (currentPerson.trim() && reflection.trim()) {
-      setSubmitted(true);
-      setTimeout(() => {
-        setSubmitted(false);
-        setCurrentPerson('');
-        setReflection('');
-      }, 3000);
-    }
-  };
-
-  return (
-    <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-      <h3 className="text-xl font-bold text-white mb-4">🤝 Daily Networking Challenge</h3>
-      <p className="text-blue-200 mb-6">
-        Talk to someone new in class and learn about their background, interests, or goals. 
-        This helps you build connections for your final startup project team!
-      </p>
-      
-      {!submitted ? (
-        <div className="space-y-4">
-          <div>
-            <label className="block text-white text-sm font-medium mb-2">
-              Who did you talk to today?
-            </label>
-            <input
-              type="text"
-              value={currentPerson}
-              onChange={(e) => setCurrentPerson(e.target.value)}
-              placeholder="Enter their name..."
-              className="w-full bg-gray-800 text-white rounded-lg px-4 py-2 border border-gray-600 focus:border-blue-400 focus:outline-none"
-            />
-          </div>
-          <div>
-            <label className="block text-white text-sm font-medium mb-2">
-              What did you learn about them?
-            </label>
-            <textarea
-              value={reflection}
-              onChange={(e) => setReflection(e.target.value)}
-              placeholder="Share what you learned about their background, interests, goals, or anything interesting..."
-              rows="4"
-              className="w-full bg-gray-800 text-white rounded-lg px-4 py-2 border border-gray-600 focus:border-blue-400 focus:outline-none"
-            />
-          </div>
-          <button
-            onClick={handleSubmit}
-            disabled={!currentPerson.trim() || !reflection.trim()}
-            className="bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium px-6 py-2 rounded-lg transition-colors"
-          >
-            Submit for 0.5% Extra Credit
-          </button>
-        </div>
-      ) : (
-        <div className="text-center py-8">
-          <div className="text-green-400 text-4xl mb-2">✓</div>
-          <div className="text-green-400 font-semibold mb-2">Submitted Successfully!</div>
-          <div className="text-gray-300 text-sm">+0.5% extra credit earned</div>
-        </div>
-      )}
-    </div>
-  );
-};
 
 // Interactive Grade Calculator
 const GradeCalculator = () => {
@@ -1405,41 +1264,208 @@ const Class1Slides = () => {
   // Slide content data following README exactly
   const slides = [
     {
-      id: 'welcome',
-      title: 'Welcome to CS390',
+      id: 'general-information',
+      title: 'General Information',
       content: (
         <div className="text-center space-y-8">
-          <div className="text-6xl mb-8">🌐</div>
+          <div className="text-6xl mb-8">📚</div>
           <h1 className="text-5xl font-bold text-white mb-4">
             CS390 Web Application Programming
           </h1>
-          <h2 className="text-3xl font-semibold text-blue-100 mb-6">
-            Class 1: Course Introduction & Web Application Fundamentals
+          <h2 className="text-3xl font-semibold text-blue-100 mb-8">
+            General Course Information
           </h2>
-          <p className="text-xl text-blue-200 mb-8">
-            Welcome to 12 weeks of building amazing web applications through hands-on learning and collaborative projects.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            <div className="bg-white/10 rounded-lg p-4 text-center">
-              <div className="text-3xl mb-2">🚀</div>
-              <h3 className="font-semibold text-white mb-2">Learn by Doing</h3>
-              <p className="text-gray-300 text-sm">Practical approach to full-stack development</p>
+          
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6">📧 Contact Information</h3>
+              <div className="space-y-4">
+                <div className="text-center">
+                  <div className="text-lg font-semibold text-blue-300 mb-2">Instructor Email</div>
+                  <a 
+                    href="mailto:tgondil@purdue.edu" 
+                    className="text-2xl font-mono text-white bg-blue-600/20 px-6 py-3 rounded-lg border border-blue-400/30 hover:bg-blue-600/30 transition-colors inline-block"
+                  >
+                    tgondil@purdue.edu
+                  </a>
+                </div>
+                
+                <div className="mt-6 p-4 bg-yellow-500/20 rounded-lg border border-yellow-400/30">
+                  <h4 className="text-lg font-semibold text-yellow-200 mb-2">📋 Questions Policy</h4>
+                  <p className="text-white/80">
+                    For all course questions, <strong>you're expected to email me</strong>. 
+                    Most of the time you'll get a response by the end of the day.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="bg-white/10 rounded-lg p-4 text-center">
-              <div className="text-3xl mb-2">👥</div>
-              <h3 className="font-semibold text-white mb-2">Pair Programming</h3>
-              <p className="text-gray-300 text-sm">All projects done collaboratively</p>
+
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6">🌐 Course Website</h3>
+              <div className="text-center">
+                <a 
+                  href="#" 
+                  className="text-xl text-blue-300 hover:text-blue-200 underline transition-colors"
+                >
+                  Visit Course Website →
+                </a>
+                <p className="text-white/70 text-sm mt-2">
+                  Access slides, assignments, resources, and more
+                </p>
+              </div>
             </div>
-            <div className="bg-white/10 rounded-lg p-4 text-center">
-              <div className="text-3xl mb-2">💡</div>
-              <h3 className="font-semibold text-white mb-2">Build a Startup</h3>
-              <p className="text-gray-300 text-sm">Final project: real startup application</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white/10 rounded-lg p-6 text-center">
+                <div className="text-3xl mb-3">🎯</div>
+                <h3 className="font-semibold text-white mb-2">12 Week Course</h3>
+                <p className="text-gray-300 text-sm">Full-stack web development journey</p>
+              </div>
+              <div className="bg-white/10 rounded-lg p-6 text-center">
+                <div className="text-3xl mb-3">👥</div>
+                <h3 className="font-semibold text-white mb-2">Pair Programming</h3>
+                <p className="text-gray-300 text-sm">All projects done collaboratively</p>
+              </div>
+              <div className="bg-white/10 rounded-lg p-6 text-center">
+                <div className="text-3xl mb-3">🚀</div>
+                <h3 className="font-semibold text-white mb-2">Build a Startup</h3>
+                <p className="text-gray-300 text-sm">Final capstone project</p>
+              </div>
             </div>
           </div>
-          <LivePoll />
         </div>
       ),
-      bgGradient: 'from-blue-600 to-purple-700'
+      bgGradient: 'from-slate-600 to-blue-700'
+    },
+    {
+      id: 'pso-opportunities',
+      title: 'PSO Integration & Opportunities',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8">🎯 PSO Integration & Opportunities</h2>
+          <PSOInformation />
+        </div>
+      ),
+      bgGradient: 'from-purple-600 to-indigo-700'
+    },
+    {
+      id: 'grading-system',
+      title: 'Grading System Breakdown',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8">📊 Grading System Breakdown</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div className="bg-blue-500/20 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-blue-300">35%</div>
+              <div className="text-sm text-white/80">Weekly Homework</div>
+              <div className="text-xs text-white/60 mt-1">11 assignments</div>
+            </div>
+            <div className="bg-green-500/20 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-green-300">25%</div>
+              <div className="text-sm text-white/80">Mini-Projects</div>
+              <div className="text-xs text-white/60 mt-1">3 milestones</div>
+            </div>
+            <div className="bg-purple-500/20 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-purple-300">30%</div>
+              <div className="text-sm text-white/80">Capstone Project</div>
+              <div className="text-xs text-white/60 mt-1">Startup application</div>
+            </div>
+            <div className="bg-yellow-500/20 rounded-lg p-4 text-center">
+              <div className="text-2xl font-bold text-yellow-300">10%</div>
+              <div className="text-sm text-white/80">Participation</div>
+              <div className="text-xs text-white/60 mt-1">Engagement & labs</div>
+            </div>
+          </div>
+          
+          <GradeCalculator />
+        </div>
+      ),
+      bgGradient: 'from-cyan-600 to-blue-700'
+    },
+    {
+      id: 'extra-credit',
+      title: 'Extra Credit Opportunities',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8">🎁 Extra Credit Opportunities</h2>
+          <p className="text-xl text-green-100 text-center mb-8">
+            Multiple ways to boost your grade throughout the semester!
+          </p>
+          
+          <div className="max-w-5xl mx-auto space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border border-green-400/30">
+                <h3 className="text-2xl font-bold text-green-300 mb-6">🤝 Weekly Networking Challenge</h3>
+                <div className="space-y-4">
+                  <div className="bg-white/10 rounded-lg p-4">
+                    <h4 className="font-semibold text-white mb-2">How It Works</h4>
+                    <ul className="space-y-2 text-white/80 text-sm">
+                      <li>• <strong>First 10 minutes</strong> of every class</li>
+                      <li>• <strong>Talk to someone new</strong> you haven't met before</li>
+                      <li>• <strong>Submit a form</strong> about your conversation</li>
+                      <li>• <strong>Build connections</strong> for your final project team</li>
+                    </ul>
+                  </div>
+                  <div className="text-center p-4 bg-green-600/20 rounded-lg border border-green-400/30">
+                    <div className="text-3xl font-bold text-green-200">+8%</div>
+                    <div className="text-green-300 font-medium">Total Possible</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-purple-500/20 backdrop-blur rounded-xl p-8 border border-purple-400/30">
+                <h3 className="text-2xl font-bold text-purple-300 mb-6">🎯 PSO Reflections</h3>
+                <div className="space-y-4">
+                  <div className="bg-white/10 rounded-lg p-4">
+                    <h4 className="font-semibold text-white mb-2">How It Works</h4>
+                    <ul className="space-y-2 text-white/80 text-sm">
+                      <li>• <strong>After each PSO session</strong> (4 total)</li>
+                      <li>• <strong>Talk to a classmate</strong> about their approach</li>
+                      <li>• <strong>Submit reflection form</strong> comparing solutions</li>
+                      <li>• <strong>Document learnings</strong> from collaboration</li>
+                    </ul>
+                  </div>
+                  <div className="text-center p-4 bg-purple-600/20 rounded-lg border border-purple-400/30">
+                    <div className="text-3xl font-bold text-purple-200">+4%</div>
+                    <div className="text-purple-300 font-medium">1% per PSO × 4</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 backdrop-blur rounded-xl p-8 border border-yellow-400/30">
+              <h3 className="text-2xl font-bold text-yellow-300 mb-6 text-center">📈 Total Extra Credit Summary</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-green-300">+8%</div>
+                  <div className="text-white font-medium">Networking</div>
+                  <div className="text-white/70 text-sm">Weekly conversations</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-purple-300">+4%</div>
+                  <div className="text-white font-medium">PSO Reflections</div>
+                  <div className="text-white/70 text-sm">Collaborative learning</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-5xl font-bold text-yellow-300">+12%</div>
+                  <div className="text-white font-bold text-lg">TOTAL POSSIBLE</div>
+                  <div className="text-yellow-200 text-sm">Maximum bonus to final grade</div>
+                </div>
+              </div>
+
+              <div className="text-center p-4 bg-white/10 rounded-lg">
+                <p className="text-white/90 font-medium">
+                  💡 <strong>Pro Tip:</strong> Students who actively participate in networking and PSO reflections 
+                  often perform better overall due to increased collaboration and peer learning!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-emerald-600 to-green-700'
     },
     {
       id: 'course-philosophy',
@@ -1529,76 +1555,9 @@ const Class1Slides = () => {
               </div>
             </div>
           </div>
-
-          <NetworkingActivity />
         </div>
       ),
       bgGradient: 'from-indigo-600 to-blue-700'
-    },
-    {
-      id: 'grading-system',
-      title: 'Grading System Breakdown',
-      content: (
-        <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8">📊 Grading System Breakdown</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            <div className="bg-blue-500/20 rounded-lg p-4 text-center">
-              <div className="text-2xl font-bold text-blue-300">35%</div>
-              <div className="text-sm text-white/80">Weekly Homework</div>
-              <div className="text-xs text-white/60 mt-1">11 assignments</div>
-            </div>
-            <div className="bg-green-500/20 rounded-lg p-4 text-center">
-              <div className="text-2xl font-bold text-green-300">25%</div>
-              <div className="text-sm text-white/80">Mini-Projects</div>
-              <div className="text-xs text-white/60 mt-1">3 milestones</div>
-            </div>
-            <div className="bg-purple-500/20 rounded-lg p-4 text-center">
-              <div className="text-2xl font-bold text-purple-300">30%</div>
-              <div className="text-sm text-white/80">Capstone Project</div>
-              <div className="text-xs text-white/60 mt-1">Startup application</div>
-            </div>
-            <div className="bg-yellow-500/20 rounded-lg p-4 text-center">
-              <div className="text-2xl font-bold text-yellow-300">10%</div>
-              <div className="text-sm text-white/80">Participation</div>
-              <div className="text-xs text-white/60 mt-1">Engagement & labs</div>
-            </div>
-          </div>
-          
-          <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-lg p-4 mb-6">
-            <h3 className="text-lg font-semibold mb-2 text-green-300">🎁 Extra Credit Opportunities</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-              <div>
-                <div className="font-medium text-white">Weekly Networking: +6%</div>
-                <div className="text-white/70">0.5% each week × 12 weeks</div>
-              </div>
-              <div>
-                <div className="font-medium text-white">PSO Reflections: +4%</div>
-                <div className="text-white/70">1% each PSO × 4 PSOs</div>
-              </div>
-            </div>
-            <div className="mt-3 text-center">
-              <span className="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">
-                Total Possible Extra Credit: +20%
-              </span>
-            </div>
-          </div>
-          
-          <GradeCalculator />
-        </div>
-      ),
-      bgGradient: 'from-cyan-600 to-blue-700'
-    },
-    {
-      id: 'pso-opportunities',
-      title: 'PSO Integration & Opportunities',
-      content: (
-        <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8">🎯 PSO Integration & Opportunities</h2>
-          <PSOInformation />
-        </div>
-      ),
-      bgGradient: 'from-purple-600 to-indigo-700'
     },
     {
       id: 'pair-programming',
