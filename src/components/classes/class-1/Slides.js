@@ -929,6 +929,466 @@ const CSSPlayground = () => {
   );
 };
 
+// Advanced HTML/CSS Interactive Demo
+const AdvancedHTMLCSSDemo = () => {
+  const [activeTab, setActiveTab] = useState('modern-features');
+  const [animationPlaying, setAnimationPlaying] = useState(false);
+
+  const modernFeatures = {
+    'css-grid': {
+      title: 'CSS Grid Layout',
+      description: 'Create complex 2D layouts with ease',
+      code: `.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.grid-item {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+  border-radius: 10px;
+  color: white;
+}
+
+/* Responsive without media queries! */
+.grid-item:first-child {
+  grid-column: span 2; /* Take up 2 columns */
+}`
+    },
+    'css-variables': {
+      title: 'CSS Custom Properties (Variables)',
+      description: 'Reusable values for consistent theming',
+      code: `:root {
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+  --text-color: #333;
+  --background-color: #f4f4f4;
+  --border-radius: 10px;
+  --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card {
+  background: var(--background-color);
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.button {
+  background: linear-gradient(135deg, 
+    var(--primary-color), 
+    var(--secondary-color)
+  );
+}
+
+/* Easy theme switching! */
+[data-theme="dark"] {
+  --background-color: #2d3748;
+  --text-color: #e2e8f0;
+}`
+    },
+    'animations': {
+      title: 'CSS Animations & Transitions',
+      description: 'Smooth, performant animations',
+      code: `/* Keyframe animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Smooth transitions */
+.button {
+  background: var(--primary-color);
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Loading spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading {
+  animation: spin 1s linear infinite;
+}`
+    },
+    'responsive': {
+      title: 'Modern Responsive Design',
+      description: 'Mobile-first approach with container queries',
+      code: `/* Mobile-first approach */
+.container {
+  width: 100%;
+  padding: 1rem;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    padding: 3rem;
+  }
+}
+
+/* Container queries (cutting-edge!) */
+@container (min-width: 400px) {
+  .card {
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Fluid typography */
+.title {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* Aspect ratio */
+.video-container {
+  aspect-ratio: 16 / 9;
+  background: #000;
+}`
+    }
+  };
+
+  const bestPractices = [
+    {
+      title: 'Semantic HTML',
+      description: 'Use meaningful HTML elements for better accessibility and SEO',
+      tip: 'Use <article>, <section>, <nav>, <header>, <footer> instead of generic <div>s'
+    },
+    {
+      title: 'CSS Organization',
+      description: 'Structure your CSS for maintainability',
+      tip: 'Follow the BEM methodology: .block__element--modifier'
+    },
+    {
+      title: 'Performance',
+      description: 'Optimize for fast loading and smooth interactions',
+      tip: 'Use CSS transform and opacity for animations (they trigger hardware acceleration)'
+    },
+    {
+      title: 'Accessibility',
+      description: 'Make your sites usable by everyone',
+      tip: 'Ensure sufficient color contrast (4.5:1 ratio for normal text)'
+    }
+  ];
+
+  return (
+    <div className="bg-white/10 backdrop-blur rounded-xl p-6">
+      <h3 className="text-xl font-bold text-white mb-6">🚀 Modern CSS Features & Best Practices</h3>
+      
+      <div className="flex flex-wrap gap-2 mb-6">
+        {Object.entries(modernFeatures).map(([key, feature]) => (
+          <button
+            key={key}
+            onClick={() => setActiveTab(key)}
+            className={`px-4 py-2 rounded-lg transition-all duration-300 ${
+              activeTab === key
+                ? 'bg-blue-600 text-white shadow-lg'
+                : 'bg-white/10 text-white/80 hover:bg-white/20'
+            }`}
+          >
+            {feature.title}
+          </button>
+        ))}
+      </div>
+
+      {modernFeatures[activeTab] && (
+        <div className="space-y-6">
+          <div className="bg-white/5 rounded-lg p-6">
+            <h4 className="text-lg font-semibold text-white mb-2">
+              {modernFeatures[activeTab].title}
+            </h4>
+            <p className="text-white/80 mb-4">{modernFeatures[activeTab].description}</p>
+            
+            <CodeBlock 
+              code={modernFeatures[activeTab].code}
+              language="css"
+              filename={`${activeTab}.css`}
+            />
+          </div>
+
+          {activeTab === 'animations' && (
+            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg p-6">
+              <h4 className="text-lg font-semibold text-white mb-4">🎨 Live Animation Demo</h4>
+              <div className="flex items-center space-x-4 mb-4">
+                <button
+                  onClick={() => {
+                    setAnimationPlaying(true);
+                    setTimeout(() => setAnimationPlaying(false), 1000);
+                  }}
+                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-lg transition-all duration-300"
+                >
+                  ▶ Play Animation
+                </button>
+              </div>
+              
+              <div className="grid grid-cols-3 gap-4">
+                {[1, 2, 3].map((i) => (
+                  <div
+                    key={i}
+                    className={`h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold transition-all duration-500 ${
+                      animationPlaying ? 'animate-bounce' : ''
+                    }`}
+                    style={{ animationDelay: `${i * 0.1}s` }}
+                  >
+                    Box {i}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      <div className="mt-8 bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-lg p-6">
+        <h4 className="text-lg font-bold text-white mb-4">✨ Pro Tips for Modern CSS</h4>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {bestPractices.map((practice, index) => (
+            <div key={index} className="bg-white/10 rounded-lg p-4">
+              <h5 className="font-semibold text-white mb-2">{practice.title}</h5>
+              <p className="text-white/70 text-sm mb-2">{practice.description}</p>
+              <div className="text-xs text-green-300 bg-green-500/20 rounded px-2 py-1">
+                💡 {practice.tip}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// System Integration Demo
+const SystemIntegrationDemo = () => {
+  const [selectedScenario, setSelectedScenario] = useState('user-posts-photo');
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentStep, setCurrentStep] = useState(-1);
+
+  const scenarios = {
+    'user-posts-photo': {
+      title: 'User Posts a Photo',
+      description: 'Complete journey from user action to data persistence',
+      steps: [
+        { tier: 'frontend', title: 'User Selection', description: 'User selects image and writes caption', details: 'File input, form validation, image preview' },
+        { tier: 'frontend', title: 'Client Processing', description: 'Image compression and preview generation', details: 'Canvas API, file size optimization' },
+        { tier: 'frontend', title: 'API Request', description: 'POST to /api/posts with FormData', details: 'multipart/form-data, progress tracking' },
+        { tier: 'backend', title: 'Authentication', description: 'Verify JWT token and user permissions', details: 'JWT decode, user lookup, rate limiting' },
+        { tier: 'backend', title: 'Validation', description: 'Check file type, size, and content', details: 'MIME type validation, malware scanning' },
+        { tier: 'backend', title: 'File Storage', description: 'Upload to cloud storage (AWS S3)', details: 'Secure upload, CDN distribution' },
+        { tier: 'database', title: 'Data Persistence', description: 'Store post metadata in MongoDB', details: 'Document creation, indexing, relationships' },
+        { tier: 'backend', title: 'Notifications', description: 'Notify followers of new post', details: 'Background job queue, push notifications' },
+        { tier: 'frontend', title: 'UI Update', description: 'Add post to feed instantly', details: 'Optimistic updates, cache invalidation' }
+      ]
+    },
+    'user-login': {
+      title: 'User Login Process',
+      description: 'Secure authentication flow with JWT tokens',
+      steps: [
+        { tier: 'frontend', title: 'Form Submission', description: 'User enters email and password', details: 'Input validation, form handling' },
+        { tier: 'frontend', title: 'API Request', description: 'POST to /api/auth/login', details: 'HTTPS, credential transmission' },
+        { tier: 'backend', title: 'Input Validation', description: 'Sanitize and validate input', details: 'SQL injection prevention, XSS protection' },
+        { tier: 'database', title: 'User Lookup', description: 'Find user by email address', details: 'Indexed query, case-insensitive search' },
+        { tier: 'backend', title: 'Password Verification', description: 'Compare with stored hash', details: 'bcrypt comparison, timing attack prevention' },
+        { tier: 'backend', title: 'Token Generation', description: 'Create JWT with user data', details: 'Payload, expiration, signing' },
+        { tier: 'frontend', title: 'Token Storage', description: 'Store JWT securely', details: 'HttpOnly cookies vs localStorage' },
+        { tier: 'frontend', title: 'Redirect', description: 'Navigate to dashboard', details: 'Route protection, state management' }
+      ]
+    },
+    'real-time-chat': {
+      title: 'Real-time Chat Message',
+      description: 'WebSocket communication for instant messaging',
+      steps: [
+        { tier: 'frontend', title: 'Message Input', description: 'User types and sends message', details: 'Real-time typing indicators' },
+        { tier: 'frontend', title: 'WebSocket Send', description: 'Emit message via socket connection', details: 'Binary vs text frames' },
+        { tier: 'backend', title: 'Message Receipt', description: 'Server receives WebSocket message', details: 'Connection pooling, load balancing' },
+        { tier: 'backend', title: 'Authentication', description: 'Verify user permissions for chat', details: 'Socket middleware, room access' },
+        { tier: 'database', title: 'Message Storage', description: 'Persist message in database', details: 'Message history, search indexing' },
+        { tier: 'backend', title: 'Broadcasting', description: 'Send to all connected clients', details: 'Room-based distribution' },
+        { tier: 'frontend', title: 'UI Update', description: 'Display message in all clients', details: 'Smooth scrolling, notification sounds' }
+      ]
+    }
+  };
+
+  const playScenario = () => {
+    if (isPlaying) return;
+    
+    setIsPlaying(true);
+    setCurrentStep(0);
+    
+    const steps = scenarios[selectedScenario].steps;
+    
+    const interval = setInterval(() => {
+      setCurrentStep(prev => {
+        if (prev >= steps.length - 1) {
+          clearInterval(interval);
+          setTimeout(() => {
+            setIsPlaying(false);
+            setCurrentStep(-1);
+          }, 1000);
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, 1500);
+  };
+
+  const getTierColor = (tier) => {
+    switch (tier) {
+      case 'frontend': return 'green';
+      case 'backend': return 'orange';
+      case 'database': return 'purple';
+      default: return 'gray';
+    }
+  };
+
+  return (
+    <div className="bg-white/10 backdrop-blur rounded-xl p-6">
+      <h3 className="text-xl font-bold text-white mb-6">🔄 System Integration & Data Flow</h3>
+      
+      <div className="mb-6">
+        <h4 className="text-lg font-semibold text-white mb-3">Select a Scenario</h4>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {Object.entries(scenarios).map(([key, scenario]) => (
+            <button
+              key={key}
+              onClick={() => setSelectedScenario(key)}
+              className={`p-4 rounded-lg border-2 transition-all duration-300 text-left ${
+                selectedScenario === key
+                  ? 'border-blue-400 bg-blue-500/20'
+                  : 'border-white/20 bg-white/5 hover:border-white/40'
+              }`}
+            >
+              <h5 className="font-semibold text-white mb-1">{scenario.title}</h5>
+              <p className="text-white/70 text-sm">{scenario.description}</p>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="bg-white/5 rounded-lg p-6 mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <h4 className="text-lg font-bold text-white">
+            {scenarios[selectedScenario].title} - Step by Step
+          </h4>
+          <button
+            onClick={playScenario}
+            disabled={isPlaying}
+            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 text-white px-4 py-2 rounded-lg transition-all duration-300"
+          >
+            {isPlaying ? '⏸ Playing...' : '▶ Play Animation'}
+          </button>
+        </div>
+
+        <div className="space-y-3">
+          {scenarios[selectedScenario].steps.map((step, index) => {
+            const tierColor = getTierColor(step.tier);
+            const isActive = currentStep === index;
+            const isPast = currentStep > index;
+            
+            return (
+              <div
+                key={index}
+                className={`p-4 rounded-lg border-2 transition-all duration-500 ${
+                  isActive 
+                    ? `border-${tierColor}-400 bg-${tierColor}-500/30 scale-105 shadow-lg`
+                    : isPast
+                    ? `border-${tierColor}-400/50 bg-${tierColor}-500/10`
+                    : 'border-white/20 bg-white/5'
+                }`}
+              >
+                <div className="flex items-start space-x-4">
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
+                    isActive || isPast
+                      ? `bg-${tierColor}-500 text-white`
+                      : 'bg-gray-600 text-gray-300'
+                  }`}>
+                    {index + 1}
+                  </div>
+                  
+                  <div className="flex-1">
+                    <div className="flex items-center space-x-3 mb-2">
+                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                        tierColor === 'green' ? 'bg-green-600/30 text-green-200' :
+                        tierColor === 'orange' ? 'bg-orange-600/30 text-orange-200' :
+                        'bg-purple-600/30 text-purple-200'
+                      }`}>
+                        {step.tier}
+                      </span>
+                      <h5 className="font-semibold text-white">{step.title}</h5>
+                    </div>
+                    
+                    <p className="text-white/80 text-sm mb-2">{step.description}</p>
+                    
+                    {(isActive || isPast) && (
+                      <div className="text-white/60 text-xs bg-white/10 rounded px-3 py-1 animate-fade-in">
+                        🔧 Technical details: {step.details}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="bg-red-500/20 rounded-lg p-6">
+          <h4 className="text-xl font-semibold mb-4 text-red-300">⚡ Performance Considerations</h4>
+          <ul className="space-y-2 text-white/80 text-sm">
+            <li>• <strong>CDNs:</strong> Serve static assets from edge locations globally</li>
+            <li>• <strong>Database Indexing:</strong> Optimize query performance with proper indexes</li>
+            <li>• <strong>Caching:</strong> Redis for session data, browser cache for assets</li>
+            <li>• <strong>Image Optimization:</strong> WebP format, responsive images, lazy loading</li>
+            <li>• <strong>API Rate Limiting:</strong> Prevent abuse and ensure fair usage</li>
+            <li>• <strong>Connection Pooling:</strong> Reuse database connections efficiently</li>
+          </ul>
+        </div>
+        
+        <div className="bg-orange-500/20 rounded-lg p-6">
+          <h4 className="text-xl font-semibold mb-4 text-orange-300">🔐 Security Best Practices</h4>
+          <ul className="space-y-2 text-white/80 text-sm">
+            <li>• <strong>Input Validation:</strong> Sanitize all user inputs on client and server</li>
+            <li>• <strong>Authentication:</strong> JWT tokens with proper expiration and refresh</li>
+            <li>• <strong>Authorization:</strong> Role-based access control (RBAC)</li>
+            <li>• <strong>HTTPS Everywhere:</strong> Encrypt data in transit</li>
+            <li>• <strong>SQL Injection Prevention:</strong> Parameterized queries, ORMs</li>
+            <li>• <strong>XSS Protection:</strong> Content Security Policy, input escaping</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // Class 1 Slides Main Component
 const Class1Slides = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -1372,7 +1832,7 @@ const Class1Slides = () => {
             Building Your First Webpage - Interactive Practice
           </p>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
             <div>
               <HTMLBuilder />
             </div>
@@ -1381,29 +1841,33 @@ const Class1Slides = () => {
             </div>
           </div>
           
-          <div className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-xl p-6">
-            <h3 className="text-xl font-semibold mb-4 text-indigo-300">🏆 What You've Learned</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="text-center">
-                <div className="text-2xl mb-2">🏗️</div>
-                <h4 className="font-medium text-white mb-2">HTML Structure</h4>
-                <p className="text-white/70 text-sm">Semantic elements that give meaning to content</p>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl mb-2">🎨</div>
-                <h4 className="font-medium text-white mb-2">CSS Styling</h4>
-                <p className="text-white/70 text-sm">Visual design and interactive effects</p>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl mb-2">⚡</div>
-                <h4 className="font-medium text-white mb-2">Interactive Design</h4>
-                <p className="text-white/70 text-sm">Bringing websites to life with modern techniques</p>
-              </div>
-            </div>
-          </div>
+          <AdvancedHTMLCSSDemo />
         </div>
       ),
       bgGradient: 'from-purple-600 to-pink-700'
+    },
+    {
+      id: 'system-integration',
+      title: 'System Integration & Data Flow',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8">🔄 System Integration & Data Flow</h2>
+          <p className="text-xl text-blue-100 text-center mb-8">
+            Understanding how frontend, backend, and database work together in real-world scenarios
+          </p>
+          
+          <SystemIntegrationDemo />
+          
+          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-6">
+            <h3 className="text-xl font-semibold mb-4 text-blue-300">🎯 Key Takeaway</h3>
+            <p className="text-white/80 text-lg">
+              Modern web applications are complex systems where frontend, backend, and database work together seamlessly. 
+              Understanding data flow and system integration is crucial for building scalable, secure, and performant applications.
+            </p>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-slate-600 to-gray-700'
     },
     {
       id: 'getting-started',
