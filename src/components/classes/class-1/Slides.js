@@ -4283,25 +4283,39 @@ const Class1Slides = () => {
   // Handle scroll to navigate slides
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const newSlide = Math.floor(scrollPosition / windowHeight);
+      const slideElements = document.querySelectorAll('[data-slide-index]');
+      const scrollPosition = window.scrollY + window.innerHeight / 2; // Use center of viewport
       
-      if (newSlide >= 0 && newSlide < slides.length) {
-        setCurrentSlide(newSlide);
-      }
+      let currentSlideIndex = 0;
+      
+      slideElements.forEach((element, index) => {
+        const slideTop = element.offsetTop;
+        const slideBottom = slideTop + element.offsetHeight;
+        
+        // Check if the center of the viewport is within this slide
+        if (scrollPosition >= slideTop && scrollPosition < slideBottom) {
+          currentSlideIndex = index;
+        }
+      });
+      
+      setCurrentSlide(currentSlideIndex);
     };
 
     window.addEventListener('scroll', handleScroll);
+    // Call once to set initial state
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [slides.length]);
 
   // Smooth scroll to specific slide
   const scrollToSlide = (slideIndex) => {
-    window.scrollTo({
-      top: slideIndex * window.innerHeight,
-      behavior: 'smooth'
-    });
+    const slideElement = document.querySelector(`[data-slide-index="${slideIndex}"]`);
+    if (slideElement) {
+      slideElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   };
 
   return (
@@ -4326,6 +4340,7 @@ const Class1Slides = () => {
       {slides.map((slide, index) => (
         <div
           key={slide.id}
+          data-slide-index={index}
           className={`min-h-screen flex items-center justify-center p-8 bg-gradient-to-br ${slide.bgGradient}`}
         >
           <div className="max-w-6xl mx-auto w-full">
