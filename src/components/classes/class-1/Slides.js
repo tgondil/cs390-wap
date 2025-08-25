@@ -770,7 +770,7 @@ const InteractiveInstagramDemo = () => {
     
     for (let i = 0; i < steps.length; i++) {
       setCurrentStep(i);
-      await new Promise(resolve => setTimeout(resolve, 6000));
+      await new Promise(resolve => setTimeout(resolve, 12000));
     }
     
     // Execute the actual action
@@ -1722,88 +1722,142 @@ const Class1Slides = () => {
       title: 'What is a Web Application?',
       content: (
         <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8">🌐 What is a Web Application?</h2>
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">🌐 What is a Web Application?</h2>
+          <p className="text-2xl text-blue-100 text-center mb-12">
+            Let's explore what makes an application different from a regular website
+          </p>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            <div className="bg-red-500/20 rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-4 text-red-300">📄 Traditional Website</h3>
-              <ul className="space-y-3 text-white/80">
-                <li className="flex items-center">
-                  <span className="mr-3">📰</span>
-                  Static content (news sites, blogs)
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-3">👁️</span>
-                  Information consumption
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-3">🔒</span>
-                  Limited user interaction
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-3">📖</span>
-                  Read-only experience
-                </li>
-              </ul>
-              
-              <div className="mt-4 p-3 bg-white/10 rounded">
-                <h4 className="font-medium text-white mb-2">Examples:</h4>
-                <div className="text-sm text-white/70">
-                  Company websites, blogs, documentation sites, portfolios
-                </div>
+          {/* Start with what students know */}
+          <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur rounded-xl p-8 border border-blue-400/30 mb-12 max-w-5xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">🤔 Think About Apps You Use Daily</h3>
+            <p className="text-blue-100 text-lg text-center mb-6">
+              What's the difference between reading a news website and using Instagram? Or visiting a company's "About Us" page vs. online banking?
+            </p>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+              <div className="bg-white/10 rounded-lg p-4 text-center">
+                <div className="text-3xl mb-2">📱</div>
+                <div className="text-sm text-white/90 font-medium">Instagram</div>
+              </div>
+              <div className="bg-white/10 rounded-lg p-4 text-center">
+                <div className="text-3xl mb-2">🏦</div>
+                <div className="text-sm text-white/90 font-medium">Banking App</div>
+              </div>
+              <div className="bg-white/10 rounded-lg p-4 text-center">
+                <div className="text-3xl mb-2">🎵</div>
+                <div className="text-sm text-white/90 font-medium">Spotify</div>
+              </div>
+              <div className="bg-white/10 rounded-lg p-4 text-center">
+                <div className="text-3xl mb-2">📧</div>
+                <div className="text-sm text-white/90 font-medium">Gmail</div>
               </div>
             </div>
             
-            <div className="bg-blue-500/20 rounded-xl p-6">
-              <h3 className="text-xl font-semibold mb-4 text-blue-300">⚡ Web Application</h3>
-              <ul className="space-y-3 text-white/80">
-                <li className="flex items-center">
-                  <span className="mr-3">🎮</span>
-                  Dynamic, interactive experiences
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-3">👥</span>
-                  User-generated content
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-3">⚡</span>
-                  Real-time functionality
-                </li>
-                <li className="flex items-center">
-                  <span className="mr-3">🎯</span>
-                  Personalized experiences
-                </li>
-              </ul>
+            <div className="mt-6 text-center">
+              <p className="text-green-200 text-lg font-medium">
+                These are all <strong>web applications</strong> - they remember you, let you create content, and respond to your actions!
+              </p>
+            </div>
+          </div>
+          
+          {/* Simple Definition */}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-xl p-8 border border-emerald-400/30 text-center">
+              <h3 className="text-3xl font-bold text-white mb-6">🚀 Web Application = Interactive + Personal + Dynamic</h3>
               
-              <div className="mt-4 p-3 bg-white/10 rounded">
-                <h4 className="font-medium text-white mb-2">Examples:</h4>
-                <div className="text-sm text-white/70">
-                  Social media, online banking, streaming platforms, productivity tools
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div className="bg-white/10 rounded-xl p-6">
+                  <div className="text-4xl mb-4">🎮</div>
+                  <h4 className="text-xl font-semibold text-emerald-300 mb-3">Interactive</h4>
+                  <p className="text-white/80 text-sm">
+                    You can click, type, upload, like, share - the app responds to everything you do
+                  </p>
+                </div>
+                
+                <div className="bg-white/10 rounded-xl p-6">
+                  <div className="text-4xl mb-4">👤</div>
+                  <h4 className="text-xl font-semibold text-blue-300 mb-3">Personal</h4>
+                  <p className="text-white/80 text-sm">
+                    It knows who you are, remembers your preferences, and shows content just for you
+                  </p>
+                </div>
+                
+                <div className="bg-white/10 rounded-xl p-6">
+                  <div className="text-4xl mb-4">⚡</div>
+                  <h4 className="text-xl font-semibold text-purple-300 mb-3">Dynamic</h4>
+                  <p className="text-white/80 text-sm">
+                    Content changes in real-time, new posts appear, notifications pop up
+                  </p>
                 </div>
               </div>
             </div>
           </div>
           
-          <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl p-6">
-            <h3 className="text-xl font-semibold mb-4 text-purple-300">🚀 Key Differences</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="text-center">
-                <div className="text-3xl mb-2">🔄</div>
-                <h4 className="font-medium text-white mb-2">State Management</h4>
-                <p className="text-white/70 text-sm">Applications maintain user state and remember interactions</p>
+          {/* Real Examples Students Can Relate To */}
+          <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-xl p-8 border border-orange-400/30 max-w-6xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">🎯 Web Apps vs Websites - Real Examples</h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Website Example */}
+              <div className="bg-white/10 rounded-xl p-6">
+                <h4 className="text-xl font-semibold text-red-300 mb-4 text-center">📰 Website Example: News Site</h4>
+                <div className="space-y-3 text-white/80">
+                  <div className="flex items-start">
+                    <span className="text-red-400 mr-3 mt-1">•</span>
+                    <span>Same content for everyone</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-red-400 mr-3 mt-1">•</span>
+                    <span>You read articles, that's it</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-red-400 mr-3 mt-1">•</span>
+                    <span>No login needed</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-red-400 mr-3 mt-1">•</span>
+                    <span>Content rarely changes</span>
+                  </div>
+                </div>
+                
+                <div className="mt-4 text-center">
+                  <span className="bg-red-500/30 text-red-200 px-3 py-1 rounded text-sm">
+                    Information Only
+                  </span>
+                </div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl mb-2">💾</div>
-                <h4 className="font-medium text-white mb-2">Data Persistence</h4>
-                <p className="text-white/70 text-sm">User data is stored and retrieved from databases</p>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl mb-2">🔐</div>
-                <h4 className="font-medium text-white mb-2">Authentication</h4>
-                <p className="text-white/70 text-sm">Users log in and have personalized experiences</p>
+              
+              {/* Web App Example */}
+              <div className="bg-white/10 rounded-xl p-6">
+                <h4 className="text-xl font-semibold text-green-300 mb-4 text-center">📱 Web App Example: Social Media</h4>
+                <div className="space-y-3 text-white/80">
+                  <div className="flex items-start">
+                    <span className="text-green-400 mr-3 mt-1">•</span>
+                    <span>Your personalized feed</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-green-400 mr-3 mt-1">•</span>
+                    <span>Post photos, comments, reactions</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-green-400 mr-3 mt-1">•</span>
+                    <span>Login to see your account</span>
+                  </div>
+                  <div className="flex items-start">
+                    <span className="text-green-400 mr-3 mt-1">•</span>
+                    <span>New content constantly appearing</span>
+                  </div>
+                </div>
+                
+                <div className="mt-4 text-center">
+                  <span className="bg-green-500/30 text-green-200 px-3 py-1 rounded text-sm">
+                    Interactive Experience
+                  </span>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
       ),
       bgGradient: 'from-green-600 to-teal-700'
@@ -1813,57 +1867,118 @@ const Class1Slides = () => {
       title: 'Three-Tier Architecture Overview',
       content: (
         <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8">🏗️ Three-Tier Architecture</h2>
-          <p className="text-xl text-blue-100 text-center mb-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">🏗️ Three-Tier Architecture</h2>
+          <p className="text-2xl text-blue-100 text-center mb-12">
             Modern web applications are built using a three-tier architecture that separates concerns and enables scalability.
           </p>
           
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 text-center border border-green-400/30">
-                <div className="text-5xl mb-4">🎨</div>
-                <h3 className="text-2xl font-bold text-green-300 mb-4">Frontend</h3>
-                <p className="text-white/80">Presentation Tier</p>
-                <p className="text-green-200 text-sm mt-2">What users see and interact with</p>
+                <div className="text-6xl mb-6">🎨</div>
+                <h3 className="text-3xl font-bold text-green-300 mb-4">Frontend</h3>
+                <p className="text-xl text-white/80 mb-3">Presentation Tier</p>
+                <p className="text-green-200 text-lg">What users see and interact with</p>
+                
+                <div className="mt-6 space-y-3">
+                  <div className="bg-green-400/20 rounded-lg p-3 border border-green-400/40">
+                    <p className="text-white/90 text-sm font-medium">HTML, CSS, JavaScript</p>
+                  </div>
+                  <div className="bg-green-400/20 rounded-lg p-3 border border-green-400/40">
+                    <p className="text-white/90 text-sm font-medium">React, User Interface</p>
+                  </div>
+                  <div className="bg-green-400/20 rounded-lg p-3 border border-green-400/40">
+                    <p className="text-white/90 text-sm font-medium">Runs in Browser</p>
+                  </div>
+                </div>
               </div>
               
               <div className="bg-orange-500/20 backdrop-blur rounded-xl p-8 text-center border border-orange-400/30">
-                <div className="text-5xl mb-4">⚙️</div>
-                <h3 className="text-2xl font-bold text-orange-300 mb-4">Backend</h3>
-                <p className="text-white/80">Logic Tier</p>
-                <p className="text-orange-200 text-sm mt-2">Server-side processing and business logic</p>
+                <div className="text-6xl mb-6">⚙️</div>
+                <h3 className="text-3xl font-bold text-orange-300 mb-4">Backend</h3>
+                <p className="text-xl text-white/80 mb-3">Logic Tier</p>
+                <p className="text-orange-200 text-lg">Server-side processing and business logic</p>
+                
+                <div className="mt-6 space-y-3">
+                  <div className="bg-orange-400/20 rounded-lg p-3 border border-orange-400/40">
+                    <p className="text-white/90 text-sm font-medium">Node.js, Express</p>
+                  </div>
+                  <div className="bg-orange-400/20 rounded-lg p-3 border border-orange-400/40">
+                    <p className="text-white/90 text-sm font-medium">APIs, Authentication</p>
+                  </div>
+                  <div className="bg-orange-400/20 rounded-lg p-3 border border-orange-400/40">
+                    <p className="text-white/90 text-sm font-medium">Runs on Server</p>
+                  </div>
+                </div>
               </div>
               
               <div className="bg-purple-500/20 backdrop-blur rounded-xl p-8 text-center border border-purple-400/30">
-                <div className="text-5xl mb-4">🗄️</div>
-                <h3 className="text-2xl font-bold text-purple-300 mb-4">Database</h3>
-                <p className="text-white/80">Data Tier</p>
-                <p className="text-purple-200 text-sm mt-2">Persistent data storage and retrieval</p>
+                <div className="text-6xl mb-6">🗄️</div>
+                <h3 className="text-3xl font-bold text-purple-300 mb-4">Database</h3>
+                <p className="text-xl text-white/80 mb-3">Data Tier</p>
+                <p className="text-purple-200 text-lg">Persistent data storage and retrieval</p>
+                
+                <div className="mt-6 space-y-3">
+                  <div className="bg-purple-400/20 rounded-lg p-3 border border-purple-400/40">
+                    <p className="text-white/90 text-sm font-medium">MongoDB, PostgreSQL</p>
+                  </div>
+                  <div className="bg-purple-400/20 rounded-lg p-3 border border-purple-400/40">
+                    <p className="text-white/90 text-sm font-medium">User Data, Posts</p>
+                  </div>
+                  <div className="bg-purple-400/20 rounded-lg p-3 border border-purple-400/40">
+                    <p className="text-white/90 text-sm font-medium">Permanent Storage</p>
+                  </div>
+                </div>
               </div>
             </div>
             
+            {/* Simple Flow Visualization */}
             <div className="bg-white/10 backdrop-blur rounded-xl p-8">
-              <h3 className="text-xl font-bold text-white mb-4 text-center">Why Separate into Tiers?</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold text-blue-300 mb-3">Benefits:</h4>
-                  <ul className="space-y-2 text-white/80 text-sm">
-                    <li>• <strong>Separation of Concerns</strong> - Each tier has a specific responsibility</li>
-                    <li>• <strong>Scalability</strong> - Scale each tier independently as needed</li>
-                    <li>• <strong>Maintainability</strong> - Easier to update and debug specific layers</li>
-                    <li>• <strong>Team Collaboration</strong> - Different teams can work on different tiers</li>
-                  </ul>
+              <h3 className="text-2xl font-bold text-white mb-8 text-center">📊 How They Work Together</h3>
+              
+              <div className="max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+                  <div className="text-center">
+                    <div className="bg-green-500/30 rounded-full p-4 mx-auto mb-3 w-16 h-16 flex items-center justify-center">
+                      <span className="text-2xl">👤</span>
+                    </div>
+                    <p className="text-green-300 font-medium text-sm">User</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="text-3xl mb-2">→</div>
+                    <p className="text-white/60 text-xs">Interacts</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="bg-green-500/30 rounded-full p-4 mx-auto mb-3 w-16 h-16 flex items-center justify-center">
+                      <span className="text-2xl">🎨</span>
+                    </div>
+                    <p className="text-green-300 font-medium text-sm">Frontend</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="text-3xl mb-2">↔</div>
+                    <p className="text-white/60 text-xs">Communicates</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="bg-orange-500/30 rounded-full p-4 mx-auto mb-3 w-16 h-16 flex items-center justify-center">
+                      <span className="text-2xl">⚙️</span>
+                    </div>
+                    <p className="text-orange-300 font-medium text-sm">Backend</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-green-300 mb-3">Real-World Example:</h4>
-                  <p className="text-white/80 text-sm mb-2">
-                    Think of a restaurant:
-                  </p>
-                  <ul className="space-y-1 text-white/70 text-sm">
-                    <li>🎨 <strong>Frontend:</strong> Dining room & waiters (customer interface)</li>
-                    <li>⚙️ <strong>Backend:</strong> Kitchen & chefs (food preparation)</li>
-                    <li>🗄️ <strong>Database:</strong> Pantry & storage (ingredient storage)</li>
-                  </ul>
+                
+                <div className="mt-8 flex justify-center">
+                  <div className="text-center">
+                    <div className="text-3xl mb-2">↕</div>
+                    <p className="text-white/60 text-xs mb-4">Stores & Retrieves</p>
+                    <div className="bg-purple-500/30 rounded-full p-4 mx-auto mb-3 w-16 h-16 flex items-center justify-center">
+                      <span className="text-2xl">🗄️</span>
+                    </div>
+                    <p className="text-purple-300 font-medium text-sm">Database</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1871,6 +1986,177 @@ const Class1Slides = () => {
         </div>
       ),
       bgGradient: 'from-slate-600 to-gray-700'
+    },
+    {
+      id: 'three-tier-benefits',
+      title: 'Why Separate into Tiers?',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">🤔 Why Separate into Tiers?</h2>
+          <p className="text-2xl text-blue-100 text-center mb-12">
+            See the dramatic difference separation makes
+          </p>
+          
+          <div className="max-w-6xl mx-auto space-y-8">
+            {/* Visual Before/After Comparison */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+              {/* Without Separation */}
+              <div className="bg-red-500/20 rounded-xl p-8 border border-red-400/30">
+                <h3 className="text-2xl font-semibold text-red-300 mb-6 text-center">❌ Without Separation</h3>
+                <div className="bg-gray-700/50 rounded-lg p-6 mb-6">
+                  <div className="text-center text-white/80 text-lg mb-4">One Giant, Messy System</div>
+                  <div className="bg-red-400/30 rounded p-4 text-center">
+                    <div className="text-sm text-white/70 space-y-2">
+                      <div className="text-lg">🎨 UI + ⚙️ Logic + 🗄️ Data</div>
+                      <div className="font-medium">Everything tangled together!</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center text-red-200">
+                    <span className="text-red-400 mr-3 text-xl">😵</span>
+                    <span className="text-lg">Hard to find bugs</span>
+                  </div>
+                  <div className="flex items-center text-red-200">
+                    <span className="text-red-400 mr-3 text-xl">🐌</span>
+                    <span className="text-lg">Can't scale parts separately</span>
+                  </div>
+                  <div className="flex items-center text-red-200">
+                    <span className="text-red-400 mr-3 text-xl">👥</span>
+                    <span className="text-lg">Teams step on each other</span>
+                  </div>
+                  <div className="flex items-center text-red-200">
+                    <span className="text-red-400 mr-3 text-xl">💥</span>
+                    <span className="text-lg">One change breaks everything</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* With Separation */}
+              <div className="bg-green-500/20 rounded-xl p-8 border border-green-400/30">
+                <h3 className="text-2xl font-semibold text-green-300 mb-6 text-center">✅ With Separation</h3>
+                <div className="space-y-4 mb-6">
+                  <div className="bg-green-400/20 rounded-lg p-3 text-center border border-green-400/40">
+                    <div className="text-lg text-white/90">🎨 Frontend (Clean UI)</div>
+                  </div>
+                  <div className="bg-orange-400/20 rounded-lg p-3 text-center border border-orange-400/40">
+                    <div className="text-lg text-white/90">⚙️ Backend (Smart Logic)</div>
+                  </div>
+                  <div className="bg-purple-400/20 rounded-lg p-3 text-center border border-purple-400/40">
+                    <div className="text-lg text-white/90">🗄️ Database (Safe Storage)</div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center text-green-200">
+                    <span className="text-green-400 mr-3 text-xl">🎯</span>
+                    <span className="text-lg">Easy to debug & fix</span>
+                  </div>
+                  <div className="flex items-center text-green-200">
+                    <span className="text-green-400 mr-3 text-xl">⚡</span>
+                    <span className="text-lg">Scale each part as needed</span>
+                  </div>
+                  <div className="flex items-center text-green-200">
+                    <span className="text-green-400 mr-3 text-xl">👥</span>
+                    <span className="text-lg">Teams work independently</span>
+                  </div>
+                  <div className="flex items-center text-green-200">
+                    <span className="text-green-400 mr-3 text-xl">🛡️</span>
+                    <span className="text-lg">Changes stay contained</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Visual Restaurant Analogy */}
+            <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-8 border border-blue-400/30">
+              <h3 className="text-2xl font-bold text-white mb-8 text-center">🍽️ Think of a Restaurant</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                {/* Dining Room */}
+                <div className="bg-green-500/20 rounded-lg p-6 border border-green-400/30 text-center">
+                  <div className="text-5xl mb-4">🎨</div>
+                  <h4 className="text-xl text-green-300 font-semibold mb-3">Dining Room</h4>
+                  <div className="text-white/80 mb-4">What customers see & experience</div>
+                  <div className="space-y-3 text-sm text-white/70">
+                    <div className="bg-green-400/20 rounded p-3">Beautiful tables & decor</div>
+                    <div className="bg-green-400/20 rounded p-3">Friendly waiters</div>
+                    <div className="bg-green-400/20 rounded p-3">Menu & ordering</div>
+                  </div>
+                  <div className="mt-4 text-green-200 font-medium">= Frontend</div>
+                </div>
+                
+                {/* Kitchen */}
+                <div className="bg-orange-500/20 rounded-lg p-6 border border-orange-400/30 text-center">
+                  <div className="text-5xl mb-4">⚙️</div>
+                  <h4 className="text-xl text-orange-300 font-semibold mb-3">Kitchen</h4>
+                  <div className="text-white/80 mb-4">Where the magic happens</div>
+                  <div className="space-y-3 text-sm text-white/70">
+                    <div className="bg-orange-400/20 rounded p-3">Cooking processes</div>
+                    <div className="bg-orange-400/20 rounded p-3">Recipe logic</div>
+                    <div className="bg-orange-400/20 rounded p-3">Quality control</div>
+                  </div>
+                  <div className="mt-4 text-orange-200 font-medium">= Backend</div>
+                </div>
+                
+                {/* Pantry */}
+                <div className="bg-purple-500/20 rounded-lg p-6 border border-purple-400/30 text-center">
+                  <div className="text-5xl mb-4">🗄️</div>
+                  <h4 className="text-xl text-purple-300 font-semibold mb-3">Pantry</h4>
+                  <div className="text-white/80 mb-4">Where everything is stored</div>
+                  <div className="space-y-3 text-sm text-white/70">
+                    <div className="bg-purple-400/20 rounded p-3">Organized ingredients</div>
+                    <div className="bg-purple-400/20 rounded p-3">Inventory tracking</div>
+                    <div className="bg-purple-400/20 rounded p-3">Supply management</div>
+                  </div>
+                  <div className="mt-4 text-purple-200 font-medium">= Database</div>
+                </div>
+              </div>
+              
+              <div className="text-center">
+                <div className="bg-white/10 rounded-lg p-6">
+                  <p className="text-white/90 text-xl mb-3">
+                    <strong>👨‍🍳 Imagine if the chef had to:</strong>
+                  </p>
+                  <p className="text-white/70 text-lg">
+                    Serve customers, cook food, AND manage inventory all at once!
+                    <br />It would be chaos! 🤯
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Key Benefits Visual */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="bg-blue-500/20 rounded-lg p-6 text-center border border-blue-400/30">
+                <div className="text-4xl mb-3">🎯</div>
+                <h4 className="text-blue-300 font-semibold text-lg mb-2">Focus</h4>
+                <p className="text-white/70">Each team focuses on their expertise</p>
+              </div>
+              
+              <div className="bg-green-500/20 rounded-lg p-6 text-center border border-green-400/30">
+                <div className="text-4xl mb-3">⚡</div>
+                <h4 className="text-green-300 font-semibold text-lg mb-2">Speed</h4>
+                <p className="text-white/70">Scale parts independently</p>
+              </div>
+              
+              <div className="bg-purple-500/20 rounded-lg p-6 text-center border border-purple-400/30">
+                <div className="text-4xl mb-3">🛠️</div>
+                <h4 className="text-purple-300 font-semibold text-lg mb-2">Fixes</h4>
+                <p className="text-white/70">Easier to find and fix problems</p>
+              </div>
+              
+              <div className="bg-orange-500/20 rounded-lg p-6 text-center border border-orange-400/30">
+                <div className="text-4xl mb-3">👥</div>
+                <h4 className="text-orange-300 font-semibold text-lg mb-2">Teams</h4>
+                <p className="text-white/70">Multiple teams work together</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-gray-600 to-slate-700'
     },
     {
       id: 'frontend-overview',
@@ -2886,24 +3172,7 @@ const Class1Slides = () => {
               </div>
             </div>
           </div>
-          
-          {/* What's Next Preview */}
-          <div className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-xl p-8 border border-emerald-400/30 max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-4 text-center">🔜 What's Next?</h3>
-            <div className="text-center">
-              <p className="text-emerald-100 text-lg mb-4">Now that we understand individual tags, let's see how they work together!</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-white/10 rounded p-4">
-                  <h4 className="text-emerald-300 font-semibold mb-2">🪆 HTML Nesting</h4>
-                  <p className="text-white/80 text-sm">How to put tags inside other tags for organization</p>
-                </div>
-                <div className="bg-white/10 rounded p-4">
-                  <h4 className="text-teal-300 font-semibold mb-2">🏗️ Page Structure</h4>
-                  <p className="text-white/80 text-sm">Building complete, organized web pages</p>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
       ),
       bgGradient: 'from-blue-600 to-indigo-600'
@@ -2919,30 +3188,120 @@ const Class1Slides = () => {
           </p>
           
           {/* HTML Nesting Concept */}
-          <div className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 backdrop-blur rounded-xl p-8 border border-emerald-400/30 mb-12 max-w-5xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">🏗️ What is HTML Nesting?</h3>
-            <p className="text-emerald-100 text-lg text-center mb-6">
-              Nesting means putting <strong>tags inside other tags</strong> - like boxes inside bigger boxes!
-            </p>
+          <div className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 backdrop-blur rounded-xl p-8 border border-emerald-400/30 mb-12 max-w-6xl mx-auto">
+            <h3 className="text-3xl font-bold text-white mb-6 text-center">🏗️ What is HTML Nesting?</h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-              <div className="bg-white/10 rounded-xl p-6">
-                <h4 className="text-lg font-semibold text-emerald-300 mb-4">📦 Think Like Containers</h4>
-                <ul className="text-white/80 space-y-2 text-sm">
-                  <li>• <strong>Outer Container</strong>: Holds everything together</li>
-                  <li>• <strong>Inner Elements</strong>: Specific content pieces</li>
-                  <li>• <strong>Organization</strong>: Related content grouped together</li>
-                  <li>• <strong>Structure</strong>: Creates hierarchy and meaning</li>
-                </ul>
+            {/* Simple Analogy First */}
+            <div className="bg-white/10 rounded-xl p-8 mb-8">
+              <h4 className="text-2xl font-semibold text-emerald-300 mb-6 text-center">🎁 Think of Russian Dolls</h4>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div className="text-center">
+                  <div className="text-6xl mb-4">🪆</div>
+                  <p className="text-emerald-100 text-lg mb-4">
+                    Russian dolls fit <strong>inside each other</strong>
+                  </p>
+                  <p className="text-white/80 text-sm">
+                    Each doll contains smaller dolls, creating layers of organization
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="text-6xl mb-4">🏗️</div>
+                  <p className="text-teal-100 text-lg mb-4">
+                    HTML tags work <strong>the same way</strong>
+                  </p>
+                  <p className="text-white/80 text-sm">
+                    Tags go inside other tags, creating organized structure
+                  </p>
+                </div>
               </div>
-              <div className="bg-white/10 rounded-xl p-6">
-                <h4 className="text-lg font-semibold text-teal-300 mb-4">🎯 Why Nesting Matters</h4>
-                <ul className="text-white/80 space-y-2 text-sm">
-                  <li>• <strong>CSS Styling</strong>: Style containers and their contents</li>
-                  <li>• <strong>JavaScript</strong>: Find and manipulate specific sections</li>
-                  <li>• <strong>Accessibility</strong>: Screen readers understand relationships</li>
-                  <li>• <strong>SEO</strong>: Search engines understand page structure</li>
-                </ul>
+            </div>
+            
+            {/* Visual Example */}
+            <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-6 mb-8">
+              <h4 className="text-xl font-semibold text-white mb-6 text-center">📝 Simple Example: A Card About You</h4>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* HTML Code */}
+                <div>
+                  <h5 className="text-blue-300 font-semibold mb-3">The HTML Code:</h5>
+                  <div className="bg-black/50 rounded-lg p-4">
+                    <div className="font-mono text-sm space-y-2">
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 border-2 border-purple-400 mr-3 rounded" style={{borderStyle: 'dashed'}}></div>
+                        <span className="text-purple-300">{'<div class="about-card">'}</span>
+                        <span className="text-white/60 ml-2 text-xs">← Outer container</span>
+                      </div>
+                      <div className="flex items-center ml-8">
+                        <div className="w-3 h-3 bg-cyan-400 mr-3 rounded"></div>
+                        <span className="text-cyan-300">{'<h2>About Me</h2>'}</span>
+                        <span className="text-white/60 ml-2 text-xs">← Title inside</span>
+                      </div>
+                      <div className="flex items-center ml-8">
+                        <div className="w-3 h-3 bg-pink-400 mr-3 rounded"></div>
+                        <span className="text-pink-300">{'<p>I love coding!</p>'}</span>
+                        <span className="text-white/60 ml-2 text-xs">← Text inside</span>
+                      </div>
+                      <div className="flex items-center ml-8">
+                        <div className="w-3 h-3 bg-green-400 mr-3 rounded"></div>
+                        <span className="text-green-300">{'<p>HTML is fun!</p>'}</span>
+                        <span className="text-white/60 ml-2 text-xs">← More text inside</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 border-2 border-purple-400 mr-3 rounded" style={{borderStyle: 'dashed'}}></div>
+                        <span className="text-purple-300">{'</div>'}</span>
+                        <span className="text-white/60 ml-2 text-xs">← Close container</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Visual Result */}
+                <div>
+                  <h5 className="text-purple-300 font-semibold mb-3">What It Looks Like:</h5>
+                  <div className="bg-white/10 rounded-lg p-6">
+                    <div className="border-2 border-purple-400 rounded-lg p-4 border-dashed">
+                      <div className="bg-cyan-400/20 rounded p-2 mb-3 border border-cyan-400">
+                        <h6 className="text-white font-bold">About Me</h6>
+                      </div>
+                      <div className="bg-pink-400/20 rounded p-2 mb-2 border border-pink-400">
+                        <p className="text-white/90 text-sm">I love coding!</p>
+                      </div>
+                      <div className="bg-green-400/20 rounded p-2 border border-green-400">
+                        <p className="text-white/90 text-sm">HTML is fun!</p>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-white/70 text-xs mt-3 text-center">
+                    The outer div (purple) contains all the inner elements
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Key Rules */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-white/10 rounded-xl p-6 text-center">
+                <div className="text-3xl mb-3">📦</div>
+                <h4 className="text-emerald-300 font-semibold mb-3">Tags = Containers</h4>
+                <p className="text-white/80 text-sm">
+                  Every tag is like a box that can hold other tags or content
+                </p>
+              </div>
+              
+              <div className="bg-white/10 rounded-xl p-6 text-center">
+                <div className="text-3xl mb-3">🎯</div>
+                <h4 className="text-teal-300 font-semibold mb-3">Order Matters</h4>
+                <p className="text-white/80 text-sm">
+                  Last opened tag must be first closed tag (like Russian dolls!)
+                </p>
+              </div>
+              
+              <div className="bg-white/10 rounded-xl p-6 text-center">
+                <div className="text-3xl mb-3">📐</div>
+                <h4 className="text-blue-300 font-semibold mb-3">Indent for Clarity</h4>
+                <p className="text-white/80 text-sm">
+                  Use spaces to show which tags are inside other tags
+                </p>
               </div>
             </div>
           </div>
@@ -3074,29 +3433,7 @@ const Class1Slides = () => {
               </div>
             </div>
           </div>
-          
-          {/* Best Practices */}
-          <div className="bg-gradient-to-r from-purple-500/20 to-indigo-500/20 rounded-xl p-6 border border-purple-400/30 max-w-4xl mx-auto">
-            <h3 className="text-xl font-bold text-white mb-4 text-center">💡 Pro Tips for Clean HTML Structure</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white/10 rounded p-4">
-                <h4 className="text-purple-300 font-semibold mb-2">🎯 Use Semantic Tags</h4>
-                <p className="text-white/80 text-sm">Use {'<header>'}, {'<main>'}, {'<section>'} instead of just {'<div>'}</p>
-              </div>
-              <div className="bg-white/10 rounded p-4">
-                <h4 className="text-indigo-300 font-semibold mb-2">📱 Think Mobile First</h4>
-                <p className="text-white/80 text-sm">Structure your HTML so it works on small screens</p>
-              </div>
-              <div className="bg-white/10 rounded p-4">
-                <h4 className="text-purple-300 font-semibold mb-2">🔍 Keep It Simple</h4>
-                <p className="text-white/80 text-sm">Don't nest too deeply - 3-4 levels is usually enough</p>
-              </div>
-              <div className="bg-white/10 rounded p-4">
-                <h4 className="text-indigo-300 font-semibold mb-2">✅ Validate Your Code</h4>
-                <p className="text-white/80 text-sm">Use tools to check your HTML is properly structured</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       ),
       bgGradient: 'from-cyan-600 to-blue-600'
@@ -3551,24 +3888,7 @@ const Class1Slides = () => {
               </div>
             </div>
           </div>
-          
-          {/* What's Next Preview */}
-          <div className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-xl p-6 border border-indigo-400/30 max-w-4xl mx-auto">
-            <h3 className="text-xl font-bold text-white mb-4 text-center">🔜 Next: See Them in Action!</h3>
-            <div className="text-center">
-              <p className="text-indigo-100 mb-4">Ready to see detailed examples and learn when to use each selector type?</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-white/10 rounded p-3">
-                  <h4 className="text-indigo-300 font-semibold mb-1">📋 Real Examples</h4>
-                  <p className="text-white/80 text-xs">Complete HTML + CSS demonstrations</p>
-                </div>
-                <div className="bg-white/10 rounded p-3">
-                  <h4 className="text-purple-300 font-semibold mb-1">🎯 Best Practices</h4>
-                  <p className="text-white/80 text-xs">When and how to use each selector type</p>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
       ),
       bgGradient: 'from-emerald-600 to-teal-600'
@@ -3884,6 +4204,271 @@ const Class1Slides = () => {
       bgGradient: 'from-blue-600 to-purple-600'
     },
     {
+      id: 'css-properties',
+      title: 'Essential CSS Properties',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">🎨 Essential CSS Properties</h2>
+          <p className="text-2xl text-blue-100 text-center mb-8">
+            The most important CSS properties every developer should know
+          </p>
+          
+          {/* Colors & Backgrounds */}
+          <div className="max-w-6xl mx-auto">
+            <h3 className="text-3xl font-bold text-white mb-8 text-center">🌈 Colors & Backgrounds</h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+              <div className="bg-gradient-to-r from-red-500/20 to-pink-500/20 rounded-xl p-6 border border-red-400/30">
+                <h4 className="text-xl font-semibold text-red-300 mb-4">🎨 Text & Background Colors</h4>
+                <div className="bg-black/50 rounded-lg p-4 mb-4">
+                  <div className="font-mono text-sm space-y-2">
+                    <div className="text-red-300">color: blue;</div>
+                    <div className="text-red-300">color: #3498db;</div>
+                    <div className="text-red-300">color: rgb(52, 152, 219);</div>
+                    <div className="text-red-300">background-color: white;</div>
+                    <div className="text-red-300">background: linear-gradient(...);</div>
+                  </div>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <p className="text-white/80">• <strong>Named colors:</strong> blue, red, green, etc.</p>
+                  <p className="text-white/80">• <strong>Hex codes:</strong> #3498db (most common)</p>
+                  <p className="text-white/80">• <strong>RGB:</strong> rgb(52, 152, 219)</p>
+                  <p className="text-white/80">• <strong>Gradients:</strong> For fancy backgrounds</p>
+                </div>
+              </div>
+              
+              <div className="bg-white/90 rounded-xl p-6">
+                <h4 className="text-xl font-semibold text-gray-800 mb-4">📱 Live Examples</h4>
+                <div className="space-y-3">
+                  <div className="p-3 rounded" style={{color: 'blue', backgroundColor: '#f8f9fa'}}>
+                    color: blue; background: #f8f9fa;
+                  </div>
+                  <div className="p-3 rounded text-white" style={{background: 'linear-gradient(45deg, #3498db, #9b59b6)'}}>
+                    background: linear-gradient(45deg, blue, purple);
+                  </div>
+                  <div className="p-3 rounded text-white" style={{backgroundColor: '#e74c3c'}}>
+                    background-color: #e74c3c;
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Typography */}
+          <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl p-8 border border-green-400/30 max-w-6xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">✍️ Typography Properties</h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-xl font-semibold text-green-300 mb-4">📝 Font Properties</h4>
+                <div className="bg-black/50 rounded-lg p-4 mb-4">
+                  <div className="font-mono text-sm space-y-2">
+                    <div className="text-green-300">font-size: 16px;</div>
+                    <div className="text-green-300">font-weight: bold;</div>
+                    <div className="text-green-300">font-family: Arial, sans-serif;</div>
+                    <div className="text-green-300">text-align: center;</div>
+                    <div className="text-green-300">line-height: 1.5;</div>
+                    <div className="text-green-300">text-decoration: underline;</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-white/90 rounded-lg p-4">
+                <h4 className="text-lg font-semibold text-gray-800 mb-3">🎯 Typography Examples</h4>
+                <div className="space-y-3 text-gray-800">
+                  <div style={{fontSize: '24px', fontWeight: 'bold'}}>font-size: 24px; font-weight: bold;</div>
+                  <div style={{textAlign: 'center', fontStyle: 'italic'}}>text-align: center; font-style: italic;</div>
+                  <div style={{textDecoration: 'underline'}}>text-decoration: underline;</div>
+                  <div style={{lineHeight: '2'}}>line-height: 2; (Double spaced text looks like this with lots of space between lines)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Spacing & Sizing */}
+          <div className="max-w-6xl mx-auto">
+            <h3 className="text-3xl font-bold text-white mb-8 text-center">📏 Spacing & Sizing</h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-xl p-6 border border-blue-400/30">
+                <h4 className="text-xl font-semibold text-blue-300 mb-4">📦 The Box Model</h4>
+                <div className="bg-black/50 rounded-lg p-4 mb-4">
+                  <div className="font-mono text-sm space-y-2">
+                    <div className="text-blue-300">width: 300px;</div>
+                    <div className="text-blue-300">height: 200px;</div>
+                    <div className="text-blue-300">padding: 20px;</div>
+                    <div className="text-blue-300">margin: 10px;</div>
+                    <div className="text-blue-300">border: 2px solid black;</div>
+                  </div>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <p className="text-white/80">• <strong>Width/Height:</strong> Size of content area</p>
+                  <p className="text-white/80">• <strong>Padding:</strong> Space inside the element</p>
+                  <p className="text-white/80">• <strong>Margin:</strong> Space outside the element</p>
+                  <p className="text-white/80">• <strong>Border:</strong> Line around the element</p>
+                </div>
+              </div>
+              
+              <div className="bg-white/90 rounded-xl p-6">
+                <h4 className="text-lg font-semibold text-gray-800 mb-4">📱 Box Model Visual</h4>
+                <div className="text-center">
+                  <div className="inline-block bg-orange-200 p-4" style={{margin: '10px', border: '2px solid #333'}}>
+                    <div className="bg-blue-200 p-4">
+                      <div className="bg-green-200 p-4 text-gray-800 text-sm">
+                        Content Area<br/>
+                        (width × height)
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-4 text-sm text-gray-600">
+                    <div>🟢 Content • 🔵 Padding • 🟠 Border + Margin</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Units & Measurements */}
+          <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl p-8 border border-purple-400/30 max-w-6xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">📐 CSS Units & Measurements</h3>
+            <p className="text-center text-purple-100 mb-6">Understanding the different ways to measure size in CSS</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="bg-white/10 rounded-xl p-4">
+                <div className="text-center mb-3">
+                  <div className="text-3xl mb-2">📏</div>
+                  <h4 className="text-lg font-semibold text-yellow-300">Absolute Units</h4>
+                </div>
+                <div className="bg-black/50 rounded p-3 font-mono text-sm mb-3">
+                  <div className="text-yellow-300">width: 300px;</div>
+                  <div className="text-yellow-300">height: 200px;</div>
+                  <div className="text-yellow-300">font-size: 16px;</div>
+                </div>
+                <div className="text-xs text-white/80">
+                  <p className="mb-2"><strong>px (pixels):</strong> Fixed size that never changes</p>
+                  <p className="text-yellow-200">✅ Good for: borders, small spacing</p>
+                </div>
+              </div>
+              
+              <div className="bg-white/10 rounded-xl p-4">
+                <div className="text-center mb-3">
+                  <div className="text-3xl mb-2">📱</div>
+                  <h4 className="text-lg font-semibold text-blue-300">Viewport Units</h4>
+                </div>
+                <div className="bg-black/50 rounded p-3 font-mono text-sm mb-3">
+                  <div className="text-blue-300">width: 100vw;</div>
+                  <div className="text-blue-300">height: 100vh;</div>
+                  <div className="text-blue-300">font-size: 5vw;</div>
+                </div>
+                <div className="text-xs text-white/80">
+                  <p className="mb-1"><strong>vw:</strong> 1% of viewport width</p>
+                  <p className="mb-2"><strong>vh:</strong> 1% of viewport height</p>
+                  <p className="text-blue-200">✅ Good for: full-screen sections, responsive text</p>
+                </div>
+              </div>
+              
+              <div className="bg-white/10 rounded-xl p-4">
+                <div className="text-center mb-3">
+                  <div className="text-3xl mb-2">📊</div>
+                  <h4 className="text-lg font-semibold text-green-300">Percentage Units</h4>
+                </div>
+                <div className="bg-black/50 rounded p-3 font-mono text-sm mb-3">
+                  <div className="text-green-300">width: 50%;</div>
+                  <div className="text-green-300">height: 80%;</div>
+                  <div className="text-green-300">margin: 10%;</div>
+                </div>
+                <div className="text-xs text-white/80">
+                  <p className="mb-2"><strong>%:</strong> Relative to parent element</p>
+                  <p className="text-green-200">✅ Good for: responsive layouts, flexible sizing</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-8 bg-white/10 rounded-lg p-6">
+              <h4 className="text-xl font-semibold text-white mb-4 text-center">🎯 Unit Comparison Examples</h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div className="bg-black/50 rounded p-4">
+                  <h5 className="text-yellow-300 font-semibold mb-2">Fixed Size (px)</h5>
+                  <div className="bg-yellow-400 text-black p-2 rounded" style={{width: '100px', height: '50px'}}>
+                    100px × 50px
+                  </div>
+                  <p className="text-white/70 text-xs mt-2">Always the same size</p>
+                </div>
+                
+                <div className="bg-black/50 rounded p-4">
+                  <h5 className="text-blue-300 font-semibold mb-2">Viewport (vw/vh)</h5>
+                  <div className="bg-blue-400 text-black p-2 rounded" style={{width: '20vw', minHeight: '50px'}}>
+                    20vw wide
+                  </div>
+                  <p className="text-white/70 text-xs mt-2">Changes with screen size</p>
+                </div>
+                
+                <div className="bg-black/50 rounded p-4">
+                  <h5 className="text-green-300 font-semibold mb-2">Percentage (%)</h5>
+                  <div className="bg-green-400 text-black p-2 rounded" style={{width: '80%', minHeight: '50px'}}>
+                    80% of parent
+                  </div>
+                  <p className="text-white/70 text-xs mt-2">Relative to container</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Quick Reference */}
+          <div className="bg-gradient-to-r from-slate-500/20 to-gray-500/20 rounded-xl p-8 border border-slate-400/30 max-w-6xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-6 text-center">📚 Quick Reference Cheat Sheet</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="bg-white/10 rounded p-4">
+                <h4 className="font-semibold text-red-300 mb-2">🎨 Colors</h4>
+                <div className="font-mono text-xs space-y-1 text-white/80">
+                  <div>color: red;</div>
+                  <div>background: #fff;</div>
+                  <div>border: 1px solid blue;</div>
+                </div>
+              </div>
+              
+              <div className="bg-white/10 rounded p-4">
+                <h4 className="font-semibold text-green-300 mb-2">✍️ Text</h4>
+                <div className="font-mono text-xs space-y-1 text-white/80">
+                  <div>font-size: 16px;</div>
+                  <div>font-weight: bold;</div>
+                  <div>text-align: center;</div>
+                </div>
+              </div>
+              
+              <div className="bg-white/10 rounded p-4">
+                <h4 className="font-semibold text-blue-300 mb-2">📦 Spacing</h4>
+                <div className="font-mono text-xs space-y-1 text-white/80">
+                  <div>margin: 10px;</div>
+                  <div>padding: 20px;</div>
+                  <div>border: 2px solid;</div>
+                </div>
+              </div>
+              
+              <div className="bg-white/10 rounded p-4">
+                <h4 className="font-semibold text-purple-300 mb-2">📏 Sizing</h4>
+                <div className="font-mono text-xs space-y-1 text-white/80">
+                  <div>width: 100px;</div>
+                  <div>height: 50vh;</div>
+                  <div>max-width: 100%;</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-6 text-center">
+              <div className="bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-lg p-4 inline-block">
+                <h4 className="text-white font-bold text-lg mb-2">💡 Pro Tip</h4>
+                <p className="text-white/90 text-sm">Start with these properties - they cover 90% of what you'll need!</p>
+                <p className="text-white/70 text-xs mt-1">Master these basics before moving to advanced layout properties</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-indigo-600 to-purple-600'
+    },
+    {
       id: 'css-styling',
       title: 'CSS Styling in Action',
       content: (
@@ -3974,76 +4559,7 @@ const Class1Slides = () => {
               </div>
             </div>
           </div>
-          
-          {/* Common CSS Properties */}
-          <div className="bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-xl p-8 border border-emerald-400/30 max-w-6xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">🛠️ Essential CSS Properties</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="bg-white/10 rounded-xl p-4">
-                <h4 className="text-lg font-semibold text-emerald-300 mb-3">🎨 Colors & Backgrounds</h4>
-                <div className="bg-black/50 rounded p-3 font-mono text-xs mb-2">
-                  <div className="text-pink-300">{'color: #ff6b6b;'}</div>
-                  <div className="text-blue-300">{'background: linear-gradient(...);'}</div>
-                  <div className="text-purple-300">{'border: 2px solid blue;'}</div>
-                </div>
-                <p className="text-white/70 text-xs">Make elements colorful and eye-catching</p>
-              </div>
-              
-              <div className="bg-white/10 rounded-xl p-4">
-                <h4 className="text-lg font-semibold text-cyan-300 mb-3">📏 Spacing & Size</h4>
-                <div className="bg-black/50 rounded p-3 font-mono text-xs mb-2">
-                  <div className="text-yellow-300">{'margin: 20px;'}</div>
-                  <div className="text-green-300">{'padding: 15px;'}</div>
-                  <div className="text-orange-300">{'width: 100%;'}</div>
-                  <div className="text-red-300">{'height: 300px;'}</div>
-                </div>
-                <p className="text-white/70 text-xs">Control space around and inside elements</p>
-              </div>
-              
-              <div className="bg-white/10 rounded-xl p-4">
-                <h4 className="text-lg font-semibold text-blue-300 mb-3">✍️ Typography</h4>
-                <div className="bg-black/50 rounded p-3 font-mono text-xs mb-2">
-                  <div className="text-blue-300">{'font-family: Arial, sans-serif;'}</div>
-                  <div className="text-indigo-300">{'font-size: 18px;'}</div>
-                  <div className="text-purple-300">{'font-weight: bold;'}</div>
-                  <div className="text-pink-300">{'text-align: center;'}</div>
-                </div>
-                <p className="text-white/70 text-xs">Style text to look professional</p>
-              </div>
-              
-              <div className="bg-white/10 rounded-xl p-4">
-                <h4 className="text-lg font-semibold text-purple-300 mb-3">📱 Layout & Position</h4>
-                <div className="bg-black/50 rounded p-3 font-mono text-xs mb-2">
-                  <div className="text-cyan-300">{'display: flex;'}</div>
-                  <div className="text-teal-300">{'justify-content: center;'}</div>
-                  <div className="text-green-300">{'position: relative;'}</div>
-                  <div className="text-lime-300">{'z-index: 10;'}</div>
-                </div>
-                <p className="text-white/70 text-xs">Position elements exactly where you want</p>
-              </div>
-              
-              <div className="bg-white/10 rounded-xl p-4">
-                <h4 className="text-lg font-semibold text-orange-300 mb-3">✨ Effects & Animation</h4>
-                <div className="bg-black/50 rounded p-3 font-mono text-xs mb-2">
-                  <div className="text-yellow-300">{'box-shadow: 0 4px 8px rgba(...);'}</div>
-                  <div className="text-orange-300">{'border-radius: 10px;'}</div>
-                  <div className="text-red-300">{'transition: all 0.3s ease;'}</div>
-                  <div className="text-pink-300">{'transform: scale(1.1);'}</div>
-                </div>
-                <p className="text-white/70 text-xs">Add polish with shadows and animations</p>
-              </div>
-              
-              <div className="bg-white/10 rounded-xl p-4">
-                <h4 className="text-lg font-semibold text-pink-300 mb-3">📱 Responsive Design</h4>
-                <div className="bg-black/50 rounded p-3 font-mono text-xs mb-2">
-                  <div className="text-purple-300">{'@media (max-width: 768px) {'}</div>
-                  <div className="text-blue-300 ml-2">{'font-size: 14px;'}</div>
-                  <div className="text-purple-300">{'}'}</div>
-                </div>
-                <p className="text-white/70 text-xs">Adapt to phones, tablets, and desktops</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       ),
       bgGradient: 'from-purple-600 to-pink-600'
