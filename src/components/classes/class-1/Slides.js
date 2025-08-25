@@ -2329,61 +2329,7 @@ const Class1Slides = () => {
               </div>
             </div>
 
-            {/* Technology Stack Visual */}
-            <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
-              <h3 className="text-3xl font-bold text-white mb-8 text-center">🛠️ Frontend Technology Stack</h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* HTML Layer */}
-                <div className="bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-xl p-6 border border-orange-400/30 text-center">
-                  <div className="text-6xl mb-4">🏗️</div>
-                  <h4 className="text-2xl font-bold text-orange-300 mb-3">HTML</h4>
-                  <p className="text-white/80 mb-4">The Structure</p>
-                  <div className="bg-black/30 rounded p-3 text-left font-mono text-xs">
-                    <div className="text-orange-300">{'<div>'}</div>
-                    <div className="text-white ml-2">{'<h1>Title</h1>'}</div>
-                    <div className="text-white ml-2">{'<p>Content</p>'}</div>
-                    <div className="text-orange-300">{'</div>'}</div>
-                  </div>
-                  <p className="text-orange-200 text-sm mt-3">Like the skeleton of a building</p>
-                </div>
-                
-                {/* CSS Layer */}
-                <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl p-6 border border-blue-400/30 text-center">
-                  <div className="text-6xl mb-4">🎨</div>
-                  <h4 className="text-2xl font-bold text-blue-300 mb-3">CSS</h4>
-                  <p className="text-white/80 mb-4">The Styling</p>
-                                     <div className="bg-black/30 rounded p-3 text-left font-mono text-xs">
-                     <div className="text-blue-300">{'h1 {'}</div>
-                     <div className="text-white ml-2">color: blue;</div>
-                     <div className="text-white ml-2">font-size: 24px;</div>
-                     <div className="text-blue-300">{'}'}</div>
-                   </div>
-                  <p className="text-blue-200 text-sm mt-3">Like paint and decorations</p>
-                </div>
-                
-                {/* JavaScript Layer */}
-                <div className="bg-gradient-to-br from-yellow-500/20 to-green-500/20 rounded-xl p-6 border border-yellow-400/30 text-center">
-                  <div className="text-6xl mb-4">⚡</div>
-                  <h4 className="text-2xl font-bold text-yellow-300 mb-3">JavaScript</h4>
-                  <p className="text-white/80 mb-4">The Behavior</p>
-                                     <div className="bg-black/30 rounded p-3 text-left font-mono text-xs">
-                     <div className="text-yellow-300">{'button.onclick = () => {'}</div>
-                     <div className="text-white ml-2">showMessage();</div>
-                     <div className="text-yellow-300">{'}'}</div>
-                   </div>
-                  <p className="text-yellow-200 text-sm mt-3">Like the electrical system</p>
-                </div>
-              </div>
-              
-              <div className="mt-8 text-center">
-                <div className="bg-gradient-to-r from-green-500/30 to-blue-500/30 rounded-lg p-4 inline-block">
-                  <p className="text-white font-bold text-lg">🚀 Together = Interactive Web Applications!</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Device Responsiveness Visual */}
+                        {/* Device Responsiveness Visual */}
             <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur rounded-xl p-8 border border-purple-400/30">
               <h3 className="text-3xl font-bold text-white mb-8 text-center">📱 One Code, All Devices</h3>
               
@@ -3524,10 +3470,22 @@ const Class1Slides = () => {
             </div>
           </div>
           
+        </div>
+      ),
+      bgGradient: 'from-cyan-600 to-blue-600'
+    },
+    {
+      id: 'html-nesting-practice',
+      title: 'HTML Nesting in Practice',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">📋 Nesting in Action</h2>
+          <p className="text-2xl text-cyan-100 text-center mb-8">
+            Real examples and best practices for HTML nesting
+          </p>
+          
           {/* Nesting Examples */}
-          <div className="max-w-6xl mx-auto">
-            <h3 className="text-3xl font-bold text-white mb-8 text-center">📋 Nesting in Action</h3>
-            
+          <div className="max-w-6xl mx-auto space-y-8">
             <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-xl p-8 border border-cyan-400/30">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Simple Example */}
@@ -3589,72 +3547,71 @@ const Class1Slides = () => {
                 </div>
               </div>
             </div>
-          </div>
-          
-          {/* Nesting Rules */}
-          <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-xl p-8 border border-orange-400/30 max-w-6xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">📏 The Golden Rules of Nesting</h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Correct Rules */}
-              <div>
-                <h4 className="text-xl font-semibold text-green-300 mb-4">✅ Do This (Correct)</h4>
-                <div className="space-y-4">
-                  <div className="bg-black/50 rounded p-4">
-                    <h5 className="text-green-300 text-sm mb-2">🎯 Proper Closing Order</h5>
-                    <div className="font-mono text-xs space-y-1">
-                      <div className="text-yellow-300">{'<div>'}</div>
-                      <div className="text-cyan-300 ml-2">{'<p>Content</p>'}</div>
-                      <div className="text-yellow-300">{'</div>'}</div>
+            {/* Nesting Rules */}
+            <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-xl p-8 border border-orange-400/30">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">📏 The Golden Rules of Nesting</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Correct Rules */}
+                <div>
+                  <h4 className="text-xl font-semibold text-green-300 mb-4">✅ Do This (Correct)</h4>
+                  <div className="space-y-4">
+                    <div className="bg-black/50 rounded p-4">
+                      <h5 className="text-green-300 text-sm mb-2">🎯 Proper Closing Order</h5>
+                      <div className="font-mono text-xs space-y-1">
+                        <div className="text-yellow-300">{'<div>'}</div>
+                        <div className="text-cyan-300 ml-2">{'<p>Content</p>'}</div>
+                        <div className="text-yellow-300">{'</div>'}</div>
+                      </div>
+                      <p className="text-white/70 text-xs mt-2">Last opened, first closed ✅</p>
                     </div>
-                    <p className="text-white/70 text-xs mt-2">Last opened, first closed ✅</p>
-                  </div>
-                  
-                  <div className="bg-black/50 rounded p-4">
-                    <h5 className="text-green-300 text-sm mb-2">📐 Clean Indentation</h5>
-                    <div className="font-mono text-xs space-y-1">
-                      <div className="text-yellow-300">{'<section>'}</div>
-                      <div className="text-cyan-300 ml-4">{'<h2>Title</h2>'}</div>
-                      <div className="text-pink-300 ml-4">{'<p>Paragraph</p>'}</div>
-                      <div className="text-yellow-300">{'</section>'}</div>
+                    
+                    <div className="bg-black/50 rounded p-4">
+                      <h5 className="text-green-300 text-sm mb-2">📐 Clean Indentation</h5>
+                      <div className="font-mono text-xs space-y-1">
+                        <div className="text-yellow-300">{'<section>'}</div>
+                        <div className="text-cyan-300 ml-4">{'<h2>Title</h2>'}</div>
+                        <div className="text-pink-300 ml-4">{'<p>Paragraph</p>'}</div>
+                        <div className="text-yellow-300">{'</section>'}</div>
+                      </div>
+                      <p className="text-white/70 text-xs mt-2">Easy to read and understand ✅</p>
                     </div>
-                    <p className="text-white/70 text-xs mt-2">Easy to read and understand ✅</p>
                   </div>
                 </div>
-              </div>
-              
-              {/* Incorrect Examples */}
-              <div>
-                <h4 className="text-xl font-semibold text-red-300 mb-4">❌ Don't Do This (Wrong)</h4>
-                <div className="space-y-4">
-                  <div className="bg-black/50 rounded p-4 border-l-4 border-red-500">
-                    <h5 className="text-red-300 text-sm mb-2">💥 Overlapping Tags</h5>
-                    <div className="font-mono text-xs space-y-1">
-                      <div className="text-yellow-300">{'<div>'}</div>
-                      <div className="text-cyan-300 ml-2">{'<p>Content</div>'}</div>
-                      <div className="text-cyan-300">{'</p>'}</div>
+                
+                {/* Incorrect Examples */}
+                <div>
+                  <h4 className="text-xl font-semibold text-red-300 mb-4">❌ Don't Do This (Wrong)</h4>
+                  <div className="space-y-4">
+                    <div className="bg-black/50 rounded p-4 border-l-4 border-red-500">
+                      <h5 className="text-red-300 text-sm mb-2">💥 Overlapping Tags</h5>
+                      <div className="font-mono text-xs space-y-1">
+                        <div className="text-yellow-300">{'<div>'}</div>
+                        <div className="text-cyan-300 ml-2">{'<p>Content</div>'}</div>
+                        <div className="text-cyan-300">{'</p>'}</div>
+                      </div>
+                      <p className="text-red-200 text-xs mt-2">Tags overlap - breaks the page! ❌</p>
                     </div>
-                    <p className="text-red-200 text-xs mt-2">Tags overlap - breaks the page! ❌</p>
-                  </div>
-                  
-                  <div className="bg-black/50 rounded p-4 border-l-4 border-red-500">
-                    <h5 className="text-red-300 text-sm mb-2">🌪️ No Indentation</h5>
-                    <div className="font-mono text-xs space-y-1">
-                      <div className="text-yellow-300">{'<section>'}</div>
-                      <div className="text-cyan-300">{'<h2>Title</h2>'}</div>
-                      <div className="text-pink-300">{'<p>Paragraph</p>'}</div>
-                      <div className="text-yellow-300">{'</section>'}</div>
+                    
+                    <div className="bg-black/50 rounded p-4 border-l-4 border-red-500">
+                      <h5 className="text-red-300 text-sm mb-2">🌪️ No Indentation</h5>
+                      <div className="font-mono text-xs space-y-1">
+                        <div className="text-yellow-300">{'<section>'}</div>
+                        <div className="text-cyan-300">{'<h2>Title</h2>'}</div>
+                        <div className="text-pink-300">{'<p>Paragraph</p>'}</div>
+                        <div className="text-yellow-300">{'</section>'}</div>
+                      </div>
+                      <p className="text-red-200 text-xs mt-2">Hard to read and debug ❌</p>
                     </div>
-                    <p className="text-red-200 text-xs mt-2">Hard to read and debug ❌</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       ),
-      bgGradient: 'from-cyan-600 to-blue-600'
+      bgGradient: 'from-blue-600 to-purple-600'
     },
     {
       id: 'html-in-action',
@@ -4854,16 +4811,23 @@ const Class1Slides = () => {
                 {/* DOM Tree */}
                 <div>
                   <h4 className="text-xl font-semibold text-purple-300 mb-4">🌳 How Browser Sees It (DOM Tree)</h4>
-                  <div className="bg-black/50 rounded-lg p-4">
-                    <div className="space-y-2 text-sm">
-                      <div className="text-gray-300">📄 document</div>
-                      <div className="text-blue-300 ml-4">└── 🏠 html</div>
-                      <div className="text-green-300 ml-8">├── 🧠 head</div>
-                      <div className="text-yellow-300 ml-12">│   └── 📋 title</div>
-                      <div className="text-orange-300 ml-8">└── 🏢 body</div>
-                      <div className="text-red-300 ml-12">├── 📦 header (#header)</div>
-                      <div className="text-cyan-300 ml-16">│   └── 📢 h1</div>
-                      <div className="text-pink-300 ml-12">└── 📝 p (.highlight)</div>
+                  <div className="bg-black/50 rounded-lg p-6">
+                    <div className="space-y-2 text-sm font-mono">
+                      <div className="text-gray-300 font-bold">📄 document</div>
+                      <div className="text-blue-300">│</div>
+                      <div className="text-blue-300">└── 🏠 html</div>
+                      <div className="text-blue-300 ml-4">    │</div>
+                      <div className="text-green-300 ml-4">    ├── 🧠 head</div>
+                      <div className="text-yellow-300 ml-4">    │   │</div>
+                      <div className="text-yellow-300 ml-4">    │   └── 📋 title</div>
+                      <div className="text-blue-300 ml-4">    │</div>
+                      <div className="text-orange-300 ml-4">    └── 🏢 body</div>
+                      <div className="text-orange-300 ml-8">        │</div>
+                      <div className="text-red-300 ml-8">        ├── 📦 header <span className="text-red-200">(#header)</span></div>
+                      <div className="text-cyan-300 ml-8">        │   │</div>
+                      <div className="text-cyan-300 ml-8">        │   └── 📢 h1</div>
+                      <div className="text-orange-300 ml-8">        │</div>
+                      <div className="text-pink-300 ml-8">        └── 📝 p <span className="text-pink-200">(.highlight)</span></div>
                     </div>
                   </div>
                   <div className="mt-4 text-center">
@@ -4923,94 +4887,22 @@ const Class1Slides = () => {
       bgGradient: 'from-green-600 to-blue-600'
     },
     {
-      id: 'getting-started',
-      title: 'Getting Started & Next Steps',
+      id: 'see-you-tomorrow',
+      title: 'See You Tomorrow!',
       content: (
-        <div className="space-y-8">
-          <h2 className="text-4xl font-bold text-white mb-8">🎯 Getting Started</h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div className="bg-green-500/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold mb-4 text-green-300">✨ This Week: No Homework!</h3>
-                <ul className="space-y-3 text-white/80">
-                  <li className="flex items-start">
-                    <span className="mr-3 text-green-400 mt-1">🤝</span>
-                    <span>Focus on meeting classmates and building connections</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 text-green-400 mt-1">💭</span>
-                    <span>Start thinking about what kind of startup you'd want to build</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 text-green-400 mt-1">🚀</span>
-                    <span>Begin exploring web development if you're excited to get started</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="bg-blue-500/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold mb-4 text-blue-300">📅 Coming Up Next Week</h3>
-                <ul className="space-y-2 text-white/80 text-sm">
-                  <li>• Week 2 begins our regular homework assignments</li>
-                  <li>• All assignments will be pair programming projects</li>
-                  <li>• Use PSO sessions for questions and clarification</li>
-                  <li>• First networking extra credit opportunity</li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="space-y-6">
-              <div className="bg-purple-500/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold mb-4 text-purple-300">🗓️ Semester Timeline</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center p-3 bg-white/10 rounded">
-                    <span className="text-white font-medium">Week 2</span>
-                    <span className="text-white/70 text-sm">React fundamentals</span>
-                  </div>
-                  <div className="flex justify-between items-center p-3 bg-white/10 rounded">
-                    <span className="text-white font-medium">Week 4</span>
-                    <span className="text-white/70 text-sm">First mini-project (Portfolio)</span>
-                  </div>
-                  <div className="flex justify-between items-center p-3 bg-white/10 rounded">
-                    <span className="text-white font-medium">Week 8</span>
-                    <span className="text-white/70 text-sm">Full-stack integration</span>
-                  </div>
-                  <div className="flex justify-between items-center p-3 bg-white/10 rounded">
-                    <span className="text-white font-medium">Week 12</span>
-                    <span className="text-white/70 text-sm">Startup capstone presentations</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-xl p-6">
-                <h3 className="text-xl font-semibold mb-4 text-yellow-300">🎉 Ready to Begin?</h3>
-                <p className="text-white/80 mb-4">
-                  You're about to embark on an exciting journey of building real web applications, 
-                  working with amazing teammates, and potentially creating the next big startup idea.
-                </p>
-                <div className="text-center">
-                  <div className="text-3xl mb-2">🚀</div>
-                  <p className="text-lg font-semibold text-white">
-                    Let's build amazing things together!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="text-center">
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-4">
-              <h4 className="text-lg font-semibold text-white mb-2">📝 Don't Forget!</h4>
-              <p className="text-white/90">
-                Fill out the networking reflection form if you talked to someone new today. 
-                Every conversation is worth 0.5% extra credit!
-              </p>
-            </div>
+        <div className="flex items-center justify-center min-h-96">
+          <div className="text-center space-y-8">
+            <div className="text-8xl mb-8">👋</div>
+            <h2 className="text-6xl font-bold text-white mb-4">
+              See You All Tomorrow!
+            </h2>
+            <p className="text-2xl text-white/80">
+              Remember to be here on time so you can get the extra credit
+            </p>
           </div>
         </div>
       ),
-      bgGradient: 'from-emerald-600 to-teal-700'
+      bgGradient: 'from-purple-600 to-pink-600'
     }
   ];
 
@@ -5054,21 +4946,7 @@ const Class1Slides = () => {
 
   return (
     <div className="relative">
-      {/* Navigation dots */}
-      <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-50 space-y-3">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => scrollToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              currentSlide === index 
-                ? 'bg-white shadow-lg scale-125' 
-                : 'bg-white/50 hover:bg-white/70'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
+
 
       {/* Slides */}
       {slides.map((slide, index) => (
@@ -5083,10 +4961,28 @@ const Class1Slides = () => {
         </div>
       ))}
 
-      {/* Progress indicator */}
+      {/* Navigation and Progress indicator */}
       <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-        <div className="bg-black/30 backdrop-blur rounded-full px-4 py-2">
-          <span className="text-white text-sm">
+        <div className="flex items-center space-x-4 bg-black/30 backdrop-blur rounded-full px-6 py-3">
+          {/* Navigation dots */}
+          <div className="flex space-x-2">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToSlide(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentSlide === index 
+                    ? 'bg-white shadow-lg scale-125' 
+                    : 'bg-white/50 hover:bg-white/70'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+          
+          {/* Progress text */}
+          <div className="w-px h-4 bg-white/30"></div>
+          <span className="text-white text-sm font-medium">
             {currentSlide + 1} / {slides.length}
           </span>
         </div>
