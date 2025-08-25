@@ -1629,6 +1629,128 @@ const Class1Slides = () => {
       bgGradient: 'from-cyan-600 to-blue-700'
     },
     {
+      id: 'attendance-policy',
+      title: 'Attendance Drop Policy',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">📅 Attendance Drop Policy</h2>
+          <p className="text-2xl text-blue-100 text-center mb-12">
+            Life happens - you're covered!
+          </p>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 backdrop-blur rounded-xl p-8 border border-blue-400/30">
+              <div className="text-center mb-8">
+                <div className="bg-blue-500/30 rounded-full p-6 mx-auto mb-4 w-24 h-24 flex items-center justify-center">
+                  <span className="text-4xl font-bold text-white">3</span>
+                </div>
+                <h3 className="text-3xl font-bold text-blue-300 mb-3">Attendance Drops</h3>
+                <p className="text-lg text-white/90">Your 3 lowest attendance scores will be automatically dropped</p>
+              </div>
+              
+              <div className="bg-green-500/20 rounded-lg p-6 border border-green-400/30">
+                <h4 className="text-xl font-semibold text-green-300 mb-4 text-center">✅ What This Covers</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <ul className="space-y-2 text-white/80">
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2 mt-1">✓</span>
+                      <span>Sick days and health issues</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2 mt-1">✓</span>
+                      <span>Family emergencies</span>
+                    </li>
+                  </ul>
+                  <ul className="space-y-2 text-white/80">
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2 mt-1">✓</span>
+                      <span>Schedule conflicts</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2 mt-1">✓</span>
+                      <span>Life happens situations</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-blue-600 to-cyan-700'
+    },
+    {
+      id: 'pso-drop-policy',
+      title: 'PSO Score Drop Policy',
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">📚 PSO Score Drop Policy</h2>
+          <p className="text-2xl text-purple-100 text-center mb-12">
+            Room to learn and grow without grade anxiety
+          </p>
+          
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur rounded-xl p-8 border border-purple-400/30">
+              <div className="text-center mb-6">
+                <div className="bg-purple-500/30 rounded-full p-6 mx-auto mb-4 w-24 h-24 flex items-center justify-center">
+                  <span className="text-4xl font-bold text-white">2</span>
+                </div>
+                <h3 className="text-3xl font-bold text-purple-300 mb-3">Lowest PSO Scores Dropped</h3>
+                <p className="text-lg text-white/90">Your 2 lowest PSO assignment scores will be automatically dropped</p>
+              </div>
+              
+              <div className="bg-green-500/20 rounded-lg p-6 border border-green-400/30">
+                <h4 className="text-xl font-semibold text-green-300 mb-4 text-center">✅ What This Means</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <ul className="space-y-2 text-white/80">
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2 mt-1">✓</span>
+                      <span>Room for mistakes while learning</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2 mt-1">✓</span>
+                      <span>Bad weeks won't hurt your grade</span>
+                    </li>
+                  </ul>
+                  <ul className="space-y-2 text-white/80">
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2 mt-1">✓</span>
+                      <span>Focus on growth over perfection</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-green-400 mr-2 mt-1">✓</span>
+                      <span>Experiment without fear</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 backdrop-blur rounded-xl p-8 border border-yellow-400/30">
+              <h3 className="text-2xl font-bold text-yellow-300 mb-6 text-center">⚠️ Important Notes</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-white/10 rounded-lg p-4">
+                  <h4 className="text-lg font-semibold text-yellow-300 mb-2">📈 Flexibility</h4>
+                  <p className="text-white/80 text-sm">
+                    Numbers may <strong>increase</strong> but will never decrease.
+                  </p>
+                </div>
+                
+                <div className="bg-white/10 rounded-lg p-4">
+                  <h4 className="text-lg font-semibold text-orange-300 mb-2">💬 Communication</h4>
+                  <p className="text-white/80 text-sm">
+                    Reach out if you're struggling - I'm here to help!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-purple-600 to-pink-700'
+    },
+    {
       id: 'extra-credit',
       title: 'Extra Credit Opportunities',
       content: (
