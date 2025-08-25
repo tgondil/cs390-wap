@@ -2053,57 +2053,6 @@ const Class1Slides = () => {
                 </div>
               </div>
             </div>
-            
-            {/* Simple Flow Visualization */}
-            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-8 text-center">📊 How They Work Together</h3>
-              
-              <div className="max-w-4xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
-                  <div className="text-center">
-                    <div className="bg-green-500/30 rounded-full p-4 mx-auto mb-3 w-16 h-16 flex items-center justify-center">
-                      <span className="text-2xl">👤</span>
-                    </div>
-                    <p className="text-green-300 font-medium text-sm">User</p>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="text-3xl mb-2">→</div>
-                    <p className="text-white/60 text-xs">Interacts</p>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="bg-green-500/30 rounded-full p-4 mx-auto mb-3 w-16 h-16 flex items-center justify-center">
-                      <span className="text-2xl">🎨</span>
-                    </div>
-                    <p className="text-green-300 font-medium text-sm">Frontend</p>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="text-3xl mb-2">↔</div>
-                    <p className="text-white/60 text-xs">Communicates</p>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="bg-orange-500/30 rounded-full p-4 mx-auto mb-3 w-16 h-16 flex items-center justify-center">
-                      <span className="text-2xl">⚙️</span>
-                    </div>
-                    <p className="text-orange-300 font-medium text-sm">Backend</p>
-                  </div>
-                </div>
-                
-                <div className="mt-8 flex justify-center">
-                  <div className="text-center">
-                    <div className="text-3xl mb-2">↕</div>
-                    <p className="text-white/60 text-xs mb-4">Stores & Retrieves</p>
-                    <div className="bg-purple-500/30 rounded-full p-4 mx-auto mb-3 w-16 h-16 flex items-center justify-center">
-                      <span className="text-2xl">🗄️</span>
-                    </div>
-                    <p className="text-purple-300 font-medium text-sm">Database</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       ),
@@ -2286,70 +2235,217 @@ const Class1Slides = () => {
       content: (
         <div className="space-y-8">
           <h2 className="text-4xl font-bold text-white mb-8 text-center">🎨 Frontend Development</h2>
-          <p className="text-2xl text-green-100 text-center mb-8">
+          <p className="text-2xl text-green-100 text-center mb-12">
             The part of a web application that users see and interact with
           </p>
           
           <div className="max-w-6xl mx-auto space-y-8">
-            {/* Simple Analogy */}
-            <div className="bg-green-500/20 backdrop-blur rounded-xl p-6 text-center">
-              <h3 className="text-2xl font-bold text-green-300 mb-4">🏪 Think of it like a store...</h3>
-              <p className="text-xl text-white mb-4">
-                The frontend is like the <strong>storefront</strong> - it's what customers see, the layout of products, 
-                the signs, and how they interact with everything.
-              </p>
-              <p className="text-green-200">
-                Just like a store needs to be attractive, easy to navigate, and functional!
-              </p>
-            </div>
-
-            {/* What Frontend Does */}
-            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
-              <h3 className="text-2xl font-bold text-white mb-6 text-center">What Does Frontend Do?</h3>
+            {/* Visual Browser Mockup */}
+            <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur rounded-xl p-8 border border-green-400/30">
+              <h3 className="text-3xl font-bold text-white mb-8 text-center">🖥️ What You See vs What's Behind It</h3>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-6">
-                  <div className="bg-green-500/20 rounded-lg p-4">
-                    <h4 className="text-lg font-semibold text-green-300 mb-2">👀 Visual Elements</h4>
-                    <ul className="text-white/80 space-y-1 text-sm">
-                      <li>• Colors, fonts, and layout</li>
-                      <li>• Buttons, menus, and forms</li>
-                      <li>• Images and videos</li>
-                      <li>• Overall design and branding</li>
-                    </ul>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Browser Window Mockup */}
+                <div className="bg-white/10 rounded-lg p-4 border border-gray-400/30">
+                  <div className="bg-gray-700 rounded-t-lg p-2 flex items-center space-x-2">
+                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                    <div className="ml-4 bg-gray-600 rounded px-3 py-1 text-xs text-white">instagram.com</div>
                   </div>
-                  
-                  <div className="bg-green-500/20 rounded-lg p-4">
-                    <h4 className="text-lg font-semibold text-green-300 mb-2">🖱️ User Interactions</h4>
-                    <ul className="text-white/80 space-y-1 text-sm">
-                      <li>• Clicking buttons</li>
-                      <li>• Filling out forms</li>
-                      <li>• Scrolling and navigation</li>
-                      <li>• Hover effects and animations</li>
-                    </ul>
+                  <div className="bg-white rounded-b-lg p-4 min-h-64">
+                    {/* Mock Instagram Interface */}
+                    <div className="space-y-4">
+                      <div className="flex items-center space-x-2 border-b border-gray-200 pb-2">
+                        <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
+                        <div className="font-semibold text-gray-800">john_doe</div>
+                      </div>
+                      <div className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg h-32 flex items-center justify-center">
+                        <span className="text-4xl">🌅</span>
+                      </div>
+                      <div className="flex space-x-4">
+                        <div className="flex items-center space-x-1">
+                          <span className="text-red-500 text-xl">❤️</span>
+                          <span className="text-gray-600 text-sm">1,247</span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          <span className="text-gray-500 text-xl">💬</span>
+                          <span className="text-gray-600 text-sm">23</span>
+                        </div>
+                      </div>
+                      <div className="text-gray-800 text-sm">
+                        <span className="font-semibold">john_doe</span> Beautiful sunset! 🌅
+                      </div>
+                    </div>
                   </div>
                 </div>
                 
-                <div className="space-y-6">
-                  <div className="bg-green-500/20 rounded-lg p-4">
-                    <h4 className="text-lg font-semibold text-green-300 mb-2">📱 Device Compatibility</h4>
-                    <ul className="text-white/80 space-y-1 text-sm">
-                      <li>• Works on phones</li>
-                      <li>• Works on tablets</li>
-                      <li>• Works on computers</li>
-                      <li>• Adapts to screen sizes</li>
-                    </ul>
-                  </div>
+                {/* What Frontend Controls */}
+                <div className="space-y-4">
+                  <h4 className="text-xl font-semibold text-green-300 mb-4">🎯 Frontend Controls All Of This:</h4>
                   
-                  <div className="bg-green-500/20 rounded-lg p-4">
-                    <h4 className="text-lg font-semibold text-green-300 mb-2">⚡ Real-time Updates</h4>
-                    <ul className="text-white/80 space-y-1 text-sm">
-                      <li>• New messages appearing</li>
-                      <li>• Live notifications</li>
-                      <li>• Instant feedback</li>
-                      <li>• Dynamic content changes</li>
-                    </ul>
+                  <div className="space-y-3">
+                    <div className="bg-green-500/20 rounded-lg p-4 border border-green-400/30">
+                      <div className="flex items-center space-x-3">
+                        <span className="text-2xl">🎨</span>
+                        <div>
+                          <h5 className="font-semibold text-white">Visual Design</h5>
+                          <p className="text-green-200 text-sm">Colors, layout, typography, spacing</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-blue-500/20 rounded-lg p-4 border border-blue-400/30">
+                      <div className="flex items-center space-x-3">
+                        <span className="text-2xl">🖱️</span>
+                        <div>
+                          <h5 className="font-semibold text-white">Interactions</h5>
+                          <p className="text-blue-200 text-sm">Like button, comments, scrolling</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-purple-500/20 rounded-lg p-4 border border-purple-400/30">
+                      <div className="flex items-center space-x-3">
+                        <span className="text-2xl">📱</span>
+                        <div>
+                          <h5 className="font-semibold text-white">Responsiveness</h5>
+                          <p className="text-purple-200 text-sm">Works on phone, tablet, desktop</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-orange-500/20 rounded-lg p-4 border border-orange-400/30">
+                      <div className="flex items-center space-x-3">
+                        <span className="text-2xl">⚡</span>
+                        <div>
+                          <h5 className="font-semibold text-white">Real-time Updates</h5>
+                          <p className="text-orange-200 text-sm">New likes, comments appearing instantly</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Technology Stack Visual */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
+              <h3 className="text-3xl font-bold text-white mb-8 text-center">🛠️ Frontend Technology Stack</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* HTML Layer */}
+                <div className="bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-xl p-6 border border-orange-400/30 text-center">
+                  <div className="text-6xl mb-4">🏗️</div>
+                  <h4 className="text-2xl font-bold text-orange-300 mb-3">HTML</h4>
+                  <p className="text-white/80 mb-4">The Structure</p>
+                  <div className="bg-black/30 rounded p-3 text-left font-mono text-xs">
+                    <div className="text-orange-300">{'<div>'}</div>
+                    <div className="text-white ml-2">{'<h1>Title</h1>'}</div>
+                    <div className="text-white ml-2">{'<p>Content</p>'}</div>
+                    <div className="text-orange-300">{'</div>'}</div>
+                  </div>
+                  <p className="text-orange-200 text-sm mt-3">Like the skeleton of a building</p>
+                </div>
+                
+                {/* CSS Layer */}
+                <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl p-6 border border-blue-400/30 text-center">
+                  <div className="text-6xl mb-4">🎨</div>
+                  <h4 className="text-2xl font-bold text-blue-300 mb-3">CSS</h4>
+                  <p className="text-white/80 mb-4">The Styling</p>
+                                     <div className="bg-black/30 rounded p-3 text-left font-mono text-xs">
+                     <div className="text-blue-300">{'h1 {'}</div>
+                     <div className="text-white ml-2">color: blue;</div>
+                     <div className="text-white ml-2">font-size: 24px;</div>
+                     <div className="text-blue-300">{'}'}</div>
+                   </div>
+                  <p className="text-blue-200 text-sm mt-3">Like paint and decorations</p>
+                </div>
+                
+                {/* JavaScript Layer */}
+                <div className="bg-gradient-to-br from-yellow-500/20 to-green-500/20 rounded-xl p-6 border border-yellow-400/30 text-center">
+                  <div className="text-6xl mb-4">⚡</div>
+                  <h4 className="text-2xl font-bold text-yellow-300 mb-3">JavaScript</h4>
+                  <p className="text-white/80 mb-4">The Behavior</p>
+                                     <div className="bg-black/30 rounded p-3 text-left font-mono text-xs">
+                     <div className="text-yellow-300">{'button.onclick = () => {'}</div>
+                     <div className="text-white ml-2">showMessage();</div>
+                     <div className="text-yellow-300">{'}'}</div>
+                   </div>
+                  <p className="text-yellow-200 text-sm mt-3">Like the electrical system</p>
+                </div>
+              </div>
+              
+              <div className="mt-8 text-center">
+                <div className="bg-gradient-to-r from-green-500/30 to-blue-500/30 rounded-lg p-4 inline-block">
+                  <p className="text-white font-bold text-lg">🚀 Together = Interactive Web Applications!</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Device Responsiveness Visual */}
+            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur rounded-xl p-8 border border-purple-400/30">
+              <h3 className="text-3xl font-bold text-white mb-8 text-center">📱 One Code, All Devices</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
+                {/* Phone */}
+                <div className="text-center">
+                  <div className="bg-gray-800 rounded-2xl p-2 mx-auto w-20">
+                    <div className="bg-white rounded-xl h-32 flex flex-col">
+                      <div className="bg-blue-500 text-white text-xs p-1 rounded-t-xl">📱 Mobile</div>
+                      <div className="flex-1 p-1 space-y-1">
+                        <div className="bg-gray-200 h-2 rounded"></div>
+                        <div className="bg-gray-200 h-2 rounded w-3/4"></div>
+                        <div className="bg-blue-200 h-4 rounded"></div>
+                        <div className="bg-gray-200 h-1 rounded"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-purple-200 text-sm mt-2">Phone Layout</p>
+                </div>
+                
+                {/* Tablet */}
+                <div className="text-center">
+                  <div className="bg-gray-800 rounded-xl p-2 mx-auto w-32">
+                    <div className="bg-white rounded-lg h-28 flex flex-col">
+                      <div className="bg-green-500 text-white text-xs p-1 rounded-t-lg">📱 Tablet</div>
+                      <div className="flex-1 p-2 grid grid-cols-2 gap-1">
+                        <div className="bg-gray-200 h-3 rounded col-span-2"></div>
+                        <div className="bg-gray-200 h-4 rounded"></div>
+                        <div className="bg-green-200 h-4 rounded"></div>
+                        <div className="bg-gray-200 h-2 rounded col-span-2"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-purple-200 text-sm mt-2">Tablet Layout</p>
+                </div>
+                
+                {/* Desktop */}
+                <div className="text-center">
+                  <div className="bg-gray-800 rounded-lg p-2 mx-auto w-40">
+                    <div className="bg-white rounded h-24 flex flex-col">
+                      <div className="bg-purple-500 text-white text-xs p-1 rounded-t">🖥️ Desktop</div>
+                      <div className="flex-1 p-2 grid grid-cols-3 gap-1">
+                        <div className="bg-gray-200 h-2 rounded col-span-3"></div>
+                        <div className="bg-gray-200 h-3 rounded"></div>
+                        <div className="bg-purple-200 h-3 rounded"></div>
+                        <div className="bg-gray-200 h-3 rounded"></div>
+                        <div className="bg-gray-200 h-2 rounded col-span-3"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-purple-200 text-sm mt-2">Desktop Layout</p>
+                </div>
+              </div>
+              
+              <div className="mt-8 text-center">
+                <div className="bg-white/10 rounded-lg p-4">
+                  <p className="text-white/90 text-lg mb-2">
+                    <strong>🎯 Same Code, Different Layouts</strong>
+                  </p>
+                  <p className="text-white/70 text-sm">
+                    Frontend adapts automatically to screen size using responsive design
+                  </p>
                 </div>
               </div>
             </div>
