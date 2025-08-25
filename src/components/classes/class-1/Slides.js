@@ -4988,15 +4988,7 @@ const Class1Slides = () => {
         </div>
       </div>
 
-      {/* Scroll hint for first slide */}
-      {currentSlide === 0 && (
-        <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40 animate-bounce">
-          <div className="text-white/70 text-center">
-            <div className="text-2xl mb-2">↓</div>
-            <div className="text-sm">Scroll to continue</div>
-          </div>
-        </div>
-      )}
+
     </div>
   );
 };
