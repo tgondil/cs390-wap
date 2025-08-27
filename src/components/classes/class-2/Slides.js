@@ -1197,6 +1197,66 @@ const Class2Slides = () => {
     },
 
     {
+      id: 'discuss-movies-shows',
+      title: 'Discuss!',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-12">Discuss!</h2>
+          
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
+              <div className="text-left space-y-6 text-xl leading-relaxed">
+                <div className="text-white font-semibold">
+                  What's a comfort movie/show you turn to when you don't know what else to watch?
+                </div>
+                
+                <div className="text-white font-semibold">
+                  Is there a line or scene from a show/movie you quote all the time?
+                </div>
+                
+                <div className="text-white font-semibold">
+                  Which character do you see the most of yourself in? Why?
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-purple-600 to-pink-600'
+    },
+
+    {
+      id: 'discuss-books',
+      title: 'Discuss!',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-12">Discuss!</h2>
+          
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
+              <div className="text-left space-y-6 text-xl leading-relaxed">
+                <div className="text-white font-semibold">
+                  Is there a book you've re-read multiple times?
+                </div>
+                
+                <div className="text-white font-semibold">
+                  What's the first book that really hooked you into reading?
+                </div>
+                
+                <div className="text-white font-semibold">
+                  If you could step inside one fictional world from a book, which would it be?
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-pink-600 to-red-600'
+    },
+
+    {
       id: 'css-diner-level-16',
       title: 'CSS Diner Challenge: Level 16',
       content: (
@@ -1333,6 +1393,77 @@ const Class2Slides = () => {
         </div>
       ),
       bgGradient: 'from-sky-700 to-cyan-700'
+    },
+
+    {
+      id: 'what-is-javascript',
+      title: 'What is JavaScript?',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-8">What is JavaScript?</h2>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="text-8xl mb-8 animate-float">⚡</div>
+            <h3 className="text-4xl font-bold mb-12">The language that brings websites to life</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <div className="bg-white/10 backdrop-blur rounded-xl p-6 border border-white/20">
+                <div className="text-5xl mb-4">🏗️</div>
+                <h4 className="text-xl font-bold text-blue-300 mb-3">HTML</h4>
+                <p className="text-white/80">Structure & Content</p>
+                <p className="text-white/60 text-sm mt-2">The skeleton of your webpage</p>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur rounded-xl p-6 border border-white/20">
+                <div className="text-5xl mb-4">🎨</div>
+                <h4 className="text-xl font-bold text-green-300 mb-3">CSS</h4>
+                <p className="text-white/80">Style & Layout</p>
+                <p className="text-white/60 text-sm mt-2">The makeup and clothing</p>
+              </div>
+              
+              <div className="bg-white/10 backdrop-blur rounded-xl p-6 border border-white/20 ring-2 ring-yellow-400">
+                <div className="text-5xl mb-4">⚡</div>
+                <h4 className="text-xl font-bold text-yellow-300 mb-3">JavaScript</h4>
+                <p className="text-white/80">Behavior & Interaction</p>
+                <p className="text-white/60 text-sm mt-2">The brain and nervous system</p>
+              </div>
+            </div>
+            
+            <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-xl p-8 border-2 border-yellow-400 mb-8">
+              <h4 className="text-2xl font-bold text-yellow-300 mb-4">🎯 JavaScript Powers Everything Interactive</h4>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
+                <div className="space-y-2">
+                  <div className="text-lg font-semibold text-yellow-200">🖱️ Click Events</div>
+                  <div className="text-white/80 text-sm">Button clicks, menu toggles</div>
+                </div>
+                <div className="space-y-2">
+                  <div className="text-lg font-semibold text-yellow-200">📝 Form Handling</div>
+                  <div className="text-white/80 text-sm">Login forms, contact forms</div>
+                </div>
+                <div className="space-y-2">
+                  <div className="text-lg font-semibold text-yellow-200">🔄 Dynamic Updates</div>
+                  <div className="text-white/80 text-sm">Live content changes</div>
+                </div>
+                <div className="space-y-2">
+                  <div className="text-lg font-semibold text-yellow-200">🎮 User Interaction</div>
+                  <div className="text-white/80 text-sm">Games, animations</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-blue-500/20 rounded-xl p-6 border border-blue-400/30">
+              <h4 className="text-xl font-bold text-blue-300 mb-3">🤔 Think of it like this:</h4>
+              <p className="text-white/90 text-lg leading-relaxed">
+                If a website were a car, HTML would be the frame and body, CSS would be the paint and interior design, 
+                and <strong className="text-yellow-300">JavaScript would be the engine, steering wheel, and all the controls</strong> 
+                that make it actually drive and respond to you!
+              </p>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-yellow-600 to-orange-600'
     },
 
     {
@@ -2238,99 +2369,75 @@ const Class2Slides = () => {
     },
 
     {
-      id: 'putting-it-together',
-      title: 'Putting It All Together',
+      id: 'todo-app-overview',
+      title: 'Building a Todo App - Overview',
       content: (
         <div className="text-white animate-fade-in text-center">
           <style>{customStyles}</style>
-          <h2 className="text-5xl font-extrabold mb-8">The Big Picture</h2>
+          <h2 className="text-5xl font-extrabold mb-8">Building a Todo App</h2>
           
           <div className="max-w-6xl mx-auto">
-            <div className="text-6xl mb-8 animate-float">🧩</div>
-            <h3 className="text-3xl font-bold mb-12">How all these pieces work together</h3>
+            <div className="text-6xl mb-8 animate-float">📝</div>
+            <h3 className="text-3xl font-bold mb-12">Let's see all concepts working together</h3>
             
+            {/* Visual Todo App Mockup */}
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">
-              <h4 className="text-2xl font-bold text-blue-300 mb-6">A Real Example: Todo List App</h4>
+              <h4 className="text-2xl font-bold text-blue-300 mb-6">What We're Building</h4>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                  <div className="bg-green-500/20 rounded-lg p-4 border border-green-400/30">
-                    <div className="font-bold text-green-300 mb-2">1. Variables Store Data</div>
-                    <code className="text-sm">let todos = ["Buy milk", "Walk dog"];</code>
+              <div className="bg-white rounded-xl p-6 max-w-md mx-auto shadow-2xl">
+                <div className="text-gray-800 text-left">
+                  <h5 className="font-bold text-xl mb-4 text-center text-blue-600">My Todo List</h5>
+                  
+                  {/* Input Section */}
+                  <div className="flex gap-2 mb-4">
+                    <input 
+                      type="text" 
+                      placeholder="Add a new todo..." 
+                      className="flex-1 px-3 py-2 border border-gray-300 rounded-lg"
+                      disabled
+                    />
+                    <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                      Add
+                    </button>
                   </div>
                   
-                  <div className="bg-blue-500/20 rounded-lg p-4 border border-blue-400/30">
-                    <div className="font-bold text-blue-300 mb-2">2. Functions Process Data</div>
-                    <code className="text-sm">const addTodo = (text) =&gt; todos.push(text);</code>
-                  </div>
-                  
-                  <div className="bg-purple-500/20 rounded-lg p-4 border border-purple-400/30">
-                    <div className="font-bold text-purple-300 mb-2">3. Arrays Hold Lists</div>
-                    <code className="text-sm">todos.map(todo =&gt; \`&lt;li&gt;\$&#123;todo&#125;&lt;/li&gt;\`)</code>
-                  </div>
-                  
-                  <div className="bg-orange-500/20 rounded-lg p-4 border border-orange-400/30">
-                    <div className="font-bold text-orange-300 mb-2">4. DOM Shows Results</div>
-                    <code className="text-sm">listElement.innerHTML = htmlString;</code>
-                  </div>
-                  
-                  <div className="bg-red-500/20 rounded-lg p-4 border border-red-400/30">
-                    <div className="font-bold text-red-300 mb-2">5. Events Make It Interactive</div>
-                    <code className="text-sm">button.addEventListener('click', addTodo);</code>
-                  </div>
-                </div>
-                
-                <div className="bg-white/5 rounded-lg p-6">
-                  <h5 className="font-bold mb-4 text-yellow-300">The Flow:</h5>
-                  <div className="space-y-3 text-left text-sm text-white/80">
-                    <div>📝 User types "Learn JavaScript" in input</div>
-                    <div>👆 User clicks "Add Todo" button</div>
-                    <div>⚡ Click event triggers addTodo function</div>
-                    <div>📦 Function adds text to todos array</div>
-                    <div>🔄 Function updates DOM to show new list</div>
-                    <div>🎉 User sees "Learn JavaScript" appear!</div>
-                  </div>
-                  
-                  <div className="mt-6 bg-green-500/20 rounded p-3">
-                    <div className="text-green-300 font-semibold">✨ Result:</div>
-                    <div className="text-white/80 text-sm">A fully interactive web application!</div>
-                  </div>
+                  {/* Todo List */}
+                  <ul className="space-y-2">
+                    <li className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
+                      <span>✅ Learn JavaScript</span>
+                      <button className="text-red-500 hover:text-red-700 text-sm">Delete</button>
+                    </li>
+                    <li className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
+                      <span>✅ Build a todo app</span>
+                      <button className="text-red-500 hover:text-red-700 text-sm">Delete</button>
+                    </li>
+                    <li className="flex items-center justify-between bg-gray-50 p-3 rounded-lg">
+                      <span>⏳ Master the DOM</span>
+                      <button className="text-red-500 hover:text-red-700 text-sm">Delete</button>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
             
+            {/* Features Overview */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-                <div className="text-3xl mb-3">🌟</div>
-                <div className="font-bold text-lg mb-2">You Now Know:</div>
-                <div className="text-white/70 text-sm space-y-1">
-                  <div>• How to store data</div>
-                  <div>• How to process data</div>
-                  <div>• How to display data</div>
-                  <div>• How to make it interactive</div>
-                </div>
+              <div className="bg-green-500/20 backdrop-blur rounded-xl p-6 border-2 border-green-400">
+                <div className="text-4xl mb-3">➕</div>
+                <h4 className="text-xl font-bold text-green-300 mb-2">Add Todos</h4>
+                <p className="text-white/80 text-sm">Type and click to add new tasks</p>
               </div>
               
-              <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-                <div className="text-3xl mb-3">🚀</div>
-                <div className="font-bold text-lg mb-2">You Can Build:</div>
-                <div className="text-white/70 text-sm space-y-1">
-                  <div>• Todo lists</div>
-                  <div>• Calculators</div>
-                  <div>• Form validators</div>
-                  <div>• Interactive galleries</div>
-                </div>
+              <div className="bg-blue-500/20 backdrop-blur rounded-xl p-6 border-2 border-blue-400">
+                <div className="text-4xl mb-3">📋</div>
+                <h4 className="text-xl font-bold text-blue-300 mb-2">Show List</h4>
+                <p className="text-white/80 text-sm">Display all todos dynamically</p>
               </div>
               
-              <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-                <div className="text-3xl mb-3">🎯</div>
-                <div className="font-bold text-lg mb-2">Next Step:</div>
-                <div className="text-white/70 text-sm space-y-1">
-                  <div>• React makes this easier</div>
-                  <div>• Same concepts</div>
-                  <div>• Better tools</div>
-                  <div>• More powerful</div>
-                </div>
+              <div className="bg-red-500/20 backdrop-blur rounded-xl p-6 border-2 border-red-400">
+                <div className="text-4xl mb-3">🗑️</div>
+                <h4 className="text-xl font-bold text-red-300 mb-2">Delete Todos</h4>
+                <p className="text-white/80 text-sm">Remove completed tasks</p>
               </div>
             </div>
           </div>
@@ -2340,81 +2447,529 @@ const Class2Slides = () => {
     },
 
     {
-      id: 'wrap-up',
-      title: 'You\'re Ready!',
+      id: 'todo-app-structure',
+      title: 'Todo App - Data Structure',
       content: (
         <div className="text-white animate-fade-in text-center">
           <style>{customStyles}</style>
-          <h2 className="text-6xl font-extrabold mb-8 animate-float">You Did It! 🎉</h2>
+          <h2 className="text-5xl font-extrabold mb-8">Step 1: Data Structure</h2>
           
           <div className="max-w-6xl mx-auto">
-            <div className="text-5xl mb-8 animate-float" style={{animationDelay: '0.5s'}}>🌟</div>
-            <h3 className="text-3xl font-bold mb-12">You now understand the fundamentals of interactive web development!</h3>
+            <div className="text-6xl mb-8 animate-float">📊</div>
+            <h3 className="text-3xl font-bold mb-12">How do we store our todos?</h3>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-              <div className="bg-blue-500/20 backdrop-blur rounded-xl p-6 border-2 border-blue-400">
-                <div className="text-5xl mb-4 animate-float">🌳</div>
-                <div className="font-bold text-xl mb-2">DOM</div>
-                <div className="text-white/70">Find, change, and control any element on your webpage</div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Code Section */}
+              <div className="space-y-6">
+                <div className="bg-gray-900 rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-green-300 mb-4">🏗️ Variables & Arrays</h4>
+                  <div className="bg-gray-800 rounded-lg p-4 font-mono text-left">
+                    <div className="text-blue-300 mb-2">// Store our todos in an array</div>
+                    <div className="text-white mb-4">let todos = [</div>
+                    <div className="text-white ml-4 mb-1">  "Learn JavaScript",</div>
+                    <div className="text-white ml-4 mb-1">  "Build a todo app",</div>
+                    <div className="text-white ml-4 mb-4">  "Master the DOM"</div>
+                    <div className="text-white">];</div>
+                  </div>
+                </div>
+
+                <div className="bg-yellow-500/20 rounded-xl p-6 border border-yellow-400/30">
+                  <h4 className="text-lg font-bold text-yellow-300 mb-3">💡 Why an Array?</h4>
+                  <div className="text-white/80 text-sm space-y-2 text-left">
+                    <div>• ✅ Stores multiple items in order</div>
+                    <div>• ✅ Easy to add new todos with .push()</div>
+                    <div>• ✅ Easy to remove todos with .splice()</div>
+                    <div>• ✅ Easy to loop through with .map()</div>
+                  </div>
+                </div>
               </div>
+
+              {/* Visual Section */}
+              <div className="space-y-6">
+                <div className="bg-white/10 backdrop-blur rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-white mb-4">📚 Array Visualization</h4>
+                  
+                  {/* Array boxes */}
+                  <div className="space-y-3">
+                    {[
+                      { index: 0, value: "Learn JavaScript", color: "bg-green-500/30" },
+                      { index: 1, value: "Build a todo app", color: "bg-blue-500/30" },
+                      { index: 2, value: "Master the DOM", color: "bg-purple-500/30" }
+                    ].map((item) => (
+                      <div key={item.index} className={`${item.color} rounded-lg p-4 flex items-center justify-between border border-white/20`}>
+                        <div className="flex items-center">
+                          <div className="bg-white/20 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3">
+                            {item.index}
+                          </div>
+                          <span className="text-white font-medium">{item.value}</span>
+                        </div>
+                        <code className="text-white/60 text-xs">todos[{item.index}]</code>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="mt-4 bg-gray-800 rounded-lg p-3">
+                    <div className="text-gray-400 text-xs">ARRAY LENGTH:</div>
+                    <div className="text-white font-mono">todos.length = 3</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Key Concepts */}
+            <div className="mt-8 bg-blue-500/20 rounded-xl p-6 border border-blue-400/30">
+              <h4 className="text-xl font-bold text-blue-300 mb-4">🔑 Key Concepts Used</h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-white/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">🔤</div>
+                  <div className="font-bold">Variables</div>
+                  <div className="text-white/70 text-sm">Store the todos array</div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">📚</div>
+                  <div className="font-bold">Arrays</div>
+                  <div className="text-white/70 text-sm">Hold multiple todo items</div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">🔢</div>
+                  <div className="font-bold">Indexing</div>
+                  <div className="text-white/70 text-sm">Access specific todos</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-teal-700 to-cyan-700'
+    },
+
+    {
+      id: 'todo-app-functions',
+      title: 'Todo App - Functions',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-8">Step 2: Functions</h2>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="text-6xl mb-8 animate-float">⚙️</div>
+            <h3 className="text-3xl font-bold mb-12">Functions that manipulate our data</h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Add Function */}
               <div className="bg-green-500/20 backdrop-blur rounded-xl p-6 border-2 border-green-400">
-                <div className="text-5xl mb-4 animate-float" style={{animationDelay: '0.2s'}}>📦</div>
-                <div className="font-bold text-xl mb-2">Variables</div>
-                <div className="text-white/70">Store and manage data with const and let</div>
+                <h4 className="text-xl font-bold text-green-300 mb-4">➕ Add Todo Function</h4>
+                
+                <div className="bg-gray-900 rounded-lg p-4 font-mono text-left mb-4">
+                  <div className="text-blue-300 mb-2">// Add a new todo to the array</div>
+                  <div className="text-white mb-1">function addTodo(text) &#123;</div>
+                  <div className="text-white ml-4 mb-1">  todos.push(text);</div>
+                  <div className="text-white ml-4 mb-1">  updateDisplay();</div>
+                  <div className="text-white">&#125;</div>
+                </div>
+
+                <div className="bg-green-900/50 rounded-lg p-4">
+                  <div className="text-green-300 font-bold mb-2">📥 Input:</div>
+                  <div className="text-white/80 text-sm mb-3">"Learn React"</div>
+                  
+                  <div className="text-green-300 font-bold mb-2">🔄 Process:</div>
+                  <div className="text-white/80 text-sm mb-3">1. Push text to todos array<br/>2. Update what user sees</div>
+                  
+                  <div className="text-green-300 font-bold mb-2">📤 Result:</div>
+                  <div className="text-white/80 text-sm">todos = [...old todos, "Learn React"]</div>
+                </div>
               </div>
+
+              {/* Delete Function */}
+              <div className="bg-red-500/20 backdrop-blur rounded-xl p-6 border-2 border-red-400">
+                <h4 className="text-xl font-bold text-red-300 mb-4">🗑️ Delete Todo Function</h4>
+                
+                <div className="bg-gray-900 rounded-lg p-4 font-mono text-left mb-4">
+                  <div className="text-blue-300 mb-2">// Remove todo at specific index</div>
+                  <div className="text-white mb-1">function deleteTodo(index) &#123;</div>
+                  <div className="text-white ml-4 mb-1">  todos.splice(index, 1);</div>
+                  <div className="text-white ml-4 mb-1">  updateDisplay();</div>
+                  <div className="text-white">&#125;</div>
+                </div>
+
+                <div className="bg-red-900/50 rounded-lg p-4">
+                  <div className="text-red-300 font-bold mb-2">📥 Input:</div>
+                  <div className="text-white/80 text-sm mb-3">index = 1</div>
+                  
+                  <div className="text-red-300 font-bold mb-2">🔄 Process:</div>
+                  <div className="text-white/80 text-sm mb-3">1. Remove 1 item at index 1<br/>2. Update what user sees</div>
+                  
+                  <div className="text-red-300 font-bold mb-2">📤 Result:</div>
+                  <div className="text-white/80 text-sm">Second todo is removed</div>
+                </div>
+              </div>
+
+              {/* Display Function */}
+              <div className="bg-blue-500/20 backdrop-blur rounded-xl p-6 border-2 border-blue-400 lg:col-span-2">
+                <h4 className="text-xl font-bold text-blue-300 mb-4">🎨 Display Function</h4>
+                
+                <div className="bg-gray-900 rounded-lg p-4 font-mono text-left mb-4">
+                  <div className="text-blue-300 mb-2">// Update the webpage to show current todos</div>
+                  <div className="text-white mb-1">function updateDisplay() &#123;</div>
+                  <div className="text-white ml-4 mb-1">  const listElement = document.getElementById('todo-list');</div>
+                  <div className="text-white ml-4 mb-1">  </div>
+                  <div className="text-white ml-4 mb-1">  const htmlString = todos.map((todo, index) =&gt; &#123;</div>
+                  <div className="text-white ml-8 mb-1">    return `&lt;li&gt;$&#123;todo&#125; &lt;button onclick="deleteTodo($&#123;index&#125;)"&gt;Delete&lt;/button&gt;&lt;/li&gt;`;</div>
+                  <div className="text-white ml-4 mb-1">  &#125;).join('');</div>
+                  <div className="text-white ml-4 mb-1">  </div>
+                  <div className="text-white ml-4 mb-1">  listElement.innerHTML = htmlString;</div>
+                  <div className="text-white">&#125;</div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="bg-blue-900/50 rounded-lg p-4">
+                    <div className="text-blue-300 font-bold mb-2">🎯 Purpose:</div>
+                    <div className="text-white/80 text-sm">Convert array data to HTML</div>
+                  </div>
+                  
+                  <div className="bg-blue-900/50 rounded-lg p-4">
+                    <div className="text-blue-300 font-bold mb-2">🔄 Method:</div>
+                    <div className="text-white/80 text-sm">Use .map() to transform data</div>
+                  </div>
+                  
+                  <div className="bg-blue-900/50 rounded-lg p-4">
+                    <div className="text-blue-300 font-bold mb-2">📺 Result:</div>
+                    <div className="text-white/80 text-sm">Updates webpage content</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Function Concepts */}
+            <div className="mt-8 bg-purple-500/20 rounded-xl p-6 border border-purple-400/30">
+              <h4 className="text-xl font-bold text-purple-300 mb-4">🔑 Function Concepts Used</h4>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div className="bg-white/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">📝</div>
+                  <div className="font-bold">Parameters</div>
+                  <div className="text-white/70 text-sm">Functions accept input</div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">🔄</div>
+                  <div className="font-bold">Array Methods</div>
+                  <div className="text-white/70 text-sm">push(), splice(), map()</div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">🎯</div>
+                  <div className="font-bold">Single Purpose</div>
+                  <div className="text-white/70 text-sm">Each function does one thing</div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">🔗</div>
+                  <div className="font-bold">Function Calls</div>
+                  <div className="text-white/70 text-sm">Functions call other functions</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-cyan-700 to-blue-700'
+    },
+
+    {
+      id: 'todo-app-dom',
+      title: 'Todo App - DOM Interaction',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-8">Step 3: DOM Interaction</h2>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="text-6xl mb-8 animate-float">🌐</div>
+            <h3 className="text-3xl font-bold mb-12">Connecting our functions to the webpage</h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* HTML Structure */}
+              <div className="bg-orange-500/20 backdrop-blur rounded-xl p-6 border-2 border-orange-400">
+                <h4 className="text-xl font-bold text-orange-300 mb-4">📄 HTML Structure</h4>
+                
+                <div className="bg-gray-900 rounded-lg p-4 font-mono text-left text-sm">
+                  <div className="text-blue-300 mb-2">&lt;!-- Todo App HTML --&gt;</div>
+                  <div className="text-white mb-1">&lt;div id="todo-app"&gt;</div>
+                  <div className="text-white ml-4 mb-1">  &lt;input type="text" id="new-todo" /&gt;</div>
+                  <div className="text-white ml-4 mb-1">  &lt;button id="add-btn"&gt;Add&lt;/button&gt;</div>
+                  <div className="text-white ml-4 mb-1">  &lt;ul id="todo-list"&gt;&lt;/ul&gt;</div>
+                  <div className="text-white">&lt;/div&gt;</div>
+                </div>
+
+                <div className="mt-4 space-y-2">
+                  <div className="bg-orange-900/50 rounded p-3 text-sm">
+                    <strong className="text-orange-300">Input:</strong> Where users type new todos
+                  </div>
+                  <div className="bg-orange-900/50 rounded p-3 text-sm">
+                    <strong className="text-orange-300">Button:</strong> Triggers the add function
+                  </div>
+                  <div className="bg-orange-900/50 rounded p-3 text-sm">
+                    <strong className="text-orange-300">List:</strong> Where todos are displayed
+                  </div>
+                </div>
+              </div>
+
+              {/* DOM Manipulation */}
               <div className="bg-purple-500/20 backdrop-blur rounded-xl p-6 border-2 border-purple-400">
-                <div className="text-5xl mb-4 animate-float" style={{animationDelay: '0.4s'}}>🔧</div>
-                <div className="font-bold text-xl mb-2">Functions</div>
-                <div className="text-white/70">Create reusable code machines that process data</div>
-              </div>
-              <div className="bg-yellow-500/20 backdrop-blur rounded-xl p-6 border-2 border-yellow-400">
-                <div className="text-5xl mb-4 animate-float" style={{animationDelay: '0.6s'}}>⚡</div>
-                <div className="font-bold text-xl mb-2">Events</div>
-                <div className="text-white/70">Make websites respond to user interactions</div>
-              </div>
-            </div>
-            
-            <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-xl p-8 border-2 border-green-400 mb-8">
-              <h4 className="text-3xl font-bold mb-4 text-green-300">🎯 You can now build interactive websites!</h4>
-              <p className="text-xl text-white/90 mb-4">
-                Every click, every form, every dynamic update on the web uses these exact concepts.
-              </p>
-              <p className="text-lg text-white/80">
-                You've learned the universal language of web interactivity. These skills work everywhere!
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-                <h5 className="text-xl font-bold text-orange-300 mb-4">🔥 What You Can Build Now:</h5>
-                <div className="text-left space-y-2 text-white/80">
-                  <div>✅ Interactive forms with validation</div>
-                  <div>✅ Dynamic lists and galleries</div>
-                  <div>✅ Calculators and converters</div>
-                  <div>✅ Simple games and quizzes</div>
-                  <div>✅ Real-time search and filters</div>
-                  <div>✅ Interactive dashboards</div>
+                <h4 className="text-xl font-bold text-purple-300 mb-4">🎯 DOM Selection</h4>
+                
+                <div className="bg-gray-900 rounded-lg p-4 font-mono text-left text-sm mb-4">
+                  <div className="text-blue-300 mb-2">// Get references to HTML elements</div>
+                  <div className="text-white mb-1">const input = document.getElementById('new-todo');</div>
+                  <div className="text-white mb-1">const button = document.getElementById('add-btn');</div>
+                  <div className="text-white mb-1">const list = document.getElementById('todo-list');</div>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="bg-purple-900/50 rounded-lg p-3">
+                    <div className="text-purple-300 font-bold mb-1">🔍 Find Elements</div>
+                    <div className="text-white/80 text-sm">Use getElementById() to get HTML elements</div>
+                  </div>
+                  
+                  <div className="bg-purple-900/50 rounded-lg p-3">
+                    <div className="text-purple-300 font-bold mb-1">📝 Read Values</div>
+                    <div className="text-white/80 text-sm">Get text from input with .value</div>
+                  </div>
+                  
+                  <div className="bg-purple-900/50 rounded-lg p-3">
+                    <div className="text-purple-300 font-bold mb-1">✏️ Update Content</div>
+                    <div className="text-white/80 text-sm">Change HTML with .innerHTML</div>
+                  </div>
                 </div>
               </div>
-              
-              <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-                <h5 className="text-xl font-bold text-blue-300 mb-4">🚀 What's Next:</h5>
-                <div className="text-left space-y-2 text-white/80">
-                  <div>📚 <strong>React:</strong> Same concepts, better tools</div>
-                  <div>🎨 <strong>Advanced CSS:</strong> Beautiful designs</div>
-                  <div>🌐 <strong>APIs:</strong> Connect to real data</div>
-                  <div>🗄️ <strong>Databases:</strong> Store user information</div>
-                  <div>🚀 <strong>Deployment:</strong> Share with the world</div>
+
+              {/* Event Handling */}
+              <div className="bg-green-500/20 backdrop-blur rounded-xl p-6 border-2 border-green-400 lg:col-span-2">
+                <h4 className="text-xl font-bold text-green-300 mb-4">⚡ Event Handling</h4>
+                
+                <div className="bg-gray-900 rounded-lg p-4 font-mono text-left text-sm mb-4">
+                  <div className="text-blue-300 mb-2">// Listen for button clicks</div>
+                  <div className="text-white mb-1">button.addEventListener('click', function() {`{`}</div>
+                  <div className="text-white ml-4 mb-1">  const newTodoText = input.value;</div>
+                  <div className="text-white ml-4 mb-1">  if (newTodoText.trim() !== '') {`{`}</div>
+                  <div className="text-white ml-8 mb-1">    addTodo(newTodoText);</div>
+                  <div className="text-white ml-8 mb-1">    input.value = ''; // Clear input</div>
+                  <div className="text-white ml-4 mb-1">  {`}`}</div>
+                  <div className="text-white">{`}`});</div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                  <div className="bg-green-900/50 rounded-lg p-4 text-center">
+                    <div className="text-2xl mb-2">👂</div>
+                    <div className="font-bold text-green-300">Listen</div>
+                    <div className="text-white/70 text-xs">addEventListener()</div>
+                  </div>
+                  
+                  <div className="bg-green-900/50 rounded-lg p-4 text-center">
+                    <div className="text-2xl mb-2">📥</div>
+                    <div className="font-bold text-green-300">Get Value</div>
+                    <div className="text-white/70 text-xs">input.value</div>
+                  </div>
+                  
+                  <div className="bg-green-900/50 rounded-lg p-4 text-center">
+                    <div className="text-2xl mb-2">✅</div>
+                    <div className="font-bold text-green-300">Validate</div>
+                    <div className="text-white/70 text-xs">Check not empty</div>
+                  </div>
+                  
+                  <div className="bg-green-900/50 rounded-lg p-4 text-center">
+                    <div className="text-2xl mb-2">🔄</div>
+                    <div className="font-bold text-green-300">Execute</div>
+                    <div className="text-white/70 text-xs">Call addTodo()</div>
+                  </div>
                 </div>
               </div>
             </div>
-            
-            <div className="text-2xl space-y-4">
-              <p><strong className="text-green-300">No homework tonight! 🎉</strong></p>
-              <p>Next class: <strong className="text-blue-300">React</strong> — same ideas, superpowers included</p>
-              <div className="text-lg text-white/80 mt-6">
-                Take a moment to appreciate what you've learned. These fundamentals power every modern website!
+
+            {/* DOM Concepts */}
+            <div className="mt-8 bg-yellow-500/20 rounded-xl p-6 border border-yellow-400/30">
+              <h4 className="text-xl font-bold text-yellow-300 mb-4">🔑 DOM Concepts Used</h4>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div className="bg-white/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">🎯</div>
+                  <div className="font-bold">Element Selection</div>
+                  <div className="text-white/70 text-sm">getElementById()</div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">👂</div>
+                  <div className="font-bold">Event Listeners</div>
+                  <div className="text-white/70 text-sm">addEventListener()</div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">📝</div>
+                  <div className="font-bold">Content Updates</div>
+                  <div className="text-white/70 text-sm">innerHTML, value</div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-4 text-center">
+                  <div className="text-2xl mb-2">🔗</div>
+                  <div className="font-bold">User Interaction</div>
+                  <div className="text-white/70 text-sm">clicks, typing</div>
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-blue-700 to-indigo-700'
+    },
+
+    {
+      id: 'todo-app-flow',
+      title: 'Todo App - Complete Flow',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-8">The Complete Flow</h2>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="text-6xl mb-8 animate-float">🔄</div>
+            <h3 className="text-3xl font-bold mb-12">How it all works together</h3>
+            
+            <div className="space-y-8">
+              {/* Step by step flow */}
+              <div className="bg-white/10 backdrop-blur rounded-xl p-8">
+                <h4 className="text-2xl font-bold text-blue-300 mb-6">📋 Adding a Todo: Step by Step</h4>
+                
+                <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+                  <div className="bg-green-500/20 rounded-lg p-4 border border-green-400/30">
+                    <div className="text-3xl mb-2">📝</div>
+                    <div className="font-bold text-green-300 mb-2">1. User Types</div>
+                    <div className="text-white/80 text-sm">"Learn React"</div>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="text-2xl text-white/50">→</div>
+                  </div>
+                  
+                  <div className="bg-blue-500/20 rounded-lg p-4 border border-blue-400/30">
+                    <div className="text-3xl mb-2">👆</div>
+                    <div className="font-bold text-blue-300 mb-2">2. User Clicks</div>
+                    <div className="text-white/80 text-sm">"Add" button</div>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="text-2xl text-white/50">→</div>
+                  </div>
+                  
+                  <div className="bg-purple-500/20 rounded-lg p-4 border border-purple-400/30">
+                    <div className="text-3xl mb-2">⚡</div>
+                    <div className="font-bold text-purple-300 mb-2">3. Event Fires</div>
+                    <div className="text-white/80 text-sm">Click listener triggers</div>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="text-2xl text-white/50">→</div>
+                  </div>
+                </div>
+                
+                <div className="mt-6 grid grid-cols-1 md:grid-cols-6 gap-4">
+                  <div className="bg-orange-500/20 rounded-lg p-4 border border-orange-400/30">
+                    <div className="text-3xl mb-2">📦</div>
+                    <div className="font-bold text-orange-300 mb-2">4. Get Value</div>
+                    <div className="text-white/80 text-sm">input.value</div>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="text-2xl text-white/50">→</div>
+                  </div>
+                  
+                  <div className="bg-red-500/20 rounded-lg p-4 border border-red-400/30">
+                    <div className="text-3xl mb-2">🔄</div>
+                    <div className="font-bold text-red-300 mb-2">5. Call Function</div>
+                    <div className="text-white/80 text-sm">addTodo(text)</div>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="text-2xl text-white/50">→</div>
+                  </div>
+                  
+                  <div className="bg-yellow-500/20 rounded-lg p-4 border border-yellow-400/30">
+                    <div className="text-3xl mb-2">📚</div>
+                    <div className="font-bold text-yellow-300 mb-2">6. Update Array</div>
+                    <div className="text-white/80 text-sm">todos.push()</div>
+                  </div>
+                  
+                  <div className="flex items-center justify-center">
+                    <div className="text-2xl text-white/50">→</div>
+                  </div>
+                </div>
+                
+                <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="bg-teal-500/20 rounded-lg p-4 border border-teal-400/30">
+                    <div className="text-3xl mb-2">🎨</div>
+                    <div className="font-bold text-teal-300 mb-2">7. Update Display</div>
+                    <div className="text-white/80 text-sm">updateDisplay()</div>
+                  </div>
+                  
+                  <div className="bg-pink-500/20 rounded-lg p-4 border border-pink-400/30">
+                    <div className="text-3xl mb-2">🔄</div>
+                    <div className="font-bold text-pink-300 mb-2">8. Generate HTML</div>
+                    <div className="text-white/80 text-sm">todos.map()</div>
+                  </div>
+                  
+                  <div className="bg-indigo-500/20 rounded-lg p-4 border border-indigo-400/30">
+                    <div className="text-3xl mb-2">🎉</div>
+                    <div className="font-bold text-indigo-300 mb-2">9. User Sees</div>
+                    <div className="text-white/80 text-sm">New todo appears!</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* All concepts working together */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div className="bg-green-500/20 backdrop-blur rounded-xl p-6 border-2 border-green-400">
+                  <div className="text-4xl mb-3">🔤</div>
+                  <h4 className="text-xl font-bold text-green-300 mb-2">Variables</h4>
+                  <div className="text-white/80 text-sm">Store the todos array</div>
+                </div>
+                
+                <div className="bg-blue-500/20 backdrop-blur rounded-xl p-6 border-2 border-blue-400">
+                  <div className="text-4xl mb-3">⚙️</div>
+                  <h4 className="text-xl font-bold text-blue-300 mb-2">Functions</h4>
+                  <div className="text-white/80 text-sm">Process and manipulate data</div>
+                </div>
+                
+                <div className="bg-purple-500/20 backdrop-blur rounded-xl p-6 border-2 border-purple-400">
+                  <div className="text-4xl mb-3">🌐</div>
+                  <h4 className="text-xl font-bold text-purple-300 mb-2">DOM</h4>
+                  <div className="text-white/80 text-sm">Find and update HTML elements</div>
+                </div>
+                
+                <div className="bg-orange-500/20 backdrop-blur rounded-xl p-6 border-2 border-orange-400">
+                  <div className="text-4xl mb-3">⚡</div>
+                  <h4 className="text-xl font-bold text-orange-300 mb-2">Events</h4>
+                  <div className="text-white/80 text-sm">Respond to user interactions</div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-indigo-700 to-purple-700'
+    },
+
+    {
+      id: 'wrap-up',
+      title: 'Have a Great Week!',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <style>{customStyles}</style>
+          <h2 className="text-6xl font-extrabold mb-8 animate-float">Have a Great Rest of Your Week!</h2>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-blue-500/20 backdrop-blur rounded-xl p-8 border-2 border-blue-400 mb-8">
+              <h3 className="text-3xl font-bold mb-6 text-blue-300">Extra Credit Reminder</h3>
+              <p className="text-xl text-white/90 leading-relaxed">
+                Make sure to have <strong className="text-yellow-300">only one of the pair</strong> send me an email with who you paired up with today for the extra credit.
+              </p>
+            </div>
+            
+            <div className="text-2xl text-white/80">
+              See you next class!
             </div>
           </div>
         </div>
