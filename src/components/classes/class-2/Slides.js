@@ -293,6 +293,100 @@ const VariableTypesDemo = () => {
   );
 };
 
+// Type Comparison Demo Component  
+const TypeComparisonDemo = () => {
+  const [revealedResults, setRevealedResults] = useState({});
+  
+  const comparisons = [
+    { 
+      expression: '0 == []', 
+      result: 'true',
+      explanation: 'Array [] converts to empty string "", then to number 0'
+    },
+    { 
+      expression: '0 == "0"', 
+      result: 'true',
+      explanation: 'String "0" converts to number 0'
+    },
+    { 
+      expression: '"0" == []', 
+      result: 'false',
+      explanation: 'Array [] converts to "", but "0" ≠ ""'
+    }
+  ];
+  
+  const revealResult = (index) => {
+    setRevealedResults(prev => ({ ...prev, [index]: true }));
+  };
+  
+  const revealAll = () => {
+    const allRevealed = {};
+    comparisons.forEach((_, index) => {
+      allRevealed[index] = true;
+    });
+    setRevealedResults(allRevealed);
+  };
+  
+  return (
+    <div className="bg-white/10 backdrop-blur rounded-xl p-8">
+      <h4 className="text-2xl font-bold text-purple-300 mb-6">🤯 Type Comparison Examples</h4>
+      <p className="text-white/80 mb-6">Guess the results, then click to reveal!</p>
+      
+      <div className="space-y-6">
+        {comparisons.map((comp, index) => (
+          <div key={index} className="bg-gray-900/50 rounded-xl p-6 border border-gray-600">
+            <div className="flex items-center justify-between mb-4">
+              <div className="font-mono text-2xl text-yellow-300">
+                {comp.expression}
+              </div>
+              <button
+                onClick={() => revealResult(index)}
+                disabled={revealedResults[index]}
+                className={`w-16 h-16 rounded-lg font-bold text-lg transition-all duration-300 ${
+                  revealedResults[index]
+                    ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
+                    : 'bg-purple-600 text-white hover:bg-purple-700 hover:scale-105'
+                }`}
+              >
+              </button>
+            </div>
+            
+            {revealedResults[index] && (
+              <div className="animate-fade-in">
+                <div className="text-center mb-4">
+                  <span className={`text-6xl font-bold ${
+                    comp.result === 'true' ? 'text-green-400' : 'text-red-400'
+                  }`}>
+                    {comp.result}
+                  </span>
+                </div>
+                <div className="bg-blue-900/30 rounded-lg p-4">
+                  <div className="text-blue-300 font-semibold mb-2">Why?</div>
+                  <div className="text-white/80">{comp.explanation}</div>
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+      
+      <div className="mt-8 text-center">
+        <button
+          onClick={revealAll}
+          className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 rounded-lg font-bold text-lg hover:scale-105 transition-transform"
+        >
+          Reveal All Results
+        </button>
+      </div>
+      
+      <div className="mt-6 bg-red-500/20 rounded-lg p-4 border border-red-400/30">
+        <div className="text-red-300 font-bold mb-2">🚨 This is why we use ===</div>
+        <div className="text-white/80">These weird conversions happen with ==, but === compares both value and type without conversion!</div>
+      </div>
+    </div>
+  );
+};
+
 // Enhanced array methods with step-by-step visualization
 const ArrayMethodsDemo = () => {
   const [selectedMethod, setSelectedMethod] = useState('map');
@@ -435,41 +529,31 @@ const Class2Slides = () => {
 
   const slides = [
     {
-      id: 'title',
-      title: 'JavaScript for the Browser',
+      id: 'title-slide',
+      title: 'CS390 Web Applications Programming',
       content: (
-        <div className="text-white animate-fade-in text-center">
+        <div className="text-center space-y-12">
           <style>{customStyles}</style>
-          <h1 className="text-7xl font-extrabold mb-8 animate-float">JavaScript</h1>
-          <div className="text-6xl mb-8 animate-float" style={{animationDelay: '0.5s'}}>🚀</div>
-          <p className="text-3xl text-white/80 mb-6">Making websites come alive</p>
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <div className="text-3xl mb-2">🌳</div>
-                <div className="text-lg font-bold">DOM</div>
-                <div className="text-white/70 text-sm">Find elements</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <div className="text-3xl mb-2">📦</div>
-                <div className="text-lg font-bold">Variables</div>
-                <div className="text-white/70 text-sm">Store data</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <div className="text-3xl mb-2">🔧</div>
-                <div className="text-lg font-bold">Functions</div>
-                <div className="text-white/70 text-sm">Reusable code</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
-                <div className="text-3xl mb-2">⚡</div>
-                <div className="text-lg font-bold">Events</div>
-                <div className="text-white/70 text-sm">Interactivity</div>
-              </div>
+          <div className="space-y-8">
+            <h1 className="text-6xl font-bold text-white mb-6">
+              CS390
+            </h1>
+            <h2 className="text-4xl font-semibold text-blue-100 mb-4">
+              Web Applications Programming
+            </h2>
+            <div className="text-2xl text-blue-200">
+              Class 2: JavaScript for the Browser
+            </div>
+          </div>
+          
+          <div className="mt-16">
+            <div className="text-2xl font-medium text-white">
+              Tanay Gondil
             </div>
           </div>
         </div>
       ),
-      bgGradient: 'from-indigo-700 to-blue-700'
+      bgGradient: 'from-blue-600 to-purple-700'
     },
     
     {
@@ -514,136 +598,6 @@ const Class2Slides = () => {
         </div>
       ),
       bgGradient: 'from-sky-700 to-cyan-700'
-    },
-
-    {
-      id: 'dom-tree',
-      title: 'DOM Tree Structure',
-      content: (
-        <div className="text-white animate-fade-in">
-          <style>{customStyles}</style>
-          <h2 className="text-5xl font-extrabold mb-8 text-center">DOM Tree Structure</h2>
-          <div className="mb-6 text-center">
-            <p className="text-xl text-white/80">Click any element to see how to select it with JavaScript</p>
-          </div>
-          <DOMTreeVisualization />
-        </div>
-      ),
-      bgGradient: 'from-cyan-700 to-blue-700'
-    },
-
-    {
-      id: 'dom-why-important',
-      title: 'Why the DOM Matters',
-      content: (
-        <div className="text-white animate-fade-in text-center">
-          <style>{customStyles}</style>
-          <h2 className="text-5xl font-extrabold mb-8">Why the DOM Matters</h2>
-          
-          <div className="max-w-6xl mx-auto">
-            <div className="text-6xl mb-8 animate-float">🔗</div>
-            <h3 className="text-3xl font-bold mb-12">The Bridge Between HTML and JavaScript</h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-              <div className="bg-orange-500/20 backdrop-blur rounded-xl p-8 border-2 border-orange-400">
-                <div className="text-5xl mb-4">📝</div>
-                <h4 className="text-2xl font-bold mb-4 text-orange-300">Static HTML</h4>
-                <p className="text-white/80 text-lg mb-4">Without JavaScript, your webpage just sits there</p>
-                <div className="text-white/60 text-sm">Like a poster on a wall - pretty but can't change</div>
-              </div>
-              
-              <div className="text-4xl text-white/50">→</div>
-              
-              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border-2 border-green-400">
-                <div className="text-5xl mb-4">⚡</div>
-                <h4 className="text-2xl font-bold mb-4 text-green-300">Dynamic with DOM</h4>
-                <p className="text-white/80 text-lg mb-4">JavaScript can change anything, anytime</p>
-                <div className="text-white/60 text-sm">Like a smart display that responds to everything</div>
-              </div>
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
-              <h4 className="text-2xl font-bold text-purple-300 mb-6">What JavaScript Can Do Through the DOM:</h4>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-white/5 rounded-lg p-4 text-center">
-                  <div className="text-2xl mb-2">✏️</div>
-                  <div className="font-bold">Change Text</div>
-                  <div className="text-white/60 text-sm">Update any content</div>
-                </div>
-                <div className="bg-white/5 rounded-lg p-4 text-center">
-                  <div className="text-2xl mb-2">🎨</div>
-                  <div className="font-bold">Change Styles</div>
-                  <div className="text-white/60 text-sm">Colors, sizes, positions</div>
-                </div>
-                <div className="bg-white/5 rounded-lg p-4 text-center">
-                  <div className="text-2xl mb-2">➕</div>
-                  <div className="font-bold">Add Elements</div>
-                  <div className="text-white/60 text-sm">Create new content</div>
-                </div>
-                <div className="bg-white/5 rounded-lg p-4 text-center">
-                  <div className="text-2xl mb-2">👂</div>
-                  <div className="font-bold">Listen for Events</div>
-                  <div className="text-white/60 text-sm">Respond to clicks</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
-      bgGradient: 'from-blue-700 to-indigo-700'
-    },
-
-    {
-      id: 'dom-connection',
-      title: 'JavaScript ↔ DOM Pattern',
-      content: (
-        <div className="text-white animate-fade-in text-center">
-          <style>{customStyles}</style>
-          <h2 className="text-5xl font-extrabold mb-12">The Universal Pattern</h2>
-          
-          <div className="max-w-6xl mx-auto">
-            <div className="text-4xl mb-8 text-white/80">Every interactive feature follows this pattern:</div>
-            
-            <div className="grid grid-cols-3 gap-8 mb-12">
-              <div className="bg-blue-500/20 backdrop-blur rounded-xl p-8 border-2 border-blue-400">
-                <div className="text-6xl mb-4 animate-float">🔍</div>
-                <h3 className="text-2xl font-bold mb-4">1. Find</h3>
-                <p className="text-white/80 text-lg mb-4">Locate elements in the DOM</p>
-                <div className="bg-blue-900/50 rounded-lg p-3">
-                  <code className="text-blue-300 text-sm">document.querySelector('#button')</code>
-                </div>
-                <div className="text-white/60 text-sm mt-2">Like getting someone's address</div>
-              </div>
-              
-              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border-2 border-green-400">
-                <div className="text-6xl mb-4 animate-float" style={{animationDelay: '0.5s'}}>⚡</div>
-                <h3 className="text-2xl font-bold mb-4">2. Change</h3>
-                <p className="text-white/80 text-lg mb-4">Update content & styles</p>
-                <div className="bg-green-900/50 rounded-lg p-3">
-                  <code className="text-green-300 text-sm">element.textContent = 'New!'</code>
-                </div>
-                <div className="text-white/60 text-sm mt-2">Like redecorating their house</div>
-              </div>
-              
-              <div className="bg-purple-500/20 backdrop-blur rounded-xl p-8 border-2 border-purple-400">
-                <div className="text-6xl mb-4 animate-float" style={{animationDelay: '1s'}}>👂</div>
-                <h3 className="text-2xl font-bold mb-4">3. Listen</h3>
-                <p className="text-white/80 text-lg mb-4">Respond to user actions</p>
-                <div className="bg-purple-900/50 rounded-lg p-3">
-                  <code className="text-purple-300 text-sm">addEventListener('click', fn)</code>
-                </div>
-                <div className="text-white/60 text-sm mt-2">Like being a good neighbor</div>
-              </div>
-            </div>
-            
-            <div className="bg-yellow-500/20 rounded-xl p-6 border border-yellow-400/30">
-              <h4 className="text-2xl font-bold text-yellow-300 mb-3">🎯 Every Instagram like, every Google search, every Netflix click</h4>
-              <p className="text-white/90 text-lg">follows this exact same pattern. Master this, and you understand all web interactivity!</p>
-            </div>
-          </div>
-        </div>
-      ),
-      bgGradient: 'from-indigo-700 to-violet-700'
     },
 
     {
@@ -704,7 +658,7 @@ const Class2Slides = () => {
           </div>
         </div>
       ),
-      bgGradient: 'from-violet-700 to-purple-700'
+      bgGradient: 'from-cyan-700 to-blue-700'
     },
 
     {
@@ -720,95 +674,77 @@ const Class2Slides = () => {
           <VariableTypesDemo />
         </div>
       ),
-      bgGradient: 'from-purple-700 to-fuchsia-700'
+      bgGradient: 'from-blue-700 to-indigo-700'
     },
 
     {
-      id: 'template-literals',
-      title: 'Template Literals - String Superpowers',
+      id: 'dynamic-typing',
+      title: 'JavaScript\'s Dynamic Typing',
       content: (
         <div className="text-white animate-fade-in text-center">
           <style>{customStyles}</style>
-          <h2 className="text-5xl font-extrabold mb-8">Template Literals</h2>
+          <h2 className="text-5xl font-extrabold mb-8">Dynamic Typing</h2>
           
           <div className="max-w-6xl mx-auto">
-            <div className="text-6xl mb-8 animate-float">🧩</div>
-            <h3 className="text-3xl font-bold mb-8">The modern way to build strings</h3>
-            <p className="text-xl text-white/80 mb-12">Combine text and variables like a pro</p>
+            <div className="text-8xl mb-8 animate-float">🎭</div>
+            <h3 className="text-3xl font-bold mb-8">JavaScript is flexible... maybe too flexible</h3>
+            <p className="text-xl text-white/80 mb-12">Variables can change types, and comparisons can be surprising!</p>
             
-            <div className="grid grid-cols-2 gap-8 mb-8">
-              <div className="bg-red-500/20 backdrop-blur rounded-xl p-8 border-2 border-red-400">
-                <div className="text-4xl mb-4">❌</div>
-                <h4 className="text-2xl font-bold mb-4 text-red-300">Old Way (String Concatenation)</h4>
-                <div className="bg-red-900/50 rounded-lg p-4 font-mono text-sm mb-4">
-                  const name = "Alice";<br/>
-                  const age = 25;<br/>
-                  <br/>
-                  const message = "Hello, my name is " + name +<br/>
-                  &nbsp;&nbsp;" and I am " + age + " years old.";
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border-2 border-green-400">
+                <div className="text-4xl mb-4">✨</div>
+                <h4 className="text-2xl font-bold mb-4 text-green-300">Dynamic Typing Benefits</h4>
+                <div className="text-white/80 space-y-3 text-left">
+                  <div>• <strong>Flexible:</strong> Variables can hold any type</div>
+                  <div>• <strong>Quick to write:</strong> No type declarations needed</div>
+                  <div>• <strong>Beginner-friendly:</strong> Less syntax to learn</div>
                 </div>
-                <div className="text-white/70 space-y-2">
-                  <div className="text-red-300 font-semibold">Problems:</div>
-                  <div className="text-sm">• Hard to read</div>
-                  <div className="text-sm">• Easy to make mistakes</div>
-                  <div className="text-sm">• Lots of + symbols</div>
-                  <div className="text-sm">• Difficult to format</div>
+                <div className="bg-green-900/50 rounded-lg p-4 font-mono text-sm mt-4">
+                  let x = "hello";<br/>
+                  x = 42;           // Totally fine!<br/>
+                  x = true;         // Also fine!<br/>
+                  x = [1, 2, 3];    // Still fine!
                 </div>
               </div>
               
-              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border-2 border-green-400">
-                <div className="text-4xl mb-4">✅</div>
-                <h4 className="text-2xl font-bold mb-4 text-green-300">New Way (Template Literals)</h4>
-                <div className="bg-green-900/50 rounded-lg p-4 font-mono text-sm mb-4">
-                  const name = "Alice";<br/>
-                  const age = 25;<br/>
-                  <br/>
-                  const message = `Hello, my name is $&#123;name&#125;<br/>
-                  and I am $&#123;age&#125; years old.`;
+              <div className="bg-yellow-500/20 backdrop-blur rounded-xl p-8 border-2 border-yellow-400">
+                <div className="text-4xl mb-4">⚠️</div>
+                <h4 className="text-2xl font-bold mb-4 text-yellow-300">Watch Out For...</h4>
+                <div className="text-white/80 space-y-3 text-left">
+                  <div>• <strong>Unexpected results:</strong> Type coercion surprises</div>
+                  <div>• <strong>Hard to debug:</strong> Silent type changes</div>
+                  <div>• <strong>Comparison confusion:</strong> == vs === matters!</div>
                 </div>
-                <div className="text-white/70 space-y-2">
-                  <div className="text-green-300 font-semibold">Benefits:</div>
-                  <div className="text-sm">• Easy to read</div>
-                  <div className="text-sm">• Can span multiple lines</div>
-                  <div className="text-sm">• Variables clearly marked</div>
-                  <div className="text-sm">• Can include expressions</div>
+                <div className="bg-yellow-900/50 rounded-lg p-4 font-mono text-sm mt-4">
+                  "5" + 3          // "53" (string)<br/>
+                  "5" - 3          // 2 (number)<br/>
+                  true + 1         // 2 (number)<br/>
+                  [] + []          // "" (empty string!)
                 </div>
               </div>
             </div>
             
-            <div className="bg-blue-500/20 rounded-xl p-8 border border-blue-400/30">
-              <h4 className="text-2xl font-bold text-blue-300 mb-6">💡 Pro Tips with Template Literals:</h4>
+            <TypeComparisonDemo />
+            
+            <div className="mt-8 bg-blue-500/20 rounded-xl p-6 border border-blue-400/30">
+              <h4 className="text-xl font-bold text-blue-300 mb-3">💡 Pro Tip: Use === instead of ==</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white/5 rounded-lg p-4">
-                  <div className="font-semibold mb-2">Include Expressions:</div>
-                  <code className="text-blue-300 text-sm">
-                    `Your score: $&#123;score * 2&#125; points!`
-                  </code>
+                <div className="bg-red-500/20 rounded-lg p-4">
+                  <div className="text-red-300 font-semibold mb-2">== (loose equality)</div>
+                  <div className="text-white/80 text-sm">Tries to convert types before comparing</div>
+                  <code className="text-red-300 text-sm block mt-2">"5" == 5  // true</code>
                 </div>
-                <div className="bg-white/5 rounded-lg p-4">
-                  <div className="font-semibold mb-2">Multi-line Strings:</div>
-                  <code className="text-blue-300 text-sm">
-                    `Line 1<br/>Line 2<br/>Line 3`
-                  </code>
-                </div>
-                <div className="bg-white/5 rounded-lg p-4">
-                  <div className="font-semibold mb-2">Function Calls:</div>
-                  <code className="text-blue-300 text-sm">
-                    `Hello $&#123;getName()&#125;!`
-                  </code>
-                </div>
-                <div className="bg-white/5 rounded-lg p-4">
-                  <div className="font-semibold mb-2">HTML Templates:</div>
-                  <code className="text-blue-300 text-sm">
-                    `&lt;h1&gt;$&#123;title&#125;&lt;/h1&gt;`
-                  </code>
+                <div className="bg-green-500/20 rounded-lg p-4">
+                  <div className="text-green-300 font-semibold mb-2">=== (strict equality)</div>
+                  <div className="text-white/80 text-sm">Compares value AND type</div>
+                  <code className="text-green-300 text-sm block mt-2">"5" === 5  // false</code>
                 </div>
               </div>
             </div>
           </div>
         </div>
       ),
-      bgGradient: 'from-fuchsia-700 to-pink-700'
+      bgGradient: 'from-indigo-700 to-purple-700'
     },
 
     {
@@ -819,80 +755,65 @@ const Class2Slides = () => {
           <style>{customStyles}</style>
           <h2 className="text-5xl font-extrabold mb-8">Functions</h2>
           
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <div className="text-8xl mb-8 animate-float">🏭</div>
             <h3 className="text-3xl font-bold mb-12">Functions are like smart machines</h3>
             
-            <div className="grid grid-cols-3 gap-8 items-center mb-12">
-              <div className="bg-blue-500/20 backdrop-blur rounded-xl p-8 border-2 border-blue-400">
-                <div className="text-5xl mb-4 animate-float">📥</div>
-                <h4 className="text-2xl font-bold mb-4">Input</h4>
-                <p className="text-white/80 text-lg mb-4">Parameters (ingredients)</p>
-                <div className="bg-blue-900/50 rounded-lg p-3 font-mono text-sm">
-                  (name, age)
-                </div>
-                <div className="text-white/60 text-sm mt-2">What the function needs to work</div>
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">
+              <h4 className="text-2xl font-bold mb-6 text-green-300">Let's See a Function in Action!</h4>
+              
+              <div className="bg-gray-900/80 rounded-xl p-6 font-mono text-lg mb-6">
+                <div className="text-blue-300 mb-4">// Define the function</div>
+                <div className="text-white mb-2">function <span className="text-yellow-300">sayHello</span>(<span className="text-green-300">name</span>) &#123;</div>
+                <div className="text-white ml-4 mb-2">&nbsp;&nbsp;return "Hello, " + <span className="text-green-300">name</span> + "!";</div>
+                <div className="text-white mb-4">&#125;</div>
+                
+                <div className="text-blue-300 mb-4">// Use the function</div>
+                <div className="text-white mb-2">const message = <span className="text-yellow-300">sayHello</span>("Alice");</div>
+                <div className="text-white">console.log(message);</div>
               </div>
               
-              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border-2 border-green-400">
-                <div className="text-5xl mb-4 animate-float" style={{animationDelay: '0.5s'}}>⚙️</div>
-                <h4 className="text-2xl font-bold mb-4">Process</h4>
-                <p className="text-white/80 text-lg mb-4">Function body (recipe)</p>
-                <div className="bg-green-900/50 rounded-lg p-3 font-mono text-sm">
-                  // magic happens
-                </div>
-                <div className="text-white/60 text-sm mt-2">The work the function does</div>
+              <div className="bg-green-900/50 rounded-xl p-6 border-2 border-green-400">
+                <div className="text-green-300 font-bold text-xl mb-2">Output:</div>
+                <div className="font-mono text-2xl text-white">"Hello, Alice!"</div>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-3 gap-6 mb-8">
+              <div className="bg-blue-500/20 backdrop-blur rounded-xl p-6 border-2 border-blue-400">
+                <div className="text-4xl mb-3 animate-float">📥</div>
+                <h4 className="text-xl font-bold mb-3">Input</h4>
+                <div className="text-white/80 text-sm mb-2">Parameter: <code className="text-green-300">"Alice"</code></div>
+                <div className="text-white/60 text-xs">What goes into the function</div>
               </div>
               
-              <div className="bg-purple-500/20 backdrop-blur rounded-xl p-8 border-2 border-purple-400">
-                <div className="text-5xl mb-4 animate-float" style={{animationDelay: '1s'}}>📤</div>
-                <h4 className="text-2xl font-bold mb-4">Output</h4>
-                <p className="text-white/80 text-lg mb-4">Return value (result)</p>
-                <div className="bg-purple-900/50 rounded-lg p-3 font-mono text-sm">
-                  "Hello Alice!"
-                </div>
-                <div className="text-white/60 text-sm mt-2">What you get back</div>
+              <div className="bg-green-500/20 backdrop-blur rounded-xl p-6 border-2 border-green-400">
+                <div className="text-4xl mb-3 animate-float" style={{animationDelay: '0.5s'}}>⚙️</div>
+                <h4 className="text-xl font-bold mb-3">Process</h4>
+                <div className="text-white/80 text-sm mb-2">Combines "Hello, " + name + "!"</div>
+                <div className="text-white/60 text-xs">The work it does</div>
+              </div>
+              
+              <div className="bg-purple-500/20 backdrop-blur rounded-xl p-6 border-2 border-purple-400">
+                <div className="text-4xl mb-3 animate-float" style={{animationDelay: '1s'}}>📤</div>
+                <h4 className="text-xl font-bold mb-3">Output</h4>
+                <div className="text-white/80 text-sm mb-2">Returns: <code className="text-purple-300">"Hello, Alice!"</code></div>
+                <div className="text-white/60 text-xs">What you get back</div>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-                <h4 className="text-xl font-bold mb-4 text-blue-300">Function Declaration</h4>
-                <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm mb-4">
-                  function greetUser(name) &#123;<br/>
-                  &nbsp;&nbsp;return `Hello, $&#123;name&#125;!`;<br/>
-                  &#125;<br/>
-                  <br/>
-                  const message = greetUser("Alice");
-                </div>
-                <div className="text-white/70 text-sm">
-                  <div className="font-semibold mb-1">When to use:</div>
-                  <div>• Main functions in your program</div>
-                  <div>• Functions you want to call before they're defined</div>
-                </div>
-              </div>
-              
-              <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-                <h4 className="text-xl font-bold mb-4 text-green-300">Arrow Function (Modern)</h4>
-                <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm mb-4">
-                  const greetUser = (name) =&gt; &#123;<br/>
-                  &nbsp;&nbsp;return \`Hello, \$&#123;name&#125;!\`;<br/>
-                  &#125;;<br/>
-                  <br/>
-                  // Or shorter:<br/>
-                  const greet = name =&gt; \`Hello, \$&#123;name&#125;!\`;
-                </div>
-                <div className="text-white/70 text-sm">
-                  <div className="font-semibold mb-1">When to use:</div>
-                  <div>• Short, simple functions</div>
-                  <div>• Functions inside other functions</div>
-                </div>
+            <div className="bg-yellow-500/20 rounded-xl p-6 border border-yellow-400/30">
+              <h4 className="text-xl font-bold text-yellow-300 mb-3">🎯 Why Functions Are Awesome:</h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-white/80 text-sm">
+                <div>• <strong>Reusable:</strong> Write once, use many times</div>
+                <div>• <strong>Organized:</strong> Keep code neat and tidy</div>
+                <div>• <strong>Testable:</strong> Easy to check if they work</div>
               </div>
             </div>
           </div>
         </div>
       ),
-      bgGradient: 'from-pink-700 to-rose-700'
+      bgGradient: 'from-cyan-700 to-blue-700'
     },
 
     {
@@ -910,13 +831,13 @@ const Class2Slides = () => {
                 <h3 className="text-xl font-bold mb-4 text-blue-300">Simple Functions</h3>
                 <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm mb-4">
                   // No parameters<br/>
-                  const sayHello = () => "Hello!";<br/>
+                  const sayHello = () =&gt; "Hello!";<br/>
                   <br/>
                   // One parameter<br/>
-                  const double = (num) => num * 2;<br/>
+                  const double = (num) =&gt; num * 2;<br/>
                   <br/>
                   // Multiple parameters<br/>
-                  const add = (a, b) => a + b;<br/>
+                  const add = (a, b) =&gt; a + b;<br/>
                   <br/>
                   // Usage<br/>
                   console.log(sayHello()); // "Hello!"<br/>
@@ -930,12 +851,12 @@ const Class2Slides = () => {
                 <h3 className="text-xl font-bold mb-4 text-green-300">More Complex Functions</h3>
                 <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm mb-4">
                   // With default parameters<br/>
-                  const greet = (name = "Friend") => &#123;<br/>
-                  &nbsp;&nbsp;return `Hello, $&#123;name&#125;!`;<br/>
+                  const greet = (name = "Friend") =&gt; &#123;<br/>
+                  &nbsp;&nbsp;return \`Hello, \$&#123;name&#125;!\`;<br/>
                   &#125;;<br/>
                   <br/>
                   // With validation<br/>
-                  const calculateDiscount = (price, percent) => &#123;<br/>
+                  const calculateDiscount = (price, percent) =&gt; &#123;<br/>
                   &nbsp;&nbsp;if (price &lt; 0 || percent &lt; 0) &#123;<br/>
                   &nbsp;&nbsp;&nbsp;&nbsp;return "Invalid input";<br/>
                   &nbsp;&nbsp;&#125;<br/>
@@ -985,7 +906,7 @@ const Class2Slides = () => {
           </div>
         </div>
       ),
-      bgGradient: 'from-rose-700 to-orange-700'
+      bgGradient: 'from-purple-700 to-fuchsia-700'
     },
 
     {
@@ -1056,7 +977,7 @@ const Class2Slides = () => {
           </div>
         </div>
       ),
-      bgGradient: 'from-orange-700 to-amber-700'
+      bgGradient: 'from-fuchsia-700 to-pink-700'
     },
 
     {
@@ -1072,7 +993,7 @@ const Class2Slides = () => {
           <ArrayMethodsDemo />
         </div>
       ),
-      bgGradient: 'from-amber-700 to-yellow-700'
+      bgGradient: 'from-pink-700 to-rose-700'
     },
 
     {
@@ -1093,7 +1014,7 @@ const Class2Slides = () => {
                 <h4 className="text-xl font-bold mb-3">Social Media</h4>
                 <div className="text-white/80 mb-3">Instagram feed, Twitter timeline</div>
                 <div className="bg-gray-800 rounded p-3 font-mono text-xs">
-                  posts.map(post => &lt;Post data=&#123;post&#125; /&gt;)
+                  posts.map(post =&gt; &lt;Post data=&#123;post&#125; /&gt;)
                 </div>
               </div>
 
@@ -1102,7 +1023,7 @@ const Class2Slides = () => {
                 <h4 className="text-xl font-bold mb-3">E-commerce</h4>
                 <div className="text-white/80 mb-3">Shopping cart items, product lists</div>
                 <div className="bg-gray-800 rounded p-3 font-mono text-xs">
-                  cart.filter(item => item.price &lt; 50)
+                  cart.filter(item =&gt; item.price &lt; 50)
                 </div>
               </div>
 
@@ -1111,7 +1032,7 @@ const Class2Slides = () => {
                 <h4 className="text-xl font-bold mb-3">Streaming</h4>
                 <div className="text-white/80 mb-3">Spotify playlists, Netflix shows</div>
                 <div className="bg-gray-800 rounded p-3 font-mono text-xs">
-                  songs.find(song => song.id === currentId)
+                  songs.find(song =&gt; song.id === currentId)
                 </div>
               </div>
 
@@ -1120,7 +1041,7 @@ const Class2Slides = () => {
                 <h4 className="text-xl font-bold mb-3">Email</h4>
                 <div className="text-white/80 mb-3">Gmail inbox, message threads</div>
                 <div className="bg-gray-800 rounded p-3 font-mono text-xs">
-                  emails.filter(email => !email.read)
+                  emails.filter(email =&gt; !email.read)
                 </div>
               </div>
 
@@ -1129,7 +1050,7 @@ const Class2Slides = () => {
                 <h4 className="text-xl font-bold mb-3">Search</h4>
                 <div className="text-white/80 mb-3">Google results, search suggestions</div>
                 <div className="bg-gray-800 rounded p-3 font-mono text-xs">
-                  results.map(result => result.title)
+                  results.map(result =&gt; result.title)
                 </div>
               </div>
 
@@ -1174,7 +1095,77 @@ const Class2Slides = () => {
           </div>
         </div>
       ),
-      bgGradient: 'from-yellow-700 to-green-700'
+      bgGradient: 'from-rose-700 to-orange-700'
+    },
+
+    // NOW the DOM interaction details make sense since they understand the basics!
+    {
+      id: 'dom-tree',
+      title: 'DOM Tree Structure',
+      content: (
+        <div className="text-white animate-fade-in">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-8 text-center">DOM Tree Structure</h2>
+          <div className="mb-6 text-center">
+            <p className="text-xl text-white/80">Now that you know variables and functions, let's see how to target specific elements</p>
+          </div>
+          <DOMTreeVisualization />
+        </div>
+      ),
+      bgGradient: 'from-orange-700 to-amber-700'
+    },
+
+    {
+      id: 'dom-connection',
+      title: 'JavaScript ↔ DOM Pattern',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-12">The Universal Pattern</h2>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="text-4xl mb-8 text-white/80">Every interactive feature follows this pattern:</div>
+            
+            <div className="grid grid-cols-3 gap-8 mb-12">
+              <div className="bg-blue-500/20 backdrop-blur rounded-xl p-8 border-2 border-blue-400">
+                <div className="text-6xl mb-4 animate-float">🔍</div>
+                <h3 className="text-2xl font-bold mb-4">1. Find</h3>
+                <p className="text-white/80 text-lg mb-4">Locate elements in the DOM</p>
+                <div className="bg-blue-900/50 rounded-lg p-3">
+                  <code className="text-blue-300 text-sm">document.querySelector('#button')</code>
+                </div>
+                <div className="text-white/60 text-sm mt-2">Like getting someone's address</div>
+              </div>
+              
+              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border-2 border-green-400">
+                <div className="text-6xl mb-4 animate-float" style={{animationDelay: '0.5s'}}>⚡</div>
+                <h3 className="text-2xl font-bold mb-4">2. Change</h3>
+                <p className="text-white/80 text-lg mb-4">Update content & styles</p>
+                <div className="bg-green-900/50 rounded-lg p-3">
+                  <code className="text-green-300 text-sm">element.textContent = 'New!'</code>
+                </div>
+                <div className="text-white/60 text-sm mt-2">Like redecorating their house</div>
+              </div>
+              
+              <div className="bg-purple-500/20 backdrop-blur rounded-xl p-8 border-2 border-purple-400">
+                <div className="text-6xl mb-4 animate-float" style={{animationDelay: '1s'}}>👂</div>
+                <h3 className="text-2xl font-bold mb-4">3. Listen</h3>
+                <p className="text-white/80 text-lg mb-4">Respond to user actions</p>
+                <div className="bg-purple-900/50 rounded-lg p-3">
+                  <code className="text-purple-300 text-sm">addEventListener('click', fn)</code>
+                </div>
+                <div className="text-white/60 text-sm mt-2">Like being a good neighbor</div>
+              </div>
+            </div>
+            
+            <div className="bg-yellow-500/20 rounded-xl p-6 border border-yellow-400/30">
+              <h4 className="text-2xl font-bold text-yellow-300 mb-3">🎯 Every Instagram like, every Google search, every Netflix click</h4>
+              <p className="text-white/90 text-lg">follows this exact same pattern. Master this, and you understand all web interactivity!</p>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-amber-700 to-yellow-700'
     },
 
     {
@@ -1264,7 +1255,7 @@ const Class2Slides = () => {
           </div>
         </div>
       ),
-      bgGradient: 'from-green-700 to-emerald-700'
+      bgGradient: 'from-yellow-700 to-green-700'
     },
 
     {
@@ -1319,7 +1310,7 @@ const Class2Slides = () => {
           </div>
         </div>
       ),
-      bgGradient: 'from-emerald-700 to-teal-700'
+      bgGradient: 'from-green-700 to-emerald-700'
     },
 
     {
@@ -1346,12 +1337,12 @@ const Class2Slides = () => {
                   
                   <div className="bg-blue-500/20 rounded-lg p-4 border border-blue-400/30">
                     <div className="font-bold text-blue-300 mb-2">2. Functions Process Data</div>
-                    <code className="text-sm">const addTodo = (text) => todos.push(text);</code>
+                    <code className="text-sm">const addTodo = (text) =&gt; todos.push(text);</code>
                   </div>
                   
                   <div className="bg-purple-500/20 rounded-lg p-4 border border-purple-400/30">
                     <div className="font-bold text-purple-300 mb-2">3. Arrays Hold Lists</div>
-                    <code className="text-sm">todos.map(todo => `&lt;li&gt;$&#123;todo&#125;&lt;/li&gt;`)</code>
+                    <code className="text-sm">todos.map(todo =&gt; \`&lt;li&gt;\$&#123;todo&#125;&lt;/li&gt;\`)</code>
                   </div>
                   
                   <div className="bg-orange-500/20 rounded-lg p-4 border border-orange-400/30">
@@ -1412,7 +1403,7 @@ const Class2Slides = () => {
                 <div className="font-bold text-lg mb-2">Next Step:</div>
                 <div className="text-white/70 text-sm space-y-1">
                   <div>• React makes this easier</div>
-                  <div>• Same ideas</div>
+                  <div>• Same concepts</div>
                   <div>• Better tools</div>
                   <div>• More powerful</div>
                 </div>
@@ -1421,7 +1412,7 @@ const Class2Slides = () => {
           </div>
         </div>
       ),
-      bgGradient: 'from-teal-700 to-cyan-700'
+      bgGradient: 'from-emerald-700 to-teal-700'
     },
 
     {
@@ -1504,7 +1495,7 @@ const Class2Slides = () => {
           </div>
         </div>
       ),
-      bgGradient: 'from-cyan-700 to-blue-700'
+      bgGradient: 'from-teal-700 to-cyan-700'
     }
   ];
 
