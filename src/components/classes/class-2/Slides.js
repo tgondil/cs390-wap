@@ -2963,9 +2963,12 @@ const Class2Slides = () => {
           <div className="max-w-4xl mx-auto">
             <div className="bg-blue-500/20 backdrop-blur rounded-xl p-8 border-2 border-blue-400 mb-8">
               <h3 className="text-3xl font-bold mb-6 text-blue-300">Extra Credit Reminder</h3>
-              <p className="text-xl text-white/90 leading-relaxed">
+              <p className="text-xl text-white/90 leading-relaxed mb-4">
                 Make sure to have <strong className="text-yellow-300">only one of the pair</strong> send me an email with who you paired up with today for the extra credit.
               </p>
+              <div className="bg-white/10 rounded-lg p-4">
+                <p className="text-lg font-mono text-blue-200">tgondil@purdue.edu</p>
+              </div>
             </div>
             
             <div className="text-2xl text-white/80">
