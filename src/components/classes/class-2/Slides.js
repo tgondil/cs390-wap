@@ -24,58 +24,197 @@ const customStyles = `
   }
 `;
 
-// Enhanced interactive counter demo
-const InteractiveCounter = () => {
-  const [count, setCount] = useState(0);
-  const [history, setHistory] = useState([]);
+// Interactive DOM Change Demo Component
+const InteractiveDOMDemo = () => {
+  const [backgroundColor, setBackgroundColor] = useState('#3B82F6'); // blue-500
+  const [textContent, setTextContent] = useState('Hello World!');
+  const [isVisible, setIsVisible] = useState(true);
+  const [fontSize, setFontSize] = useState(24);
+  const [highlightedElement, setHighlightedElement] = useState(null);
+  const [currentAction, setCurrentAction] = useState(null);
+  const [executingCode, setExecutingCode] = useState(null);
+  const [executedLines, setExecutedLines] = useState([]);
 
-  const updateCount = (newCount, action) => {
-    setCount(newCount);
-    setHistory(prev => [...prev.slice(-4), `${action}: ${newCount}`]);
+  const showAction = (action, element) => {
+    setCurrentAction(action);
+    setHighlightedElement(element);
+    setTimeout(() => {
+      setCurrentAction(null);
+      setHighlightedElement(null);
+    }, 3000);
+  };
+
+  const changeBackgroundColor = () => {
+    showAction('Finding container element...', 'container');
+    setTimeout(() => {
+      const colors = ['#3B82F6', '#EF4444', '#10B981', '#F59E0B', '#8B5CF6'];
+      const currentIndex = colors.indexOf(backgroundColor);
+      const nextIndex = (currentIndex + 1) % colors.length;
+      setBackgroundColor(colors[nextIndex]);
+      setCurrentAction('✅ Changed background color!');
+    }, 1500);
+  };
+
+  const changeText = () => {
+    showAction('Finding text element...', 'text');
+    setTimeout(() => {
+      const texts = ['Hello World!', 'JavaScript is Fun!', 'DOM is Powerful!', 'You Did It!', 'Amazing Work!'];
+      const currentIndex = texts.indexOf(textContent);
+      const nextIndex = (currentIndex + 1) % texts.length;
+      setTextContent(texts[nextIndex]);
+      setCurrentAction('✅ Changed text content!');
+    }, 1500);
+  };
+
+  const toggleVisibility = () => {
+    showAction('Finding text element...', 'text');
+    setTimeout(() => {
+      setIsVisible(!isVisible);
+      setCurrentAction(`✅ ${isVisible ? 'Hidden' : 'Showed'} element!`);
+    }, 1500);
+  };
+
+  const changeFontSize = () => {
+    showAction('Finding text element...', 'text');
+    setTimeout(() => {
+      setFontSize(prevSize => prevSize === 24 ? 36 : prevSize === 36 ? 48 : 24);
+      setCurrentAction('✅ Changed font size!');
+    }, 1500);
   };
 
   return (
-    <div className="bg-white/10 backdrop-blur rounded-xl p-8">
-      <div className="text-center mb-6">
-        <div className="text-8xl font-extrabold text-white mb-6 animate-pulse-glow">{count}</div>
-        <div className="flex justify-center gap-4 mb-6">
-          <button
-            onClick={() => updateCount(count + 1, '+1')}
-            className="px-8 py-4 text-2xl rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold transition transform hover:scale-105"
-          >
-            +1
-          </button>
-          <button
-            onClick={() => updateCount(count + 5, '+5')}
-            className="px-8 py-4 text-2xl rounded-lg bg-green-600 hover:bg-green-700 text-white font-semibold transition transform hover:scale-105"
-          >
-            +5
-          </button>
-          <button
-            onClick={() => updateCount(Math.max(0, count - 1), '-1')}
-            className="px-8 py-4 text-2xl rounded-lg bg-red-600 hover:bg-red-700 text-white font-semibold transition transform hover:scale-105"
-          >
-            -1
-          </button>
-          <button
-            onClick={() => updateCount(0, 'reset')}
-            className="px-8 py-4 text-2xl rounded-lg bg-gray-600 hover:bg-gray-700 text-white font-semibold transition transform hover:scale-105"
-          >
-            Reset
-          </button>
+    <div className="max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Left: HTML Structure */}
+        <div className="bg-gray-900/80 rounded-xl p-6 border border-gray-600">
+          <h3 className="text-xl font-bold text-white mb-4 text-center">📄 HTML Structure</h3>
+          <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm">
+            <div className="text-blue-300 mb-2">&lt;!-- Simple webpage HTML --&gt;</div>
+            <div className="text-white">
+              <div className={`transition-all duration-500 ${highlightedElement === 'container' ? 'bg-yellow-500/30 ring-2 ring-yellow-400' : ''} rounded px-1`}>
+                <span className="text-purple-300">&lt;div</span> <span className="text-green-300">class=</span><span className="text-yellow-300">"container"</span><span className="text-purple-300">&gt;</span>
+              </div>
+              <div className="ml-4">
+                <div className={`transition-all duration-500 ${highlightedElement === 'text' ? 'bg-yellow-500/30 ring-2 ring-yellow-400' : ''} rounded px-1`}>
+                  <span className="text-purple-300">&lt;h1</span> <span className="text-green-300">class=</span><span className="text-yellow-300">"message"</span><span className="text-purple-300">&gt;</span>
+                </div>
+                <div className="ml-4 text-white/80">
+                  {textContent}
+                </div>
+                <div className="text-purple-300">&lt;/h1&gt;</div>
+              </div>
+              <div className="text-purple-300">&lt;/div&gt;</div>
+            </div>
+          </div>
+          
+          {currentAction && (
+            <div className="mt-4 bg-yellow-500/20 rounded-lg p-3 border border-yellow-400/30">
+              <div className="text-yellow-300 font-bold text-sm">🔍 JavaScript Action:</div>
+              <div className="text-white/90 text-sm">{currentAction}</div>
+            </div>
+          )}
         </div>
-      </div>
-      
-      {history.length > 0 && (
-        <div className="bg-white/5 rounded-lg p-4">
-          <h4 className="text-lg font-semibold text-white/80 mb-2">Action History:</h4>
-          <div className="space-y-1">
-            {history.map((action, i) => (
-              <div key={i} className="text-sm text-white/60 font-mono">{action}</div>
-            ))}
+
+        {/* Center: Interactive Webpage */}
+        <div className="bg-white/10 backdrop-blur rounded-xl p-6">
+          <h3 className="text-xl font-bold text-white mb-4 text-center">🌐 Live Webpage</h3>
+          <div 
+            className={`bg-white rounded-lg p-8 min-h-[250px] flex items-center justify-center transition-all duration-500 ${highlightedElement === 'container' ? 'ring-4 ring-yellow-400 ring-opacity-70' : ''}`}
+            style={{ backgroundColor }}
+          >
+            {isVisible && (
+              <div 
+                className={`text-white font-bold text-center transition-all duration-300 ${highlightedElement === 'text' ? 'ring-4 ring-yellow-400 ring-opacity-70 rounded-lg p-2' : ''}`}
+                style={{ fontSize: `${fontSize}px`, textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}
+              >
+                {textContent}
+              </div>
+            )}
+          </div>
+          <div className="mt-4 text-center text-white/70 text-sm">
+            ↑ Elements highlight when JavaScript finds them!
           </div>
         </div>
-      )}
+
+        {/* Right: Control Buttons */}
+        <div className="space-y-4">
+          <h3 className="text-xl font-bold text-white mb-4 text-center">🎮 JavaScript Controls</h3>
+          
+          <div className="bg-blue-500/20 rounded-xl p-4 border-2 border-blue-400">
+            <h4 className="text-lg font-bold text-blue-300 mb-3">Change Background</h4>
+            <button
+              onClick={changeBackgroundColor}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-bold w-full transition-all hover:scale-105"
+            >
+              🎨 Change Color
+            </button>
+            <div className="text-white/70 text-xs mt-2 font-mono">
+              1. document.querySelector('.container')<br/>
+              2. element.style.backgroundColor = 'red'
+            </div>
+          </div>
+
+          <div className="bg-green-500/20 rounded-xl p-4 border-2 border-green-400">
+            <h4 className="text-lg font-bold text-green-300 mb-3">Change Text</h4>
+            <button
+              onClick={changeText}
+              className="bg-green-600 hover:bg-green-700 text-white px-4 py-3 rounded-lg font-bold w-full transition-all hover:scale-105"
+            >
+              ✏️ Change Text
+            </button>
+            <div className="text-white/70 text-xs mt-2 font-mono">
+              1. document.querySelector('.message')<br/>
+              2. element.textContent = 'New text!'
+            </div>
+          </div>
+
+          <div className="bg-purple-500/20 rounded-xl p-4 border-2 border-purple-400">
+            <h4 className="text-lg font-bold text-purple-300 mb-3">Toggle Visibility</h4>
+            <button
+              onClick={toggleVisibility}
+              className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-3 rounded-lg font-bold w-full transition-all hover:scale-105"
+            >
+              👁️ {isVisible ? 'Hide' : 'Show'}
+            </button>
+            <div className="text-white/70 text-xs mt-2 font-mono">
+              1. document.querySelector('.message')<br/>
+              2. element.style.display = 'none'
+            </div>
+          </div>
+
+          <div className="bg-orange-500/20 rounded-xl p-4 border-2 border-orange-400">
+            <h4 className="text-lg font-bold text-orange-300 mb-3">Change Size</h4>
+            <button
+              onClick={changeFontSize}
+              className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-3 rounded-lg font-bold w-full transition-all hover:scale-105"
+            >
+              📏 Resize ({fontSize}px)
+            </button>
+            <div className="text-white/70 text-xs mt-2 font-mono">
+              1. document.querySelector('.message')<br/>
+              2. element.style.fontSize = '36px'
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-8 bg-yellow-500/20 rounded-xl p-6 border border-yellow-400/30">
+        <h4 className="text-xl font-bold text-yellow-300 mb-3 text-center">🔍 The Find → Change Process</h4>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white/5 rounded-lg p-4">
+            <div className="text-3xl mb-2">1️⃣ Find the Element</div>
+            <div className="font-bold mb-2">JavaScript searches the HTML</div>
+            <div className="text-white/70 text-sm font-mono">document.querySelector('.container')</div>
+            <div className="text-white/70 text-sm mt-2">Like using Ctrl+F to find text on a page!</div>
+          </div>
+          <div className="bg-white/5 rounded-lg p-4">
+            <div className="text-3xl mb-2">2️⃣ Change the Element</div>
+            <div className="font-bold mb-2">Modify properties directly</div>
+            <div className="text-white/70 text-sm font-mono">element.style.color = 'red'</div>
+            <div className="text-white/70 text-sm mt-2">Like editing text in a document!</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
@@ -914,87 +1053,308 @@ const Class2Slides = () => {
 
     {
       id: 'function-examples',
-      title: 'Function Examples & Best Practices',
+      title: 'Real-World Function Example',
       content: (
-        <div className="text-white animate-fade-in">
+        <div className="text-white animate-fade-in text-center">
           <style>{customStyles}</style>
-          <h2 className="text-5xl font-extrabold mb-8 text-center">Real Function Examples</h2>
+          <h2 className="text-5xl font-extrabold mb-8">Real-World Example</h2>
           
-          <div className="max-w-6xl mx-auto space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Simple Functions */}
-              <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-                <h3 className="text-xl font-bold mb-4 text-blue-300">Simple Functions</h3>
-                <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm mb-4">
-                  // No parameters<br/>
-                  const sayHello = () =&gt; "Hello!";<br/>
-                  <br/>
-                  // One parameter<br/>
-                  const double = (num) =&gt; num * 2;<br/>
-                  <br/>
-                  // Multiple parameters<br/>
-                  const add = (a, b) =&gt; a + b;<br/>
-                  <br/>
-                  // Usage<br/>
-                  console.log(sayHello()); // "Hello!"<br/>
-                  console.log(double(5)); // 10<br/>
-                  console.log(add(3, 7)); // 10
-                </div>
+          <div className="max-w-5xl mx-auto">
+            <div className="text-6xl mb-8 animate-float">🛒</div>
+            <h3 className="text-3xl font-bold mb-12">Shopping Cart Tax Calculator</h3>
+            
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">
+              <h4 className="text-2xl font-bold mb-6 text-green-300">Let's Build a Tax Calculator!</h4>
+              
+              <div className="bg-gray-900/80 rounded-xl p-6 font-mono text-lg mb-6">
+                <div className="text-blue-300 mb-4">// Real function used in e-commerce sites</div>
+                <div className="text-white mb-2">function <span className="text-yellow-300">calculateTax</span>(<span className="text-green-300">price, taxRate</span>) &#123;</div>
+                <div className="text-white ml-4 mb-2">&nbsp;&nbsp;return <span className="text-green-300">price</span> * (<span className="text-green-300">taxRate</span> / 100);</div>
+                <div className="text-white mb-4">&#125;</div>
+                
+                <div className="text-blue-300 mb-4">// How Amazon, Target, etc. use it</div>
+                <div className="text-white mb-2">const cartTotal = 89.99;</div>
+                <div className="text-white mb-2">const localTax = 8.25; // Your state tax rate</div>
+                <div className="text-white mb-4">const taxAmount = <span className="text-yellow-300">calculateTax</span>(cartTotal, localTax);</div>
+                <div className="text-white">const finalTotal = cartTotal + taxAmount;</div>
               </div>
-
-              {/* Complex Functions */}
-              <div className="bg-white/10 backdrop-blur rounded-xl p-6">
-                <h3 className="text-xl font-bold mb-4 text-green-300">More Complex Functions</h3>
-                <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm mb-4">
-                  // With default parameters<br/>
-                  const greet = (name = "Friend") =&gt; &#123;<br/>
-                  &nbsp;&nbsp;return \`Hello, \$&#123;name&#125;!\`;<br/>
-                  &#125;;<br/>
-                  <br/>
-                  // With validation<br/>
-                  const calculateDiscount = (price, percent) =&gt; &#123;<br/>
-                  &nbsp;&nbsp;if (price &lt; 0 || percent &lt; 0) &#123;<br/>
-                  &nbsp;&nbsp;&nbsp;&nbsp;return "Invalid input";<br/>
-                  &nbsp;&nbsp;&#125;<br/>
-                  &nbsp;&nbsp;return price * (percent / 100);<br/>
-                  &#125;;
+              
+              <div className="bg-green-900/50 rounded-xl p-6 border-2 border-green-400">
+                <div className="text-green-300 font-bold text-xl mb-2">Result:</div>
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <div>
+                    <div className="text-white/70 text-sm">Subtotal</div>
+                    <div className="font-mono text-xl text-white">$89.99</div>
+                  </div>
+                  <div>
+                    <div className="text-white/70 text-sm">Tax (8.25%)</div>
+                    <div className="font-mono text-xl text-green-300">$7.42</div>
+                  </div>
+                  <div>
+                    <div className="text-white/70 text-sm">Total</div>
+                    <div className="font-mono text-xl text-yellow-300">$97.41</div>
+                  </div>
                 </div>
               </div>
             </div>
+            
+            <div className="grid grid-cols-3 gap-6">
+              <div className="bg-blue-500/20 backdrop-blur rounded-xl p-6 border-2 border-blue-400">
+                <div className="text-4xl mb-3 animate-float">📥</div>
+                <h4 className="text-xl font-bold mb-3">Input</h4>
+                <div className="text-white/80 text-sm mb-2">Price: $89.99</div>
+                <div className="text-white/80 text-sm mb-2">Tax Rate: 8.25%</div>
+                <div className="text-white/60 text-xs">What the customer owes</div>
+              </div>
+              
+              <div className="bg-green-500/20 backdrop-blur rounded-xl p-6 border-2 border-green-400">
+                <div className="text-4xl mb-3 animate-float" style={{animationDelay: '0.5s'}}>⚙️</div>
+                <h4 className="text-xl font-bold mb-3">Process</h4>
+                <div className="text-white/80 text-sm mb-2">89.99 × (8.25 ÷ 100)</div>
+                <div className="text-white/80 text-sm mb-2">= 89.99 × 0.0825</div>
+                <div className="text-white/60 text-xs">Math behind the scenes</div>
+              </div>
+              
+              <div className="bg-purple-500/20 backdrop-blur rounded-xl p-6 border-2 border-purple-400">
+                <div className="text-4xl mb-3 animate-float" style={{animationDelay: '1s'}}>📤</div>
+                <h4 className="text-xl font-bold mb-3">Output</h4>
+                <div className="text-white/80 text-sm mb-2">Tax: $7.42</div>
+                <div className="text-white/80 text-sm mb-2">Used in checkout</div>
+                <div className="text-white/60 text-xs">Ready to display</div>
+              </div>
+            </div>
 
-            <div className="bg-yellow-500/20 rounded-xl p-8 border border-yellow-400/30">
-              <h3 className="text-2xl font-bold text-yellow-300 mb-6">🎯 Function Best Practices</h3>
+            <div className="mt-8 bg-yellow-500/20 rounded-xl p-6 border border-yellow-400/30">
+              <h4 className="text-xl font-bold text-yellow-300 mb-3">🌟 Why This Function is Perfect:</h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-white/80 text-sm">
+                <div>• <strong>Reusable:</strong> Works for any price and tax rate</div>
+                <div>• <strong>Clear:</strong> Name tells you exactly what it does</div>
+                <div>• <strong>Simple:</strong> One job, does it well</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-blue-700 to-indigo-700'
+    },
+
+    {
+      id: 'function-best-practices',
+      title: 'Function Best Practices',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-8">Function Best Practices</h2>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="text-8xl mb-8 animate-float">✅</div>
+            <h3 className="text-3xl font-bold mb-12">Write functions like a pro!</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Descriptive Names */}
+              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border-2 border-green-400">
+                <div className="text-5xl mb-4">📝</div>
+                <h4 className="text-2xl font-bold mb-4 text-green-300">Use Descriptive Names</h4>
+                <div className="bg-green-900/50 rounded-lg p-4 font-mono text-sm mb-4">
+                  <div className="text-green-300 mb-2">// ✅ Good - Clear purpose</div>
+                  <div className="text-white">const calculateShippingCost = (weight) =&gt; &#123;</div>
+                  <div className="text-white ml-4">return weight * 2.50;</div>
+                  <div className="text-white">&#125;;</div>
+                  <br/>
+                  <div className="text-white">const validateEmailFormat = (email) =&gt; &#123;</div>
+                  <div className="text-white ml-4">return email.includes("@");</div>
+                  <div className="text-white">&#125;;</div>
+                </div>
+                <div className="text-white/80 text-sm">You can guess what these do without reading the code!</div>
+              </div>
+
+              {/* Keep Functions Small */}
+              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border-2 border-green-400">
+                <div className="text-5xl mb-4">🎯</div>
+                <h4 className="text-2xl font-bold mb-4 text-green-300">Keep Functions Small</h4>
+                <div className="bg-green-900/50 rounded-lg p-4 font-mono text-sm mb-4">
+                  <div className="text-green-300 mb-2">// ✅ Good - One job each</div>
+                  <div className="text-white">const formatPrice = (amount) =&gt; &#123;</div>
+                  <div className="text-white ml-4">return "$" + amount.toFixed(2);</div>
+                  <div className="text-white">&#125;;</div>
+                  <br/>
+                  <div className="text-white">const applyDiscount = (price, percent) =&gt; &#123;</div>
+                  <div className="text-white ml-4">return price * (1 - percent / 100);</div>
+                  <div className="text-white">&#125;;</div>
+                </div>
+                <div className="text-white/80 text-sm">Each function has one clear responsibility!</div>
+              </div>
+
+              {/* Always Return Something */}
+              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border-2 border-green-400">
+                <div className="text-5xl mb-4">↩️</div>
+                <h4 className="text-2xl font-bold mb-4 text-green-300">Always Return Something</h4>
+                <div className="bg-green-900/50 rounded-lg p-4 font-mono text-sm mb-4">
+                  <div className="text-green-300 mb-2">// ✅ Good - Returns a value</div>
+                  <div className="text-white">const getUserName = (user) =&gt; &#123;</div>
+                  <div className="text-white ml-4">if (!user) &#123;</div>
+                  <div className="text-white ml-8">return "Guest";</div>
+                  <div className="text-white ml-4">&#125;</div>
+                  <div className="text-white ml-4">return user.name;</div>
+                  <div className="text-white">&#125;;</div>
+                </div>
+                <div className="text-white/80 text-sm">Always useful, never undefined!</div>
+              </div>
+
+              {/* Use const for Functions */}
+              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border-2 border-green-400">
+                <div className="text-5xl mb-4">🔒</div>
+                <h4 className="text-2xl font-bold mb-4 text-green-300">Use const for Functions</h4>
+                <div className="bg-green-900/50 rounded-lg p-4 font-mono text-sm mb-4">
+                  <div className="text-green-300 mb-2">// ✅ Good - Can't be reassigned</div>
+                  <div className="text-white">const calculateTotal = (items) =&gt; &#123;</div>
+                  <div className="text-white ml-4">return items.reduce((sum, item) =&gt; &#123;</div>
+                  <div className="text-white ml-8">return sum + item.price;</div>
+                  <div className="text-white ml-4">&#125;, 0);</div>
+                  <div className="text-white">&#125;;</div>
+                </div>
+                <div className="text-white/80 text-sm">Protects your functions from being accidentally changed!</div>
+              </div>
+            </div>
+
+            <div className="mt-8 bg-blue-500/20 rounded-xl p-6 border border-blue-400/30">
+              <h4 className="text-2xl font-bold text-blue-300 mb-4">🎉 Following These Rules Makes Your Code:</h4>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div className="bg-white/5 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">🔍</div>
+                  <div className="font-bold">Easy to Read</div>
+                  <div className="text-white/70 text-sm">Other developers understand it</div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">🐛</div>
+                  <div className="font-bold">Easy to Debug</div>
+                  <div className="text-white/70 text-sm">Find problems quickly</div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">🔄</div>
+                  <div className="font-bold">Reusable</div>
+                  <div className="text-white/70 text-sm">Use the same function everywhere</div>
+                </div>
+                <div className="bg-white/5 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">⚡</div>
+                  <div className="font-bold">Professional</div>
+                  <div className="text-white/70 text-sm">Industry-standard quality</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-green-700 to-emerald-700'
+    },
+
+    {
+      id: 'function-donts',
+      title: 'Function Don\'ts',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-8">Function Don'ts</h2>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="text-8xl mb-8 animate-float">❌</div>
+            <h3 className="text-3xl font-bold mb-12">Common mistakes to avoid!</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Vague Names */}
+              <div className="bg-red-500/20 backdrop-blur rounded-xl p-8 border-2 border-red-400">
+                <div className="text-5xl mb-4">🤔</div>
+                <h4 className="text-2xl font-bold mb-4 text-red-300">Don't Use Vague Names</h4>
+                <div className="bg-red-900/50 rounded-lg p-4 font-mono text-sm mb-4">
+                  <div className="text-red-300 mb-2">// ❌ Bad - What does this do?</div>
+                  <div className="text-white">const doStuff = (x) =&gt; &#123;</div>
+                  <div className="text-white ml-4">return x * 1.08;</div>
+                  <div className="text-white">&#125;;</div>
+                  <br/>
+                  <div className="text-white">const process = (data) =&gt; &#123;</div>
+                  <div className="text-white ml-4">// 50 lines of mystery code...</div>
+                  <div className="text-white">&#125;;</div>
+                </div>
+                <div className="text-red-200 text-sm">You'll forget what these do in a week!</div>
+              </div>
+
+              {/* Functions That Do Too Much */}
+              <div className="bg-red-500/20 backdrop-blur rounded-xl p-8 border-2 border-red-400">
+                <div className="text-5xl mb-4">🌪️</div>
+                <h4 className="text-2xl font-bold mb-4 text-red-300">Don't Make Mega-Functions</h4>
+                <div className="bg-red-900/50 rounded-lg p-4 font-mono text-sm mb-4">
+                  <div className="text-red-300 mb-2">// ❌ Bad - Does everything</div>
+                  <div className="text-white">const handleCheckout = (cart) =&gt; &#123;</div>
+                  <div className="text-white ml-4">// Calculate tax</div>
+                  <div className="text-white ml-4">// Validate payment</div>
+                  <div className="text-white ml-4">// Update inventory</div>
+                  <div className="text-white ml-4">// Send email</div>
+                  <div className="text-white ml-4">// Generate receipt</div>
+                  <div className="text-white ml-4">// Update analytics</div>
+                  <div className="text-white ml-4">// ... 100 more lines</div>
+                  <div className="text-white">&#125;;</div>
+                </div>
+                <div className="text-red-200 text-sm">Impossible to debug or reuse!</div>
+              </div>
+
+              {/* Changing Global Variables */}
+              <div className="bg-red-500/20 backdrop-blur rounded-xl p-8 border-2 border-red-400">
+                <div className="text-5xl mb-4">🌍</div>
+                <h4 className="text-2xl font-bold mb-4 text-red-300">Don't Change Global Variables</h4>
+                <div className="bg-red-900/50 rounded-lg p-4 font-mono text-sm mb-4">
+                  <div className="text-red-300 mb-2">// ❌ Bad - Sneaky side effects</div>
+                  <div className="text-white">let userCount = 0;</div>
+                  <br/>
+                  <div className="text-white">const addUser = (name) =&gt; &#123;</div>
+                  <div className="text-white ml-4">userCount++; // Changing global!</div>
+                  <div className="text-white ml-4">// What else changed?</div>
+                  <div className="text-white">&#125;;</div>
+                </div>
+                <div className="text-red-200 text-sm">Creates unpredictable bugs!</div>
+              </div>
+
+              {/* Forgetting to Return */}
+              <div className="bg-red-500/20 backdrop-blur rounded-xl p-8 border-2 border-red-400">
+                <div className="text-5xl mb-4">🕳️</div>
+                <h4 className="text-2xl font-bold mb-4 text-red-300">Don't Forget to Return</h4>
+                <div className="bg-red-900/50 rounded-lg p-4 font-mono text-sm mb-4">
+                  <div className="text-red-300 mb-2">// ❌ Bad - Returns undefined</div>
+                  <div className="text-white">const calculateTotal = (items) =&gt; &#123;</div>
+                  <div className="text-white ml-4">let total = 0;</div>
+                  <div className="text-white ml-4">items.forEach(item =&gt; &#123;</div>
+                  <div className="text-white ml-8">total += item.price;</div>
+                  <div className="text-white ml-4">&#125;);</div>
+                  <div className="text-white ml-4">// Oops! No return statement</div>
+                  <div className="text-white">&#125;;</div>
+                </div>
+                <div className="text-red-200 text-sm">All that work for nothing!</div>
+              </div>
+            </div>
+
+            <div className="mt-8 bg-orange-500/20 rounded-xl p-8 border border-orange-400/30">
+              <h4 className="text-2xl font-bold text-orange-300 mb-6">💡 Quick Fix Guide</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-4">
                   <div className="bg-white/5 rounded-lg p-4">
-                    <div className="text-green-300 font-semibold mb-2">✅ Do This:</div>
-                    <div className="text-white/80 text-sm space-y-1">
-                      <div>• Give functions descriptive names</div>
-                      <div>• Keep functions small and focused</div>
-                      <div>• Always return something</div>
-                      <div>• Use const for functions that don't change</div>
-                    </div>
+                    <div className="text-orange-300 font-semibold mb-2">Instead of vague names:</div>
+                    <div className="text-white/80 text-sm">Use verbs that describe the action: calculate, validate, format, find, create</div>
                   </div>
                   
                   <div className="bg-white/5 rounded-lg p-4">
-                    <div className="text-red-300 font-semibold mb-2">❌ Avoid This:</div>
-                    <div className="text-white/80 text-sm space-y-1">
-                      <div>• Functions that do too many things</div>
-                      <div>• Vague names like "doStuff"</div>
-                      <div>• Functions that change global variables</div>
-                      <div>• Forgetting to return values</div>
-                    </div>
+                    <div className="text-orange-300 font-semibold mb-2">Instead of mega-functions:</div>
+                    <div className="text-white/80 text-sm">Break into small functions that each do one thing well</div>
                   </div>
                 </div>
 
-                <div className="bg-white/5 rounded-lg p-4">
-                  <div className="font-semibold mb-3 text-purple-300">Real-World Examples:</div>
-                  <div className="text-white/80 text-sm space-y-2">
-                    <div><strong>validateEmail(email)</strong> - Check if email is valid</div>
-                    <div><strong>formatPrice(amount)</strong> - Add $ and commas</div>
-                    <div><strong>calculateTax(price, rate)</strong> - Compute tax amount</div>
-                    <div><strong>isUserLoggedIn()</strong> - Check login status</div>
-                    <div><strong>generateId()</strong> - Create unique ID</div>
+                <div className="space-y-4">
+                  <div className="bg-white/5 rounded-lg p-4">
+                    <div className="text-orange-300 font-semibold mb-2">Instead of global changes:</div>
+                    <div className="text-white/80 text-sm">Take inputs, return outputs. Keep functions predictable!</div>
+                  </div>
+                  
+                  <div className="bg-white/5 rounded-lg p-4">
+                    <div className="text-orange-300 font-semibold mb-2">Instead of missing returns:</div>
+                    <div className="text-white/80 text-sm">Always return something, even if it's just true/false or null</div>
                   </div>
                 </div>
               </div>
@@ -1002,7 +1362,7 @@ const Class2Slides = () => {
           </div>
         </div>
       ),
-      bgGradient: 'from-purple-700 to-fuchsia-700'
+      bgGradient: 'from-red-700 to-orange-700'
     },
 
     {
@@ -1355,54 +1715,19 @@ const Class2Slides = () => {
     },
 
     {
-      id: 'demo-counter',
-      title: 'Live Demo: Interactive Counter',
+      id: 'demo-dom-changes',
+      title: 'Live Demo: DOM Manipulation',
       content: (
         <div className="text-white animate-fade-in text-center">
           <style>{customStyles}</style>
-          <h2 className="text-5xl font-extrabold mb-8">Live Demo: Counter App</h2>
+          <h2 className="text-5xl font-extrabold mb-8">Live Demo: Changing Webpages</h2>
           
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <div className="mb-8">
-              <p className="text-xl text-white/80">Try clicking the buttons below - watch how JavaScript responds to your events!</p>
+              <p className="text-xl text-white/80">Watch how clicking buttons instantly changes the webpage - this is the power of JavaScript DOM manipulation!</p>
             </div>
             
-            <InteractiveCounter />
-            
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-blue-500/20 backdrop-blur rounded-xl p-6 border-2 border-blue-400">
-                <div className="text-4xl mb-3">📊</div>
-                <div className="font-bold text-lg mb-2">State Management</div>
-                <div className="text-white/80 text-sm">
-                  JavaScript remembers the current count value and updates it when buttons are clicked
-                </div>
-              </div>
-              <div className="bg-green-500/20 backdrop-blur rounded-xl p-6 border-2 border-green-400">
-                <div className="text-4xl mb-3">👂</div>
-                <div className="font-bold text-lg mb-2">Event Handling</div>
-                <div className="text-white/80 text-sm">
-                  Each button has an event listener that runs a function when clicked
-                </div>
-              </div>
-              <div className="bg-purple-500/20 backdrop-blur rounded-xl p-6 border-2 border-purple-400">
-                <div className="text-4xl mb-3">🔄</div>
-                <div className="font-bold text-lg mb-2">DOM Updates</div>
-                <div className="text-white/80 text-sm">
-                  The display automatically updates when the count changes - this is the magic of reactive programming
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 bg-white/10 backdrop-blur rounded-xl p-6">
-              <h4 className="text-xl font-bold text-orange-300 mb-4">🧠 What's Happening Behind the Scenes:</h4>
-              <div className="text-left space-y-3 text-white/80">
-                <div><strong>1. Setup:</strong> JavaScript creates a variable to store the count</div>
-                <div><strong>2. Event Listeners:</strong> Each button gets a "click" listener</div>
-                <div><strong>3. User Clicks:</strong> Browser detects the click and calls our function</div>
-                <div><strong>4. Update State:</strong> Function changes the count variable</div>
-                <div><strong>5. Update UI:</strong> JavaScript updates the display to show new count</div>
-              </div>
-            </div>
+            <InteractiveDOMDemo />
           </div>
         </div>
       ),
