@@ -32,8 +32,6 @@ const InteractiveDOMDemo = () => {
   const [fontSize, setFontSize] = useState(24);
   const [highlightedElement, setHighlightedElement] = useState(null);
   const [currentAction, setCurrentAction] = useState(null);
-  const [executingCode, setExecutingCode] = useState(null);
-  const [executedLines, setExecutedLines] = useState([]);
 
   const showAction = (action, element) => {
     setCurrentAction(action);
@@ -469,8 +467,7 @@ const TypeComparisonDemo = () => {
   
   return (
     <div className="bg-white/10 backdrop-blur rounded-xl p-8">
-      <h4 className="text-2xl font-bold text-purple-300 mb-6">🤯 Type Comparison Examples</h4>
-      <p className="text-white/80 mb-6">Guess the results, then click to reveal!</p>
+      <h4 className="text-2xl font-bold text-purple-300 mb-6">🤯 JavaScript for the Haters</h4>
       
       <div className="space-y-6">
         {comparisons.map((comp, index) => (
@@ -522,6 +519,509 @@ const TypeComparisonDemo = () => {
       <div className="mt-6 bg-red-500/20 rounded-lg p-4 border border-red-400/30">
         <div className="text-red-300 font-bold mb-2">🚨 This is why we use ===</div>
         <div className="text-white/80">These weird conversions happen with ==, but === compares both value and type without conversion!</div>
+      </div>
+    </div>
+  );
+};
+
+// Interactive Loops Demo
+const LoopsDemo = () => {
+  const [activeLoop, setActiveLoop] = useState('for');
+  const [forLimit, setForLimit] = useState(5);
+  const [whileStart, setWhileStart] = useState(1);
+  const [forOutput, setForOutput] = useState([]);
+  const [whileOutput, setWhileOutput] = useState([]);
+  const [isRunning, setIsRunning] = useState(false);
+
+  const runForLoop = async () => {
+    if (isRunning) return;
+    setIsRunning(true);
+    setForOutput([]);
+    
+    for (let i = 0; i < forLimit; i++) {
+      await new Promise(resolve => setTimeout(resolve, 500));
+      setForOutput(prev => [...prev, { iteration: i, value: `Iteration ${i + 1}` }]);
+    }
+    setIsRunning(false);
+  };
+
+  const runWhileLoop = async () => {
+    if (isRunning) return;
+    setIsRunning(true);
+    setWhileOutput([]);
+    
+    let counter = whileStart;
+    let iterations = 0;
+    while (counter <= 10 && iterations < 8) { // Safety limit
+      await new Promise(resolve => setTimeout(resolve, 500));
+      setWhileOutput(prev => [...prev, { counter, value: `Counter: ${counter}` }]);
+      counter++;
+      iterations++;
+    }
+    setIsRunning(false);
+  };
+
+  const loopExamples = {
+    for: {
+      title: 'For Loop',
+      description: 'Best for when you know how many times to repeat',
+      syntax: `for (let i = 0; i < ${forLimit}; i++) {
+  console.log("Iteration " + (i + 1));
+}`,
+      realWorld: 'Display 20 products, process 100 photos, validate 5 form fields',
+      icon: '🔢'
+    },
+    while: {
+      title: 'While Loop',
+      description: 'Best for when you repeat until a condition is met',
+      syntax: `let counter = ${whileStart};
+while (counter <= 10) {
+  console.log("Counter: " + counter);
+  counter++;
+}`,
+      realWorld: 'Keep loading posts until screen is full, retry failed requests',
+      icon: '🔄'
+    }
+  };
+
+  return (
+    <div className="max-w-7xl mx-auto">
+      {/* Tab Navigation */}
+      <div className="flex justify-center mb-8">
+        <div className="bg-white/10 rounded-xl p-2 flex">
+          <button
+            onClick={() => setActiveLoop('for')}
+            className={`px-6 py-3 rounded-lg font-bold transition-all ${
+              activeLoop === 'for'
+                ? 'bg-cyan-600 text-white'
+                : 'text-white/70 hover:text-white hover:bg-white/10'
+            }`}
+          >
+            🔢 For Loop
+          </button>
+          <button
+            onClick={() => setActiveLoop('while')}
+            className={`px-6 py-3 rounded-lg font-bold transition-all ${
+              activeLoop === 'while'
+                ? 'bg-blue-600 text-white'
+                : 'text-white/70 hover:text-white hover:bg-white/10'
+            }`}
+          >
+            🔄 While Loop
+          </button>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Left: Loop Explanation & Controls */}
+        <div className="space-y-6">
+          <div className="bg-white/10 rounded-xl p-6">
+            <div className="flex items-center mb-4">
+              <div className="text-4xl mr-4">{loopExamples[activeLoop].icon}</div>
+              <div>
+                <h3 className="text-2xl font-bold text-white">{loopExamples[activeLoop].title}</h3>
+                <p className="text-white/70">{loopExamples[activeLoop].description}</p>
+              </div>
+            </div>
+            
+            {/* Syntax Display */}
+            <div className="bg-gray-900 rounded-lg p-4 mb-4">
+              <div className="text-gray-400 text-xs mb-2">SYNTAX:</div>
+              <pre className="font-mono text-yellow-300 text-sm whitespace-pre-wrap">
+                {loopExamples[activeLoop].syntax}
+              </pre>
+            </div>
+
+            {/* Real World Examples */}
+            <div className="bg-green-500/20 rounded-lg p-4 mb-4">
+              <div className="text-green-300 font-bold mb-2">🌍 Real World Use:</div>
+              <div className="text-white/80 text-sm">{loopExamples[activeLoop].realWorld}</div>
+            </div>
+
+            {/* Controls */}
+            {activeLoop === 'for' && (
+              <div className="bg-cyan-500/20 rounded-lg p-4 mb-4">
+                <div className="text-cyan-300 font-bold mb-3">🎛️ Configure For Loop:</div>
+                <div className="flex items-center gap-4">
+                  <label className="text-white/80">Repeat:</label>
+                  <input
+                    type="range"
+                    min="1"
+                    max="10"
+                    value={forLimit}
+                    onChange={(e) => setForLimit(parseInt(e.target.value))}
+                    className="flex-1"
+                    disabled={isRunning}
+                  />
+                  <span className="text-white font-bold w-8">{forLimit}</span>
+                  <span className="text-white/60">times</span>
+                </div>
+              </div>
+            )}
+
+            {activeLoop === 'while' && (
+              <div className="bg-blue-500/20 rounded-lg p-4 mb-4">
+                <div className="text-blue-300 font-bold mb-3">🎛️ Configure While Loop:</div>
+                <div className="flex items-center gap-4">
+                  <label className="text-white/80">Start from:</label>
+                  <input
+                    type="range"
+                    min="1"
+                    max="8"
+                    value={whileStart}
+                    onChange={(e) => setWhileStart(parseInt(e.target.value))}
+                    className="flex-1"
+                    disabled={isRunning}
+                  />
+                  <span className="text-white font-bold w-8">{whileStart}</span>
+                  <span className="text-white/60">to 10</span>
+                </div>
+              </div>
+            )}
+
+            {/* Run Button */}
+            <button
+              onClick={activeLoop === 'for' ? runForLoop : runWhileLoop}
+              disabled={isRunning}
+              className={`w-full py-4 rounded-lg font-bold text-white transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed ${
+                activeLoop === 'for' 
+                  ? 'bg-cyan-600 hover:bg-cyan-700' 
+                  : 'bg-blue-600 hover:bg-blue-700'
+              }`}
+            >
+              {isRunning ? '🔄 Running Loop...' : `▶️ Run ${loopExamples[activeLoop].title}`}
+            </button>
+          </div>
+        </div>
+
+        {/* Right: Loop Execution Visualization */}
+        <div className="space-y-6">
+          <div className="bg-white/10 rounded-xl p-6">
+            <h3 className="text-xl font-bold text-white mb-4 text-center">
+              📺 Loop Execution
+            </h3>
+
+            {/* Output Display */}
+            <div className="bg-gray-900 rounded-lg p-4 mb-4 min-h-[300px]">
+              <div className="text-gray-400 text-xs mb-2">CONSOLE OUTPUT:</div>
+              <div className="space-y-2 max-h-64 overflow-y-auto">
+                {activeLoop === 'for' && forOutput.map((item, index) => (
+                  <div
+                    key={index}
+                    className="text-green-300 font-mono text-sm p-2 bg-gray-800 rounded animate-fade-in"
+                  >
+                    &gt; {item.value}
+                  </div>
+                ))}
+                {activeLoop === 'while' && whileOutput.map((item, index) => (
+                  <div
+                    key={index}
+                    className="text-green-300 font-mono text-sm p-2 bg-gray-800 rounded animate-fade-in"
+                  >
+                    &gt; {item.value}
+                  </div>
+                ))}
+                {(activeLoop === 'for' ? forOutput : whileOutput).length === 0 && !isRunning && (
+                  <div className="text-gray-500 text-center py-8">
+                    Click "Run {loopExamples[activeLoop].title}" to see output...
+                  </div>
+                )}
+                {isRunning && (
+                  <div className="text-yellow-300 text-center py-4 animate-pulse">
+                    Loop is running... ⏳
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Loop Status */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-gray-800 rounded-lg p-4 text-center">
+                <div className="text-white/60 text-xs">ITERATIONS</div>
+                <div className="text-white font-bold text-lg">
+                  {activeLoop === 'for' ? forOutput.length : whileOutput.length}
+                </div>
+              </div>
+              <div className="bg-gray-800 rounded-lg p-4 text-center">
+                <div className="text-white/60 text-xs">STATUS</div>
+                <div className={`font-bold text-lg ${isRunning ? 'text-yellow-300' : 'text-green-300'}`}>
+                  {isRunning ? 'Running' : 'Ready'}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Loop Comparison */}
+          <div className="bg-yellow-500/20 rounded-xl p-6 border border-yellow-400/30">
+            <h4 className="text-lg font-bold text-yellow-300 mb-3">🤔 When to Use Which?</h4>
+            <div className="space-y-3 text-sm">
+              <div className="bg-cyan-500/20 rounded-lg p-3">
+                <strong className="text-cyan-300">For Loop:</strong>
+                <div className="text-white/80 mt-1">When you know exactly how many times to repeat</div>
+              </div>
+              <div className="bg-blue-500/20 rounded-lg p-3">
+                <strong className="text-blue-300">While Loop:</strong>
+                <div className="text-white/80 mt-1">When you repeat until a condition becomes false</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Interactive Array Creation and Access Demo with Syntax Focus
+const ArrayCreateAccessDemo = () => {
+  const [currentArray, setCurrentArray] = useState(['🍎', '🍌', '🍊']);
+  const [activeExample, setActiveExample] = useState('creation');
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const syntaxExamples = {
+    creation: [
+      {
+        title: 'Empty Array',
+        syntax: 'const arr = [];',
+        result: '[]',
+        description: 'Creates an empty array with no elements'
+      },
+      {
+        title: 'Array with Numbers',
+        syntax: 'const scores = [85, 92, 78, 94];',
+        result: '[85, 92, 78, 94]',
+        description: 'Creates an array containing number values'
+      },
+      {
+        title: 'Array with Strings',
+        syntax: 'const names = ["Alice", "Bob", "Charlie"];',
+        result: '["Alice", "Bob", "Charlie"]',
+        description: 'Creates an array containing string values'
+      },
+      {
+        title: 'Mixed Data Types',
+        syntax: 'const mixed = ["Hello", 42, true, null];',
+        result: '["Hello", 42, true, null]',
+        description: 'Arrays can contain different data types'
+      }
+    ],
+    access: [
+      {
+        title: 'Access First Element',
+        syntax: 'fruits[0]',
+        result: currentArray.length > 0 ? `"${currentArray[0]}"` : 'undefined',
+        description: 'Gets the element at index 0 (first element)'
+      },
+      {
+        title: 'Access by Index',
+        syntax: `fruits[${selectedIndex}]`,
+        result: currentArray[selectedIndex] ? `"${currentArray[selectedIndex]}"` : 'undefined',
+        description: `Gets the element at index ${selectedIndex}`
+      },
+      {
+        title: 'Get Array Length',
+        syntax: 'fruits.length',
+        result: currentArray.length.toString(),
+        description: 'Returns the number of elements in the array'
+      },
+      {
+        title: 'Access Last Element',
+        syntax: 'fruits[fruits.length - 1]',
+        result: currentArray.length > 0 ? `"${currentArray[currentArray.length - 1]}"` : 'undefined',
+        description: 'Gets the last element using length property'
+      }
+    ]
+  };
+
+  const tryExample = (example, type) => {
+    if (type === 'creation') {
+      if (example.title === 'Empty Array') {
+        setCurrentArray([]);
+      } else if (example.title === 'Array with Numbers') {
+        setCurrentArray([85, 92, 78, 94]);
+      } else if (example.title === 'Array with Strings') {
+        setCurrentArray(['Alice', 'Bob', 'Charlie']);
+      } else if (example.title === 'Mixed Data Types') {
+        setCurrentArray(['Hello', 42, true, null]);
+      }
+    }
+  };
+
+  return (
+    <div className="max-w-7xl mx-auto">
+      {/* Tab Navigation */}
+      <div className="flex justify-center mb-8">
+        <div className="bg-white/10 rounded-xl p-2 flex">
+          <button
+            onClick={() => setActiveExample('creation')}
+            className={`px-6 py-3 rounded-lg font-bold transition-all ${
+              activeExample === 'creation'
+                ? 'bg-blue-600 text-white'
+                : 'text-white/70 hover:text-white hover:bg-white/10'
+            }`}
+          >
+            🎨 Creating Arrays
+          </button>
+          <button
+            onClick={() => setActiveExample('access')}
+            className={`px-6 py-3 rounded-lg font-bold transition-all ${
+              activeExample === 'access'
+                ? 'bg-purple-600 text-white'
+                : 'text-white/70 hover:text-white hover:bg-white/10'
+            }`}
+          >
+            🔍 Accessing Elements
+          </button>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Left: Syntax Examples */}
+        <div className="space-y-4">
+          <h3 className="text-2xl font-bold text-center text-white mb-6">
+            {activeExample === 'creation' ? '🎨 Array Creation Syntax' : '🔍 Array Access Syntax'}
+          </h3>
+          
+          {syntaxExamples[activeExample].map((example, index) => (
+            <div
+              key={index}
+              className={`bg-white/10 rounded-xl p-6 border-2 transition-all cursor-pointer hover:scale-105 ${
+                activeExample === 'creation' 
+                  ? 'border-blue-400/50 hover:border-blue-400' 
+                  : 'border-purple-400/50 hover:border-purple-400'
+              }`}
+              onClick={() => activeExample === 'creation' && tryExample(example, 'creation')}
+            >
+              <h4 className="text-lg font-bold text-white mb-3">{example.title}</h4>
+              
+              {/* Syntax Code */}
+              <div className="bg-gray-900 rounded-lg p-4 mb-3">
+                <div className="text-gray-400 text-xs mb-1">SYNTAX:</div>
+                <div className="font-mono text-yellow-300 text-lg">{example.syntax}</div>
+              </div>
+
+              {/* Result */}
+              <div className="bg-gray-800 rounded-lg p-4 mb-3">
+                <div className="text-gray-400 text-xs mb-1">RESULT:</div>
+                <div className="font-mono text-green-300 text-lg">{example.result}</div>
+              </div>
+
+              {/* Description */}
+              <div className="text-white/80 text-sm">
+                {example.description}
+              </div>
+
+              {activeExample === 'creation' && (
+                <div className="mt-3 text-center">
+                  <span className="text-blue-300 text-sm">👆 Click to try this example</span>
+                </div>
+              )}
+            </div>
+          ))}
+
+          {/* Index Selector for Access Examples */}
+          {activeExample === 'access' && (
+            <div className="bg-purple-500/20 rounded-xl p-6 border-2 border-purple-400">
+              <h4 className="text-lg font-bold text-purple-300 mb-3">Try Different Indices:</h4>
+              <div className="grid grid-cols-5 gap-2">
+                {[0, 1, 2, 3, 4].map(index => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedIndex(index)}
+                    className={`px-3 py-2 rounded-lg font-bold transition-all hover:scale-105 ${
+                      selectedIndex === index 
+                        ? 'bg-purple-600 text-white' 
+                        : 'bg-purple-800 text-purple-200 hover:bg-purple-700'
+                    }`}
+                  >
+                    [{index}]
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Right: Live Array Visualization */}
+        <div className="space-y-6">
+          {/* Current Array Display */}
+          <div className="bg-white/10 backdrop-blur rounded-xl p-6">
+            <h3 className="text-xl font-bold text-white mb-4 text-center">📚 Live Array</h3>
+            
+            {/* Array Code Display */}
+            <div className="bg-gray-900 rounded-lg p-4 mb-4">
+              <div className="text-gray-400 text-xs mb-1">CURRENT ARRAY:</div>
+              <div className="font-mono text-green-300 text-lg">
+                const fruits = [
+                {currentArray.map((item, i) => (
+                  <span key={i}>
+                    <span className={`${selectedIndex === i && activeExample === 'access' ? 'bg-yellow-500/50 px-1 rounded' : ''}`}>
+                      {typeof item === 'string' ? `"${item}"` : String(item)}
+                    </span>
+                    {i < currentArray.length - 1 ? ', ' : ''}
+                  </span>
+                ))}
+                ];
+              </div>
+            </div>
+            
+            {/* Visual Grid */}
+            <div className="grid grid-cols-4 gap-2 mb-4">
+              {currentArray.map((item, i) => (
+                <div
+                  key={i}
+                  className={`bg-white/20 rounded-lg p-4 text-center transition-all duration-300 cursor-pointer ${
+                    selectedIndex === i && activeExample === 'access' 
+                      ? 'ring-4 ring-yellow-400 scale-110' 
+                      : 'hover:bg-white/30'
+                  }`}
+                  onClick={() => activeExample === 'access' && setSelectedIndex(i)}
+                >
+                  <div className="text-2xl mb-1">{item}</div>
+                  <div className="text-white/60 text-xs">Index {i}</div>
+                </div>
+              ))}
+              {currentArray.length === 0 && (
+                <div className="col-span-4 text-center text-white/50 py-8">
+                  Array is empty - try the creation examples!
+                </div>
+              )}
+            </div>
+
+            {/* Array Info */}
+            <div className="bg-gray-800 rounded-lg p-4">
+              <div className="grid grid-cols-3 gap-4 text-center">
+                <div>
+                  <div className="text-white/60 text-xs">LENGTH</div>
+                  <div className="text-white font-bold">{currentArray.length}</div>
+                </div>
+                <div>
+                  <div className="text-white/60 text-xs">FIRST ELEMENT</div>
+                  <div className="text-white font-bold">
+                    {currentArray.length > 0 ? currentArray[0] : 'undefined'}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-white/60 text-xs">LAST ELEMENT</div>
+                  <div className="text-white font-bold">
+                    {currentArray.length > 0 ? currentArray[currentArray.length - 1] : 'undefined'}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Tips */}
+          <div className="bg-yellow-500/20 rounded-xl p-6 border border-yellow-400/30">
+            <h4 className="text-lg font-bold text-yellow-300 mb-3">💡 Quick Tips</h4>
+            <div className="space-y-2 text-sm text-white/90">
+              <div>• Arrays use square brackets: <code className="bg-gray-800 px-2 py-1 rounded">[]</code></div>
+              <div>• Elements separated by commas: <code className="bg-gray-800 px-2 py-1 rounded">[1, 2, 3]</code></div>
+              <div>• First element is at index 0: <code className="bg-gray-800 px-2 py-1 rounded">arr[0]</code></div>
+              <div>• Get length with: <code className="bg-gray-800 px-2 py-1 rounded">arr.length</code></div>
+              <div>• Last element: <code className="bg-gray-800 px-2 py-1 rounded">arr[arr.length - 1]</code></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -983,6 +1483,198 @@ const Class2Slides = () => {
     },
 
     {
+      id: 'arrays-intro',
+      title: 'Arrays - Lists of Data',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-8">Arrays</h2>
+          
+          <div className="max-w-5xl mx-auto">
+            <div className="text-8xl mb-8 animate-float">📚</div>
+            <h3 className="text-3xl font-bold mb-8">Numbered shelves holding items</h3>
+            <p className="text-xl text-white/80 mb-12">Arrays store multiple values in a single variable, like a list or collection</p>
+            
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">
+              <h4 className="text-2xl font-bold mb-6">Visual Example: Fruit Array</h4>
+              <div className="grid grid-cols-4 gap-4 mb-6">
+                {['🍎', '🍌', '🍊', '🍇'].map((fruit, i) => (
+                  <div key={i} className="bg-white/20 rounded-lg p-6 text-center">
+                    <div className="text-4xl mb-2">{fruit}</div>
+                    <div className="text-white/60 text-sm">Index {i}</div>
+                    <div className="text-white/80 text-xs mt-1">
+                      fruits[{i}]
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="bg-gray-800 rounded-lg p-4 font-mono text-lg">
+                const fruits = ["🍎", "🍌", "🍊", "🍇"];
+              </div>
+            </div>
+            
+            <div className="bg-yellow-500/20 rounded-xl p-6 border border-yellow-400/30">
+              <h4 className="text-xl font-bold text-yellow-300 mb-3">⚠️ Important: Arrays start at 0!</h4>
+              <p className="text-white/90">The first item is at index 0, not 1. This trips up many beginners!</p>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-blue-700 to-indigo-700'
+    },
+
+    {
+      id: 'arrays-create-access',
+      title: 'Creating & Accessing Arrays',
+      content: (
+        <div className="text-white animate-fade-in">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-8 text-center">Creating & Accessing Arrays</h2>
+          <div className="mb-6 text-center">
+            <p className="text-xl text-white/80">Try creating arrays and accessing their elements!</p>
+          </div>
+          <ArrayCreateAccessDemo />
+        </div>
+      ),
+      bgGradient: 'from-indigo-700 to-violet-700'
+    },
+
+    {
+      id: 'array-methods',
+      title: 'Array Methods - Data Transformation',
+      content: (
+        <div className="text-white animate-fade-in">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-8 text-center">Array Methods</h2>
+          <div className="mb-6 text-center">
+            <p className="text-xl text-white/80">Watch how data transforms step by step</p>
+          </div>
+          <ArrayMethodsDemo />
+        </div>
+      ),
+      bgGradient: 'from-indigo-700 to-violet-700'
+    },
+
+    {
+      id: 'array-real-world',
+      title: 'Arrays in Real Web Development',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-8">Arrays Everywhere!</h2>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="text-6xl mb-8 animate-float">🌐</div>
+            <h3 className="text-3xl font-bold mb-12">Every website you use is powered by arrays</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              <div className="bg-blue-500/20 backdrop-blur rounded-xl p-6 border-2 border-blue-400">
+                <div className="text-4xl mb-4">📱</div>
+                <h4 className="text-xl font-bold mb-3">Social Media</h4>
+                <div className="text-white/80 mb-3">Instagram feed, Twitter timeline</div>
+                <div className="bg-gray-800 rounded p-3 font-mono text-xs">
+                  posts.map(post =&gt; &lt;Post data=&#123;post&#125; /&gt;)
+                </div>
+              </div>
+
+              <div className="bg-green-500/20 backdrop-blur rounded-xl p-6 border-2 border-green-400">
+                <div className="text-4xl mb-4">🛒</div>
+                <h4 className="text-xl font-bold mb-3">E-commerce</h4>
+                <div className="text-white/80 mb-3">Shopping cart items, product lists</div>
+                <div className="bg-gray-800 rounded p-3 font-mono text-xs">
+                  cart.filter(item =&gt; item.price &lt; 50)
+                </div>
+              </div>
+
+              <div className="bg-purple-500/20 backdrop-blur rounded-xl p-6 border-2 border-purple-400">
+                <div className="text-4xl mb-4">🎵</div>
+                <h4 className="text-xl font-bold mb-3">Streaming</h4>
+                <div className="text-white/80 mb-3">Spotify playlists, Netflix shows</div>
+                <div className="bg-gray-800 rounded p-3 font-mono text-xs">
+                  songs.find(song =&gt; song.id === currentId)
+                </div>
+              </div>
+
+              <div className="bg-red-500/20 backdrop-blur rounded-xl p-6 border-2 border-red-400">
+                <div className="text-4xl mb-4">📧</div>
+                <h4 className="text-xl font-bold mb-3">Email</h4>
+                <div className="text-white/80 mb-3">Gmail inbox, message threads</div>
+                <div className="bg-gray-800 rounded p-3 font-mono text-xs">
+                  emails.filter(email =&gt; !email.read)
+                </div>
+              </div>
+
+              <div className="bg-yellow-500/20 backdrop-blur rounded-xl p-6 border-2 border-yellow-400">
+                <div className="text-4xl mb-4">🔍</div>
+                <h4 className="text-xl font-bold mb-3">Search</h4>
+                <div className="text-white/80 mb-3">Google results, search suggestions</div>
+                <div className="bg-gray-800 rounded p-3 font-mono text-xs">
+                  results.map(result =&gt; result.title)
+                </div>
+              </div>
+
+              <div className="bg-indigo-500/20 backdrop-blur rounded-xl p-6 border-2 border-indigo-400">
+                <div className="text-4xl mb-4">💬</div>
+                <h4 className="text-xl font-bold mb-3">Chat Apps</h4>
+                <div className="text-white/80 mb-3">WhatsApp messages, Slack channels</div>
+                <div className="bg-gray-800 rounded p-3 font-mono text-xs">
+                  messages.push(newMessage)
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
+              <h4 className="text-2xl font-bold text-orange-300 mb-6">The Magic Pattern: Data → UI</h4>
+              <div className="grid grid-cols-3 gap-8 items-center">
+                <div className="bg-white/5 rounded-lg p-4">
+                  <div className="text-3xl mb-2">📊</div>
+                  <div className="font-bold mb-2">1. Data (Array)</div>
+                  <div className="text-white/70 text-sm">
+                    [&#123; name: "Alice", age: 25 &#125;, &#123; name: "Bob", age: 30 &#125;]
+                  </div>
+                </div>
+                
+                <div className="text-3xl text-white/50">→</div>
+                
+                <div className="bg-white/5 rounded-lg p-4">
+                  <div className="text-3xl mb-2">🎨</div>
+                  <div className="font-bold mb-2">2. UI (Visual)</div>
+                  <div className="space-y-1">
+                    <div className="bg-blue-500/30 rounded p-1 text-xs">Alice, 25</div>
+                    <div className="bg-blue-500/30 rounded p-1 text-xs">Bob, 30</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-6 bg-orange-500/20 rounded-lg p-4">
+                <div className="text-orange-300 font-bold mb-2">🚀 This is how EVERY dynamic website works!</div>
+                <div className="text-white/80">Master arrays and their methods, and you understand the foundation of modern web development.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-violet-700 to-purple-700'
+    },
+
+    {
+      id: 'loops',
+      title: 'Loops - Repeating Actions',
+      content: (
+        <div className="text-white animate-fade-in">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-8 text-center">Loops</h2>
+          <div className="text-center mb-8">
+            <div className="text-6xl mb-4 animate-float">🔄</div>
+            <p className="text-xl text-white/80">Repeat code multiple times efficiently</p>
+          </div>
+          <LoopsDemo />
+        </div>
+      ),
+      bgGradient: 'from-cyan-700 to-blue-700'
+    },
+
+    {
       id: 'functions-intro',
       title: 'Functions - Code Machines',
       content: (
@@ -1363,195 +2055,6 @@ const Class2Slides = () => {
         </div>
       ),
       bgGradient: 'from-red-700 to-orange-700'
-    },
-
-    {
-      id: 'arrays-intro',
-      title: 'Arrays - Lists of Data',
-      content: (
-        <div className="text-white animate-fade-in text-center">
-          <style>{customStyles}</style>
-          <h2 className="text-5xl font-extrabold mb-8">Arrays</h2>
-          
-          <div className="max-w-5xl mx-auto">
-            <div className="text-8xl mb-8 animate-float">📚</div>
-            <h3 className="text-3xl font-bold mb-8">Numbered shelves holding items</h3>
-            <p className="text-xl text-white/80 mb-12">Arrays store multiple values in a single variable, like a list or collection</p>
-            
-            <div className="bg-white/10 backdrop-blur rounded-xl p-8 mb-8">
-              <h4 className="text-2xl font-bold mb-6">Visual Example: Fruit Array</h4>
-              <div className="grid grid-cols-4 gap-4 mb-6">
-                {['🍎', '🍌', '🍊', '🍇'].map((fruit, i) => (
-                  <div key={i} className="bg-white/20 rounded-lg p-6 text-center">
-                    <div className="text-4xl mb-2">{fruit}</div>
-                    <div className="text-white/60 text-sm">Index {i}</div>
-                    <div className="text-white/80 text-xs mt-1">
-                      fruits[{i}]
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="bg-gray-800 rounded-lg p-4 font-mono text-lg">
-                const fruits = ["🍎", "🍌", "🍊", "🍇"];
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-blue-500/20 backdrop-blur rounded-xl p-6 border-2 border-blue-400">
-                <h4 className="text-xl font-bold mb-4 text-blue-300">Creating Arrays</h4>
-                <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm space-y-2">
-                  <div>// Empty array</div>
-                  <div>const empty = [];</div>
-                  <div></div>
-                  <div>// With numbers</div>
-                  <div>const scores = [85, 92, 78];</div>
-                  <div></div>
-                  <div>// With strings</div>
-                  <div>const names = ["Alice", "Bob"];</div>
-                </div>
-              </div>
-
-              <div className="bg-green-500/20 backdrop-blur rounded-xl p-6 border-2 border-green-400">
-                <h4 className="text-xl font-bold mb-4 text-green-300">Accessing Items</h4>
-                <div className="bg-gray-800 rounded-lg p-4 font-mono text-sm space-y-2">
-                  <div>// Get first item (index 0)</div>
-                  <div>fruits[0] // "🍎"</div>
-                  <div></div>
-                  <div>// Get array length</div>
-                  <div>fruits.length // 4</div>
-                  <div></div>
-                  <div>// Get last item</div>
-                  <div>fruits[fruits.length - 1] // "🍇"</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="bg-yellow-500/20 rounded-xl p-6 border border-yellow-400/30">
-              <h4 className="text-xl font-bold text-yellow-300 mb-3">⚠️ Important: Arrays start at 0!</h4>
-              <p className="text-white/90">The first item is at index 0, not 1. This trips up many beginners!</p>
-            </div>
-          </div>
-        </div>
-      ),
-      bgGradient: 'from-fuchsia-700 to-pink-700'
-    },
-
-    {
-      id: 'array-methods',
-      title: 'Array Methods - Data Transformation',
-      content: (
-        <div className="text-white animate-fade-in">
-          <style>{customStyles}</style>
-          <h2 className="text-5xl font-extrabold mb-8 text-center">Array Methods</h2>
-          <div className="mb-6 text-center">
-            <p className="text-xl text-white/80">Watch how data transforms step by step</p>
-          </div>
-          <ArrayMethodsDemo />
-        </div>
-      ),
-      bgGradient: 'from-pink-700 to-rose-700'
-    },
-
-    {
-      id: 'array-real-world',
-      title: 'Arrays in Real Web Development',
-      content: (
-        <div className="text-white animate-fade-in text-center">
-          <style>{customStyles}</style>
-          <h2 className="text-5xl font-extrabold mb-8">Arrays Everywhere!</h2>
-          
-          <div className="max-w-6xl mx-auto">
-            <div className="text-6xl mb-8 animate-float">🌐</div>
-            <h3 className="text-3xl font-bold mb-12">Every website you use is powered by arrays</h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              <div className="bg-blue-500/20 backdrop-blur rounded-xl p-6 border-2 border-blue-400">
-                <div className="text-4xl mb-4">📱</div>
-                <h4 className="text-xl font-bold mb-3">Social Media</h4>
-                <div className="text-white/80 mb-3">Instagram feed, Twitter timeline</div>
-                <div className="bg-gray-800 rounded p-3 font-mono text-xs">
-                  posts.map(post =&gt; &lt;Post data=&#123;post&#125; /&gt;)
-                </div>
-              </div>
-
-              <div className="bg-green-500/20 backdrop-blur rounded-xl p-6 border-2 border-green-400">
-                <div className="text-4xl mb-4">🛒</div>
-                <h4 className="text-xl font-bold mb-3">E-commerce</h4>
-                <div className="text-white/80 mb-3">Shopping cart items, product lists</div>
-                <div className="bg-gray-800 rounded p-3 font-mono text-xs">
-                  cart.filter(item =&gt; item.price &lt; 50)
-                </div>
-              </div>
-
-              <div className="bg-purple-500/20 backdrop-blur rounded-xl p-6 border-2 border-purple-400">
-                <div className="text-4xl mb-4">🎵</div>
-                <h4 className="text-xl font-bold mb-3">Streaming</h4>
-                <div className="text-white/80 mb-3">Spotify playlists, Netflix shows</div>
-                <div className="bg-gray-800 rounded p-3 font-mono text-xs">
-                  songs.find(song =&gt; song.id === currentId)
-                </div>
-              </div>
-
-              <div className="bg-red-500/20 backdrop-blur rounded-xl p-6 border-2 border-red-400">
-                <div className="text-4xl mb-4">📧</div>
-                <h4 className="text-xl font-bold mb-3">Email</h4>
-                <div className="text-white/80 mb-3">Gmail inbox, message threads</div>
-                <div className="bg-gray-800 rounded p-3 font-mono text-xs">
-                  emails.filter(email =&gt; !email.read)
-                </div>
-              </div>
-
-              <div className="bg-yellow-500/20 backdrop-blur rounded-xl p-6 border-2 border-yellow-400">
-                <div className="text-4xl mb-4">🔍</div>
-                <h4 className="text-xl font-bold mb-3">Search</h4>
-                <div className="text-white/80 mb-3">Google results, search suggestions</div>
-                <div className="bg-gray-800 rounded p-3 font-mono text-xs">
-                  results.map(result =&gt; result.title)
-                </div>
-              </div>
-
-              <div className="bg-indigo-500/20 backdrop-blur rounded-xl p-6 border-2 border-indigo-400">
-                <div className="text-4xl mb-4">💬</div>
-                <h4 className="text-xl font-bold mb-3">Chat Apps</h4>
-                <div className="text-white/80 mb-3">WhatsApp messages, Slack channels</div>
-                <div className="bg-gray-800 rounded p-3 font-mono text-xs">
-                  messages.push(newMessage)
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur rounded-xl p-8">
-              <h4 className="text-2xl font-bold text-orange-300 mb-6">The Magic Pattern: Data → UI</h4>
-              <div className="grid grid-cols-3 gap-8 items-center">
-                <div className="bg-white/5 rounded-lg p-4">
-                  <div className="text-3xl mb-2">📊</div>
-                  <div className="font-bold mb-2">1. Data (Array)</div>
-                  <div className="text-white/70 text-sm">
-                    [&#123; name: "Alice", age: 25 &#125;, &#123; name: "Bob", age: 30 &#125;]
-                  </div>
-                </div>
-                
-                <div className="text-3xl text-white/50">→</div>
-                
-                <div className="bg-white/5 rounded-lg p-4">
-                  <div className="text-3xl mb-2">🎨</div>
-                  <div className="font-bold mb-2">2. UI (Visual)</div>
-                  <div className="space-y-1">
-                    <div className="bg-blue-500/30 rounded p-1 text-xs">Alice, 25</div>
-                    <div className="bg-blue-500/30 rounded p-1 text-xs">Bob, 30</div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="mt-6 bg-orange-500/20 rounded-lg p-4">
-                <div className="text-orange-300 font-bold mb-2">🚀 This is how EVERY dynamic website works!</div>
-                <div className="text-white/80">Master arrays and their methods, and you understand the foundation of modern web development.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
-      bgGradient: 'from-rose-700 to-orange-700'
     },
 
     // NOW the DOM interaction details make sense since they understand the basics!
