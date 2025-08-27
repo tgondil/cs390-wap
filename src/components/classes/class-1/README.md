@@ -13,427 +13,262 @@
 
 ---
 
-## Section 1: Course Welcome & Grading Deep Dive (15 minutes)
+## Presentation Structure & Slides
 
-### 1.1 Welcome & Course Philosophy (3 minutes)
-**Interactive Elements:**
-- Live poll: "What's your current web development experience?" (Anonymous responses displayed real-time)
-- Quick icebreaker: "One web app you use daily and why"
+### Section 1: Course Welcome & Introduction (20 minutes)
 
-**Key Points:**
-- Learning by doing approach
-- Growth mindset over perfection
-- Building a portfolio of real projects
+#### 1.1 Course Welcome (5 minutes)
+**Slides:**
+- **Title Slide**: CS390 Web Applications Programming
+- **Welcome & Course Website**: Course overview and resources
+- **Contact Information**: How to reach instructor
 
-### 1.2 Grading System Breakdown (8 minutes)
-**Visual Interactive Grade Calculator:**
-- Real-time grade calculator showing impact of each component
-- Hover effects showing detailed breakdowns
+**Key Elements:**
+- Course overview and expectations
+- Resource links and communication channels
+- Setting the tone for collaborative learning
 
-**Grade Distribution:**
+#### 1.2 Grading & Policies Deep Dive (15 minutes)
+**Slides:**
+- **PSO Integration & Opportunities**: Pair programming focus
+- **Grading System Breakdown**: Interactive grade breakdown
+- **Attendance Drop Policy**: 3 attendance drops allowed
+- **PSO Score Drop Policy**: 2 lowest PSO scores dropped
+- **Extra Credit Opportunities**: Multiple ways to earn bonus points
+- **Course Philosophy**: Learning by doing approach
+
+**Interactive Features:**
+- **Visual Grade Calculator**: Real-time impact visualization
+- **Policy Breakdown Cards**: Clear, digestible policy explanations
+- **Encouragement Focus**: Growth mindset emphasis
+
+**Key Policies:**
 - **Weekly Homework (35%)**: 11 assignments, practical reinforcement
 - **Mini-Projects (25%)**: 3 major milestones (Weeks 4, 8, 10)
 - **Final Capstone Project (30%)**: Team-based startup application
 - **Participation & Labs (10%)**: Attendance, engagement, peer collaboration
-
-**Key Policies:**
-- Late policy with clear percentage deductions
-- Academic integrity with AI usage guidelines
-- Extra credit opportunities (up to 20% total!)
-
-### 1.3 PSO Integration & Networking Opportunities (4 minutes)
-**What are PSOs?**
-PSOs (Program Student Outcomes) are hands-on pair programming classes where you'll build something valuable together while demonstrating specific skills and competencies.
-
-**PSO Class Structure:**
-- **Pair Programming Focus**: Work collaboratively on real projects
-- **Build Value**: Create meaningful applications, not just exercises
-- **Q&A Time**: Ask questions about homework and concepts
-- **Practical Learning**: Apply concepts through building
-
-
-**All Projects = Pair Programming:**
-- Every assignment done in pairs (starting Week 2)
-- PSO sessions are collaborative coding experiences
-- Rotate partners throughout semester
-- Learn collaborative development practices
-- Build communication and teamwork skills
-- Use PSOs to ask homework questions and get help
+- **Flexible Drop Policies**: Attendance (3) and PSO scores (2 lowest)
+- **Extra Credit**: Up to 20% additional points available
 
 ---
 
-## Section 2: What is a Web Application? (10 minutes)
+### Section 2: Web Application Fundamentals (15 minutes)
 
-### 2.1 Defining Web Applications (3 minutes)
-**Interactive Comparison Tool:**
-- Side-by-side comparison: Website vs Web Application
-- Click to reveal differences with animations
+#### 2.1 Defining Web Applications (5 minutes)
+**Slides:**
+- **What is a Web Application?**: Interactive comparison with real app examples
 
-**Traditional Website:**
-- Static content (news sites, blogs)
-- Information consumption
-- Limited user interaction
+**Visual Elements:**
+- **App Icons**: Instagram, Banking, Spotify, Gmail for relatability
+- **Interactive vs Static**: Clear distinction with examples
+- **Dynamic Definition**: "Interactive + Personal + Dynamic"
+- **Real Comparisons**: News sites (websites) vs Social media (web apps)
 
-**Web Application:**
-- Dynamic, interactive experiences
-- User-generated content
-- Real-time functionality
-- Personalized experiences
+#### 2.2 Three-Tier Architecture (10 minutes)
+**Slides:**
+- **Three-Tier Architecture Overview**: Frontend, Backend, Database definitions
+- **Why Separate into Tiers?**: Visual benefits demonstration
 
-### 2.2 The Three-Tier Architecture (7 minutes)
-**Interactive Architecture Diagram:**
-- Animated data flow visualization
-- Click each tier to explore in detail
-- Hover effects showing communication protocols
-
-**Frontend (Presentation Tier):**
-- What users see and interact with
-- HTML, CSS, JavaScript, React
-- User interface and experience
-- Runs in the browser
-
-**Backend (Logic Tier):**
-- Server-side processing
-- Business logic and rules
-- API endpoints and routing
-- Authentication and authorization
-- Node.js, Express
-
-**Database (Data Tier):**
-- Persistent data storage
-- User profiles, posts, relationships
-- Query processing and optimization
-- MongoDB, PostgreSQL
+**Interactive Features:**
+- **Large Visual Icons**: Clear tier identification
+- **Restaurant Analogy**: Dining room, kitchen, pantry comparison
+- **"Without vs With" Separation**: Visual chaos vs clean organization
+- **Technology Mapping**: Specific tools for each tier
+- **Benefit Cards**: Focus, Speed, Fixes, Teams advantages
 
 ---
 
-## Section 3: HTML & CSS Fundamentals - Building Your First Webpage (20 minutes)
+### Section 3: Frontend & Backend Deep Dive (15 minutes)
 
-### 3.1 HTML Structure & Semantic Elements (7 minutes)
-**Interactive HTML Builder:**
-- Live code editor with instant preview
-- Drag-and-drop HTML elements
-- Real-time structure visualization
+#### 3.1 Frontend Development (7 minutes)
+**Slides:**
+- **Frontend Development - Overview**: Visual browser mockup with Instagram interface
+- **Frontend Development - In Action**: Real examples and technologies
 
-**HTML Fundamentals:**
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Webpage</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <section id="home">
-            <h1>Welcome to My Website</h1>
-            <p>This is my first webpage!</p>
-        </section>
-    </main>
-    
-    <footer>
-        <p>&copy; 2024 My Website</p>
-    </footer>
-</body>
-</html>
-```
+**Visual Innovations:**
+- **Mock Instagram Interface**: Realistic UI with posts, likes, comments
+- **Browser Window**: Complete with traffic light buttons and URL bar
+- **Technology Examples**: Instagram, Amazon, Netflix comparisons
+- **Responsive Device Demo**: Phone, tablet, desktop layout variations
+- **Foundation vs Advanced Tools**: HTML/CSS/JS → React/Tailwind progression
 
-**Key HTML Concepts:**
-- **Semantic Elements**: `<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`
-- **Document Structure**: DOCTYPE, html, head, body
-- **Content Elements**: headings, paragraphs, links, lists
-- **Attributes**: id, class, href, src, alt
+#### 3.2 Backend Development (8 minutes)
+**Slides:**
+- **Backend Development - Overview**: Kitchen analogy and step-by-step processing
+- **Backend Development - In Action**: Real-world scenarios
 
-### 3.2 CSS Styling & Layout (8 minutes)
-**Interactive CSS Playground:**
-- Live style editor with instant visual feedback
-- Property slider controls (colors, sizes, spacing)
-- Before/after styling comparisons
-
-**CSS Fundamentals:**
-```css
-/* Basic Styling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
-}
-
-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 1rem 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-}
-
-nav li {
-    margin: 0 2rem;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: #ffd700;
-}
-
-main {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 2rem;
-}
-
-section {
-    background: white;
-    padding: 2rem;
-    margin: 2rem 0;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-h1 {
-    color: #667eea;
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-p {
-    font-size: 1.1rem;
-    text-align: center;
-    color: #666;
-}
-
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 3rem;
-}
-```
-
-**Key CSS Concepts:**
-- **Selectors**: element, class, id, pseudo-classes
-- **Box Model**: margin, padding, border, content
-- **Flexbox**: `display: flex`, `justify-content`, `align-items`
-- **Colors & Gradients**: hex codes, rgba, linear-gradient
-- **Typography**: font-family, font-size, line-height
-- **Responsive Design**: max-width, media queries
-
-### 3.3 Modern CSS Features & Best Practices (5 minutes)
-**Interactive Feature Showcase:**
-- Toggle between basic and advanced styling
-- Hover effects demonstration
-- Responsive design simulator
-
-**Advanced CSS Techniques:**
-```css
-/* CSS Grid Layout */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 2rem;
-}
-
-/* CSS Variables */
-:root {
-    --primary-color: #667eea;
-    --secondary-color: #764ba2;
-    --text-color: #333;
-    --background-color: #f4f4f4;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in {
-    animation: fadeIn 0.6s ease-out;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    nav li {
-        margin: 0.5rem 0;
-    }
-    
-    h1 {
-        font-size: 2rem;
-    }
-}
-```
-
-**Modern CSS Features:**
-- **CSS Grid**: Two-dimensional layouts
-- **CSS Variables**: Reusable values with `--variable-name`
-- **Animations**: `@keyframes` and `animation` property
-- **Media Queries**: Responsive design for different screen sizes
-- **Transform**: Rotate, scale, translate elements
-- **Box Shadow**: Adding depth and elevation
+**Key Visualizations:**
+- **Restaurant Kitchen Analogy**: Behind-the-scenes processing
+- **Step-by-Step Flow**: 4-step request processing visualization
+- **Technology Stack**: Node.js, Express, authentication systems
+- **Security Focus**: Input validation, rate limiting, secure storage
 
 ---
 
-## Section 4: System Integration & Data Flow (4 minutes)
+### Section 4: Database & System Integration (8 minutes)
 
-### 4.1 Complete User Journey Analysis
-**Interactive Flow Diagram:**
-- Step-by-step user action visualization
-- Technical system response at each step
-- Performance metrics and optimization points
+#### 4.1 Database Layer (4 minutes)
+**Slides:**
+- **Database Layer - Overview**: Library analogy and data organization
+- **Database Layer - In Action**: CRUD operations and real examples
 
-**Scenario: User Posts a Photo**
+**Educational Analogies:**
+- **Digital Library**: Organized, searchable, always available
+- **CRUD Operations**: Create, Read, Update, Delete with examples
+- **Technology Examples**: MongoDB, PostgreSQL, Redis
 
-1. **Frontend**: User selects image, writes caption
-2. **Image Processing**: Client-side compression and preview
-3. **API Request**: POST to /api/posts with image data
-4. **Backend Validation**: Check file type, size, user authentication
-5. **File Storage**: Upload to cloud storage (AWS S3)
-6. **Database Write**: Store post metadata in MongoDB
-7. **Feed Update**: Notify followers of new post
-8. **Response**: Return success status to frontend
-9. **UI Update**: Add post to user's profile instantly
+#### 4.2 System Integration (4 minutes)
+**Slides:**
+- **Instagram System Example**: Complete user flow demonstration
+- **MERN Stack - Introduction**: Backend foundation (MongoDB + Express)
+- **MERN Stack - Frontend**: Frontend powerhouse (React + Node.js)
+- **MERN Stack - In Action**: Interactive Instagram demo
 
-### 4.2 Real-World System Considerations
-**Interactive Scalability Simulator:**
-- Adjust user count to see system strain
-- Visualize caching and CDN benefits
-
-**Performance Optimization:**
-- Content Delivery Networks (CDNs)
-- Database indexing and sharding
-- Caching strategies (Redis)
-- Image optimization and lazy loading
-
-**Security Considerations:**
-- Input validation and sanitization
-- Rate limiting to prevent abuse
-- Secure file upload handling
-- Privacy controls and data protection
+**Interactive Demo:**
+- **Instagram Clone**: Functional like/comment system
+- **Real-time Updates**: 12-second step progression
+- **Technology Integration**: How all MERN pieces work together
 
 ---
 
-## Section 5: Wrap-up & Next Steps (1 minute)
+### Section 5: HTML & CSS Fundamentals (20 minutes)
 
-### 5.1 What We'll Build This Semester
-**Project Timeline Visualization:**
-- Interactive roadmap of upcoming projects
-- Skill progression tracker
-- Technology introduction schedule
+#### 5.1 HTML Foundation (10 minutes)
+**Slides:**
+- **HTML Basics**: Tag syntax and structure introduction
+- **HTML Structure & Nesting**: Russian dolls analogy and container concepts
+- **HTML Nesting in Practice**: Real examples and golden rules
+- **HTML in Action**: Step-by-step webpage building
 
-**Week Preview:**
-- Week 2: React fundamentals
-- Week 4: First mini-project (Portfolio)
-- Week 8: Full-stack integration
-- Week 12: Startup capstone presentations
+**Learning Progression:**
+- **Tag Pattern**: Opening/closing tags with content
+- **Russian Dolls Analogy**: Visual nesting explanation
+- **Simple to Complex**: Card example → Blog article structure
+- **Correct vs Wrong**: Clear do's and don'ts with visual examples
+- **Progressive Building**: Header → Main → Footer construction
 
-**Final Capstone: Build Your Startup**
-- Create an original startup idea
-- Build a functional web application to solve a real problem
-- Present to potential "investors" (class + guests)
-- **Start networking now** - you'll need teammates!
+#### 5.2 CSS Mastery (10 minutes)
+**Slides:**
+- **CSS Fundamentals**: Syntax and basic concepts
+- **CSS Selectors Basics**: Element, ID, class overview with power levels
+- **CSS Selectors - Power Levels**: Interactive specificity demonstration
+- **Essential CSS Properties**: Common properties with units explanation
+- **CSS Styling in Action**: Before/after transformations
 
-### 5.2 Getting Started
-**This Week: No Homework Assignment!**
-- Focus on meeting classmates and building connections
-- Start thinking about what kind of startup you'd want to build
-- Begin exploring web development if you're excited to get started
-
-**Homework starts Week 2:**
-- Week 2 will begin our regular homework assignments
-- Use PSO sessions for questions and clarification
-- All assignments will be pair programming projects
+**Interactive Features:**
+- **Selector Battle Demo**: Toggle-able specificity demonstration
+- **Medal System**: Bronze (Element), Silver (Class), Gold (ID) for power levels
+- **Real Code Examples**: Syntax-highlighted, color-coded
+- **Unit Explanations**: px, vw, vh, % with visual comparisons
+- **Before/After Demos**: Plain HTML → Styled transformations
 
 ---
 
-## Interactive Design Elements
+### Section 6: DOM & Interactivity (5 minutes)
+
+**Slides:**
+- **Understanding the DOM**: Tree structure and JavaScript interaction
+
+**Technical Concepts:**
+- **HTML to DOM Tree**: Visual tree representation with connecting lines
+- **CSS Selector Connection**: How selectors navigate the tree
+- **JavaScript Interaction**: Find → Change → Style workflow
+- **Real Code Examples**: `document.querySelector`, `textContent`, `style.color`
+
+---
+
+### Section 7: Wrap-up (2 minutes)
+
+**Slides:**
+- **See You Tomorrow!**: Simple, friendly goodbye
+
+**Clean Ending:**
+- **Large waving emoji**: Visual goodbye
+- **Reminder**: "Remember to be here on time so you can get the extra credit"
+- **Positive closure**: Clean, uncluttered ending
+
+---
+
+## Interactive Design Elements & Features
 
 ### Visual Design System
-- **Color Scheme**: Dark gradient background (#1a1a2e to #16213e)
-- **Accent Colors**: Bright blue (#0f4c75) and green (#3282b8)
-- **Typography**: Modern sans-serif, high contrast
-- **Cards**: Glassmorphism effects with subtle shadows
+- **Modern Gradients**: Unique gradient background for each slide
+- **Glassmorphism**: Backdrop blur effects with transparency
+- **Color Coding**: Technology-specific color schemes (HTML=orange, CSS=blue, JS=yellow)
+- **Professional Typography**: High contrast, readable fonts
+- **Consistent Icons**: Large, recognizable emoji and icons throughout
 
 ### Interactive Components
-1. **Grade Calculator**: Real-time calculation with sliders
-2. **Architecture Diagrams**: Clickable, expandable sections
-3. **Instagram UI Replica**: Functional interface demonstrations
-4. **Code Syntax Highlighting**: Copy-to-clipboard functionality
-5. **Flow Animations**: Smooth transitions between concepts
-6. **Progress Indicators**: Visual completion tracking
-7. **Polls and Quizzes**: Anonymous real-time participation
 
-### Navigation Features
-- **Keyboard Controls**: Arrow keys for slide navigation
-- **Progress Bar**: Visual indication of class progress
-- **Quick Jump Menu**: Section overview with time estimates
-- **Presenter Notes**: Hidden technical details for instructor
+#### 1. Navigation & Progress
+- **Bottom Navigation Bar**: Horizontal dot navigation with progress counter
+- **Smooth Scrolling**: Click navigation between slides
+- **Real-time Progress**: "3 / 25" slide counter
+- **Visual Indicators**: Active slide highlighting
+
+#### 2. Functional Demonstrations
+- **Instagram Clone Interface**: Working like/comment system
+- **CSS Selector Battle**: Toggle-able specificity demonstration
+- **Browser Mockup**: Realistic Instagram interface with interactions
+- **Device Responsiveness**: Visual phone/tablet/desktop layouts
+
+#### 3. Educational Visualizations
+- **DOM Tree Structure**: Properly formatted tree with connecting lines
+- **Code Syntax Highlighting**: Color-coded HTML, CSS, JavaScript
+- **Step-by-Step Flows**: Numbered processes with visual progression
+- **Before/After Comparisons**: Clear transformation demonstrations
+
+#### 4. Engaging Analogies
+- **Russian Dolls**: HTML nesting explanation
+- **Restaurant Kitchen**: Backend processing analogy
+- **Digital Library**: Database organization metaphor
+- **Storefront**: Frontend user interface comparison
 
 ### Accessibility Features
-- **High Contrast**: Readable text on all backgrounds
-- **Keyboard Navigation**: Full accessibility without mouse
-- **Screen Reader**: Proper semantic HTML structure
-- **Font Scaling**: Adjustable text size options
+- **High Contrast**: Readable text on all gradient backgrounds
+- **Keyboard Navigation**: Full slide navigation without mouse
+- **Semantic Structure**: Proper heading hierarchy and ARIA labels
+- **Visual Hierarchy**: Clear information organization and flow
+
+### Technical Implementation
+- **React Hooks**: `useState` and `useEffect` for interactivity
+- **Smooth Animations**: CSS transitions and transforms
+- **Responsive Design**: Works on all device sizes
+- **Performance Optimized**: Efficient re-rendering and state management
 
 ---
 
-## Estimated Timing Breakdown
+## Learning Outcomes & Timing
 
-| Section | Duration | Content Type |
-|---------|----------|--------------|
-| Welcome & Grading | 15 min | Interactive presentation + Q&A |
-| Web App Fundamentals | 10 min | Concept explanation + comparisons |
-| HTML & CSS Hands-On | 20 min | Live coding + interactive playground |
-| System Integration | 4 min | Flow visualization |
-| Wrap-up | 1 min | Assignment + preview |
-| **Total** | **50 min** | **Mixed interactive content** |
+### Estimated Timing Breakdown
 
----
+| Section | Duration | Content Type | Key Features |
+|---------|----------|--------------|--------------|
+| Course Welcome | 20 min | Interactive policies + Q&A | Grade calculator, policy cards |
+| Web App Fundamentals | 15 min | Concept visualization | Architecture diagrams, analogies |
+| Frontend/Backend | 15 min | Live demonstrations | Mock interfaces, real examples |
+| Database Integration | 8 min | System flow visualization | Instagram demo, MERN stack |
+| HTML & CSS | 20 min | Hands-on examples | Interactive selectors, code demos |
+| DOM & Wrap-up | 7 min | Technical concepts + goodbye | Tree visualization, friendly ending |
+| **Total** | **85 min** | **Mixed interactive content** | **25 total slides** |
 
-## Learning Outcomes
+### Learning Outcomes
 By the end of this class, students will be able to:
-1. Explain the difference between websites and web applications
-2. Identify the three-tier architecture components
-3. Describe how frontend, backend, and database systems interact
-4. Analyze real-world applications using technical architecture concepts
-5. Understand the course structure and grading system
-6. Begin planning their semester-long learning journey
+
+1. **Understand Course Structure**: Navigate grading system, policies, and expectations
+2. **Distinguish Web Applications**: Explain difference between websites and web applications
+3. **Identify Architecture Components**: Recognize three-tier architecture (Frontend, Backend, Database)
+4. **Connect Technologies**: Map HTML, CSS, JavaScript to user interfaces
+5. **Visualize Data Flow**: Trace user requests through system tiers
+6. **Apply Basic HTML**: Create simple page structures with proper nesting
+7. **Use CSS Selectors**: Target elements with appropriate specificity
+8. **Understand the DOM**: Connect HTML structure to JavaScript interaction
+9. **Plan Collaborative Work**: Prepare for pair programming and team projects
+
+### Next Steps
+- **No Homework This Week**: Focus on networking and connections
+- **Week 2 Preview**: React fundamentals and first coding assignments
+- **Team Building**: Start thinking about capstone project partnerships
+- **Resource Exploration**: Familiarize with course website and materials
 
 **Remember**: Every project this semester will be done in pairs, and PSO extra credit opportunities will be available after each major milestone. Let's build amazing things together! 🚀 

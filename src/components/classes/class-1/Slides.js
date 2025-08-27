@@ -3754,12 +3754,7 @@ const Class1Slides = () => {
               </div>
             </div>
             
-            <div className="mt-8 text-center">
-              <div className="bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-lg p-4 inline-block">
-                <p className="text-white font-semibold">💡 Each HTML element has a specific purpose!</p>
-                <p className="text-white/80 text-sm mt-1">Use semantic elements to create well-structured, accessible websites</p>
-              </div>
-            </div>
+
           </div>
         </div>
       ),
@@ -4875,12 +4870,7 @@ const Class1Slides = () => {
                 </p>
               </div>
             </div>
-            <div className="mt-8 text-center">
-              <div className="bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-lg p-4 inline-block">
-                <p className="text-white font-semibold">🚀 This is exactly how React works behind the scenes!</p>
-                <p className="text-white/80 text-sm mt-2">React uses the DOM to efficiently update only the parts of your page that changed</p>
-              </div>
-            </div>
+
           </div>
         </div>
       ),
