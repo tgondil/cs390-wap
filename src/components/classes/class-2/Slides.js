@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import cssDinerImage from './16.png';
 
 // Custom CSS for animations
 const customStyles = `
@@ -554,6 +555,101 @@ const Class2Slides = () => {
         </div>
       ),
       bgGradient: 'from-blue-600 to-purple-700'
+    },
+
+    {
+      id: 'css-diner-level-16',
+      title: 'CSS Diner Challenge: Level 16',
+      content: (
+        <div className="text-white animate-fade-in">
+          <style>{customStyles}</style>
+          <div className="max-w-7xl mx-auto px-4">
+            {/* Header */}
+            <div className="text-center mb-6">
+              <h2 className="text-3xl font-bold text-white mb-2">Select the apple and the pickle on the plates</h2>
+              <div className="text-lg text-yellow-300 font-mono">plate &gt; :only-child</div>
+            </div>
+
+            {/* Main Visual - CSS Diner Image */}
+            <div className="mb-8 flex justify-center">
+              <div className="bg-amber-800/20 rounded-3xl p-8 border-2 border-amber-700/50">
+                <img 
+                  src={cssDinerImage} 
+                  alt="CSS Diner Level 16 - Select elements using plate > :only-child"
+                  className="max-w-full h-auto rounded-2xl shadow-2xl"
+                  style={{ maxHeight: '400px', width: 'auto' }}
+                />
+                <div className="text-center mt-4">
+                  <div className="text-yellow-300 text-lg font-bold mb-2">✨ CSS Diner Level 16</div>
+                  <div className="text-sm text-amber-200">The apple and pickle on plates should be glowing</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Row: Code and Explanation */}
+            <div className="grid grid-cols-2 gap-8">
+              {/* Left: Selector Breakdown */}
+              <div className="space-y-4">
+                                 <div className="bg-blue-900/40 rounded-xl p-6 border-2 border-blue-500/50">
+                   <h3 className="text-xl font-bold text-blue-300 mb-4">How it works</h3>
+                   <div className="space-y-3">
+                     <div className="bg-gray-900 rounded-lg p-4">
+                       <div className="text-lg font-mono">
+                         <span className="text-yellow-300">plate</span>
+                         <span className="text-white"> &gt; </span>
+                         <span className="text-green-300">:only-child</span>
+                       </div>
+                     </div>
+                     <div className="text-sm space-y-2">
+                       <div><span className="text-yellow-300">plate &gt;</span> = Direct children of plates only</div>
+                       <div><span className="text-green-300">:only-child</span> = Element is the only child in its container</div>
+                       <div className="text-blue-200">Combined: Elements that are the only child inside a plate</div>
+                     </div>
+                     
+                     <div className="bg-purple-900/30 rounded-lg p-3 mt-4">
+                       <div className="text-purple-300 font-semibold text-xs mb-2">💡 Spaces are just for readability:</div>
+                       <div className="font-mono text-xs space-y-1">
+                         <div className="text-white">plate &gt; :only-child</div>
+                         <div className="text-white">plate&gt;:only-child</div>
+                         <div className="text-white">plate &gt;:only-child</div>
+                         <div className="text-gray-400 text-xs mt-2">All three work exactly the same!</div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+              </div>
+
+              {/* Right: HTML Structure */}
+              <div className="bg-gray-900/80 rounded-xl border border-gray-600 overflow-hidden">
+                <div className="bg-gray-800 px-4 py-2 text-sm text-gray-300 border-b border-gray-600">
+                  HTML Structure
+                </div>
+                <div className="p-4">
+                  <pre className="text-green-300 font-mono text-sm leading-relaxed">
+{`<div class="table">
+  <plate>
+    <apple />          ← Selected ✓
+  </plate>
+  <plate>
+    <pickle />         ← Selected ✓
+  </plate>
+  <bento>
+    <pickle />         ← Excluded (not plate)
+  </bento>
+  <plate>
+    <orange class="small" />
+    <orange />         ← Excluded (2 children)
+  </plate>
+  <pickle class="small" />  ← Excluded (no plate)
+</div>`}
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-amber-700 to-orange-700'
     },
     
     {
