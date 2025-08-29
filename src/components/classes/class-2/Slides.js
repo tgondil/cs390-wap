@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import cssDinerImage from './16.png';
 
 // Custom CSS for animations
@@ -554,7 +554,8 @@ const LoopsDemo = () => {
     let iterations = 0;
     while (counter <= 10 && iterations < 8) { // Safety limit
       await new Promise(resolve => setTimeout(resolve, 500));
-      setWhileOutput(prev => [...prev, { counter, value: `Counter: ${counter}` }]);
+      const currentCounter = counter; // Capture current value
+      setWhileOutput(prev => [...prev, { counter: currentCounter, value: `Counter: ${currentCounter}` }]);
       counter++;
       iterations++;
     }
@@ -1033,7 +1034,7 @@ const ArrayMethodsDemo = () => {
   const [step, setStep] = useState(0);
   const originalArray = [1, 2, 3, 4, 5];
 
-  const methods = {
+  const methods = useMemo(() => ({
     map: {
       name: 'map',
       description: 'Transform each item',
@@ -1076,14 +1077,14 @@ const ArrayMethodsDemo = () => {
       finalResult: [4],
       color: 'purple'
     }
-  };
+  }), []);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setStep(prev => (prev + 1) % (methods[selectedMethod].steps.length + 1));
     }, 1500);
     return () => clearInterval(timer);
-  }, [selectedMethod]);
+  }, [selectedMethod, methods]);
 
   return (
     <div className="bg-white/10 backdrop-blur rounded-xl p-8">
@@ -1821,12 +1822,12 @@ const Class2Slides = () => {
               <h4 className="text-2xl font-bold mb-6 text-green-300">Let's See a Function in Action!</h4>
               
               <div className="bg-gray-900/80 rounded-xl p-6 font-mono text-lg mb-6">
-                <div className="text-blue-300 mb-4">// Define the function</div>
+                <div className="text-blue-300 mb-4">{`// Define the function`}</div>
                 <div className="text-white mb-2">function <span className="text-yellow-300">sayHello</span>(<span className="text-green-300">name</span>) &#123;</div>
                 <div className="text-white ml-4 mb-2">&nbsp;&nbsp;return "Hello, " + <span className="text-green-300">name</span> + "!";</div>
                 <div className="text-white mb-4">&#125;</div>
                 
-                <div className="text-blue-300 mb-4">// Use the function</div>
+                <div className="text-blue-300 mb-4">{`// Use the function`}</div>
                 <div className="text-white mb-2">const message = <span className="text-yellow-300">sayHello</span>("Alice");</div>
                 <div className="text-white">console.log(message);</div>
               </div>
@@ -1890,14 +1891,14 @@ const Class2Slides = () => {
               <h4 className="text-2xl font-bold mb-6 text-green-300">Let's Build a Tax Calculator!</h4>
               
               <div className="bg-gray-900/80 rounded-xl p-6 font-mono text-lg mb-6">
-                <div className="text-blue-300 mb-4">// Real function used in e-commerce sites</div>
+                <div className="text-blue-300 mb-4">{`// Real function used in e-commerce sites`}</div>
                 <div className="text-white mb-2">function <span className="text-yellow-300">calculateTax</span>(<span className="text-green-300">price, taxRate</span>) &#123;</div>
                 <div className="text-white ml-4 mb-2">&nbsp;&nbsp;return <span className="text-green-300">price</span> * (<span className="text-green-300">taxRate</span> / 100);</div>
                 <div className="text-white mb-4">&#125;</div>
                 
-                <div className="text-blue-300 mb-4">// How Amazon, Target, etc. use it</div>
+                <div className="text-blue-300 mb-4">{`// How Amazon, Target, etc. use it`}</div>
                 <div className="text-white mb-2">const cartTotal = 89.99;</div>
-                <div className="text-white mb-2">const localTax = 8.25; // Your state tax rate</div>
+                <div className="text-white mb-2">const localTax = 8.25; {`// Your state tax rate`}</div>
                 <div className="text-white mb-4">const taxAmount = <span className="text-yellow-300">calculateTax</span>(cartTotal, localTax);</div>
                 <div className="text-white">const finalTotal = cartTotal + taxAmount;</div>
               </div>
@@ -1979,7 +1980,7 @@ const Class2Slides = () => {
                 <div className="text-5xl mb-4">📝</div>
                 <h4 className="text-2xl font-bold mb-4 text-green-300">Use Descriptive Names</h4>
                 <div className="bg-green-900/50 rounded-lg p-4 font-mono text-sm mb-4">
-                  <div className="text-green-300 mb-2">// ✅ Good - Clear purpose</div>
+                  <div className="text-green-300 mb-2">{`// ✅ Good - Clear purpose`}</div>
                   <div className="text-white">const calculateShippingCost = (weight) =&gt; &#123;</div>
                   <div className="text-white ml-4">return weight * 2.50;</div>
                   <div className="text-white">&#125;;</div>
@@ -1996,7 +1997,7 @@ const Class2Slides = () => {
                 <div className="text-5xl mb-4">🎯</div>
                 <h4 className="text-2xl font-bold mb-4 text-green-300">Keep Functions Small</h4>
                 <div className="bg-green-900/50 rounded-lg p-4 font-mono text-sm mb-4">
-                  <div className="text-green-300 mb-2">// ✅ Good - One job each</div>
+                  <div className="text-green-300 mb-2">{`// ✅ Good - One job each`}</div>
                   <div className="text-white">const formatPrice = (amount) =&gt; &#123;</div>
                   <div className="text-white ml-4">return "$" + amount.toFixed(2);</div>
                   <div className="text-white">&#125;;</div>
@@ -2013,7 +2014,7 @@ const Class2Slides = () => {
                 <div className="text-5xl mb-4">↩️</div>
                 <h4 className="text-2xl font-bold mb-4 text-green-300">Always Return Something</h4>
                 <div className="bg-green-900/50 rounded-lg p-4 font-mono text-sm mb-4">
-                  <div className="text-green-300 mb-2">// ✅ Good - Returns a value</div>
+                  <div className="text-green-300 mb-2">{`// ✅ Good - Returns a value`}</div>
                   <div className="text-white">const getUserName = (user) =&gt; &#123;</div>
                   <div className="text-white ml-4">if (!user) &#123;</div>
                   <div className="text-white ml-8">return "Guest";</div>
@@ -2029,7 +2030,7 @@ const Class2Slides = () => {
                 <div className="text-5xl mb-4">🔒</div>
                 <h4 className="text-2xl font-bold mb-4 text-green-300">Use const for Functions</h4>
                 <div className="bg-green-900/50 rounded-lg p-4 font-mono text-sm mb-4">
-                  <div className="text-green-300 mb-2">// ✅ Good - Can't be reassigned</div>
+                  <div className="text-green-300 mb-2">{`// ✅ Good - Can't be reassigned`}</div>
                   <div className="text-white">const calculateTotal = (items) =&gt; &#123;</div>
                   <div className="text-white ml-4">return items.reduce((sum, item) =&gt; &#123;</div>
                   <div className="text-white ml-8">return sum + item.price;</div>
@@ -2089,13 +2090,13 @@ const Class2Slides = () => {
                 <div className="text-5xl mb-4">🤔</div>
                 <h4 className="text-2xl font-bold mb-4 text-red-300">Don't Use Vague Names</h4>
                 <div className="bg-red-900/50 rounded-lg p-4 font-mono text-sm mb-4">
-                  <div className="text-red-300 mb-2">// ❌ Bad - What does this do?</div>
+                  <div className="text-red-300 mb-2">{`// ❌ Bad - What does this do?`}</div>
                   <div className="text-white">const doStuff = (x) =&gt; &#123;</div>
                   <div className="text-white ml-4">return x * 1.08;</div>
                   <div className="text-white">&#125;;</div>
                   <br/>
                   <div className="text-white">const process = (data) =&gt; &#123;</div>
-                  <div className="text-white ml-4">// 50 lines of mystery code...</div>
+                  <div className="text-white ml-4">{`// 50 lines of mystery code...`}</div>
                   <div className="text-white">&#125;;</div>
                 </div>
                 <div className="text-red-200 text-sm">You'll forget what these do in a week!</div>
@@ -2106,15 +2107,15 @@ const Class2Slides = () => {
                 <div className="text-5xl mb-4">🌪️</div>
                 <h4 className="text-2xl font-bold mb-4 text-red-300">Don't Make Mega-Functions</h4>
                 <div className="bg-red-900/50 rounded-lg p-4 font-mono text-sm mb-4">
-                  <div className="text-red-300 mb-2">// ❌ Bad - Does everything</div>
+                  <div className="text-red-300 mb-2">{`// ❌ Bad - Does everything`}</div>
                   <div className="text-white">const handleCheckout = (cart) =&gt; &#123;</div>
-                  <div className="text-white ml-4">// Calculate tax</div>
-                  <div className="text-white ml-4">// Validate payment</div>
-                  <div className="text-white ml-4">// Update inventory</div>
-                  <div className="text-white ml-4">// Send email</div>
-                  <div className="text-white ml-4">// Generate receipt</div>
-                  <div className="text-white ml-4">// Update analytics</div>
-                  <div className="text-white ml-4">// ... 100 more lines</div>
+                  <div className="text-white ml-4">{`// Calculate tax`}</div>
+                  <div className="text-white ml-4">{`// Validate payment`}</div>
+                  <div className="text-white ml-4">{`// Update inventory`}</div>
+                  <div className="text-white ml-4">{`// Send email`}</div>
+                  <div className="text-white ml-4">{`// Generate receipt`}</div>
+                  <div className="text-white ml-4">{`// Update analytics`}</div>
+                  <div className="text-white ml-4">{`// ... 100 more lines`}</div>
                   <div className="text-white">&#125;;</div>
                 </div>
                 <div className="text-red-200 text-sm">Impossible to debug or reuse!</div>
@@ -2125,12 +2126,12 @@ const Class2Slides = () => {
                 <div className="text-5xl mb-4">🌍</div>
                 <h4 className="text-2xl font-bold mb-4 text-red-300">Don't Change Global Variables</h4>
                 <div className="bg-red-900/50 rounded-lg p-4 font-mono text-sm mb-4">
-                  <div className="text-red-300 mb-2">// ❌ Bad - Sneaky side effects</div>
+                  <div className="text-red-300 mb-2">{`// ❌ Bad - Sneaky side effects`}</div>
                   <div className="text-white">let userCount = 0;</div>
                   <br/>
                   <div className="text-white">const addUser = (name) =&gt; &#123;</div>
-                  <div className="text-white ml-4">userCount++; // Changing global!</div>
-                  <div className="text-white ml-4">// What else changed?</div>
+                  <div className="text-white ml-4">userCount++; {`// Changing global!`}</div>
+                  <div className="text-white ml-4">{`// What else changed?`}</div>
                   <div className="text-white">&#125;;</div>
                 </div>
                 <div className="text-red-200 text-sm">Creates unpredictable bugs!</div>
@@ -2141,13 +2142,13 @@ const Class2Slides = () => {
                 <div className="text-5xl mb-4">🕳️</div>
                 <h4 className="text-2xl font-bold mb-4 text-red-300">Don't Forget to Return</h4>
                 <div className="bg-red-900/50 rounded-lg p-4 font-mono text-sm mb-4">
-                  <div className="text-red-300 mb-2">// ❌ Bad - Returns undefined</div>
+                  <div className="text-red-300 mb-2">{`// ❌ Bad - Returns undefined`}</div>
                   <div className="text-white">const calculateTotal = (items) =&gt; &#123;</div>
                   <div className="text-white ml-4">let total = 0;</div>
                   <div className="text-white ml-4">items.forEach(item =&gt; &#123;</div>
                   <div className="text-white ml-8">total += item.price;</div>
                   <div className="text-white ml-4">&#125;);</div>
-                  <div className="text-white ml-4">// Oops! No return statement</div>
+                  <div className="text-white ml-4">{`// Oops! No return statement`}</div>
                   <div className="text-white">&#125;;</div>
                 </div>
                 <div className="text-red-200 text-sm">All that work for nothing!</div>
@@ -2464,7 +2465,7 @@ const Class2Slides = () => {
                 <div className="bg-gray-900 rounded-xl p-6">
                   <h4 className="text-xl font-bold text-green-300 mb-4">🏗️ Variables & Arrays</h4>
                   <div className="bg-gray-800 rounded-lg p-4 font-mono text-left">
-                    <div className="text-blue-300 mb-2">// Store our todos in an array</div>
+                    <div className="text-blue-300 mb-2">{`// Store our todos in an array`}</div>
                     <div className="text-white mb-4">let todos = [</div>
                     <div className="text-white ml-4 mb-1">  "Learn JavaScript",</div>
                     <div className="text-white ml-4 mb-1">  "Build a todo app",</div>
@@ -2561,7 +2562,7 @@ const Class2Slides = () => {
                 <h4 className="text-xl font-bold text-green-300 mb-4">➕ Add Todo Function</h4>
                 
                 <div className="bg-gray-900 rounded-lg p-4 font-mono text-left mb-4">
-                  <div className="text-blue-300 mb-2">// Add a new todo to the array</div>
+                  <div className="text-blue-300 mb-2">{`// Add a new todo to the array`}</div>
                   <div className="text-white mb-1">function addTodo(text) &#123;</div>
                   <div className="text-white ml-4 mb-1">  todos.push(text);</div>
                   <div className="text-white ml-4 mb-1">  updateDisplay();</div>
@@ -2585,7 +2586,7 @@ const Class2Slides = () => {
                 <h4 className="text-xl font-bold text-red-300 mb-4">🗑️ Delete Todo Function</h4>
                 
                 <div className="bg-gray-900 rounded-lg p-4 font-mono text-left mb-4">
-                  <div className="text-blue-300 mb-2">// Remove todo at specific index</div>
+                  <div className="text-blue-300 mb-2">{`// Remove todo at specific index`}</div>
                   <div className="text-white mb-1">function deleteTodo(index) &#123;</div>
                   <div className="text-white ml-4 mb-1">  todos.splice(index, 1);</div>
                   <div className="text-white ml-4 mb-1">  updateDisplay();</div>
@@ -2609,7 +2610,7 @@ const Class2Slides = () => {
                 <h4 className="text-xl font-bold text-blue-300 mb-4">🎨 Display Function</h4>
                 
                 <div className="bg-gray-900 rounded-lg p-4 font-mono text-left mb-4">
-                  <div className="text-blue-300 mb-2">// Update the webpage to show current todos</div>
+                  <div className="text-blue-300 mb-2">{`// Update the webpage to show current todos`}</div>
                   <div className="text-white mb-1">function updateDisplay() &#123;</div>
                   <div className="text-white ml-4 mb-1">  const listElement = document.getElementById('todo-list');</div>
                   <div className="text-white ml-4 mb-1">  </div>
@@ -2716,7 +2717,7 @@ const Class2Slides = () => {
                 <h4 className="text-xl font-bold text-purple-300 mb-4">🎯 DOM Selection</h4>
                 
                 <div className="bg-gray-900 rounded-lg p-4 font-mono text-left text-sm mb-4">
-                  <div className="text-blue-300 mb-2">// Get references to HTML elements</div>
+                  <div className="text-blue-300 mb-2">{`// Get references to HTML elements`}</div>
                   <div className="text-white mb-1">const input = document.getElementById('new-todo');</div>
                   <div className="text-white mb-1">const button = document.getElementById('add-btn');</div>
                   <div className="text-white mb-1">const list = document.getElementById('todo-list');</div>
@@ -2745,12 +2746,12 @@ const Class2Slides = () => {
                 <h4 className="text-xl font-bold text-green-300 mb-4">⚡ Event Handling</h4>
                 
                 <div className="bg-gray-900 rounded-lg p-4 font-mono text-left text-sm mb-4">
-                  <div className="text-blue-300 mb-2">// Listen for button clicks</div>
+                  <div className="text-blue-300 mb-2">{`// Listen for button clicks`}</div>
                   <div className="text-white mb-1">button.addEventListener('click', function() {`{`}</div>
                   <div className="text-white ml-4 mb-1">  const newTodoText = input.value;</div>
                   <div className="text-white ml-4 mb-1">  if (newTodoText.trim() !== '') {`{`}</div>
                   <div className="text-white ml-8 mb-1">    addTodo(newTodoText);</div>
-                  <div className="text-white ml-8 mb-1">    input.value = ''; // Clear input</div>
+                  <div className="text-white ml-8 mb-1">    input.value = ''; {`// Clear input`}</div>
                   <div className="text-white ml-4 mb-1">  {`}`}</div>
                   <div className="text-white">{`}`});</div>
                 </div>

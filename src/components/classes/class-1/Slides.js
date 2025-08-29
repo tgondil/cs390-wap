@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import spainImage from './spain.jpg';
-import { Link } from 'react-router-dom';
 
 // Custom CSS for animations
 const customStyles = `
@@ -112,8 +111,10 @@ const PSOInformation = () => {
 };
 
 // Three-Tier Architecture Interactive Component
+// eslint-disable-next-line no-unused-vars
 const ArchitectureDiagram = () => {
   const [selectedTier, setSelectedTier] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [activeFlow, setActiveFlow] = useState(null);
 
   const tiers = {
@@ -182,6 +183,7 @@ const ArchitectureDiagram = () => {
     }
   };
 
+  // eslint-disable-next-line no-unused-vars
   const dataFlows = [
     {
       id: 'user-request',
@@ -452,6 +454,7 @@ const GradeCalculator = () => {
 };
 
 // Interactive HTML Builder
+// eslint-disable-next-line no-unused-vars
 const HTMLBuilder = () => {
   const [selectedElement, setSelectedElement] = useState(null);
   const [previewCode, setPreviewCode] = useState(`<!DOCTYPE html>
@@ -539,6 +542,7 @@ const HTMLBuilder = () => {
 };
 
 // CSS Playground
+// eslint-disable-next-line no-unused-vars
 const CSSPlayground = () => {
   const [selectedProperty, setSelectedProperty] = useState('color');
   const [propertyValue, setPropertyValue] = useState('#667eea');
@@ -1003,6 +1007,7 @@ const InteractiveInstagramDemo = () => {
   );
 };
 
+// eslint-disable-next-line no-unused-vars
 const AdvancedHTMLCSSDemo = () => {
   const [activeTab, setActiveTab] = useState('modern-features');
   const [animationPlaying, setAnimationPlaying] = useState(false);
@@ -1260,6 +1265,7 @@ const AdvancedHTMLCSSDemo = () => {
 };
 
 // System Integration Demo
+// eslint-disable-next-line no-unused-vars
 const SystemIntegrationDemo = () => {
   const [selectedScenario, setSelectedScenario] = useState('user-posts-photo');
   const [isPlaying, setIsPlaying] = useState(false);
@@ -3683,8 +3689,8 @@ const Class1Slides = () => {
                     <div className="border-2 border-red-300 border-dashed mb-3 p-3 bg-red-50">
                       <h1 className="text-xl font-bold text-gray-800 mb-2">Welcome to My Website</h1>
                       <nav className="space-x-4">
-                        <a href="#" className="text-blue-600 underline text-sm">Home</a>
-                        <a href="#" className="text-blue-600 underline text-sm">About</a>
+                        <button className="text-blue-600 underline text-sm">Home</button>
+                        <button className="text-blue-600 underline text-sm">About</button>
                       </nav>
                       <div className="text-xs text-red-600 mt-1 font-mono">{'<header>'}</div>
                     </div>
