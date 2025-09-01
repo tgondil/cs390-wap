@@ -43,6 +43,7 @@ export const courseData = {
       week: 2,
       title: "Introduction to React and Modern JavaScript",
       description: "Learn React fundamentals and modern JavaScript features",
+      holiday: "Labor Day (Mon, Sep 2) - No class",
       classes: [
         {
           classNumber: 3,
@@ -56,7 +57,14 @@ export const courseData = {
           toolsIntroduced: ["React", "JSX", "Vite/Create React App"],
           topics: ["React concepts", "Component architecture", "ES6+ features"],
           homework: "Initialize React app and create custom component"
-        },
+        }
+      ]
+    },
+    {
+      week: 3,
+      title: "React Components & Props",
+      description: "Master component composition and data flow in React",
+      classes: [
         {
           classNumber: 4,
           title: "JSX, Components & Props in Depth",
@@ -69,14 +77,7 @@ export const courseData = {
           toolsIntroduced: ["Props", "Event handling"],
           topics: ["Component composition", "Data flow", "Event handling", "Dynamic rendering"],
           homework: "Build Team Members gallery with reusable components"
-        }
-      ]
-    },
-    {
-      week: 3,
-      title: "State, Events & Tailwind CSS for Styling",
-      description: "Add interactivity with state management and style with Tailwind CSS",
-      classes: [
+        },
         {
           classNumber: 5,
           title: "State and Event Handling in React",
@@ -89,7 +90,14 @@ export const courseData = {
           toolsIntroduced: ["useState", "useEffect (conceptual)"],
           topics: ["State management", "Event handling", "Controlled components", "Unidirectional data flow"],
           homework: "Build interactive counter and form components"
-        },
+        }
+      ]
+    },
+    {
+      week: 4,
+      title: "Styling with Tailwind CSS",
+      description: "Add professional styling and responsive design",
+      classes: [
         {
           classNumber: 6,
           title: "Styling with Tailwind CSS",
@@ -102,14 +110,7 @@ export const courseData = {
           toolsIntroduced: ["Tailwind CSS"],
           topics: ["Utility-first CSS", "Responsive design", "Tailwind configuration"],
           homework: "Create styled To-Do List app with state and Tailwind"
-        }
-      ]
-    },
-    {
-      week: 4,
-      title: "React Router & Context API (State Management)",
-      description: "Build multi-page SPAs and manage global state",
-      classes: [
+        },
         {
           classNumber: 7,
           title: "Multi-Page Application with React Router",
@@ -122,7 +123,15 @@ export const courseData = {
           toolsIntroduced: ["React Router"],
           topics: ["Client-side routing", "SPA navigation", "URL parameters"],
           homework: "Add routing to existing project"
-        },
+        }
+      ]
+    },
+    {
+      week: 5,
+      title: "React Router & Context API",
+      description: "Build multi-page SPAs and manage global state",
+      holiday: "Columbus Day (Mon, Oct 14) - No class",
+      classes: [
         {
           classNumber: 8,
           title: "Global State with Context API",
@@ -139,7 +148,7 @@ export const courseData = {
       ]
     },
     {
-      week: 5,
+      week: 6,
       title: "Back-End Foundations – Node.js and Express.js",
       description: "Transition to backend development with Node.js and Express",
       classes: [
@@ -172,7 +181,7 @@ export const courseData = {
       ]
     },
     {
-      week: 6,
+      week: 7,
       title: "MongoDB & Mongoose – Database Integration",
       description: "Add persistent data storage with MongoDB",
       classes: [
@@ -205,7 +214,7 @@ export const courseData = {
       ]
     },
     {
-      week: 7,
+      week: 8,
       title: "User Authentication & Security Basics",
       description: "Implement user authentication and security best practices",
       classes: [
@@ -238,7 +247,7 @@ export const courseData = {
       ]
     },
     {
-      week: 8,
+      week: 9,
       title: "Connecting Frontend to Backend (Full-Stack Integration)",
       description: "Connect React frontend with Express backend for full-stack functionality",
       classes: [
@@ -271,7 +280,7 @@ export const courseData = {
       ]
     },
     {
-      week: 9,
+      week: 10,
       title: "Advanced Topics & Final Project Planning",
       description: "Cover advanced React patterns and plan capstone projects",
       classes: [
@@ -304,8 +313,8 @@ export const courseData = {
       ]
     },
     {
-      week: 10,
-      title: "Deployment (Vercel & Render) and Mid-Project Checkpoint",
+      week: 11,
+      title: "Deployment and Mid-Project Checkpoint",
       description: "Deploy applications and reach project milestone",
       classes: [
         {
@@ -337,7 +346,7 @@ export const courseData = {
       ]
     },
     {
-      week: 11,
+      week: 12,
       title: "Final Project Development & Polishing",
       description: "Complete and polish capstone projects",
       classes: [
@@ -370,8 +379,8 @@ export const courseData = {
       ]
     },
     {
-      week: 12,
-      title: "Project Work – Milestone Demos & Feature Freeze",
+      week: 13,
+      title: "Project Milestone Demos & Feature Freeze",
       description: "Prepare milestone demos, lock down scope, and plan final tasks",
       classes: [
         {
@@ -403,9 +412,10 @@ export const courseData = {
       ]
     },
     {
-      week: 13,
-      title: "Thanksgiving Week – One Class (Wed off)",
+      week: 14,
+      title: "Thanksgiving Week – Focused Development",
       description: "Make focused progress and plan around the holiday",
+      holiday: "Thanksgiving (Thu, Nov 27-28) - Wed class only",
       classes: [
         {
           classNumber: 25,
@@ -423,7 +433,7 @@ export const courseData = {
       ]
     },
     {
-      week: 14,
+      week: 15,
       title: "Performance, Accessibility & Code Quality",
       description: "Polish your app to production quality",
       classes: [
@@ -456,15 +466,10 @@ export const courseData = {
       ]
     },
     {
-      week: 15,
-      title: "Final Polish & Presentation Prep",
-      description: "Tighten UX, finalize docs, and practice",
-      classes: []
-    },
-    {
       week: 16,
       title: "Capstone Project Presentations & Wrap-Up",
       description: "Present completed projects and celebrate achievements",
+      holiday: "Finals Week - Presentations only",
       classes: [
         {
           classNumber: 28,
@@ -499,33 +504,33 @@ export const courseData = {
   classDates: {
     1: "Mon, Aug 25, 2025",
     2: "Wed, Aug 27, 2025",
-    3: "Wed, Sep 03, 2025",
+    3: "Wed, Sep 03, 2025",     // Labor Day (Mon, Sep 2) - No class
     4: "Mon, Sep 08, 2025",
     5: "Wed, Sep 10, 2025",
     6: "Mon, Sep 15, 2025",
     7: "Wed, Sep 17, 2025",
-    8: "Mon, Sep 22, 2025",
-    9: "Wed, Sep 24, 2025",
-    10: "Mon, Sep 29, 2025",
-    11: "Wed, Oct 01, 2025",
-    12: "Mon, Oct 06, 2025",
-    13: "Wed, Oct 08, 2025",
-    14: "Wed, Oct 15, 2025",
-    15: "Mon, Oct 20, 2025",
-    16: "Wed, Oct 22, 2025",
-    17: "Mon, Oct 27, 2025",
-    18: "Wed, Oct 29, 2025",
-    19: "Mon, Nov 03, 2025",
-    20: "Wed, Nov 05, 2025",
-    21: "Mon, Nov 10, 2025",
-    22: "Wed, Nov 12, 2025",
-    23: "Mon, Nov 17, 2025",
-    24: "Wed, Nov 19, 2025",
-    25: "Mon, Nov 24, 2025",
-    26: "Mon, Dec 01, 2025",
-    27: "Wed, Dec 03, 2025",
-    28: "Mon, Dec 08, 2025",
-    29: "Wed, Dec 10, 2025"
+    8: "Wed, Oct 15, 2025",     // Columbus Day (Mon, Oct 14) - No class
+    9: "Mon, Oct 20, 2025",
+    10: "Wed, Oct 22, 2025",
+    11: "Mon, Oct 27, 2025",
+    12: "Wed, Oct 29, 2025",
+    13: "Mon, Nov 03, 2025",
+    14: "Wed, Nov 05, 2025",
+    15: "Mon, Nov 10, 2025",
+    16: "Wed, Nov 12, 2025",
+    17: "Mon, Nov 17, 2025",
+    18: "Wed, Nov 19, 2025",
+    19: "Mon, Nov 24, 2025",
+    20: "Wed, Nov 26, 2025",     // Thanksgiving week - shortened week
+    21: "Mon, Dec 01, 2025",
+    22: "Wed, Dec 03, 2025",
+    23: "Mon, Dec 08, 2025",
+    24: "Wed, Dec 10, 2025",
+    25: "Wed, Dec 17, 2025",     // Thanksgiving (Mon, Nov 25) - No class
+    26: "Mon, Jan 13, 2026",     // Winter break gap
+    27: "Wed, Jan 15, 2026",
+    28: "Mon, Jan 20, 2026",     // Finals week
+    29: "Wed, Jan 22, 2026"
   }
 };
 

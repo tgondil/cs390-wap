@@ -31,6 +31,28 @@ const WeeklyOverview = () => {
                 <p className="text-gray-600 text-lg">
                   {week.description}
                 </p>
+                {/* Holiday Notice */}
+                {week.holiday && (
+                  <div className="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                    <div className="flex items-center">
+                      <span className="text-yellow-600 mr-2">🎃</span>
+                      <span className="text-yellow-800 font-medium text-sm">
+                        {week.holiday}
+                      </span>
+                    </div>
+                  </div>
+                )}
+                {/* PSO CSS Diner Link for Week 1 */}
+                {week.week === 1 && (
+                  <div className="mt-4">
+                    <Link
+                      to="/pso/css-diner"
+                      className="inline-flex items-center px-4 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 transition-colors font-medium text-sm"
+                    >
+                      🎯 PSO: CSS Diner Interactive Exercise →
+                    </Link>
+                  </div>
+                )}
               </div>
 
               {/* Classes in this week */}
