@@ -4,6 +4,7 @@ import LandingPage from './pages/LandingPage';
 import ClassPage from './pages/ClassPage';
 import Navigation from './components/Class1/Navigation';
 import PSOCSSDINERSlides from './components/classes/pso-css-diner/Slides';
+import PSOUntrustedSlides from './components/classes/pso-untrusted/Slides';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/class/:classNumber" element={<ClassPage />} />
           <Route path="/pso/css-diner" element={<PSOCSSDINERSlides />} />
+          <Route path="/pso/untrusted" element={<PSOUntrustedSlides />} />
         </Routes>
       </div>
     </Router>

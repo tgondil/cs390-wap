@@ -42,7 +42,7 @@ const WeeklyOverview = () => {
                     </div>
                   </div>
                 )}
-                {/* PSO CSS Diner Link for Week 1 */}
+                {/* PSO Links */}
                 {week.week === 1 && (
                   <div className="mt-4">
                     <Link
@@ -50,6 +50,16 @@ const WeeklyOverview = () => {
                       className="inline-flex items-center px-4 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 transition-colors font-medium text-sm"
                     >
                       🎯 PSO: CSS Diner Interactive Exercise →
+                    </Link>
+                  </div>
+                )}
+                {week.week === 2 && (
+                  <div className="mt-4">
+                    <Link
+                      to="/pso/untrusted"
+                      className="inline-flex items-center px-4 py-2 bg-secondary-600 text-white rounded-lg hover:bg-secondary-700 transition-colors font-medium text-sm"
+                    >
+                      🕹️ PSO: Untrusted (JS Puzzle) →
                     </Link>
                   </div>
                 )}
