@@ -279,19 +279,24 @@ const Class3Slides = () => {
   const slides = [
     {
       id: 'title-slide',
-      title: 'Introduction to APIs',
+      title: 'CS390 Web Applications Programming',
       content: (
         <div className="text-center space-y-12">
           <div className="space-y-8">
             <h1 className="text-6xl font-bold text-white mb-6">
-              Class 3
+              CS390
             </h1>
             <h2 className="text-4xl font-semibold text-blue-100 mb-4">
-              Introduction to APIs
+              Web Applications Programming
             </h2>
-            <div className="text-8xl mb-8 animate-float">🌐</div>
             <div className="text-2xl text-blue-200">
-              Connecting your code to the world
+              Class 3: Introduction to APIs
+            </div>
+          </div>
+          
+          <div className="mt-16">
+            <div className="text-2xl font-medium text-white">
+              Tanay Gondil
             </div>
           </div>
         </div>
