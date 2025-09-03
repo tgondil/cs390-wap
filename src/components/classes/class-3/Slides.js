@@ -1694,6 +1694,186 @@ const Class3Slides = () => {
     },
 
     {
+      id: 'http-headers-body',
+      title: 'HTTP Headers & Body',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <h2 className="text-5xl font-extrabold mb-8">HTTP Headers & Body</h2>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="text-8xl mb-8 animate-float">📮</div>
+            <h3 className="text-3xl font-bold mb-12">Every HTTP request has headers and sometimes a body</h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+              {/* Headers */}
+              <div className="bg-blue-500/20 backdrop-blur rounded-xl p-8 border-2 border-blue-400">
+                <div className="text-6xl mb-6">📋</div>
+                <h4 className="text-2xl font-bold text-blue-300 mb-4">Headers</h4>
+                <p className="text-white/80 text-lg mb-6">Metadata about the request - like an envelope</p>
+                <div className="bg-gray-800 rounded-lg p-4 text-left">
+                  <div className="text-white font-mono text-sm space-y-1">
+                    <div><span className="text-green-300">Content-Type:</span> <span className="text-yellow-300">application/json</span></div>
+                    <div><span className="text-green-300">Authorization:</span> <span className="text-yellow-300">Bearer token123</span></div>
+                    <div><span className="text-green-300">User-Agent:</span> <span className="text-yellow-300">Chrome/120.0</span></div>
+                    <div><span className="text-green-300">Accept:</span> <span className="text-yellow-300">application/json</span></div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-blue-900/30 rounded-lg p-3">
+                  <div className="text-blue-200 text-sm">
+                    <strong>Like:</strong> Return address, postage info, delivery instructions
+                  </div>
+                </div>
+              </div>
+
+              {/* Body */}
+              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border-2 border-green-400">
+                <div className="text-6xl mb-6">📄</div>
+                <h4 className="text-2xl font-bold text-green-300 mb-4">Body</h4>
+                <p className="text-white/80 text-lg mb-6">The actual data you're sending - like the letter inside</p>
+                <div className="bg-gray-800 rounded-lg p-4 text-left">
+                  <div className="text-white font-mono text-sm">
+                    <div>&#123;</div>
+                    <div className="ml-2"><span className="text-green-300">"name"</span>: <span className="text-yellow-300">"Alice"</span>,</div>
+                    <div className="ml-2"><span className="text-green-300">"email"</span>: <span className="text-yellow-300">"alice@email.com"</span>,</div>
+                    <div className="ml-2"><span className="text-green-300">"age"</span>: <span className="text-blue-300">25</span></div>
+                    <div>&#125;</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-green-900/30 rounded-lg p-3">
+                  <div className="text-green-200 text-sm">
+                    <strong>Used in:</strong> POST, PUT requests (when sending data)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl p-8 border border-purple-400/30">
+              <h4 className="text-2xl font-bold text-purple-300 mb-6">📬 Mail Analogy</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-4xl mb-3">✉️</div>
+                  <div className="text-white font-bold mb-2">Envelope (Headers)</div>
+                  <div className="text-white/70 text-sm">Who it's from, where it's going, what type of mail</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl mb-3">📝</div>
+                  <div className="text-white font-bold mb-2">Letter Inside (Body)</div>
+                  <div className="text-white/70 text-sm">The actual message you want to send</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-blue-600 to-indigo-700'
+    },
+
+    {
+      id: 'http-status-codes',
+      title: 'HTTP Status Codes',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <h2 className="text-5xl font-extrabold mb-8">HTTP Status Codes</h2>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="text-8xl mb-8 animate-float">🚦</div>
+            <h3 className="text-3xl font-bold mb-12">The server's way of telling you what happened</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              {/* 200 OK */}
+              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border-2 border-green-400">
+                <div className="text-7xl mb-6">✅</div>
+                <h4 className="text-3xl font-bold text-green-300 mb-4">200 OK</h4>
+                <p className="text-white/80 text-lg mb-4">Everything worked perfectly!</p>
+                <div className="bg-green-900/50 rounded-lg p-4">
+                  <div className="text-green-200 font-bold mb-2">Real Life:</div>
+                  <div className="text-white/90 text-sm">"Here's your pizza, exactly as ordered!"</div>
+                </div>
+                <div className="mt-4 bg-white/10 rounded-lg p-3">
+                  <div className="text-white/70 text-sm">
+                    <strong>When:</strong> Successful GET, POST, PUT requests
+                  </div>
+                </div>
+              </div>
+
+              {/* 404 Not Found */}
+              <div className="bg-yellow-500/20 backdrop-blur rounded-xl p-8 border-2 border-yellow-400">
+                <div className="text-7xl mb-6">🔍</div>
+                <h4 className="text-3xl font-bold text-yellow-300 mb-4">404 Not Found</h4>
+                <p className="text-white/80 text-lg mb-4">The thing you're looking for doesn't exist</p>
+                <div className="bg-yellow-900/50 rounded-lg p-4">
+                  <div className="text-yellow-200 font-bold mb-2">Real Life:</div>
+                  <div className="text-white/90 text-sm">"Sorry, we don't have that pizza on our menu"</div>
+                </div>
+                <div className="mt-4 bg-white/10 rounded-lg p-3">
+                  <div className="text-white/70 text-sm">
+                    <strong>When:</strong> Wrong URL, deleted resource, typos
+                  </div>
+                </div>
+              </div>
+
+              {/* 500 Server Error */}
+              <div className="bg-red-500/20 backdrop-blur rounded-xl p-8 border-2 border-red-400">
+                <div className="text-7xl mb-6">💥</div>
+                <h4 className="text-3xl font-bold text-red-300 mb-4">500 Server Error</h4>
+                <p className="text-white/80 text-lg mb-4">Something broke on the server side</p>
+                <div className="bg-red-900/50 rounded-lg p-4">
+                  <div className="text-red-200 font-bold mb-2">Real Life:</div>
+                  <div className="text-white/90 text-sm">"Our kitchen is on fire, can't make pizza right now!"</div>
+                </div>
+                <div className="mt-4 bg-white/10 rounded-lg p-3">
+                  <div className="text-white/70 text-sm">
+                    <strong>When:</strong> Server crashes, database issues, code bugs
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Status Code Categories */}
+            <div className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-xl p-8 border border-indigo-400/30 mb-8">
+              <h4 className="text-2xl font-bold text-white mb-6">🎯 Status Code Categories</h4>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div className="text-center">
+                  <div className="text-3xl mb-2">ℹ️</div>
+                  <div className="text-white font-bold mb-1">1xx</div>
+                  <div className="text-white/70 text-xs">Info</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl mb-2">✅</div>
+                  <div className="text-white font-bold mb-1">2xx</div>
+                  <div className="text-white/70 text-xs">Success</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl mb-2">↩️</div>
+                  <div className="text-white font-bold mb-1">3xx</div>
+                  <div className="text-white/70 text-xs">Redirect</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl mb-2">❌</div>
+                  <div className="text-white font-bold mb-1">4xx</div>
+                  <div className="text-white/70 text-xs">Client Error</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl mb-2">💥</div>
+                  <div className="text-white font-bold mb-1">5xx</div>
+                  <div className="text-white/70 text-xs">Server Error</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-yellow-500/20 rounded-xl p-6 border border-yellow-400/30">
+              <h4 className="text-xl font-bold text-yellow-300 mb-4">💡 Pro Tip</h4>
+              <p className="text-white/90 text-lg">
+                Always check the status code in your code! A response can look successful but actually be an error.
+              </p>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-green-600 to-red-700'
+    },
+
+    {
       id: 'json-intro',
       title: 'What is JSON?',
       content: (
@@ -1965,119 +2145,6 @@ const Class3Slides = () => {
     },
 
     {
-      id: 'promise-code-example',
-      title: 'Promise Code Example',
-      content: (
-        <div className="text-white animate-fade-in text-center">
-          <h2 className="text-5xl font-extrabold mb-8">Promise Code Example</h2>
-          
-          <div className="max-w-6xl mx-auto">
-            <div className="text-8xl mb-8 animate-float">💻</div>
-            <h3 className="text-3xl font-bold mb-12">See the difference: Old vs New Promise syntax</h3>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-              {/* Old Promise Way */}
-              <div className="bg-red-500/20 backdrop-blur rounded-xl p-8 border-2 border-red-400">
-                <div className="text-5xl mb-6">😵</div>
-                <h4 className="text-2xl font-bold text-red-300 mb-6">Old Way: .then() chains</h4>
-                <div className="bg-gray-900 rounded-lg p-6 text-left">
-                  <div className="text-white font-mono text-base space-y-1">
-                    <div><span className="text-yellow-300">fetch</span>(<span className="text-orange-300">'https://api.github.com/users/tanay'</span>)</div>
-                    <div className="ml-2"><span className="text-purple-300">.then</span>(response =&gt; &#123;</div>
-                    <div className="ml-4"><span className="text-pink-300">return</span> response.<span className="text-yellow-300">json</span>();</div>
-                    <div className="ml-2">&#125;)</div>
-                    <div className="ml-2"><span className="text-purple-300">.then</span>(data =&gt; &#123;</div>
-                    <div className="ml-4">console.<span className="text-yellow-300">log</span>(data.<span className="text-green-300">name</span>);</div>
-                    <div className="ml-4">console.<span className="text-yellow-300">log</span>(data.<span className="text-green-300">followers</span>);</div>
-                    <div className="ml-2">&#125;)</div>
-                    <div className="ml-2"><span className="text-purple-300">.catch</span>(error =&gt; &#123;</div>
-                    <div className="ml-4">console.<span className="text-red-300">error</span>(<span className="text-orange-300">'Failed:'</span>, error);</div>
-                    <div className="ml-2">&#125;);</div>
-                  </div>
-                </div>
-                <div className="mt-4 bg-red-900/30 rounded-lg p-4">
-                  <div className="text-red-200 text-sm">
-                    <strong>Problems:</strong> Hard to read, nested callbacks, confusing flow
-                  </div>
-                </div>
-              </div>
-
-              {/* New Async/Await Way */}
-              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border-2 border-green-400">
-                <div className="text-5xl mb-6">😎</div>
-                <h4 className="text-2xl font-bold text-green-300 mb-6">New Way: async/await</h4>
-                <div className="bg-gray-900 rounded-lg p-6 text-left">
-                  <div className="text-white font-mono text-base space-y-1">
-                    <div><span className="text-purple-300">async</span> <span className="text-pink-300">function</span> <span className="text-yellow-300">getUser</span>() &#123;</div>
-                    <div className="ml-2"><span className="text-purple-300">try</span> &#123;</div>
-                    <div className="ml-4"><span className="text-pink-300">const</span> response = <span className="text-purple-300">await</span> <span className="text-yellow-300">fetch</span>(<span className="text-orange-300">'https://api.github.com/users/tanay'</span>);</div>
-                    <div className="ml-4"><span className="text-pink-300">const</span> data = <span className="text-purple-300">await</span> response.<span className="text-yellow-300">json</span>();</div>
-                    <div className="ml-4"></div>
-                    <div className="ml-4">console.<span className="text-yellow-300">log</span>(data.<span className="text-green-300">name</span>);</div>
-                    <div className="ml-4">console.<span className="text-yellow-300">log</span>(data.<span className="text-green-300">followers</span>);</div>
-                    <div className="ml-2">&#125; <span className="text-purple-300">catch</span> (error) &#123;</div>
-                    <div className="ml-4">console.<span className="text-red-300">error</span>(<span className="text-orange-300">'Failed:'</span>, error);</div>
-                    <div className="ml-2">&#125;</div>
-                    <div>&#125;</div>
-                  </div>
-                </div>
-                <div className="mt-4 bg-green-900/30 rounded-lg p-4">
-                  <div className="text-green-200 text-sm">
-                    <strong>Benefits:</strong> Reads like normal code, easy to debug, clean flow
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Key Differences */}
-            <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-8 border border-blue-400/30 mb-8">
-              <h4 className="text-2xl font-bold text-white mb-6">🔍 Key Differences</h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-white/10 rounded-lg p-6">
-                  <h5 className="text-xl font-bold text-red-300 mb-4">❌ .then() Problems</h5>
-                  <div className="text-white/80 space-y-2 text-sm">
-                    <div>• Nested callbacks get confusing</div>
-                    <div>• Hard to read the flow</div>
-                    <div>• Error handling scattered</div>
-                    <div>• Difficult to debug</div>
-                  </div>
-                </div>
-                
-                <div className="bg-white/10 rounded-lg p-6">
-                  <h5 className="text-xl font-bold text-green-300 mb-4">✅ async/await Benefits</h5>
-                  <div className="text-white/80 space-y-2 text-sm">
-                    <div>• Code reads top to bottom</div>
-                    <div>• Looks like synchronous code</div>
-                    <div>• try/catch for all errors</div>
-                    <div>• Much easier to debug</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Important Notes */}
-            <div className="bg-yellow-500/20 rounded-xl p-6 border border-yellow-400/30">
-              <h4 className="text-xl font-bold text-yellow-300 mb-4">⚡ Remember</h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="text-center">
-                  <div className="text-3xl mb-2">🔑</div>
-                  <div className="text-white font-bold mb-1">async keyword</div>
-                  <div className="text-white/70 text-sm">Goes before function</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl mb-2">⏳</div>
-                  <div className="text-white font-bold mb-1">await keyword</div>
-                  <div className="text-white/70 text-sm">Goes before Promise</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
-      bgGradient: 'from-indigo-600 to-violet-700'
-    },
-
-    {
       id: 'introducing-fetch',
       title: 'Introducing Fetch',
       content: (
@@ -2300,6 +2367,119 @@ const Class3Slides = () => {
     },
 
     {
+      id: 'promise-code-example',
+      title: 'Promise Code Example',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <h2 className="text-5xl font-extrabold mb-8">Promise Code Example</h2>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="text-8xl mb-8 animate-float">💻</div>
+            <h3 className="text-3xl font-bold mb-12">See the difference: Old vs New Promise syntax</h3>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+              {/* Old Promise Way */}
+              <div className="bg-red-500/20 backdrop-blur rounded-xl p-8 border-2 border-red-400">
+                <div className="text-5xl mb-6">😵</div>
+                <h4 className="text-2xl font-bold text-red-300 mb-6">Old Way: .then() chains</h4>
+                <div className="bg-gray-900 rounded-lg p-6 text-left">
+                  <div className="text-white font-mono text-base space-y-1">
+                    <div><span className="text-yellow-300">fetch</span>(<span className="text-orange-300">'https://api.github.com/users/tanay'</span>)</div>
+                    <div className="ml-2"><span className="text-purple-300">.then</span>(response =&gt; &#123;</div>
+                    <div className="ml-4"><span className="text-pink-300">return</span> response.<span className="text-yellow-300">json</span>();</div>
+                    <div className="ml-2">&#125;)</div>
+                    <div className="ml-2"><span className="text-purple-300">.then</span>(data =&gt; &#123;</div>
+                    <div className="ml-4">console.<span className="text-yellow-300">log</span>(data.<span className="text-green-300">name</span>);</div>
+                    <div className="ml-4">console.<span className="text-yellow-300">log</span>(data.<span className="text-green-300">followers</span>);</div>
+                    <div className="ml-2">&#125;)</div>
+                    <div className="ml-2"><span className="text-purple-300">.catch</span>(error =&gt; &#123;</div>
+                    <div className="ml-4">console.<span className="text-red-300">error</span>(<span className="text-orange-300">'Failed:'</span>, error);</div>
+                    <div className="ml-2">&#125;);</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-red-900/30 rounded-lg p-4">
+                  <div className="text-red-200 text-sm">
+                    <strong>Problems:</strong> Hard to read, nested callbacks, confusing flow
+                  </div>
+                </div>
+              </div>
+
+              {/* New Async/Await Way */}
+              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border-2 border-green-400">
+                <div className="text-5xl mb-6">😎</div>
+                <h4 className="text-2xl font-bold text-green-300 mb-6">New Way: async/await</h4>
+                <div className="bg-gray-900 rounded-lg p-6 text-left">
+                  <div className="text-white font-mono text-base space-y-1">
+                    <div><span className="text-purple-300">async</span> <span className="text-pink-300">function</span> <span className="text-yellow-300">getUser</span>() &#123;</div>
+                    <div className="ml-2"><span className="text-purple-300">try</span> &#123;</div>
+                    <div className="ml-4"><span className="text-pink-300">const</span> response = <span className="text-purple-300">await</span> <span className="text-yellow-300">fetch</span>(<span className="text-orange-300">'https://api.github.com/users/tanay'</span>);</div>
+                    <div className="ml-4"><span className="text-pink-300">const</span> data = <span className="text-purple-300">await</span> response.<span className="text-yellow-300">json</span>();</div>
+                    <div className="ml-4"></div>
+                    <div className="ml-4">console.<span className="text-yellow-300">log</span>(data.<span className="text-green-300">name</span>);</div>
+                    <div className="ml-4">console.<span className="text-yellow-300">log</span>(data.<span className="text-green-300">followers</span>);</div>
+                    <div className="ml-2">&#125; <span className="text-purple-300">catch</span> (error) &#123;</div>
+                    <div className="ml-4">console.<span className="text-red-300">error</span>(<span className="text-orange-300">'Failed:'</span>, error);</div>
+                    <div className="ml-2">&#125;</div>
+                    <div>&#125;</div>
+                  </div>
+                </div>
+                <div className="mt-4 bg-green-900/30 rounded-lg p-4">
+                  <div className="text-green-200 text-sm">
+                    <strong>Benefits:</strong> Reads like normal code, easy to debug, clean flow
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Key Differences */}
+            <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-8 border border-blue-400/30 mb-8">
+              <h4 className="text-2xl font-bold text-white mb-6">🔍 Key Differences</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="bg-white/10 rounded-lg p-6">
+                  <h5 className="text-xl font-bold text-red-300 mb-4">❌ .then() Problems</h5>
+                  <div className="text-white/80 space-y-2 text-sm">
+                    <div>• Nested callbacks get confusing</div>
+                    <div>• Hard to read the flow</div>
+                    <div>• Error handling scattered</div>
+                    <div>• Difficult to debug</div>
+                  </div>
+                </div>
+                
+                <div className="bg-white/10 rounded-lg p-6">
+                  <h5 className="text-xl font-bold text-green-300 mb-4">✅ async/await Benefits</h5>
+                  <div className="text-white/80 space-y-2 text-sm">
+                    <div>• Code reads top to bottom</div>
+                    <div>• Looks like synchronous code</div>
+                    <div>• try/catch for all errors</div>
+                    <div>• Much easier to debug</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Important Notes */}
+            <div className="bg-yellow-500/20 rounded-xl p-6 border border-yellow-400/30">
+              <h4 className="text-xl font-bold text-yellow-300 mb-4">⚡ Remember</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="text-center">
+                  <div className="text-3xl mb-2">🔑</div>
+                  <div className="text-white font-bold mb-1">async keyword</div>
+                  <div className="text-white/70 text-sm">Goes before function</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl mb-2">⏳</div>
+                  <div className="text-white font-bold mb-1">await keyword</div>
+                  <div className="text-white/70 text-sm">Goes before Promise</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-indigo-600 to-violet-700'
+    },
+
+    {
       id: 'live-demo-weather',
       title: 'The Workflow',
       content: (
@@ -2412,56 +2592,275 @@ const Class3Slides = () => {
       bgGradient: 'from-red-600 to-pink-700'
     },
 
+
+
     {
-      id: 'key-takeaways-1',
-      title: 'Key Takeaways - Core Concepts',
+      id: 'api-keys-intro',
+      title: 'Introduction to API Keys',
       content: (
         <div className="text-white animate-fade-in text-center">
-          <h2 className="text-5xl font-extrabold mb-8">🎯 Key Takeaways</h2>
+          <h2 className="text-5xl font-extrabold mb-8">API Keys: Your Digital Passport</h2>
           
           <div className="max-w-6xl mx-auto">
-            <div className="text-8xl mb-8 animate-float">🧠</div>
-            <h3 className="text-3xl font-bold mb-12">Remember these core concepts!</h3>
+            <div className="text-8xl mb-8 animate-float">🔑</div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-blue-500/20 backdrop-blur rounded-xl p-8 border-2 border-blue-400">
-                <div className="text-7xl mb-6">🌐</div>
-                <h4 className="text-2xl font-bold text-blue-300 mb-4">APIs Make Apps Dynamic</h4>
-                <div className="space-y-3 text-white/80 text-left">
-                  <div>• Connect to real-world data</div>
-                  <div>• Keep content fresh and updated</div>
-                  <div>• Enable user personalization</div>
-                  <div>• Power modern web experiences</div>
+            {/* Step 1: What are API Keys */}
+            <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl p-8 border border-blue-400/30 mb-8">
+              <h3 className="text-3xl font-bold text-blue-300 mb-8">🎯 Step 1: What are API Keys?</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div className="bg-white/10 rounded-xl p-6">
+                  <div className="text-5xl mb-4">🎫</div>
+                  <h4 className="text-xl font-bold text-white mb-3">Like a VIP Pass</h4>
+                  <div className="text-white/80 text-sm">
+                    Gets you into exclusive events that regular people can't access
+                  </div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-6">
+                  <div className="text-5xl mb-4">🆔</div>
+                  <h4 className="text-xl font-bold text-white mb-3">Unique Identifier</h4>
+                  <div className="text-white/80 text-sm">
+                    Like your student ID - no one else has the same one
+                  </div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-6">
+                  <div className="text-5xl mb-4">📊</div>
+                  <h4 className="text-xl font-bold text-white mb-3">Usage Tracker</h4>
+                  <div className="text-white/80 text-sm">
+                    Counts how many times you use the API (like meal swipes)
+                  </div>
                 </div>
               </div>
 
-              <div className="bg-green-500/20 backdrop-blur rounded-xl p-8 border-2 border-green-400">
-                <div className="text-7xl mb-6">📄</div>
-                <h4 className="text-2xl font-bold text-green-300 mb-4">JSON is Essential</h4>
-                <div className="space-y-3 text-white/80 text-left">
-                  <div>• Universal data format</div>
-                  <div>• JSON.parse() to use data</div>
-                  <div>• JSON.stringify() to send data</div>
-                  <div>• Works with all programming languages</div>
+              <div className="bg-blue-900/30 rounded-lg p-6">
+                <h4 className="text-lg font-bold text-blue-200 mb-3">🔍 What They Look Like:</h4>
+                <div className="bg-gray-800 rounded p-4 font-mono text-sm">
+                  <div className="text-yellow-300">sk_1234567890abcdef</div>
+                  <div className="text-green-300">AIzaSyBvOkBo9L...</div>
+                  <div className="text-purple-300">pk_test_51H7...</div>
                 </div>
+                <div className="text-blue-200 text-xs mt-2">Long, random strings that are impossible to guess</div>
               </div>
+            </div>
 
-              <div className="bg-purple-500/20 backdrop-blur rounded-xl p-8 border-2 border-purple-400">
-                <div className="text-7xl mb-6">⚡</div>
-                <h4 className="text-2xl font-bold text-purple-300 mb-4">Fetch + Async/Await</h4>
-                <div className="space-y-3 text-white/80 text-left">
-                  <div>• Modern way to call APIs</div>
-                  <div>• Clean, readable code</div>
-                  <div>• Easy error handling with try/catch</div>
-                  <div>• Industry standard approach</div>
+            {/* Step 2: Why Do APIs Need Keys */}
+            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl p-8 border border-purple-400/30 mb-8">
+              <h3 className="text-3xl font-bold text-purple-300 mb-8">🤔 Step 2: Why Do APIs Need Keys?</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="bg-white/10 rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-purple-300 mb-4">🏢 Business Perspective</h4>
+                  <div className="space-y-4 text-white/80">
+                    <div className="bg-purple-900/50 rounded-lg p-4">
+                      <div className="text-purple-200 font-bold mb-2">💸 Servers Cost Money</div>
+                      <div className="text-white/90 text-sm">Every API call uses electricity, storage, and bandwidth</div>
+                    </div>
+                    <div className="bg-pink-900/50 rounded-lg p-4">
+                      <div className="text-pink-200 font-bold mb-2">📈 Track Usage</div>
+                      <div className="text-white/90 text-sm">Know who's using what, bill appropriately</div>
+                    </div>
+                    <div className="bg-red-900/50 rounded-lg p-4">
+                      <div className="text-red-200 font-bold mb-2">🚫 Prevent Abuse</div>
+                      <div className="text-white/90 text-sm">Stop spam bots from overwhelming the service</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white/10 rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-purple-300 mb-4">🏫 School Cafeteria Analogy</h4>
+                  <div className="space-y-4 text-white/80">
+                    <div className="bg-indigo-900/50 rounded-lg p-4">
+                      <div className="text-indigo-200 font-bold mb-2">🆔 Student ID Required</div>
+                      <div className="text-white/90 text-sm">"Show your ID to get food"</div>
+                    </div>
+                    <div className="bg-blue-900/50 rounded-lg p-4">
+                      <div className="text-blue-200 font-bold mb-2">💳 Meal Plan Limits</div>
+                      <div className="text-white/90 text-sm">"You get 21 meals per week"</div>
+                    </div>
+                    <div className="bg-teal-900/50 rounded-lg p-4">
+                      <div className="text-teal-200 font-bold mb-2">🚫 No ID, No Food</div>
+                      <div className="text-white/90 text-sm">"Random people can't just walk in"</div>
+                    </div>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            {/* Step 3: How to Get API Keys */}
+            <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl p-8 border border-green-400/30 mb-8">
+              <h3 className="text-3xl font-bold text-green-300 mb-8">📝 Step 3: How to Get API Keys</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div className="bg-white/10 rounded-xl p-6 text-center">
+                  <div className="text-4xl mb-4">🌐</div>
+                  <h4 className="text-lg font-bold text-white mb-3">1. Visit API Website</h4>
+                  <div className="text-white/70 text-sm">Go to the API provider's site</div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-6 text-center">
+                  <div className="text-4xl mb-4">📝</div>
+                  <h4 className="text-lg font-bold text-white mb-3">2. Sign Up</h4>
+                  <div className="text-white/70 text-sm">Create a free developer account</div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-6 text-center">
+                  <div className="text-4xl mb-4">🔑</div>
+                  <h4 className="text-lg font-bold text-white mb-3">3. Generate Key</h4>
+                  <div className="text-white/70 text-sm">Click "Create API Key" button</div>
+                </div>
+                <div className="bg-white/10 rounded-xl p-6 text-center">
+                  <div className="text-4xl mb-4">📋</div>
+                  <h4 className="text-lg font-bold text-white mb-3">4. Copy & Save</h4>
+                  <div className="text-white/70 text-sm">Store it safely for your code</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 4: How to Use API Keys in Code */}
+            <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-xl p-8 border border-yellow-400/30 mb-8">
+              <h3 className="text-3xl font-bold text-yellow-300 mb-8">💻 Step 4: Using API Keys in Your Code</h3>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Method 1: Headers */}
+                <div className="bg-white/10 rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-yellow-300 mb-4">📋 Method 1: In Headers (Most Common)</h4>
+                  <div className="bg-gray-800 rounded-lg p-4 text-left mb-4">
+                    <div className="text-white font-mono text-sm space-y-1">
+                      <div><span className="text-purple-300">const</span> response = <span className="text-purple-300">await</span> <span className="text-yellow-300">fetch</span>(<span className="text-orange-300">'https://api.weather.com/data'</span>, &#123;</div>
+                      <div className="ml-2">headers: &#123;</div>
+                      <div className="ml-4"><span className="text-green-300">'Authorization'</span>: <span className="text-yellow-300">'Bearer YOUR_API_KEY'</span>,</div>
+                      <div className="ml-4"><span className="text-green-300">'Content-Type'</span>: <span className="text-yellow-300">'application/json'</span></div>
+                      <div className="ml-2">&#125;</div>
+                      <div>&#125;);</div>
+                    </div>
+                  </div>
+                  <div className="text-yellow-200 text-xs">✅ More secure, professional approach</div>
+                </div>
+
+                {/* Method 2: URL */}
+                <div className="bg-white/10 rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-yellow-300 mb-4">🔗 Method 2: In URL (Simpler)</h4>
+                  <div className="bg-gray-800 rounded-lg p-4 text-left mb-4">
+                    <div className="text-white font-mono text-sm space-y-1">
+                      <div><span className="text-purple-300">const</span> apiKey = <span className="text-orange-300">'YOUR_API_KEY'</span>;</div>
+                      <div><span className="text-purple-300">const</span> url = <span className="text-orange-300">`https://api.weather.com/data?key=</span><span className="text-yellow-300">${'{'}apiKey{'}'}</span><span className="text-orange-300">`</span>;</div>
+                      <div></div>
+                      <div><span className="text-purple-300">const</span> response = <span className="text-purple-300">await</span> <span className="text-yellow-300">fetch</span>(url);</div>
+                    </div>
+                  </div>
+                  <div className="text-yellow-200 text-xs">⚠️ Easier to start with, but less secure</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 5: Security Best Practices */}
+            <div className="bg-gradient-to-r from-red-500/20 to-orange-500/20 rounded-xl p-8 border border-red-400/30 mb-8">
+              <h3 className="text-3xl font-bold text-red-300 mb-8">🔒 Step 5: Keep Your Keys Safe!</h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="bg-white/10 rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-red-300 mb-4">❌ Never Do This</h4>
+                  <div className="space-y-3 text-white/80 text-sm">
+                    <div className="bg-red-900/50 rounded p-3">
+                      <div className="text-red-200 font-bold">🚫 Put keys directly in code</div>
+                      <div className="text-white/70">Anyone can see your GitHub repo</div>
+                    </div>
+                    <div className="bg-red-900/50 rounded p-3">
+                      <div className="text-red-200 font-bold">🚫 Share keys in chat/email</div>
+                      <div className="text-white/70">They could rack up charges</div>
+                    </div>
+                    <div className="bg-red-900/50 rounded p-3">
+                      <div className="text-red-200 font-bold">🚫 Use same key everywhere</div>
+                      <div className="text-white/70">If one app breaks, all break</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white/10 rounded-xl p-6">
+                  <h4 className="text-xl font-bold text-green-300 mb-4">✅ Best Practices</h4>
+                  <div className="space-y-3 text-white/80 text-sm">
+                    <div className="bg-green-900/50 rounded p-3">
+                      <div className="text-green-200 font-bold">🔒 Use environment variables</div>
+                      <div className="text-white/70">Store keys in .env files</div>
+                    </div>
+                    <div className="bg-green-900/50 rounded p-3">
+                      <div className="text-green-200 font-bold">🙈 Add .env to .gitignore</div>
+                      <div className="text-white/70">Never commit keys to GitHub</div>
+                    </div>
+                    <div className="bg-green-900/50 rounded p-3">
+                      <div className="text-green-200 font-bold">🔄 Rotate keys regularly</div>
+                      <div className="text-white/70">Generate new ones periodically</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            {/* Real Examples */}
+            <div className="bg-gradient-to-r from-indigo-500/20 to-purple-500/20 rounded-xl p-8 border border-indigo-400/30 mb-8">
+              <h3 className="text-3xl font-bold text-indigo-300 mb-8">🌟 Real API Examples</h3>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="bg-white/10 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">🌤️</div>
+                  <div className="text-white font-bold text-sm mb-1">OpenWeatherMap</div>
+                  <div className="text-white/70 text-xs">60 calls/min free</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">🗺️</div>
+                  <div className="text-white font-bold text-sm mb-1">Google Maps</div>
+                  <div className="text-white/70 text-xs">$200 credit free</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">💰</div>
+                  <div className="text-white font-bold text-sm mb-1">Stripe</div>
+                  <div className="text-white/70 text-xs">Free test mode</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">🤖</div>
+                  <div className="text-white font-bold text-sm mb-1">OpenAI</div>
+                  <div className="text-white/70 text-xs">$5 free credit</div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-violet-600 to-purple-700'
+    },
+
+    {
+      id: 'closing-message',
+      title: 'Have a Great Week!',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <h2 className="text-5xl font-extrabold mb-8">Have a Great Rest of Your Week!</h2>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="text-8xl mb-8 animate-float">👋</div>
+            
+            <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-8 border border-blue-400/30 mb-8">
+              <div className="text-6xl mb-6">📧</div>
+              <h3 className="text-3xl font-bold mb-6">Extra Credit Reminder</h3>
+              <p className="text-white/90 text-xl leading-relaxed">
+                Remember to have <strong>one person from your pair</strong> send me an email for the extra credit!
+              </p>
+            </div>
+            
+            <div className="text-2xl text-white/80 mb-8">
+              Great work today learning about APIs! 🎉
+            </div>
+            
+            <div className="text-lg text-white/70">
+              Keep practicing and exploring! 🚀
             </div>
           </div>
         </div>
       ),
-      bgGradient: 'from-cyan-600 to-blue-700'
-    },
+      bgGradient: 'from-blue-600 to-purple-700'
+    }
 
 
   ];
