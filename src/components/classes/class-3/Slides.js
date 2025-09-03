@@ -37,135 +37,12 @@ const customStyles = `
 
 
 
-// Visual HTTP Methods Demo
-const HTTPMethodsDemo = () => {
-  const [selectedMethod, setSelectedMethod] = useState('GET');
-  const [isAnimating, setIsAnimating] = useState(false);
 
-  const methods = {
-    'GET': {
-      emoji: '📥',
-      color: 'green',
-      action: 'Retrieve',
-      description: 'Get data from server',
-      example: 'Get user profile, fetch posts',
-      analogy: 'Like asking "What\'s in the fridge?"'
-    },
-    'POST': {
-      emoji: '📤',
-      color: 'blue', 
-      action: 'Create',
-      description: 'Send new data to server',
-      example: 'Create new account, post a photo',
-      analogy: 'Like putting new food in the fridge'
-    },
-    'PUT': {
-      emoji: '✏️',
-      color: 'orange',
-      action: 'Update',
-      description: 'Update existing data',
-      example: 'Edit profile, update post',
-      analogy: 'Like replacing old milk with fresh milk'
-    },
-    'DELETE': {
-      emoji: '🗑️',
-      color: 'red',
-      action: 'Remove', 
-      description: 'Delete data from server',
-      example: 'Delete account, remove post',
-      analogy: 'Like throwing away expired food'
-    }
-  };
-
-  const animateMethod = () => {
-    setIsAnimating(true);
-    setTimeout(() => setIsAnimating(false), 2000);
-  };
-
-  return (
-    <div className="max-w-6xl mx-auto">
-      {/* Method Selection */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-        {Object.entries(methods).map(([key, method]) => (
-          <button
-            key={key}
-            onClick={() => setSelectedMethod(key)}
-            className={`p-6 rounded-xl border-4 transition-all transform hover:scale-105 ${
-              selectedMethod === key 
-                ? `bg-${method.color}-500/30 border-${method.color}-400 shadow-2xl scale-110` 
-                : 'bg-white/10 border-white/30 hover:border-white/60'
-            }`}
-          >
-            <div className="text-5xl mb-3">{method.emoji}</div>
-            <div className="text-xl font-bold text-white">{key}</div>
-            <div className="text-white/70 text-sm">{method.action}</div>
-          </button>
-        ))}
-      </div>
-
-      {/* Selected Method Details */}
-      <div className={`bg-${methods[selectedMethod].color}-500/20 backdrop-blur rounded-xl p-8 border border-${methods[selectedMethod].color}-400/30`}>
-        <div className="text-center mb-8">
-          <div className={`text-8xl mb-4 ${isAnimating ? 'animate-bounce' : 'animate-float'}`}>
-            {methods[selectedMethod].emoji}
-          </div>
-          <h3 className="text-4xl font-bold text-white mb-4">{selectedMethod}</h3>
-          <p className="text-xl text-white/90">{methods[selectedMethod].description}</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white/10 rounded-xl p-6 text-center">
-            <h4 className="text-lg font-bold text-white mb-3">🎯 What it does</h4>
-            <p className="text-white/80">{methods[selectedMethod].action} data on the server</p>
-          </div>
-          
-          <div className="bg-white/10 rounded-xl p-6 text-center">
-            <h4 className="text-lg font-bold text-white mb-3">🌟 Real Examples</h4>
-            <p className="text-white/80">{methods[selectedMethod].example}</p>
-          </div>
-          
-          <div className="bg-white/10 rounded-xl p-6 text-center">
-            <h4 className="text-lg font-bold text-white mb-3">🏠 Kitchen Analogy</h4>
-            <p className="text-white/80">{methods[selectedMethod].analogy}</p>
-          </div>
-        </div>
-
-        <div className="text-center mt-6">
-          <button
-            onClick={animateMethod}
-            className={`bg-${methods[selectedMethod].color}-600 hover:bg-${methods[selectedMethod].color}-700 text-white px-6 py-3 rounded-lg font-bold transition-all transform hover:scale-105`}
-          >
-            🎬 Animate {selectedMethod}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 // JSON Visual Demo
 const JSONVisualDemo = () => {
   const [step, setStep] = useState('object');
   const [isAnimating, setIsAnimating] = useState(false);
-
-  const steps = {
-    'object': {
-      title: 'JavaScript Object',
-      emoji: '📦',
-      color: 'blue',
-      content: {
-        name: "Alice",
-        age: 25,
-        skills: ["JavaScript", "React"]
-      }
-    },
-    'json': {
-      title: 'JSON String',
-      emoji: '📄', 
-      color: 'green',
-      content: '{"name":"Alice","age":25,"skills":["JavaScript","React"]}'
-    }
-  };
 
   const animateConversion = async () => {
     setIsAnimating(true);
@@ -260,121 +137,7 @@ const JSONVisualDemo = () => {
   );
 };
 
-// Simple Fetch Demo
-const SimpleFetchDemo = () => {
-  const [step, setStep] = useState(1);
-  const [isLoading, setIsLoading] = useState(false);
-  const [userData, setUserData] = useState(null);
 
-  const steps = [
-    { 
-      id: 1, 
-      title: 'Write the fetch()', 
-      emoji: '✍️',
-      description: 'Tell JavaScript which API to call',
-      code: 'fetch("https://api.github.com/users/tanay")'
-    },
-    { 
-      id: 2, 
-      title: 'Wait for response', 
-      emoji: '⏳',
-      description: 'API server processes your request',
-      code: '.then(response => response.json())'
-    },
-    { 
-      id: 3, 
-      title: 'Use the data', 
-      emoji: '🎉',
-      description: 'Update your webpage with fresh data',
-      code: '.then(data => console.log(data.name))'
-    }
-  ];
-
-  const runDemo = async () => {
-    setIsLoading(true);
-    setUserData(null);
-    setStep(1);
-
-    // Animate through steps
-    for (let i = 1; i <= 3; i++) {
-      setStep(i);
-      await new Promise(resolve => setTimeout(resolve, 1500));
-    }
-
-    // Show result
-    setUserData({
-      name: "Tanay Gondil",
-      followers: 42,
-      avatar_url: "https://avatars.githubusercontent.com/u/1234567"
-    });
-    
-    setIsLoading(false);
-  };
-
-  return (
-    <div className="max-w-6xl mx-auto">
-      <div className="text-center mb-8">
-        <div className="text-8xl mb-6 animate-float">🚀</div>
-        <h3 className="text-3xl font-bold text-white mb-4">Fetch API in 3 Steps</h3>
-        <button
-          onClick={runDemo}
-          disabled={isLoading}
-          className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 disabled:opacity-50 text-white px-8 py-4 rounded-xl font-bold text-xl transition-all transform hover:scale-105"
-        >
-          {isLoading ? '⏳ Running Demo...' : '▶️ Run Fetch Demo'}
-        </button>
-      </div>
-
-      {/* Visual Steps */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        {steps.map((stepItem) => (
-          <div
-            key={stepItem.id}
-            className={`p-8 rounded-xl border-4 transition-all duration-500 ${
-              step >= stepItem.id && isLoading
-                ? 'bg-blue-500/30 border-blue-400 scale-110 animate-pulse-glow'
-                : step >= stepItem.id
-                ? 'bg-green-500/30 border-green-400'
-                : 'bg-white/10 border-white/30'
-            }`}
-          >
-            <div className="text-center">
-              <div className="text-6xl mb-4">{stepItem.emoji}</div>
-              <h4 className="text-xl font-bold text-white mb-3">Step {stepItem.id}</h4>
-              <div className="text-lg text-white/90 mb-3">{stepItem.title}</div>
-              <p className="text-white/70 text-sm mb-4">{stepItem.description}</p>
-              <div className="bg-gray-800 rounded-lg p-3">
-                <code className="text-blue-300 text-sm">{stepItem.code}</code>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Result */}
-      {userData && (
-        <div className="bg-green-500/20 rounded-xl p-8 border border-green-400/30 animate-fade-in">
-          <h4 className="text-2xl font-bold text-green-300 mb-6 text-center">✅ Success! Data Received</h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="text-center">
-              <div className="text-6xl mb-4">👨‍💻</div>
-              <div className="bg-white/10 rounded-lg p-6">
-                <h5 className="text-xl font-bold text-white mb-2">{userData.name}</h5>
-                <div className="text-white/80">{userData.followers} followers</div>
-              </div>
-            </div>
-            <div className="bg-gray-800 rounded-lg p-4">
-              <div className="text-white/70 text-sm mb-2">Raw JSON Response:</div>
-              <pre className="text-green-300 text-sm">
-{JSON.stringify(userData, null, 2)}
-              </pre>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
 
 // Weather App Visual Demo
 const WeatherAppVisual = () => {
@@ -494,451 +257,11 @@ const WeatherAppVisual = () => {
   );
 };
 
-// DOM Connection Demo - Show how API data updates the webpage
-const DOMConnectionDemo = () => {
-  const [selectedDemo, setSelectedDemo] = useState('text-update');
-  const [isRunning, setIsRunning] = useState(false);
-  const [demoData, setDemoData] = useState(null);
 
-  const demos = {
-    'text-update': {
-      title: 'Update Text Content',
-      emoji: '✏️',
-      color: 'blue',
-      description: 'Change text on the page',
-      apiData: { name: "Tanay Gondil", followers: 42 },
-      domUpdate: 'textContent'
-    },
-    'image-update': {
-      title: 'Update Images',
-      emoji: '🖼️', 
-      color: 'green',
-      description: 'Change images dynamically',
-      apiData: { avatar_url: "https://via.placeholder.com/150/0000FF/FFFFFF?text=User" },
-      domUpdate: 'src attribute'
-    },
-    'list-update': {
-      title: 'Update Lists',
-      emoji: '📋',
-      color: 'purple',
-      description: 'Add items to lists',
-      apiData: { skills: ["JavaScript", "React", "APIs"] },
-      domUpdate: 'innerHTML'
-    }
-  };
 
-  const runDemo = async () => {
-    setIsRunning(true);
-    setDemoData(null);
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setDemoData(demos[selectedDemo].apiData);
-    
-    setTimeout(() => {
-      setIsRunning(false);
-    }, 3000);
-  };
 
-  return (
-    <div className="max-w-6xl mx-auto">
-             {/* Demo Selection */}
-       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-         {Object.entries(demos).map(([key, demo]) => (
-           <button
-             key={key}
-             onClick={() => setSelectedDemo(key)}
-             className={`p-4 rounded-xl border-4 transition-all transform hover:scale-105 ${
-               selectedDemo === key 
-                 ? `bg-${demo.color}-500/30 border-${demo.color}-400 shadow-2xl scale-110` 
-                 : 'bg-white/10 border-white/30 hover:border-white/60'
-             }`}
-           >
-             <div className="text-4xl mb-3">{demo.emoji}</div>
-             <div className="text-lg font-bold text-white mb-2">{demo.title}</div>
-             <div className="text-white/70 text-xs">{demo.description}</div>
-           </button>
-         ))}
-       </div>
- 
-       <div className="text-center mb-6">
-         <button
-           onClick={runDemo}
-           disabled={isRunning}
-           className={`bg-${demos[selectedDemo].color}-600 hover:bg-${demos[selectedDemo].color}-700 disabled:opacity-50 text-white px-6 py-3 rounded-xl font-bold text-lg transition-all transform hover:scale-105`}
-         >
-           {isRunning ? '⏳ Fetching Data...' : `🚀 Run ${demos[selectedDemo].title} Demo`}
-         </button>
-       </div>
 
-             {/* Visual Demo Area */}
-       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-         {/* Before (Empty State) */}
-         <div className="bg-gray-500/20 backdrop-blur rounded-xl p-6 border-2 border-gray-400">
-           <h4 className="text-lg font-bold text-white mb-4 text-center">📄 Before API Call</h4>
-           <div className="bg-white rounded-lg p-4 min-h-[150px] flex items-center justify-center">
-            {selectedDemo === 'text-update' && (
-              <div className="text-center">
-                <div className="text-gray-400 text-2xl mb-4">Loading user...</div>
-                <div className="text-gray-500">Followers: --</div>
-              </div>
-            )}
-            {selectedDemo === 'image-update' && (
-              <div className="w-24 h-24 bg-gray-300 rounded-full flex items-center justify-center">
-                <span className="text-gray-500">👤</span>
-              </div>
-            )}
-            {selectedDemo === 'list-update' && (
-              <div className="text-gray-400">
-                <div className="text-lg mb-4">Skills:</div>
-                <div className="text-sm">Loading...</div>
-              </div>
-            )}
-          </div>
-        </div>
-
-                 {/* After (With Data) */}
-         <div className={`bg-${demos[selectedDemo].color}-500/20 backdrop-blur rounded-xl p-6 border-2 border-${demos[selectedDemo].color}-400`}>
-           <h4 className="text-lg font-bold text-white mb-4 text-center">✨ After API Call</h4>
-           <div className="bg-white rounded-lg p-4 min-h-[150px] flex items-center justify-center">
-            {demoData && selectedDemo === 'text-update' && (
-              <div className="text-center animate-fade-in">
-                <div className="text-gray-800 text-2xl mb-4 font-bold">{demoData.name}</div>
-                <div className="text-gray-600">{demoData.followers} followers</div>
-              </div>
-            )}
-            {demoData && selectedDemo === 'image-update' && (
-              <img 
-                src={demoData.avatar_url} 
-                alt="User avatar" 
-                className="w-24 h-24 rounded-full animate-fade-in"
-              />
-            )}
-            {demoData && selectedDemo === 'list-update' && (
-              <div className="text-gray-800 animate-fade-in">
-                <div className="text-lg mb-4 font-bold">Skills:</div>
-                <div className="space-y-2">
-                  {demoData.skills.map((skill, i) => (
-                    <div key={i} className="bg-blue-100 px-3 py-1 rounded text-sm">
-                      {skill}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-            {!demoData && (
-              <div className="text-gray-400 text-center">
-                <div className="text-4xl mb-4">🎯</div>
-                <div>Click "Run Demo" to see the magic!</div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-             {/* The Connection */}
-       {demoData && (
-         <div className="mt-6 bg-yellow-500/20 rounded-xl p-4 border border-yellow-400/30 animate-fade-in">
-           <h4 className="text-lg font-bold text-yellow-300 mb-3 text-center">🔗 The Connection</h4>
-           <div className="text-center">
-             <div className="text-sm text-white/90 mb-3">
-               <strong>API Data</strong> → <strong>JavaScript</strong> → <strong>DOM</strong> → <strong>User Sees Change</strong>
-             </div>
-           </div>
-         </div>
-       )}
-    </div>
-  );
-};
-
-// Enhanced Error Handling Visual Demo
-const ErrorHandlingVisualDemo = () => {
-  const [scenario, setScenario] = useState('success');
-  const [isLoading, setIsLoading] = useState(false);
-
-  const scenarios = {
-    'success': {
-      emoji: '✅',
-      title: 'Everything Works',
-      color: 'green',
-      result: { message: "API call successful!", data: "Here's your data" }
-    },
-    'network-error': {
-      emoji: '📡',
-      title: 'Network Down',
-      color: 'red',
-      result: { error: "Network error - check your connection" }
-    },
-    'server-error': {
-      emoji: '🏢',
-      title: 'Server Error',
-      color: 'orange', 
-      result: { error: "Server error 500 - try again later" }
-    },
-    'invalid-data': {
-      emoji: '📄',
-      title: 'Bad Data',
-      color: 'purple',
-      result: { error: "Invalid JSON format received" }
-    }
-  };
-
-  const runScenario = async () => {
-    setIsLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    setIsLoading(false);
-  };
-
-  return (
-    <div className="max-w-6xl mx-auto">
-             <div className="text-center mb-6">
-         <h3 className="text-2xl font-bold text-white mb-4">🎭 Error Handling Scenarios</h3>
-         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-           {Object.entries(scenarios).map(([key, scenario]) => (
-             <button
-               key={key}
-               onClick={() => setScenario(key)}
-               className={`p-4 rounded-xl border-4 transition-all transform hover:scale-105 ${
-                 scenario === key 
-                   ? `bg-${scenarios[key].color}-500/30 border-${scenarios[key].color}-400 scale-110` 
-                   : 'bg-white/10 border-white/30'
-               }`}
-             >
-               <div className="text-3xl mb-2">{scenario.emoji}</div>
-               <div className="text-white font-bold text-xs">{scenario.title}</div>
-             </button>
-           ))}
-         </div>
-       </div>
- 
-       <div className="text-center mb-6">
-         <button
-           onClick={runScenario}
-           disabled={isLoading}
-           className="bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white px-6 py-3 rounded-xl font-bold text-lg transition-all transform hover:scale-105"
-         >
-           {isLoading ? '⏳ Testing...' : `🧪 Test ${scenarios[scenario].title}`}
-         </button>
-       </div>
-
-             {/* Result Display */}
-       <div className={`bg-${scenarios[scenario].color}-500/20 rounded-xl p-6 border border-${scenarios[scenario].color}-400/30`}>
-         <div className="text-center">
-           <div className="text-6xl mb-4">{scenarios[scenario].emoji}</div>
-           <h4 className="text-xl font-bold text-white mb-4">{scenarios[scenario].title}</h4>
-           
-           {isLoading ? (
-             <div className="bg-gray-800 rounded-lg p-4">
-               <div className="animate-spin w-6 h-6 border-4 border-blue-400 border-t-transparent rounded-full mx-auto mb-3"></div>
-               <div className="text-white/70 text-sm">Making API call...</div>
-             </div>
-           ) : (
-             <div className="bg-gray-800 rounded-lg p-4">
-               {scenarios[scenario].result.error ? (
-                 <div className="text-red-300">
-                   ❌ {scenarios[scenario].result.error}
-                 </div>
-               ) : (
-                 <div className="text-green-300">
-                   ✅ {scenarios[scenario].result.message}
-                 </div>
-               )}
-             </div>
-           )}
-         </div>
-       </div>
- 
-       <div className="mt-6 bg-yellow-500/20 rounded-xl p-4 border border-yellow-400/30">
-         <h4 className="text-lg font-bold text-yellow-300 mb-3 text-center">💡 Good Error Handling Shows Users:</h4>
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-           <div className="text-center">
-             <div className="text-2xl mb-1">⏳</div>
-             <div className="text-white font-bold text-sm">What's happening</div>
-             <div className="text-white/70 text-xs">Loading indicators</div>
-           </div>
-           <div className="text-center">
-             <div className="text-2xl mb-1">❌</div>
-             <div className="text-white font-bold text-sm">What went wrong</div>
-             <div className="text-white/70 text-xs">Clear error messages</div>
-           </div>
-           <div className="text-center">
-             <div className="text-2xl mb-1">🔄</div>
-             <div className="text-white font-bold text-sm">What to do next</div>
-             <div className="text-white/70 text-xs">Retry buttons, suggestions</div>
-           </div>
-         </div>
-       </div>
-    </div>
-  );
-};
-
-// Student-Friendly APIs Demo
-const StudentFriendlyAPIs = () => {
-  const [selectedAPI, setSelectedAPI] = useState('advice');
-  const [result, setResult] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const studentAPIs = {
-    'advice': {
-      name: 'Random Advice',
-      emoji: '💡',
-      color: 'blue',
-      description: 'Get life advice',
-      url: 'https://api.adviceslip.com/advice',
-      mockResponse: { slip: { advice: "Don't put off tomorrow what you can do today." } }
-    },
-    'quotes': {
-      name: 'Inspirational Quotes',
-      emoji: '📜',
-      color: 'purple',
-      description: 'Motivational quotes',
-      url: 'https://api.quotable.io/random',
-      mockResponse: { content: "The only way to do great work is to love what you do.", author: "Steve Jobs" }
-    },
-    'fox': {
-      name: 'Random Fox',
-      emoji: '🦊',
-      color: 'orange',
-      description: 'Cute fox pictures',
-      url: 'https://randomfox.ca/floof/',
-      mockResponse: { image: "https://randomfox.ca/images/fox1.jpg", link: "https://randomfox.ca/?id=1" }
-    },
-    'pokemon': {
-      name: 'Pokémon Data',
-      emoji: '⚡',
-      color: 'yellow',
-      description: 'Pokémon info',
-      url: 'https://pokeapi.co/api/v2/pokemon/pikachu',
-      mockResponse: { name: "pikachu", height: 4, weight: 60, types: [{ type: { name: "electric" } }] }
-    },
-    'jokes': {
-      name: 'Programming Jokes',
-      emoji: '😂',
-      color: 'green',
-      description: 'Developer humor',
-      url: 'https://official-joke-api.appspot.com/random_joke',
-      mockResponse: { setup: "Why do programmers prefer dark mode?", punchline: "Because light attracts bugs!" }
-    },
-    'facts': {
-      name: 'Random Facts',
-      emoji: '🧠',
-      color: 'teal',
-      description: 'Interesting trivia',
-      url: 'https://uselessfacts.jsph.pl/random.json',
-      mockResponse: { text: "Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still perfectly edible." }
-    }
-  };
-
-  const callAPI = async () => {
-    setIsLoading(true);
-    setResult(null);
-    
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setResult(studentAPIs[selectedAPI].mockResponse);
-    setIsLoading(false);
-  };
-
-  return (
-    <div className="max-w-6xl mx-auto">
-             <div className="text-center mb-6">
-         <h3 className="text-2xl font-bold text-white mb-4">🎯 Fun APIs to Practice With</h3>
-         <p className="text-lg text-white/80">All free, no API keys required!</p>
-       </div>
- 
-       {/* API Grid */}
-       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
-         {Object.entries(studentAPIs).map(([key, api]) => (
-           <button
-             key={key}
-             onClick={() => setSelectedAPI(key)}
-             className={`p-4 rounded-xl border-4 transition-all transform hover:scale-105 ${
-               selectedAPI === key 
-                 ? `bg-${api.color}-500/30 border-${api.color}-400 scale-110` 
-                 : 'bg-white/10 border-white/30'
-             }`}
-           >
-             <div className="text-3xl mb-2">{api.emoji}</div>
-             <div className="text-white font-bold text-xs">{api.name}</div>
-             <div className="text-white/70 text-xs mt-1">{api.description}</div>
-           </button>
-         ))}
-       </div>
- 
-       <div className="text-center mb-6">
-         <button
-           onClick={callAPI}
-           disabled={isLoading}
-           className={`bg-${studentAPIs[selectedAPI].color}-600 hover:bg-${studentAPIs[selectedAPI].color}-700 disabled:opacity-50 text-white px-6 py-3 rounded-xl font-bold text-lg transition-all transform hover:scale-105`}
-         >
-           {isLoading ? '⏳ Loading...' : `${studentAPIs[selectedAPI].emoji} Get ${studentAPIs[selectedAPI].name}`}
-         </button>
-       </div>
-
-             {/* Result Display */}
-       {result && (
-         <div className={`bg-${studentAPIs[selectedAPI].color}-500/20 rounded-xl p-6 border border-${studentAPIs[selectedAPI].color}-400/30 animate-fade-in`}>
-           <div className="text-center">
-             <div className="text-5xl mb-4">{studentAPIs[selectedAPI].emoji}</div>
-             <div className="bg-white rounded-lg p-4">
-              {selectedAPI === 'advice' && (
-                <div className="text-gray-800 text-lg italic">"{result.slip.advice}"</div>
-              )}
-              {selectedAPI === 'quotes' && (
-                <div className="text-gray-800">
-                  <div className="text-lg italic mb-3">"{result.content}"</div>
-                  <div className="text-sm font-bold">- {result.author}</div>
-                </div>
-              )}
-              {selectedAPI === 'fox' && (
-                <div className="text-gray-800">
-                  <div className="text-lg mb-3">🦊 Here's a cute fox!</div>
-                  <div className="text-sm text-blue-600">Image URL: {result.image}</div>
-                </div>
-              )}
-              {selectedAPI === 'pokemon' && (
-                <div className="text-gray-800">
-                  <div className="text-xl font-bold mb-2 capitalize">{result.name}</div>
-                  <div className="text-sm">Height: {result.height} | Weight: {result.weight}</div>
-                  <div className="text-sm mt-2">Type: {result.types[0].type.name}</div>
-                </div>
-              )}
-              {selectedAPI === 'jokes' && (
-                <div className="text-gray-800">
-                  <div className="text-lg mb-3">{result.setup}</div>
-                  <div className="text-lg font-bold text-blue-600">{result.punchline}</div>
-                </div>
-              )}
-              {selectedAPI === 'facts' && (
-                <div className="text-gray-800 text-lg">{result.text}</div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div className="mt-8 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-6 border border-blue-400/30">
-        <h4 className="text-xl font-bold text-white mb-4 text-center">🛠️ Perfect for Learning</h4>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="text-center">
-            <div className="text-3xl mb-2">🆓</div>
-            <div className="text-white font-bold">Free to Use</div>
-            <div className="text-white/70 text-sm">No signup required</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl mb-2">🎯</div>
-            <div className="text-white font-bold">Simple Data</div>
-            <div className="text-white/70 text-sm">Easy to understand responses</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl mb-2">🎮</div>
-            <div className="text-white font-bold">Fun Content</div>
-            <div className="text-white/70 text-sm">Engaging for practice</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 // Main Class 3 Slides Component
 const Class3Slides = () => {
@@ -2311,13 +1634,13 @@ const Class3Slides = () => {
                 <h4 className="text-2xl font-bold text-blue-300 mb-6">Regular Functions</h4>
                 <div className="bg-gray-800 rounded-lg p-6 text-left">
                   <div className="text-white font-mono text-lg space-y-2">
-                    <div className="text-green-300">// Function that returns a number</div>
+                    <div className="text-green-300">{/* Function that returns a number */}</div>
                     <div><span className="text-purple-300">function</span> <span className="text-yellow-300">add</span>(a, b) {'{'}</div>
                     <div>  <span className="text-pink-300">return</span> a + b;</div>
                     <div>{'}'}</div>
-                    <div className="mt-4 text-blue-300">// Call it, get result immediately</div>
+                    <div className="mt-4 text-blue-300">{/* Call it, get result immediately */}</div>
                     <div><span className="text-pink-300">const</span> result = <span className="text-yellow-300">add</span>(2, 3);</div>
-                    <div className="text-green-300">// result = 5 (right away!)</div>
+                    <div className="text-green-300">{/* result = 5 (right away!) */}</div>
                   </div>
                 </div>
               </div>
@@ -2327,13 +1650,13 @@ const Class3Slides = () => {
                 <h4 className="text-2xl font-bold text-purple-300 mb-6">Fetch Function</h4>
                 <div className="bg-gray-800 rounded-lg p-6 text-left">
                   <div className="text-white font-mono text-lg space-y-2">
-                    <div className="text-green-300">// Fetch returns a Promise</div>
+                    <div className="text-green-300">{/* Fetch returns a Promise */}</div>
                     <div><span className="text-pink-300">const</span> promise = <span className="text-yellow-300">fetch</span>(<span className="text-orange-300">'api.com/users'</span>);</div>
-                    <div className="text-green-300">// promise = Promise {'{'} pending {'}'}</div>
-                    <div className="mt-4 text-blue-300">// Use await to get actual data</div>
+                    <div className="text-green-300">{/* promise = Promise { pending } */}</div>
+                    <div className="mt-4 text-blue-300">{/* Use await to get actual data */}</div>
                     <div><span className="text-pink-300">const</span> response = <span className="text-purple-300">await</span> <span className="text-yellow-300">fetch</span>(<span className="text-orange-300">'api.com/users'</span>);</div>
                     <div><span className="text-pink-300">const</span> data = <span className="text-purple-300">await</span> response.<span className="text-yellow-300">json</span>();</div>
-                    <div className="text-green-300">// data = actual user info!</div>
+                    <div className="text-green-300">{/* data = actual user info! */}</div>
                   </div>
                 </div>
               </div>
@@ -2511,13 +1834,13 @@ const Class3Slides = () => {
                 <h4 className="text-2xl font-bold text-red-300 mb-6">Without Try/Catch</h4>
                 <div className="bg-gray-800 rounded-lg p-6 text-left">
                   <div className="text-white font-mono text-lg space-y-2">
-                    <div className="text-green-300">// This will crash your app!</div>
+                    <div className="text-green-300">{/* This will crash your app! */}</div>
                     <div><span className="text-pink-300">async function</span> <span className="text-yellow-300">getUser</span>() {'{'}</div>
                     <div>  <span className="text-pink-300">const</span> response = <span className="text-purple-300">await</span> <span className="text-yellow-300">fetch</span>(<span className="text-orange-300">'bad-url'</span>);</div>
                     <div>  <span className="text-pink-300">const</span> data = <span className="text-purple-300">await</span> response.<span className="text-yellow-300">json</span>();</div>
                     <div>  <span className="text-pink-300">return</span> data;</div>
                     <div>{'}'}</div>
-                    <div className="mt-4 text-red-300">// 💀 App crashes = bad UX</div>
+                    <div className="mt-4 text-red-300">{/* 💀 App crashes = bad UX */}</div>
                   </div>
                 </div>
                 <div className="mt-4 bg-red-900/50 rounded-lg p-4">
@@ -2533,7 +1856,7 @@ const Class3Slides = () => {
                 <h4 className="text-2xl font-bold text-green-300 mb-6">With Try/Catch</h4>
                 <div className="bg-gray-800 rounded-lg p-6 text-left">
                   <div className="text-white font-mono text-lg space-y-2">
-                    <div className="text-green-300">// This handles errors gracefully!</div>
+                    <div className="text-green-300">{/* This handles errors gracefully! */}</div>
                     <div><span className="text-pink-300">async function</span> <span className="text-yellow-300">getUser</span>() {'{'}</div>
                     <div>  <span className="text-blue-300">try</span> {'{'}</div>
                     <div>    <span className="text-pink-300">const</span> response = <span className="text-purple-300">await</span> <span className="text-yellow-300">fetch</span>(<span className="text-orange-300">'bad-url'</span>);</div>
@@ -2541,7 +1864,7 @@ const Class3Slides = () => {
                     <div>    <span className="text-pink-300">return</span> data;</div>
                     <div>  {'}'} <span className="text-orange-300">catch</span> (error) {'{'}</div>
                     <div>    <span className="text-yellow-300">console</span>.<span className="text-blue-300">log</span>(<span className="text-orange-300">'Oops!'</span>, error);</div>
-                    <div>    <span className="text-pink-300">return</span> <span className="text-red-300">null</span>; <span className="text-green-300">// Safe fallback</span></div>
+                    <div>    <span className="text-pink-300">return</span> <span className="text-red-300">null</span>; <span className="text-green-300">{/* Safe fallback */}</span></div>
                     <div>  {'}'}</div>
                     <div>{'}'}</div>
                   </div>
@@ -2847,14 +2170,6 @@ const Class3Slides = () => {
               <p className="text-white/90 text-xl leading-relaxed">
                 Remember to have <strong>one person from your pair</strong> send me an email for the extra credit!
               </p>
-            </div>
-            
-            <div className="text-2xl text-white/80 mb-8">
-              Great work today learning about APIs! 🎉
-            </div>
-            
-            <div className="text-lg text-white/70">
-              Keep practicing and exploring! 🚀
             </div>
           </div>
         </div>
