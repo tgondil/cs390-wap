@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { courseData } from '../data/courseData';
 import Class1Slides from '../components/classes/class-1/Slides';
 import Class2Slides from '../components/classes/class-2/Slides';
+import Class3Slides from '../components/classes/class-3/Slides';
 
 const ClassPage = () => {
   const { classNumber } = useParams();
@@ -15,6 +16,10 @@ const ClassPage = () => {
   
   if (classNum === 2) {
     return <Class2Slides />;
+  }
+  
+  if (classNum === 3) {
+    return <Class3Slides />;
   }
   
   // Find the specific class data

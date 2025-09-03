@@ -26,37 +26,37 @@ export const courseData = {
         },
         {
           classNumber: 2,
-          title: "Git, GitHub & HTML/CSS/JS Refresher",
+          title: "JavaScript for the Browser",
           objectives: [
-            "Configure Git and create first repository",
-            "Push code to GitHub",
-            "Build a simple static page with HTML/CSS",
-            "Add basic JavaScript for interactivity"
+            "Master DOM manipulation with JavaScript",
+            "Handle user events and interactions",
+            "Work with browser APIs and localStorage",
+            "Build interactive web applications without frameworks"
           ],
-          toolsIntroduced: ["Git", "GitHub", "Tailwind CSS (preview)"],
-          topics: ["Version control", "HTML semantics", "CSS styling", "JavaScript basics"],
-          homework: "Create 'About Me' webpage and push to GitHub"
+          toolsIntroduced: ["DOM API", "Event listeners", "Browser APIs", "localStorage"],
+          topics: ["DOM manipulation", "Event handling", "Browser APIs", "Interactive web development"],
+          homework: "Build interactive JavaScript web application"
         }
       ]
     },
     {
       week: 2,
-      title: "Introduction to React and Modern JavaScript",
-      description: "Learn React fundamentals and modern JavaScript features",
+      title: "JavaScript for the Browser and API Fundamentals",
+      description: "Master browser JavaScript and learn to work with external APIs",
       holiday: "Labor Day (Mon, Sep 2) - No class",
       classes: [
         {
           classNumber: 3,
-          title: "Intro to React & Project Setup",
+          title: "Introduction to APIs",
           objectives: [
-            "Understand what React is and why we use it",
-            "Set up a new React project using Vite or Create React App",
-            "Learn JSX syntax and virtual DOM concepts",
-            "Create first custom React component"
+            "Understand what APIs are and how they work",
+            "Learn REST API principles and HTTP methods",
+            "Make API calls using fetch and handle responses",
+            "Work with JSON data and error handling"
           ],
-          toolsIntroduced: ["React", "JSX", "Vite/Create React App"],
-          topics: ["React concepts", "Component architecture", "ES6+ features"],
-          homework: "Initialize React app and create custom component"
+          toolsIntroduced: ["REST APIs", "Fetch API", "JSON", "HTTP methods"],
+          topics: ["API concepts", "HTTP requests", "JSON data", "Error handling"],
+          homework: "Build app that fetches data from public API"
         }
       ]
     },
