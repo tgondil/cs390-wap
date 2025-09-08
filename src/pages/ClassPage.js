@@ -4,12 +4,13 @@ import { courseData } from '../data/courseData';
 import Class1Slides from '../components/classes/class-1/Slides';
 import Class2Slides from '../components/classes/class-2/Slides';
 import Class3Slides from '../components/classes/class-3/Slides';
+import Class4Slides from '../components/classes/class-4/Slides';
 
 const ClassPage = () => {
   const { classNumber } = useParams();
   const classNum = parseInt(classNumber);
   
-  // Special handling for Class 1 and 2 - use slide presentations
+  // Special handling for classes with slide presentations
   if (classNum === 1) {
     return <Class1Slides />;
   }
@@ -20,6 +21,10 @@ const ClassPage = () => {
   
   if (classNum === 3) {
     return <Class3Slides />;
+  }
+  
+  if (classNum === 4) {
+    return <Class4Slides />;
   }
   
   // Find the specific class data
