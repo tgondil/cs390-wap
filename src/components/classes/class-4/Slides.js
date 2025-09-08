@@ -419,15 +419,15 @@ const Class4Slides = () => {
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
               <div className="text-left space-y-6 text-xl leading-relaxed">
                 <div className="text-white font-semibold">
-                  What's the most random or unexpected skill you have?
+                  What was your childhood dream job?
                 </div>
                 
                 <div className="text-white font-semibold">
-                  What's the strangest piece of trivia you know that you've been waiting to tell someone?
+                  If you could instantly master any skill (like cooking, coding, or painting), what would it be?
                 </div>
                 
                 <div className="text-white font-semibold">
-                  If you had to give a TED Talk with no prep, what topic could you talk about for 10 minutes straight?
+                  What's the weirdest or funniest thing you've ever eaten?
                 </div>
               </div>
             </div>
@@ -448,15 +448,15 @@ const Class4Slides = () => {
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
               <div className="text-left space-y-6 text-xl leading-relaxed">
                 <div className="text-white font-semibold">
-                  What's the most data you've ever lost (photos, documents, etc.) and how did it happen?
+                  If you could trade lives with a celebrity for a day, who would it be and why?
                 </div>
                 
                 <div className="text-white font-semibold">
-                  If you could have a database of any information in the world, what would you want to know everything about?
+                  If you could be any historical figure for a day, who would you be?
                 </div>
                 
                 <div className="text-white font-semibold">
-                  What app do you use most that would be completely useless without a database?
+                  If you had to live in a different country for a year, which one would you pick?
                 </div>
               </div>
             </div>
