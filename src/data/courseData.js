@@ -62,34 +62,35 @@ export const courseData = {
     },
     {
       week: 3,
-      title: "React Components & Props",
-      description: "Master component composition and data flow in React",
+      title: "Databases & Scaling",
+      description: "Master database fundamentals and learn how to scale modern applications",
       classes: [
         {
           classNumber: 4,
-          title: "JSX, Components & Props in Depth",
+          title: "Introduction to Databases",
           objectives: [
-            "Master JSX syntax and component composition",
-            "Learn to pass and use props effectively",
-            "Implement dynamic rendering with array.map()",
-            "Add basic event handling"
+            "Understand what databases are and why they're essential",
+            "Learn the difference between SQL and NoSQL databases",
+            "Master ACID vs BASE principles and their tradeoffs",
+            "Explore when to use each type of database"
           ],
-          toolsIntroduced: ["Props", "Event handling"],
-          topics: ["Component composition", "Data flow", "Event handling", "Dynamic rendering"],
-          homework: "Build Team Members gallery with reusable components"
+          toolsIntroduced: ["Database concepts", "SQL vs NoSQL", "ACID properties", "BASE properties"],
+          topics: ["Database fundamentals", "NoSQL emergence", "ACID vs BASE", "Database selection criteria"],
+          homework: "Research and compare database options for a project scenario"
         },
         {
           classNumber: 5,
-          title: "State and Event Handling in React",
+          title: "Scaling Modern Applications",
           objectives: [
-            "Understand React state with useState hook",
-            "Handle user events and update state",
-            "Build interactive components (counter, forms)",
-            "Learn controlled inputs pattern"
+            "Understand why scaling is critical for business survival",
+            "Learn database scaling through replication and sharding",
+            "Master when and how to transition from monoliths to microservices",
+            "Implement performance optimization strategies with caching and load balancing",
+            "Analyze real-world scaling decisions from billion-dollar companies"
           ],
-          toolsIntroduced: ["useState", "useEffect (conceptual)"],
-          topics: ["State management", "Event handling", "Controlled components", "Unidirectional data flow"],
-          homework: "Build interactive counter and form components"
+          toolsIntroduced: ["Redis", "Database Sharding", "Load Balancers", "CDN", "Microservices Architecture"],
+          topics: ["Database Replication", "Sharding Strategies", "Monolith vs Microservices", "Caching Performance", "Load Balancing"],
+          homework: "Analyze scaling challenges for a chosen application and propose solutions"
         }
       ]
     },

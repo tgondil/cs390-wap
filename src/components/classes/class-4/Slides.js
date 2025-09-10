@@ -138,7 +138,61 @@ const Class4Slides = () => {
       bgGradient: 'from-pink-600 to-red-600'
     },
 
+    {
+      id: 'how-to-get-interviews',
+      title: 'How to Get Interviews',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <h2 className="text-5xl font-extrabold mb-8">How to Get Interviews</h2>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="text-8xl mb-8 animate-float">💼</div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              {/* Tip 1: Recruiters have quotas */}
+              <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-xl p-8 border border-blue-400/30">
+                <div className="text-6xl mb-6">🎯</div>
+                <h3 className="text-2xl font-bold text-blue-300 mb-4">Recruiters Have Quotas</h3>
+                <div className="text-white/90 text-lg leading-relaxed">
+                  <div className="mb-4">They need to fill positions to meet their targets</div>
+                  <div className="bg-blue-900/30 rounded-lg p-4">
+                    <div className="text-blue-200 font-bold text-sm">💡 This means:</div>
+                    <div className="text-white/80 text-sm mt-2">They want to help you succeed - you're helping them too!</div>
+                  </div>
+                </div>
+              </div>
 
+              {/* Tip 2: Show you know the company */}
+              <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl p-8 border border-green-400/30">
+                <div className="text-6xl mb-6">🏢</div>
+                <h3 className="text-2xl font-bold text-green-300 mb-4">Know Everything</h3>
+                <div className="text-white/90 text-lg leading-relaxed">
+                  <div className="mb-4">Tell them you know all about the company and role</div>
+                  <div className="bg-green-900/30 rounded-lg p-4">
+                    <div className="text-green-200 font-bold text-sm">💡 Research:</div>
+                    <div className="text-white/80 text-sm mt-2">Company mission, recent news, job requirements</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Tip 3: Urgency */}
+              <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl p-8 border border-purple-400/30">
+                <div className="text-6xl mb-6">⚡</div>
+                <h3 className="text-2xl font-bold text-purple-300 mb-4">Create Urgency</h3>
+                <div className="text-white/90 text-lg leading-relaxed">
+                  <div className="mb-4">Say you're looking for an interview THIS WEEK</div>
+                  <div className="bg-purple-900/30 rounded-lg p-4">
+                    <div className="text-purple-200 font-bold text-sm">💡 Why it works:</div>
+                    <div className="text-white/80 text-sm mt-2">Shows you're serious and ready to move fast</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-indigo-600 to-purple-600'
+    },
 
     {
       id: 'what-is-database-intro',
