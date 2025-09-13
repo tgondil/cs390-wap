@@ -1,6 +1,6 @@
 export const courseData = {
   title: "CS390 Web Application Programming",
-  subtitle: "Full-Stack MERN Development",
+  subtitle: "Tanay Gondil",
   description: "This 16-week course meets twice per week (29 classes total, with holidays observed) and guides students through building a full-stack website using the MERN stack (MongoDB, Express, React, Node.js).",
   duration: "16 weeks",
   totalClasses: 29,
