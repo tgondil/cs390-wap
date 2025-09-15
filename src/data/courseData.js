@@ -96,34 +96,36 @@ export const courseData = {
     },
     {
       week: 4,
-      title: "Styling with Tailwind CSS",
-      description: "Add professional styling and responsive design",
+      title: "Introduction to React",
+      description: "Learn React fundamentals and build interactive user interfaces",
       classes: [
         {
           classNumber: 6,
-          title: "Styling with Tailwind CSS",
+          title: "Introduction to React",
           objectives: [
-            "Set up Tailwind CSS in React project",
-            "Learn utility-first CSS approach",
-            "Style components with Tailwind classes",
-            "Implement responsive design patterns"
+            "Understand React's declarative programming model and mental framework",
+            "Master JSX syntax and embedding JavaScript expressions in markup",
+            "Create reusable components and compose them into complex UIs",
+            "Manage component state with useState hook and handle user interactions",
+            "Pass data between components using props and understand data flow"
           ],
-          toolsIntroduced: ["Tailwind CSS"],
-          topics: ["Utility-first CSS", "Responsive design", "Tailwind configuration"],
-          homework: "Create styled To-Do List app with state and Tailwind"
+          toolsIntroduced: ["React", "JSX", "useState Hook", "Component Architecture"],
+          topics: ["React Mental Model", "Components & Composition", "JSX Syntax & Rules", "Props & Data Flow", "State Management", "Event Handling", "Conditional Rendering", "List Rendering"],
+          homework: "Build interactive React application with multiple components, state, and user interactions"
         },
         {
           classNumber: 7,
-          title: "Multi-Page Application with React Router",
+          title: "Styling with Tailwind CSS",
           objectives: [
-            "Set up React Router for client-side routing",
-            "Create multiple pages/views in SPA",
-            "Implement navigation with Link components",
-            "Use URL parameters for dynamic pages"
+            "Set up Tailwind CSS in React project",
+            "Learn utility-first CSS approach and design system principles",
+            "Style React components with Tailwind classes",
+            "Implement responsive design patterns and mobile-first approach",
+            "Create professional-looking UIs with consistent design"
           ],
-          toolsIntroduced: ["React Router"],
-          topics: ["Client-side routing", "SPA navigation", "URL parameters"],
-          homework: "Add routing to existing project"
+          toolsIntroduced: ["Tailwind CSS", "Responsive Design", "Design Systems"],
+          topics: ["Utility-first CSS", "Responsive design", "Tailwind configuration", "Component styling", "Design consistency"],
+          homework: "Style your React app with Tailwind CSS and make it fully responsive"
         }
       ]
     },
@@ -135,16 +137,17 @@ export const courseData = {
       classes: [
         {
           classNumber: 8,
-          title: "Global State with Context API",
+          title: "Multi-Page Applications with React Router",
           objectives: [
-            "Understand prop drilling problems",
-            "Create and use React Context",
-            "Implement theme or auth context",
-            "Use useContext hook to consume context"
+            "Set up React Router for client-side routing",
+            "Create multiple pages/views in single-page applications",
+            "Implement navigation with Link components and programmatic routing",
+            "Use URL parameters and query strings for dynamic pages",
+            "Handle nested routes and route protection"
           ],
-          toolsIntroduced: ["Context API", "useContext"],
-          topics: ["Global state management", "Context providers", "State sharing"],
-          homework: "Build Personal Portfolio SPA with routing and context"
+          toolsIntroduced: ["React Router", "Client-side Routing", "SPA Navigation"],
+          topics: ["Client-side routing", "SPA navigation", "URL parameters", "Nested routes", "Route protection"],
+          homework: "Add multi-page routing to your React application"
         }
       ]
     },
@@ -539,16 +542,17 @@ export const techStack = [
   { name: "HTML", category: "Frontend", week: 1 },
   { name: "CSS", category: "Frontend", week: 1 },
   { name: "JavaScript", category: "Frontend", week: 1 },
-  { name: "React", category: "Frontend", week: 2 },
-  { name: "Tailwind CSS", category: "Frontend", week: 3 },
-  { name: "React Router", category: "Frontend", week: 4 },
-  { name: "Context API", category: "Frontend", week: 4 },
-  { name: "Node.js", category: "Backend", week: 5 },
-  { name: "Express.js", category: "Backend", week: 5 },
-  { name: "MongoDB", category: "Database", week: 6 },
-  { name: "Mongoose", category: "Database", week: 6 },
-  { name: "JWT", category: "Auth", week: 7 },
-  { name: "bcrypt", category: "Auth", week: 7 },
-  { name: "Vercel", category: "Deployment", week: 10 },
-  { name: "Render", category: "Deployment", week: 10 }
+  { name: "React", category: "Frontend", week: 4 },
+  { name: "JSX", category: "Frontend", week: 4 },
+  { name: "Tailwind CSS", category: "Frontend", week: 4 },
+  { name: "React Router", category: "Frontend", week: 5 },
+  { name: "Context API", category: "Frontend", week: 6 },
+  { name: "Node.js", category: "Backend", week: 6 },
+  { name: "Express.js", category: "Backend", week: 6 },
+  { name: "MongoDB", category: "Database", week: 7 },
+  { name: "Mongoose", category: "Database", week: 7 },
+  { name: "JWT", category: "Auth", week: 8 },
+  { name: "bcrypt", category: "Auth", week: 8 },
+  { name: "Vercel", category: "Deployment", week: 11 },
+  { name: "Render", category: "Deployment", week: 11 }
 ]; 
