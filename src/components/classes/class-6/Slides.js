@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+/* eslint-disable react/jsx-no-comment-textnodes */
+
 // Custom CSS for animations
 const customStyles = `
   @keyframes fade-in {
@@ -247,7 +249,7 @@ const Class6Slides = () => {
     },
 
     {
-      id: 'discuss-productivity',
+      id: 'discuss-personal-stories',
       title: 'Discuss!',
       content: (
         <div className="text-white animate-fade-in text-center">
@@ -257,15 +259,15 @@ const Class6Slides = () => {
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
               <div className="text-left space-y-6 text-xl leading-relaxed">
                 <div className="text-white font-semibold">
-                  What's your favorite productivity hack or life tip that actually works?
+                  What's the most meaningful compliment you've ever received, and why did it stick?
                 </div>
                 
                 <div className="text-white font-semibold">
-                  If you could automate one boring task in your life, what would it be?
+                  What's the story behind your name or a nickname you've had?
                 </div>
                 
                 <div className="text-white font-semibold">
-                  What's the most useful app or tool you discovered recently?
+                  What's the most memorable adventure or trip you've ever been on?
                 </div>
               </div>
             </div>
@@ -273,6 +275,35 @@ const Class6Slides = () => {
         </div>
       ),
       bgGradient: 'from-purple-600 to-pink-600'
+    },
+
+    {
+      id: 'discuss-future-dreams',
+      title: 'Discuss!',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <h2 className="text-5xl font-extrabold mb-12">Discuss!</h2>
+          
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
+              <div className="text-left space-y-6 text-xl leading-relaxed">
+                <div className="text-white font-semibold">
+                  What's a mystery or unsolved question in the world that fascinates you?
+                </div>
+                
+                <div className="text-white font-semibold">
+                  What would your ideal "perfect day" look like from start to finish?
+                </div>
+                
+                <div className="text-white font-semibold">
+                  What kind of person do you hope to become in 10 years?
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-pink-600 to-red-600'
     },
 
     {
@@ -2321,66 +2352,7 @@ const Class6Slides = () => {
               </div>
             </div>
 
-            {/* State vs Props */}
-            <div className="mb-12">
-              <h3 className="text-2xl font-bold text-purple-300 mb-8 text-center">⚖️ State vs Props: The Complete Picture</h3>
-              
-              <div className="bg-purple-500/20 backdrop-blur rounded-xl p-8 border-2 border-purple-400">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  <div className="bg-purple-900/30 rounded-lg p-6">
-                    <div className="text-purple-200 font-bold mb-4 text-center">🏠 State (Internal Data)</div>
-                    <div className="space-y-3 text-sm">
-                      <div className="flex items-start space-x-3">
-                        <div className="text-purple-400">👤</div>
-                        <div>Belongs to the component</div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="text-purple-400">🔄</div>
-                        <div>Can be changed by the component</div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="text-purple-400">🎭</div>
-                        <div>Causes re-render when updated</div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="text-purple-400">🔐</div>
-                        <div>Private to the component</div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="text-purple-400">💾</div>
-                        <div>Persists between renders</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-blue-900/30 rounded-lg p-6">
-                    <div className="text-blue-200 font-bold mb-4 text-center">📦 Props (External Data)</div>
-                    <div className="space-y-3 text-sm">
-                      <div className="flex items-start space-x-3">
-                        <div className="text-blue-400">👨‍👩‍👧‍👦</div>
-                        <div>Comes from parent component</div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="text-blue-400">🔒</div>
-                        <div>Read-only (cannot be changed)</div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="text-blue-400">⬇️</div>
-                        <div>Flows down from parent to child</div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="text-blue-400">🔄</div>
-                        <div>Makes components reusable</div>
-                      </div>
-                      <div className="flex items-start space-x-3">
-                        <div className="text-blue-400">📡</div>
-                        <div>Communication from parent</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
 
             {/* Common Mistakes */}
             <div className="bg-red-500/20 backdrop-blur rounded-xl p-8 border-2 border-red-400">
@@ -2435,6 +2407,101 @@ const Class6Slides = () => {
         </div>
       ),
       bgGradient: 'from-purple-600 via-pink-600 to-red-600'
+    },
+
+    {
+      id: 'state-vs-props-comparison',
+      title: 'State vs Props: The Complete Picture',
+      content: (
+        <div className="text-white animate-fade-in">
+          <h2 className="text-4xl font-extrabold mb-12 text-center">⚖️ State vs Props: The Complete Picture</h2>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 backdrop-blur rounded-xl p-8 border-2 border-purple-400">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="bg-purple-500/30 rounded-lg p-8 border border-purple-400/50">
+                  <div className="text-center mb-6">
+                    <div className="text-4xl mb-3">🏠</div>
+                    <div className="text-purple-200 font-bold text-2xl">State (Internal Data)</div>
+                  </div>
+                  <div className="space-y-4 text-lg">
+                    <div className="flex items-start space-x-4">
+                      <div className="text-purple-400 text-2xl">👤</div>
+                      <div>Belongs to the component</div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="text-purple-400 text-2xl">🔄</div>
+                      <div>Can be changed by the component</div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="text-purple-400 text-2xl">🎭</div>
+                      <div>Causes re-render when updated</div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="text-purple-400 text-2xl">🔐</div>
+                      <div>Private to the component</div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="text-purple-400 text-2xl">💾</div>
+                      <div>Persists between renders</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-blue-500/30 rounded-lg p-8 border border-blue-400/50">
+                  <div className="text-center mb-6">
+                    <div className="text-4xl mb-3">📦</div>
+                    <div className="text-blue-200 font-bold text-2xl">Props (External Data)</div>
+                  </div>
+                  <div className="space-y-4 text-lg">
+                    <div className="flex items-start space-x-4">
+                      <div className="text-blue-400 text-2xl">👨‍👩‍👧‍👦</div>
+                      <div>Comes from parent component</div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="text-blue-400 text-2xl">🔒</div>
+                      <div>Read-only (cannot be changed)</div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="text-blue-400 text-2xl">⬇️</div>
+                      <div>Flows down from parent to child</div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="text-blue-400 text-2xl">🔄</div>
+                      <div>Makes components reusable</div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="text-blue-400 text-2xl">📡</div>
+                      <div>Communication from parent</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Key Insight */}
+            <div className="mt-12 bg-yellow-500/20 rounded-xl p-8 border border-yellow-400/30">
+              <h4 className="text-2xl font-bold text-yellow-300 mb-4 text-center">💡 Key Insight</h4>
+              <p className="text-white/90 text-xl text-center">
+                The same data can be <strong>state</strong> in one component and <strong>props</strong> in another! 
+                It's all about perspective and ownership.
+              </p>
+            </div>
+
+            {/* Example */}
+            <div className="mt-8 bg-gray-800/50 rounded-xl p-6">
+              <div className="font-mono text-sm space-y-2">
+                <div><span className="text-gray-400">// In Parent: it's STATE</span></div>
+                <div><span className="text-pink-400">const</span> [user, setUser] = <span className="text-blue-400">useState</span>(&#123;name: <span className="text-yellow-400">"Alice"</span>&#125;);</div>
+                <div></div>
+                <div><span className="text-gray-400">// In Child: same data becomes PROPS</span></div>
+                <div>&lt;UserDisplay name=&#123;user.name&#125; /&gt;</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-purple-600 to-blue-600'
     },
 
     {
@@ -2746,91 +2813,26 @@ const Class6Slides = () => {
     },
 
     {
-      id: 'wrap-up',
-      title: 'Wrap Up',
+      id: 'closing-message',
+      title: 'Have a Great Week!',
       content: (
         <div className="text-white animate-fade-in text-center">
-          <h2 className="text-5xl font-extrabold mb-8">What We Learned</h2>
+          <h2 className="text-5xl font-extrabold mb-8">Have a Great Rest of Your Day!</h2>
           
-          <div className="max-w-6xl mx-auto">
-            <div className="text-8xl mb-8 animate-float">🚀</div>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-8xl mb-8 animate-float">👋</div>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-12">
-              <div className="bg-blue-500/20 backdrop-blur rounded-xl p-6 border-2 border-blue-400">
-                <div className="text-5xl mb-4">🎬</div>
-                <h4 className="text-xl font-bold text-blue-300 mb-3">React Mental Model</h4>
-                <div className="text-white/80 text-sm">Declarative UI like a movie director</div>
-              </div>
-
-              <div className="bg-green-500/20 backdrop-blur rounded-xl p-6 border-2 border-green-400">
-                <div className="text-5xl mb-4">🧱</div>
-                <h4 className="text-xl font-bold text-green-300 mb-3">Components</h4>
-                <div className="text-white/80 text-sm">LEGO bricks that return JSX</div>
-              </div>
-
-              <div className="bg-purple-500/20 backdrop-blur rounded-xl p-6 border-2 border-purple-400">
-                <div className="text-5xl mb-4">📝</div>
-                <h4 className="text-xl font-bold text-purple-300 mb-3">JSX Syntax</h4>
-                <div className="text-white/80 text-sm">HTML-like code in JavaScript</div>
-              </div>
-
-              <div className="bg-orange-500/20 backdrop-blur rounded-xl p-6 border-2 border-orange-400">
-                <div className="text-5xl mb-4">🍳</div>
-                <h4 className="text-xl font-bold text-orange-300 mb-3">Props</h4>
-                <div className="text-white/80 text-sm">Ingredients passed to components</div>
-              </div>
-
-              <div className="bg-pink-500/20 backdrop-blur rounded-xl p-6 border-2 border-pink-400">
-                <div className="text-5xl mb-4">💍</div>
-                <h4 className="text-xl font-bold text-pink-300 mb-3">State</h4>
-                <div className="text-white/80 text-sm">Mood ring that changes color</div>
-              </div>
-
-              <div className="bg-teal-500/20 backdrop-blur rounded-xl p-6 border-2 border-teal-400">
-                <div className="text-5xl mb-4">📻</div>
-                <h4 className="text-xl font-bold text-teal-300 mb-3">Events</h4>
-                <div className="text-white/80 text-sm">Two-way radio communication</div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-xl p-8 border border-green-400/30 mb-8">
-              <h4 className="text-3xl font-bold text-white mb-6">🎯 The React Way of Thinking</h4>
-              <div className="text-white/90 text-xl space-y-4">
-                <div>1. Break your UI into components</div>
-                <div>2. Identify what data each component needs</div>
-                <div>3. Write components that describe the UI for any given data</div>
-                <div>4. Let React handle updating the DOM when data changes</div>
-              </div>
-            </div>
-
-            <div className="bg-yellow-500/20 rounded-xl p-8 border border-yellow-400/30">
-              <h4 className="text-3xl font-bold text-yellow-300 mb-6">🌟 Coming Up Next</h4>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="text-center">
-                  <div className="text-4xl mb-3">🔗</div>
-                  <div className="text-white font-bold">Advanced Patterns</div>
-                  <div className="text-white/70 text-sm">useEffect, custom hooks</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl mb-3">🌐</div>
-                  <div className="text-white font-bold">APIs with React</div>
-                  <div className="text-white/70 text-sm">Fetching data in components</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl mb-3">🏗️</div>
-                  <div className="text-white font-bold">Larger Applications</div>
-                  <div className="text-white/70 text-sm">State management, routing</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-12">
-              <h3 className="text-4xl font-bold text-white mb-6">Master these fundamentals, and you'll think in React! 🚀</h3>
+            <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-8 border border-blue-400/30 mb-8">
+              <div className="text-6xl mb-6">📧</div>
+              <h3 className="text-3xl font-bold mb-6">Extra Credit Reminder</h3>
+              <p className="text-white/90 text-xl leading-relaxed">
+                Remember to have <strong>one person from your pair</strong> send me an email for the extra credit!
+              </p>
             </div>
           </div>
         </div>
       ),
-      bgGradient: 'from-green-600 to-blue-700'
+      bgGradient: 'from-blue-600 to-purple-700'
     }
   ];
 
