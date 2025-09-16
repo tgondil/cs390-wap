@@ -63,6 +63,16 @@ const WeeklyOverview = () => {
                     </Link>
                   </div>
                 )}
+                {week.week === 4 && (
+                  <div className="mt-4">
+                    <Link
+                      to="/pso/wordle"
+                      className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium text-sm"
+                    >
+                      🎯 PSO: Wordle Clone (Mini Project 1) →
+                    </Link>
+                  </div>
+                )}
               </div>
 
               {/* Classes in this week */}
