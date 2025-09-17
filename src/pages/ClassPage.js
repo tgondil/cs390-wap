@@ -7,6 +7,7 @@ import Class3Slides from '../components/classes/class-3/Slides';
 import Class4Slides from '../components/classes/class-4/Slides';
 import Class5Slides from '../components/classes/class-5/Slides';
 import Class6Slides from '../components/classes/class-6/Slides';
+import Class7Slides from '../components/classes/class-7/Slides';
 
 const ClassPage = () => {
   const { classNumber } = useParams();
@@ -35,6 +36,10 @@ const ClassPage = () => {
   
   if (classNum === 6) {
     return <Class6Slides />;
+  }
+  
+  if (classNum === 7) {
+    return <Class7Slides />;
   }
   
   // Find the specific class data

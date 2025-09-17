@@ -115,17 +115,17 @@ export const courseData = {
         },
         {
           classNumber: 7,
-          title: "Styling with Tailwind CSS",
+          title: "React Interactivity & Dynamic UI",
           objectives: [
-            "Set up Tailwind CSS in React project",
-            "Learn utility-first CSS approach and design system principles",
-            "Style React components with Tailwind classes",
-            "Implement responsive design patterns and mobile-first approach",
-            "Create professional-looking UIs with consistent design"
+            "Implement event handlers to respond to user interactions",
+            "Build conditional UIs that show/hide content based on state",
+            "Render dynamic lists from array data using array.map()",
+            "Enable child-to-parent communication by passing functions as props",
+            "Control form inputs with React state for predictable behavior"
           ],
-          toolsIntroduced: ["Tailwind CSS", "Responsive Design", "Design Systems"],
-          topics: ["Utility-first CSS", "Responsive design", "Tailwind configuration", "Component styling", "Design consistency"],
-          homework: "Style your React app with Tailwind CSS and make it fully responsive"
+          toolsIntroduced: ["Event Handling", "Conditional Rendering", "List Rendering", "Function Props", "Controlled Forms"],
+          topics: ["onClick and onChange events", "Ternary operators and logical AND", "Array.map() and key props", "Props down, events up", "Controlled vs uncontrolled inputs"],
+          homework: "Build interactive React components using all 5 concepts - event handling, conditional rendering, list rendering, function props, and controlled forms"
         }
       ]
     },
