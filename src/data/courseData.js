@@ -1,9 +1,9 @@
 export const courseData = {
   title: "CS390 Web Application Programming",
   subtitle: "Tanay Gondil",
-  description: "This 16-week course meets twice per week (29 classes total, with holidays observed) and guides students through building a full-stack website using the MERN stack (MongoDB, Express, React, Node.js).",
+  description: "This 16-week course meets twice per week (28 classes total, with holidays observed) and guides students through building a full-stack website using the MERN stack (MongoDB, Express, React, Node.js).",
   duration: "16 weeks",
-  totalClasses: 29,
+  totalClasses: 28,
   
   weeks: [
     {
@@ -513,28 +513,27 @@ export const courseData = {
     5: "Wed, Sep 10, 2025",
     6: "Mon, Sep 15, 2025",
     7: "Wed, Sep 17, 2025",
-    8: "Wed, Oct 15, 2025",     // Columbus Day (Mon, Oct 14) - No class
-    9: "Mon, Oct 20, 2025",
-    10: "Wed, Oct 22, 2025",
-    11: "Mon, Oct 27, 2025",
-    12: "Wed, Oct 29, 2025",
-    13: "Mon, Nov 03, 2025",
-    14: "Wed, Nov 05, 2025",
-    15: "Mon, Nov 10, 2025",
-    16: "Wed, Nov 12, 2025",
-    17: "Mon, Nov 17, 2025",
-    18: "Wed, Nov 19, 2025",
-    19: "Mon, Nov 24, 2025",
-    20: "Wed, Nov 26, 2025",     // Thanksgiving week - shortened week
-    21: "Mon, Dec 01, 2025",
-    22: "Wed, Dec 03, 2025",
-    23: "Mon, Dec 08, 2025",
-    24: "Wed, Dec 10, 2025",
-    25: "Wed, Dec 17, 2025",     // Thanksgiving (Mon, Nov 25) - No class
-    26: "Mon, Jan 13, 2026",     // Winter break gap
-    27: "Wed, Jan 15, 2026",
-    28: "Mon, Jan 20, 2026",     // Finals week
-    29: "Wed, Jan 22, 2026"
+    8: "Wed, Sep 24, 2025",     // Was Class 9, now Class 8 - Only class in Week 5
+    9: "Mon, Sep 29, 2025",     // Was Class 10, now Class 9
+    10: "Wed, Oct 01, 2025",    // Was Class 11, now Class 10
+    11: "Mon, Oct 06, 2025",    // Was Class 12, now Class 11
+    12: "Wed, Oct 08, 2025",    // Was Class 13, now Class 12
+    13: "Wed, Oct 15, 2025",    // Was Class 14, now Class 13 - Columbus Day (Mon, Oct 14) - No class
+    14: "Mon, Oct 20, 2025",    // Was Class 15, now Class 14
+    15: "Wed, Oct 22, 2025",    // Was Class 16, now Class 15
+    16: "Mon, Oct 27, 2025",    // Was Class 17, now Class 16
+    17: "Wed, Oct 29, 2025",    // Was Class 18, now Class 17
+    18: "Mon, Nov 03, 2025",    // Was Class 19, now Class 18
+    19: "Wed, Nov 05, 2025",    // Was Class 20, now Class 19
+    20: "Mon, Nov 10, 2025",    // Was Class 21, now Class 20
+    21: "Wed, Nov 12, 2025",    // Was Class 22, now Class 21
+    22: "Mon, Nov 17, 2025",    // Was Class 23, now Class 22
+    23: "Wed, Nov 19, 2025",    // Was Class 24, now Class 23
+    24: "Wed, Nov 26, 2025",    // Was Class 25, now Class 24 - Thanksgiving (Mon, Nov 25) - No class
+    25: "Mon, Dec 01, 2025",    // Was Class 26, now Class 25
+    26: "Wed, Dec 03, 2025",    // Was Class 27, now Class 26
+    27: "Mon, Dec 08, 2025",    // Was Class 28, now Class 27
+    28: "Wed, Dec 10, 2025"     // Was Class 29, now Class 28
   }
 };
 

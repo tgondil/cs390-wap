@@ -6,6 +6,7 @@ import Navigation from './components/Class1/Navigation';
 import PSOCSSDINERSlides from './components/classes/pso-css-diner/Slides';
 import PSOUntrustedSlides from './components/classes/pso-untrusted/Slides';
 import PSOWordleSlides from './components/classes/pso-wordle/Slides';
+import PSOWordle2Slides from './components/classes/pso-wordle2/Slides';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/pso/css-diner" element={<PSOCSSDINERSlides />} />
           <Route path="/pso/untrusted" element={<PSOUntrustedSlides />} />
           <Route path="/pso/wordle" element={<PSOWordleSlides />} />
+          <Route path="/pso/wordle2" element={<PSOWordle2Slides />} />
         </Routes>
       </div>
     </Router>
