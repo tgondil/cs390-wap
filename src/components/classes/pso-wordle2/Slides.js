@@ -25,22 +25,6 @@ const customStyles = `
   }
 `;
 
-const CodeBlock = ({ code, language = '', filename = '', className = '' }) => {
-  return (
-    <div className="relative group">
-      {filename && (
-        <div className="bg-gray-800 px-4 py-2 text-sm text-gray-300 rounded-t-lg border-b border-gray-600">
-          {filename}
-        </div>
-      )}
-      <div className={`bg-gray-900 rounded-lg ${filename ? 'rounded-t-none' : ''} p-4 relative ${className}`}>
-        <pre className="text-white font-mono text-sm overflow-x-auto whitespace-pre-wrap">
-          {code}
-        </pre>
-      </div>
-    </div>
-  );
-};
 
 // Interactive Step-by-Step Component
 const StepByStepGuide = ({ steps, title, emoji }) => {
@@ -213,6 +197,206 @@ const PSOWordle2Slides = () => {
                   Learn HOW to think, not just what to code
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+
+    {
+      id: 'codenames-intro',
+      title: 'Codenames - Game Rules',
+      bgGradient: 'from-orange-600 to-red-600',
+      content: (
+        <div className="text-white animate-fade-in space-y-8">
+          <div className="text-center mb-8">
+            <div className="text-8xl mb-6 animate-float">🕵️</div>
+            <h2 className="text-4xl font-extrabold mb-4">Codenames</h2>
+            <p className="text-xl text-white/80">A team-based word association game</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="bg-white/10 backdrop-blur rounded-xl p-6">
+              <h3 className="text-2xl font-bold text-yellow-300 mb-4">🎯 Objective</h3>
+              <p className="text-white/90 text-lg mb-4">
+                Two teams compete to identify their agents using one-word clues from their spymaster.
+              </p>
+              <ul className="space-y-2 text-white/90">
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <strong>Red Team</strong> vs <strong>Blue Team</strong>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  Each team has a <strong>Spymaster</strong> and <strong>Operatives</strong>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  First team to identify all their agents wins!
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur rounded-xl p-6">
+              <h3 className="text-2xl font-bold text-blue-300 mb-4">🗂️ The Board</h3>
+              <p className="text-white/90 text-lg mb-4">
+                25 word cards arranged in a 5×5 grid with hidden colors:
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-red-500/20 rounded-lg p-3 border border-red-400/30">
+                  <div className="font-bold text-red-300">Red Agents</div>
+                  <div className="text-white/80 text-sm">8-9 cards</div>
+                </div>
+                <div className="bg-blue-500/20 rounded-lg p-3 border border-blue-400/30">
+                  <div className="font-bold text-blue-300">Blue Agents</div>
+                  <div className="text-white/80 text-sm">8-9 cards</div>
+                </div>
+                <div className="bg-yellow-500/20 rounded-lg p-3 border border-yellow-400/30">
+                  <div className="font-bold text-yellow-300">Innocent</div>
+                  <div className="text-white/80 text-sm">7 cards</div>
+                </div>
+                <div className="bg-gray-500/20 rounded-lg p-3 border border-gray-400/30">
+                  <div className="font-bold text-gray-300">Assassin</div>
+                  <div className="text-white/80 text-sm">1 card ☠️</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl p-6 border border-purple-400/30">
+            <h3 className="text-2xl font-bold text-purple-300 mb-4">⚠️ Important</h3>
+            <p className="text-white/90 text-lg">
+              Only <strong>Spymasters</strong> can see the color-coded map. <strong>Operatives</strong> only see the words!
+            </p>
+          </div>
+        </div>
+      )
+    },
+
+    {
+      id: 'codenames-gameplay',
+      title: 'Codenames - How to Play',
+      bgGradient: 'from-red-600 to-pink-600',
+      content: (
+        <div className="text-white animate-fade-in space-y-8">
+          <div className="text-center mb-8">
+            <div className="text-6xl mb-4">🎮</div>
+            <h2 className="text-4xl font-extrabold mb-4">How to Play</h2>
+            <p className="text-xl text-white/80">Step-by-step gameplay</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <div className="bg-white/10 backdrop-blur rounded-xl p-6">
+                <h3 className="text-2xl font-bold text-green-300 mb-4">👑 Spymaster's Turn</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3">
+                    <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span>
+                    <div>
+                      <div className="font-bold text-green-200">Give a clue</div>
+                      <div className="text-white/80 text-sm">One word + number (e.g., "Animal 3")</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span>
+                    <div>
+                      <div className="font-bold text-green-200">The number</div>
+                      <div className="text-white/80 text-sm">How many cards relate to your clue</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</span>
+                    <div>
+                      <div className="font-bold text-green-200">No other words</div>
+                      <div className="text-white/80 text-sm">Can't say words on the board or give hints</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur rounded-xl p-6">
+                <h3 className="text-2xl font-bold text-blue-300 mb-4">🔍 Operatives' Turn</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start space-x-3">
+                    <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span>
+                    <div>
+                      <div className="font-bold text-blue-200">Discuss the clue</div>
+                      <div className="text-white/80 text-sm">Talk about which words might fit</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span>
+                    <div>
+                      <div className="font-bold text-blue-200">Make guesses</div>
+                      <div className="text-white/80 text-sm">Touch cards to reveal their colors</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <span className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</span>
+                    <div>
+                      <div className="font-bold text-blue-200">Get clue number + 1 guesses</div>
+                      <div className="text-white/80 text-sm">"Animal 3" = up to 4 guesses</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="bg-white/10 backdrop-blur rounded-xl p-6">
+                <h3 className="text-2xl font-bold text-yellow-300 mb-4">🎯 What Happens When You Guess</h3>
+                <div className="space-y-3">
+                  <div className="bg-red-500/20 rounded-lg p-3 border border-red-400/30">
+                    <div className="font-bold text-red-300">Red Agent ✅</div>
+                    <div className="text-white/80 text-sm">Red team gets the card, continue guessing</div>
+                  </div>
+                  <div className="bg-blue-500/20 rounded-lg p-3 border border-blue-400/30">
+                    <div className="font-bold text-blue-300">Blue Agent ✅</div>
+                    <div className="text-white/80 text-sm">Blue team gets the card, continue guessing</div>
+                  </div>
+                  <div className="bg-yellow-500/20 rounded-lg p-3 border border-yellow-400/30">
+                    <div className="font-bold text-yellow-300">Innocent 😐</div>
+                    <div className="text-white/80 text-sm">Turn ends, other team goes</div>
+                  </div>
+                  <div className="bg-gray-500/20 rounded-lg p-3 border border-gray-400/30">
+                    <div className="font-bold text-gray-300">Assassin ☠️</div>
+                    <div className="text-white/80 text-sm">Your team loses immediately!</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-green-500/20 to-blue-500/20 rounded-xl p-6 border border-green-400/30">
+                <h3 className="text-2xl font-bold text-green-300 mb-4">🏆 How to Win</h3>
+                <ul className="space-y-2 text-white/90">
+                  <li className="flex items-start">
+                    <span className="text-green-400 mr-2">✓</span>
+                    Identify all your team's agents first
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-400 mr-2">✓</span>
+                    OR the other team hits the assassin
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-xl p-6 border border-orange-400/30">
+              <h3 className="text-2xl font-bold text-orange-300 mb-4">🎮 Ready to Play?</h3>
+              <a 
+                href="https://codenames.game/room/bubble-scarecrow-hit" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-bold transition-all transform hover:scale-105 text-lg"
+              >
+                <span className="text-2xl mr-3">🕵️</span>
+                Join the Game
+                <span className="ml-2">→</span>
+              </a>
+              <p className="text-white/70 text-sm mt-3">
+                Click to join our Codenames room: bubble-scarecrow-hit
+              </p>
             </div>
           </div>
         </div>
