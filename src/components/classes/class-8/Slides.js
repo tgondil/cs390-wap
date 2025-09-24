@@ -110,19 +110,19 @@ const DependencyArrayDemo = () => {
     if (selectedPattern === 'empty') {
       setEffectRuns(1); // Only runs once
     }
-  }, []);
+  }, [selectedPattern]);
 
   useEffect(() => {
     if (selectedPattern === 'count') {
       setEffectRuns(prev => prev + 1);
     }
-  }, [count]);
+  }, [count, selectedPattern]);
 
   useEffect(() => {
     if (selectedPattern === 'both') {
       setEffectRuns(prev => prev + 1);
     }
-  }, [count, name]);
+  }, [count, name, selectedPattern]);
 
   const resetDemo = () => {
     setCount(0);
@@ -346,15 +346,15 @@ const Class8Slides = () => {
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
               <div className="text-left space-y-6 text-xl leading-relaxed">
                 <div className="text-white font-semibold">
-                  What's a hobby or activity you've picked up recently that you're excited about?
+                  What's the first movie you remember watching in theaters?
                 </div>
                 
                 <div className="text-white font-semibold">
-                  If you could instantly become an expert at any skill, what would you choose?
+                  What was your favorite cartoon growing up?
                 </div>
                 
                 <div className="text-white font-semibold">
-                  What's something you used to love doing as a kid that you'd like to try again?
+                  What's the most embarrassing trend you've ever been part of?
                 </div>
               </div>
             </div>
@@ -364,7 +364,38 @@ const Class8Slides = () => {
       bgGradient: 'from-purple-600 to-pink-600'
     },
 
-    // Slide 3: What We Know - State Review
+    // Slide 3: Discuss - Part 2
+    {
+      id: 'discuss-social-media',
+      title: 'Discuss!',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-12">Discuss!</h2>
+          
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
+              <div className="text-left space-y-6 text-xl leading-relaxed">
+                <div className="text-white font-semibold">
+                  What's your most used emoji?
+                </div>
+                
+                <div className="text-white font-semibold">
+                  If you had to delete all but one social media app, which would you keep?
+                </div>
+                
+                <div className="text-white font-semibold">
+                  Who's your favorite creator/influencer to follow?
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-green-600 to-teal-600'
+    },
+
+    // Slide 4: What We Know - State Review
     {
       id: 'what-we-know-state',
       title: 'What We Know: State',
@@ -413,18 +444,140 @@ const Class8Slides = () => {
       bgGradient: 'from-green-600 to-emerald-600'
     },
 
-    // Slide 4: The Problem - React's Purity Principle
+    // Slide 5: What Are Side Effects? (Definition First)
     {
-      id: 'the-problem',
-      title: 'The Problem - Breaking React\'s Purity',
+      id: 'what-are-side-effects-definition',
+      title: 'What Are Side Effects?',
+              content: (
+        <div className="text-white animate-fade-in text-center">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-8">What Are Side Effects?</h2>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="text-8xl mb-8 animate-float">🎯</div>
+            <h3 className="text-3xl font-bold mb-12 text-blue-300">The Core Definition</h3>
+            
+            <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20 mb-8">
+              <div className="text-3xl font-bold text-yellow-300 mb-6">📚 Computer Science Definition</div>
+              <div className="text-2xl leading-relaxed space-y-4">
+                <p>A <strong>side effect</strong> is any operation that affects something <span className="text-yellow-300">outside</span> the current function's scope.</p>
+                <p>It's called a "side" effect because it happens <strong>in addition to</strong> the main purpose of the function.</p>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              <div className="bg-green-500/20 rounded-xl p-8 border border-green-400/30">
+                <h4 className="text-2xl font-bold text-green-300 mb-6">✅ Pure Functions (No Side Effects)</h4>
+                <div className="space-y-4 text-left">
+                  <div className="flex items-center space-x-3">
+                    <div className="text-2xl">🧮</div>
+                    <div>
+                      <div className="font-bold">Mathematical Operations</div>
+                      <div className="text-green-200 text-sm">2 + 3 = 5 (always)</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="text-2xl">🔄</div>
+                    <div>
+                      <div className="font-bold">Data Transformations</div>
+                      <div className="text-green-200 text-sm">map, filter, reduce</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="text-2xl">📊</div>
+                    <div>
+                      <div className="font-bold">Calculations</div>
+                      <div className="text-green-200 text-sm">Same input = Same output</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-6 bg-green-600/30 rounded-lg p-4">
+                  <div className="text-green-100 text-center font-bold">Predictable & Testable</div>
+                </div>
+              </div>
+              
+              <div className="bg-orange-500/20 rounded-xl p-8 border border-orange-400/30">
+                <h4 className="text-2xl font-bold text-orange-300 mb-6">⚡ Functions with Side Effects</h4>
+                <div className="space-y-4 text-left">
+                  <div className="flex items-center space-x-3">
+                    <div className="text-2xl">🌐</div>
+                    <div>
+                      <div className="font-bold">Network Requests</div>
+                      <div className="text-orange-200 text-sm">Talking to external servers</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="text-2xl">📝</div>
+                    <div>
+                      <div className="font-bold">Writing to Storage</div>
+                      <div className="text-orange-200 text-sm">Files, databases, localStorage</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <div className="text-2xl">🖨️</div>
+                    <div>
+                      <div className="font-bold">Logging/Printing</div>
+                      <div className="text-orange-200 text-sm">console.log, alerts</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-6 bg-orange-600/30 rounded-lg p-4">
+                  <div className="text-orange-100 text-center font-bold">Unpredictable & Context-Dependent</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-purple-500/20 rounded-xl p-8 border border-purple-400/30 mb-8">
+              <div className="text-2xl font-bold text-purple-300 mb-4">🔍 How to Spot Side Effects</div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="bg-purple-600/20 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">🌍</div>
+                  <div className="font-bold text-sm">Reaches Outside</div>
+                  <div className="text-purple-200 text-xs">Affects external systems</div>
+                </div>
+                <div className="bg-purple-600/20 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">⏰</div>
+                  <div className="font-bold text-sm">Time-Dependent</div>
+                  <div className="text-purple-200 text-xs">Results change over time</div>
+                </div>
+                <div className="bg-purple-600/20 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">🎲</div>
+                  <div className="font-bold text-sm">Unpredictable</div>
+                  <div className="text-purple-200 text-xs">Can fail or vary</div>
+                </div>
+                <div className="bg-purple-600/20 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">🔗</div>
+                  <div className="font-bold text-sm">Has Dependencies</div>
+                  <div className="text-purple-200 text-xs">Relies on external state</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="bg-blue-500/20 rounded-xl p-8 border border-blue-400/30">
+              <div className="text-2xl font-bold text-blue-300 mb-4">💡 Key Insight</div>
+              <div className="text-lg text-blue-100">
+                Side effects aren't bad - they're <strong>necessary</strong> for useful applications! 
+                The challenge is managing them safely and predictably.
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-cyan-600 to-blue-600'
+    },
+
+        // Slide 6: React's Purity Principle
+    {
+      id: 'react-purity-principle',
+      title: 'React\'s Purity Principle',
       content: (
         <div className="text-white animate-fade-in text-center">
           <style>{customStyles}</style>
-          <h2 className="text-5xl font-extrabold mb-8">The Purity Problem</h2>
+          <h2 className="text-5xl font-extrabold mb-8">React's Purity Principle</h2>
           
           <div className="max-w-6xl mx-auto">
             <div className="text-8xl mb-8 animate-float">⚖️</div>
-            <h3 className="text-3xl font-bold mb-12 text-red-300">React Components Must Be Pure Functions</h3>
+            <h3 className="text-3xl font-bold mb-12 text-red-300">Components Must Be Pure Functions</h3>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
               <div className="bg-green-500/20 rounded-xl p-8 border-2 border-green-400">
@@ -484,129 +637,7 @@ const Class8Slides = () => {
       bgGradient: 'from-red-600 to-orange-600'
     },
 
-    // Slide 5: What Are Side Effects?
-    {
-      id: 'what-are-side-effects-definition',
-      title: 'What Are Side Effects?',
-      content: (
-        <div className="text-white animate-fade-in text-center">
-          <style>{customStyles}</style>
-          <h2 className="text-5xl font-extrabold mb-8">What Are Side Effects?</h2>
-          
-          <div className="max-w-6xl mx-auto">
-            <div className="text-8xl mb-8 animate-float">🎯</div>
-            <h3 className="text-3xl font-bold mb-12 text-blue-300">The Core Definition</h3>
-            
-            <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20 mb-8">
-              <div className="text-3xl font-bold text-yellow-300 mb-6">📚 Computer Science Definition</div>
-              <div className="text-2xl leading-relaxed space-y-4">
-                <p>A <strong>side effect</strong> is any operation that affects something <span className="text-yellow-300">outside</span> the current function's scope.</p>
-                <p>It's called a "side" effect because it happens <strong>in addition to</strong> the main purpose of the function.</p>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-green-500/20 rounded-xl p-8 border border-green-400/30">
-                <h4 className="text-2xl font-bold text-green-300 mb-6">✅ Pure Functions (No Side Effects)</h4>
-                <div className="space-y-4 text-left">
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">🧮</div>
-                    <div>
-                      <div className="font-bold">Mathematical Operations</div>
-                      <div className="text-green-200 text-sm">2 + 3 = 5 (always)</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">🔄</div>
-                    <div>
-                      <div className="font-bold">Data Transformations</div>
-                      <div className="text-green-200 text-sm">map, filter, reduce</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">📊</div>
-                    <div>
-                      <div className="font-bold">Calculations</div>
-                      <div className="text-green-200 text-sm">Same input = Same output</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-6 bg-green-600/30 rounded-lg p-4">
-                  <div className="text-green-100 text-center font-bold">Predictable & Testable</div>
-                </div>
-              </div>
-
-              <div className="bg-orange-500/20 rounded-xl p-8 border border-orange-400/30">
-                <h4 className="text-2xl font-bold text-orange-300 mb-6">⚡ Functions with Side Effects</h4>
-                <div className="space-y-4 text-left">
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">🌐</div>
-                    <div>
-                      <div className="font-bold">Network Requests</div>
-                      <div className="text-orange-200 text-sm">Talking to external servers</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">📝</div>
-                    <div>
-                      <div className="font-bold">Writing to Storage</div>
-                      <div className="text-orange-200 text-sm">Files, databases, localStorage</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">🖨️</div>
-                    <div>
-                      <div className="font-bold">Logging/Printing</div>
-                      <div className="text-orange-200 text-sm">console.log, alerts</div>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-6 bg-orange-600/30 rounded-lg p-4">
-                  <div className="text-orange-100 text-center font-bold">Unpredictable & Context-Dependent</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-purple-500/20 rounded-xl p-8 border border-purple-400/30 mb-8">
-              <div className="text-2xl font-bold text-purple-300 mb-4">🔍 How to Spot Side Effects</div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-purple-600/20 rounded-lg p-4 text-center">
-                  <div className="text-3xl mb-2">🌍</div>
-                  <div className="font-bold text-sm">Reaches Outside</div>
-                  <div className="text-purple-200 text-xs">Affects external systems</div>
-                </div>
-                <div className="bg-purple-600/20 rounded-lg p-4 text-center">
-                  <div className="text-3xl mb-2">⏰</div>
-                  <div className="font-bold text-sm">Time-Dependent</div>
-                  <div className="text-purple-200 text-xs">Results change over time</div>
-                </div>
-                <div className="bg-purple-600/20 rounded-lg p-4 text-center">
-                  <div className="text-3xl mb-2">🎲</div>
-                  <div className="font-bold text-sm">Unpredictable</div>
-                  <div className="text-purple-200 text-xs">Can fail or vary</div>
-                </div>
-                <div className="bg-purple-600/20 rounded-lg p-4 text-center">
-                  <div className="text-3xl mb-2">🔗</div>
-                  <div className="font-bold text-sm">Has Dependencies</div>
-                  <div className="text-purple-200 text-xs">Relies on external state</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-blue-500/20 rounded-xl p-8 border border-blue-400/30">
-              <div className="text-2xl font-bold text-blue-300 mb-4">💡 Key Insight</div>
-              <div className="text-lg text-blue-100">
-                Side effects aren't bad - they're <strong>necessary</strong> for useful applications! 
-                The challenge is managing them safely and predictably.
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
-      bgGradient: 'from-cyan-600 to-blue-600'
-    },
-
-    // Slide 6: Side Effects - The Necessary Evil
+    // Slide 7: Side Effects - The Necessary Evil
     {
       id: 'side-effects-necessary-evil',
       title: 'Side Effects - The Necessary Evil',
@@ -702,7 +733,7 @@ const Class8Slides = () => {
       bgGradient: 'from-purple-600 to-indigo-600'
     },
 
-        // Slide 7: The Side Effects Problem in React
+        // Slide 8: The Side Effects Problem in React
     {
       id: 'side-effects-problem-react',
       title: 'The Side Effects Problem in React',
@@ -801,7 +832,7 @@ const Class8Slides = () => {
       bgGradient: 'from-red-600 to-orange-600'
     },
 
-    // Slide 8: Enter useEffect - The Solution
+    // Slide 9: Enter useEffect - The Solution
     {
       id: 'enter-useeffect',
       title: 'Enter useEffect - The Solution',
@@ -855,7 +886,7 @@ const Class8Slides = () => {
       bgGradient: 'from-blue-600 to-cyan-600'
     },
 
-    // Slide 7: useEffect Timing Demo
+    // Slide 10: useEffect Timing Demo
     {
       id: 'useeffect-timing-demo',
       title: 'useEffect Timing Demo',
@@ -883,7 +914,7 @@ const Class8Slides = () => {
       bgGradient: 'from-indigo-600 to-blue-600'
     },
 
-    // Slide 10: useEffect Design Philosophy
+    // Slide 11: useEffect Design Philosophy
     {
       id: 'useeffect-philosophy',
       title: 'useEffect Design Philosophy',
@@ -1015,7 +1046,7 @@ const Class8Slides = () => {
       bgGradient: 'from-indigo-600 to-purple-600'
     },
 
-    // Slide 9: Interactive Dependency Demo
+         // Slide 12: Interactive Dependency Demo
     {
       id: 'dependency-interactive-demo',
       title: 'Interactive Dependency Demo',
@@ -1042,7 +1073,7 @@ const Class8Slides = () => {
       bgGradient: 'from-purple-600 to-pink-600'
     },
 
-    // Slide 10: No Dependencies Pattern
+         // Slide 13: No Dependencies Pattern
     {
       id: 'no-dependencies-pattern',
       title: 'No Dependencies - Every Render',
@@ -1125,7 +1156,7 @@ const Class8Slides = () => {
       bgGradient: 'from-red-600 to-orange-600'
     },
 
-    // Slide 11: Empty Dependencies Pattern
+         // Slide 14: Empty Dependencies Pattern
     {
       id: 'empty-dependencies-pattern',
       title: 'Empty Dependencies - Run Once',
@@ -1187,7 +1218,7 @@ const Class8Slides = () => {
       bgGradient: 'from-green-600 to-emerald-600'
     },
 
-    // Slide 12: Specific Dependencies Pattern
+         // Slide 15: Specific Dependencies Pattern
     {
       id: 'specific-dependencies-pattern',
       title: 'Specific Dependencies - Smart Updates',
@@ -1274,7 +1305,7 @@ const Class8Slides = () => {
       bgGradient: 'from-blue-600 to-cyan-600'
     },
 
-    // Slide 13: Multiple Dependencies
+         // Slide 16: Multiple Dependencies
     {
       id: 'multiple-dependencies',
       title: 'Multiple Dependencies',
@@ -1323,7 +1354,7 @@ const Class8Slides = () => {
       bgGradient: 'from-purple-600 to-indigo-600'
     },
 
-    // Slide 15: Data Fetching - Architecture Decisions
+         // Slide 17: Data Fetching - Architecture Decisions
     {
       id: 'data-fetching-intro',
       title: 'Data Fetching - Architecture Decisions',
@@ -1440,7 +1471,7 @@ const Class8Slides = () => {
       bgGradient: 'from-emerald-600 to-teal-600'
     },
 
-    // Slide 15: Interactive Data Fetching Demo
+         // Slide 18: Interactive Data Fetching Demo
     {
       id: 'data-fetching-demo',
       title: 'Interactive Data Fetching Demo',
@@ -1467,7 +1498,7 @@ const Class8Slides = () => {
       bgGradient: 'from-teal-600 to-blue-600'
     },
 
-    // Slide 16: Async/Await Pattern
+         // Slide 19: Async/Await Pattern
     {
       id: 'async-await-pattern',
       title: 'Async/Await in useEffect',
@@ -1530,7 +1561,7 @@ const Class8Slides = () => {
       bgGradient: 'from-yellow-600 to-orange-600'
     },
 
-    // Slide 17: Cleanup Functions Introduction
+         // Slide 20: Cleanup Functions Introduction
     {
       id: 'cleanup-intro',
       title: 'Cleanup Functions - Why They Matter',
@@ -1606,7 +1637,7 @@ const Class8Slides = () => {
       bgGradient: 'from-orange-600 to-red-600'
     },
 
-    // Slide 18: Cleanup - Memory Leaks Demo
+         // Slide 21: Cleanup - Memory Leaks Demo
     {
       id: 'cleanup-memory-leaks',
       title: 'Cleanup Demo - Memory Leaks',
@@ -1681,7 +1712,7 @@ const Class8Slides = () => {
       bgGradient: 'from-red-600 to-pink-600'
     },
 
-    // Slide 19: Event Listener Cleanup
+         // Slide 22: Event Listener Cleanup
     {
       id: 'event-listener-cleanup',
       title: 'Event Listener Cleanup',
@@ -1695,21 +1726,53 @@ const Class8Slides = () => {
             <h3 className="text-3xl font-bold mb-12">Cleaning Up Event Listeners</h3>
             
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20 mb-8">
+              <h4 className="text-xl font-bold text-blue-300 mb-4">🔧 Step-by-Step Breakdown</h4>
               <div className="bg-gray-900/50 rounded-lg p-6 font-mono text-sm">
                 <div className="text-green-300">useEffect(() =&gt; &#123;</div>
+                <div className="ml-4 text-gray-400">{`// STEP 1: Define the event handler function`}</div>
+                <div className="ml-4 text-gray-400">{`// WHY: We need a named function so we can reference it later for removal`}</div>
                 <div className="ml-4 text-blue-300">function handleResize() &#123;</div>
                 <div className="ml-8 text-yellow-300">setWindowSize(&#123;</div>
                 <div className="ml-12 text-yellow-300">width: window.innerWidth,</div>
                 <div className="ml-12 text-yellow-300">height: window.innerHeight</div>
                 <div className="ml-8 text-yellow-300">&#125;);</div>
                 <div className="ml-4 text-blue-300">&#125;</div>
-                <div className="ml-4 mt-3 text-orange-300">{`// Add event listener`}</div>
+                
+                <div className="ml-4 mt-3 text-gray-400">{`// STEP 2: Attach the listener to the global window object`}</div>
+                <div className="ml-4 text-gray-400">{`// HOW: This listener will fire every time the window is resized`}</div>
                 <div className="ml-4 text-yellow-300">window.addEventListener('resize', handleResize);</div>
-                <div className="ml-4 mt-3 text-orange-300">{`// Cleanup - remove event listener`}</div>
+                
+                <div className="ml-4 mt-3 text-gray-400">{`// STEP 3: Return cleanup function`}</div>
+                <div className="ml-4 text-gray-400">{`// WHY: Without this, each re-render adds a NEW listener!`}</div>
+                <div className="ml-4 text-gray-400">{`// RESULT: Memory leaks and multiple handlers firing`}</div>
                 <div className="ml-4 text-red-300">return () =&gt; &#123;</div>
+                <div className="ml-8 text-gray-400">{`// CRITICAL: Use the SAME function reference`}</div>
                 <div className="ml-8 text-red-300">window.removeEventListener('resize', handleResize);</div>
                 <div className="ml-4 text-red-300">&#125;;</div>
+                
+                <div className="text-gray-400">{`// Empty dependency array = run once on mount, cleanup on unmount`}</div>
                 <div className="text-green-300">&#125;, []);</div>
+              </div>
+            </div>
+            
+            <div className="bg-red-500/20 backdrop-blur rounded-xl p-8 border-2 border-red-400 mb-8">
+              <h4 className="text-2xl font-bold text-red-300 mb-6">🚨 What Happens Without Cleanup?</h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-red-600/30 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">📈</div>
+                  <div className="font-bold text-sm">Memory Usage Grows</div>
+                  <div className="text-red-200 text-xs">Each mount adds listeners</div>
+                </div>
+                <div className="bg-red-600/30 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">🔥</div>
+                  <div className="font-bold text-sm">Multiple Handlers</div>
+                  <div className="text-red-200 text-xs">Same event fires 10x</div>
+                </div>
+                <div className="bg-red-600/30 rounded-lg p-4 text-center">
+                  <div className="text-3xl mb-2">💥</div>
+                  <div className="font-bold text-sm">App Crashes</div>
+                  <div className="text-red-200 text-xs">Eventually runs out of memory</div>
+                </div>
               </div>
             </div>
 
@@ -1760,7 +1823,7 @@ const Class8Slides = () => {
       bgGradient: 'from-teal-600 to-blue-600'
     },
 
-    // Slide 20: Best Practices
+         // Slide 23: Best Practices
     {
       id: 'best-practices',
       title: 'useEffect Best Practices',
@@ -1839,7 +1902,7 @@ const Class8Slides = () => {
       bgGradient: 'from-violet-600 to-purple-600'
     },
 
-    // Slide 21: Multiple Effects Pattern
+         // Slide 24: Multiple Effects Pattern
     {
       id: 'multiple-effects',
       title: 'Multiple Effects - Separation of Concerns',
@@ -1853,30 +1916,60 @@ const Class8Slides = () => {
             <h3 className="text-3xl font-bold mb-12">Separation of Concerns</h3>
             
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20 mb-8">
+              <h4 className="text-xl font-bold text-blue-300 mb-4">🎯 Why Separate Effects? Each Has Different Concerns</h4>
               <div className="bg-gray-900/50 rounded-lg p-6 font-mono text-sm">
-                <div className="text-orange-300 mb-2">{`// Effect 1: Fetch user data`}</div>
+                <div className="text-orange-300 mb-2">{`// EFFECT 1: User Data - Depends on userId changes`}</div>
+                <div className="text-gray-400">{`// WHY SEPARATE: Different data source, different timing`}</div>
                 <div className="text-green-300">useEffect(() =&gt; &#123;</div>
+                <div className="ml-4 text-gray-400">{`// Guard clause: Don't fetch if no user selected`}</div>
                 <div className="ml-4 text-yellow-300">if (!userId) return;</div>
                 <div className="ml-4 text-yellow-300">fetch(`/api/users/$&#123;userId&#125;`)</div>
                 <div className="ml-6 text-yellow-300">.then(r =&gt; r.json())</div>
                 <div className="ml-6 text-yellow-300">.then(setUser);</div>
+                <div className="text-gray-400">{`// Runs when: userId changes`}</div>
                 <div className="text-green-300">&#125;, [userId]);</div>
                 
-                <div className="mt-4 text-orange-300">{`// Effect 2: Fetch user's posts`}</div>
+                <div className="mt-4 text-orange-300">{`// EFFECT 2: User's Posts - Also depends on userId, but DIFFERENT API call`}</div>
+                <div className="text-gray-400">{`// WHY SEPARATE: Different endpoint, could have different error handling`}</div>
                 <div className="text-green-300">useEffect(() =&gt; &#123;</div>
                 <div className="ml-4 text-yellow-300">if (!userId) return;</div>
                 <div className="ml-4 text-yellow-300">fetch(`/api/users/$&#123;userId&#125;/posts`)</div>
                 <div className="ml-6 text-yellow-300">.then(r =&gt; r.json())</div>
                 <div className="ml-6 text-yellow-300">.then(setPosts);</div>
+                <div className="text-gray-400">{`// Runs when: userId changes (parallel to Effect 1)`}</div>
                 <div className="text-green-300">&#125;, [userId]);</div>
                 
-                <div className="mt-4 text-orange-300">{`// Effect 3: Update document title`}</div>
+                <div className="mt-4 text-orange-300">{`// EFFECT 3: Document Title - Depends on user object, not userId`}</div>
+                <div className="text-gray-400">{`// WHY SEPARATE: Different dependency, different lifecycle`}</div>
                 <div className="text-green-300">useEffect(() =&gt; &#123;</div>
                 <div className="ml-4 text-yellow-300">if (user) &#123;</div>
                 <div className="ml-8 text-yellow-300">document.title = `$&#123;user.name&#125;'s Profile`;</div>
                 <div className="ml-4 text-yellow-300">&#125;</div>
+                <div className="ml-4 text-gray-400">{`// Cleanup: Reset title when component unmounts`}</div>
                 <div className="ml-4 text-blue-300">return () =&gt; document.title = 'My App';</div>
+                <div className="text-gray-400">{`// Runs when: user object changes (after Effect 1 succeeds)`}</div>
                 <div className="text-green-300">&#125;, [user]);</div>
+              </div>
+            </div>
+            
+            <div className="bg-blue-500/20 backdrop-blur rounded-xl p-8 border-2 border-blue-400 mb-8">
+              <h4 className="text-2xl font-bold text-blue-300 mb-6">⚡ The Power of Separation</h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="bg-blue-600/30 rounded-lg p-4">
+                  <div className="text-3xl mb-2">🎯</div>
+                  <div className="font-bold text-sm mb-2">Independent Execution</div>
+                  <div className="text-blue-200 text-xs">Each effect runs when ITS dependencies change, not others</div>
+                </div>
+                <div className="bg-blue-600/30 rounded-lg p-4">
+                  <div className="text-3xl mb-2">🐛</div>
+                  <div className="font-bold text-sm mb-2">Easier Debugging</div>
+                  <div className="text-blue-200 text-xs">If posts fail to load, user data still works</div>
+                </div>
+                <div className="bg-blue-600/30 rounded-lg p-4">
+                  <div className="text-3xl mb-2">🔧</div>
+                  <div className="font-bold text-sm mb-2">Maintainable Code</div>
+                  <div className="text-blue-200 text-xs">Each effect has one clear responsibility</div>
+                </div>
               </div>
             </div>
 
@@ -1931,99 +2024,17 @@ const Class8Slides = () => {
       bgGradient: 'from-blue-600 to-indigo-600'
     },
 
-    // Slide 22: Recap & Next Steps
+         // Slide 25: Thank You
     {
-      id: 'recap-next-steps',
-      title: 'Recap & Next Steps',
+      id: 'thank-you',
+      title: 'See you next week!',
       content: (
         <div className="text-white animate-fade-in text-center">
           <style>{customStyles}</style>
-          <h2 className="text-5xl font-extrabold mb-8">Recap & Next Steps</h2>
-          
-          <div className="max-w-6xl mx-auto">
-            <div className="text-8xl mb-8 animate-float">🎯</div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
-                <h3 className="text-2xl font-bold mb-6 text-green-300">✅ What We Mastered</h3>
-                <div className="space-y-4 text-left text-lg">
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">🪝</div>
-                    <div>useEffect manages side effects</div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">📦</div>
-                    <div>Dependency arrays control timing</div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">🌐</div>
-                    <div>Data fetching with loading/error states</div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">🧹</div>
-                    <div>Cleanup prevents memory leaks</div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">⚡</div>
-                    <div>Async/await patterns</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
-                <h3 className="text-2xl font-bold mb-6 text-blue-300">💡 Practice Projects</h3>
-                <div className="space-y-4 text-left text-lg">
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">🌤️</div>
-                    <div>Weather dashboard with auto-refresh</div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">📝</div>
-                    <div>Todo app with API backend</div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">⏰</div>
-                    <div>Timer/stopwatch with cleanup</div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">📊</div>
-                    <div>Live data dashboard</div>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="text-2xl">🎮</div>
-                    <div>Interactive game with events</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-xl p-8 border border-purple-400/30">
-              <h3 className="text-3xl font-bold text-purple-300 mb-4">🚀 Next Class Preview</h3>
-              <div className="text-xl text-purple-100 mb-4">
-                Advanced React Patterns: Custom Hooks & Context API
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-2xl mb-2">🏗️</div>
-                  <div className="font-bold">Custom Hooks</div>
-                  <div className="text-sm text-white/70">Reusable logic</div>
-                </div>
-                <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-2xl mb-2">🌍</div>
-                  <div className="font-bold">Context API</div>
-                  <div className="text-sm text-white/70">Global state</div>
-                </div>
-                <div className="bg-white/10 rounded-lg p-4">
-                  <div className="text-2xl mb-2">⚡</div>
-                  <div className="font-bold">Performance</div>
-                  <div className="text-sm text-white/70">Optimization</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <h2 className="text-6xl font-extrabold mb-8">See you next week!</h2>
         </div>
       ),
-      bgGradient: 'from-teal-600 to-green-600'
+      bgGradient: 'from-blue-600 to-purple-600'
     }
   ];
 
