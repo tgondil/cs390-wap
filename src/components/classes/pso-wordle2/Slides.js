@@ -191,7 +191,7 @@ const PSOWordle2Slides = () => {
             <div className="mx-auto max-w-2xl">
               <div className="bg-white/10 backdrop-blur rounded-3xl p-12 border border-white/20">
                 <div className="text-8xl mb-6 animate-float">🎯</div>
-                <h1 className="text-6xl font-extrabold tracking-tight mb-4">Wordle</h1>
+                <h1 className="text-6xl font-extrabold tracking-tight mb-4">Wordle (Part 2)</h1>
                 <h2 className="text-3xl font-semibold text-blue-200 mb-6">Problem-Solving Guide</h2>
                 <div className="text-xl text-blue-200">
                   Learn HOW to think, not just what to code

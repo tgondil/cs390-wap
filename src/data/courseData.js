@@ -131,23 +131,23 @@ export const courseData = {
     },
     {
       week: 5,
-      title: "React Router & Context API",
-      description: "Build multi-page SPAs and manage global state",
+      title: "React Side Effects & Advanced Patterns",
+      description: "Master useEffect for data fetching and side effect management",
       holiday: "Columbus Day (Mon, Oct 14) - No class",
       classes: [
         {
           classNumber: 8,
-          title: "Multi-Page Applications with React Router",
+          title: "useEffect & Side Effects in React",
           objectives: [
-            "Set up React Router for client-side routing",
-            "Create multiple pages/views in single-page applications",
-            "Implement navigation with Link components and programmatic routing",
-            "Use URL parameters and query strings for dynamic pages",
-            "Handle nested routes and route protection"
+            "Understand what side effects are in React",
+            "Learn to fetch data with useEffect",
+            "Manage cleanup functions (e.g., event listeners, intervals)",
+            "Differentiate between state updates and effects",
+            "Master dependency arrays and when effects run"
           ],
-          toolsIntroduced: ["React Router", "Client-side Routing", "SPA Navigation"],
-          topics: ["Client-side routing", "SPA navigation", "URL parameters", "Nested routes", "Route protection"],
-          homework: "Add multi-page routing to your React application"
+          toolsIntroduced: ["useEffect Hook", "Dependency Arrays", "Cleanup Functions", "Data Fetching Patterns"],
+          topics: ["useEffect hook", "Dependency arrays", "Fetching data from APIs", "Cleanup with return functions", "Component lifecycle"],
+          homework: "Build a React application using useEffect for data fetching and cleanup"
         }
       ]
     },
