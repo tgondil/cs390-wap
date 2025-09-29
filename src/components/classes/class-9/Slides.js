@@ -72,35 +72,95 @@ const Class9Slides = () => {
       bgGradient: 'from-green-600 to-emerald-700'
     },
 
-    // Slide 2: Discuss
+    // Slide 2: Codenames - Game Rules
     {
-      id: 'discuss-tech',
-      title: 'Discuss!',
+      id: 'codenames-intro',
+      title: 'Codenames - Game Rules',
       content: (
-        <div className="text-white animate-fade-in text-center">
+        <div className="text-white animate-fade-in space-y-8">
           <style>{customStyles}</style>
-          <h2 className="text-5xl font-extrabold mb-12">Discuss!</h2>
-          
-          <div className="max-w-4xl mx-auto space-y-8">
-            <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
-              <div className="text-left space-y-6 text-xl leading-relaxed">
-                <div className="text-white font-semibold">
-                  What's your favorite programming language and why?
+          <div className="text-center mb-8">
+            <div className="text-8xl mb-6 animate-float">🕵️</div>
+            <h2 className="text-4xl font-extrabold mb-4">Codenames</h2>
+            <p className="text-xl text-white/80">A team-based word association game</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="bg-white/10 backdrop-blur rounded-xl p-6">
+              <h3 className="text-2xl font-bold text-yellow-300 mb-4">🎯 Objective</h3>
+              <p className="text-white/90 text-lg mb-4">
+                Two teams compete to identify their agents using one-word clues from their spymaster.
+              </p>
+              <ul className="space-y-2 text-white/90">
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  <strong>Red Team</strong> vs <strong>Blue Team</strong>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  Each team has a <strong>Spymaster</strong> and <strong>Operatives</strong>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-yellow-400 mr-2">•</span>
+                  First team to identify all their agents wins!
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur rounded-xl p-6">
+              <h3 className="text-2xl font-bold text-blue-300 mb-4">🗂️ The Board</h3>
+              <p className="text-white/90 text-lg mb-4">
+                25 word cards arranged in a 5×5 grid with hidden colors:
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-red-500/20 rounded-lg p-3 border border-red-400/30">
+                  <div className="font-bold text-red-300">Red Agents</div>
+                  <div className="text-white/80 text-sm">8-9 cards</div>
                 </div>
-                
-                <div className="text-white font-semibold">
-                  Have you ever built anything outside of a web browser?
+                <div className="bg-blue-500/20 rounded-lg p-3 border border-blue-400/30">
+                  <div className="font-bold text-blue-300">Blue Agents</div>
+                  <div className="text-white/80 text-sm">8-9 cards</div>
                 </div>
-                
-                <div className="text-white font-semibold">
-                  What do you think "backend development" means?
+                <div className="bg-yellow-500/20 rounded-lg p-3 border border-yellow-400/30">
+                  <div className="font-bold text-yellow-300">Innocent</div>
+                  <div className="text-white/80 text-sm">7 cards</div>
+                </div>
+                <div className="bg-gray-500/20 rounded-lg p-3 border border-gray-400/30">
+                  <div className="font-bold text-gray-300">Assassin</div>
+                  <div className="text-white/80 text-sm">1 card ☠️</div>
                 </div>
               </div>
             </div>
           </div>
+
+          <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl p-6 border border-purple-400/30">
+            <h3 className="text-2xl font-bold text-purple-300 mb-4">⚠️ Important</h3>
+            <p className="text-white/90 text-lg">
+              Only <strong>Spymasters</strong> can see the color-coded map. <strong>Operatives</strong> only see the words!
+            </p>
+          </div>
+
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-xl p-6 border border-orange-400/30">
+              <h3 className="text-2xl font-bold text-orange-300 mb-4">🎮 Ready to Play?</h3>
+              <a 
+                href="https://codenames.game/room/washington-robot-fence" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-8 py-4 bg-orange-600 hover:bg-orange-700 text-white rounded-xl font-bold transition-all transform hover:scale-105 text-lg"
+              >
+                <span className="text-2xl mr-3">🕵️</span>
+                Join the Game
+                <span className="ml-2">→</span>
+              </a>
+              <p className="text-white/70 text-sm mt-3">
+                Click to join our Codenames room: washington-robot-fence
+              </p>
+            </div>
+          </div>
         </div>
       ),
-      bgGradient: 'from-purple-600 to-pink-600'
+      bgGradient: 'from-orange-600 to-red-600'
     },
 
     // Slide 3: The JavaScript Journey
@@ -2372,50 +2432,23 @@ const Class9Slides = () => {
       bgGradient: 'from-green-600 to-blue-600'
     },
 
-    // Slide 21: Thank You
+    // Slide 24: Thank You
     {
       id: 'thank-you',
-      title: 'Welcome to Node.js!',
+      title: 'Thank You!',
       content: (
         <div className="text-white animate-fade-in text-center">
           <style>{customStyles}</style>
           
           <div className="max-w-4xl mx-auto">
-            <div className="text-9xl mb-12 animate-bounce-in">🚀</div>
+            <div className="text-9xl mb-12 animate-bounce-in">🎉</div>
             
-            <h2 className="text-6xl font-extrabold mb-8 bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Welcome to Node.js!
+            <h2 className="text-6xl font-extrabold mb-12 bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Thank You!
             </h2>
             
-            <div className="text-2xl mb-12 text-gray-300 leading-relaxed">
-              The backend world is now open to you
-            </div>
-            
-            <div className="bg-white/10 backdrop-blur rounded-2xl p-12 border border-white/20 mb-12">
-              <div className="text-6xl mb-6 animate-pulse-glow">💻</div>
-              <div className="text-2xl font-bold text-green-300 mb-4">
-                JavaScript Everywhere!
-              </div>
-              <div className="text-lg text-gray-200">
-                You now have the power to build full-stack applications
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-green-500/20 rounded-xl p-6 border border-green-400/30">
-                <div className="text-4xl mb-4 animate-float">🌱</div>
-                <div className="text-lg font-bold text-green-300">Keep Exploring</div>
-              </div>
-              
-              <div className="bg-blue-500/20 rounded-xl p-6 border border-blue-400/30">
-                <div className="text-4xl mb-4 animate-float" style={{animationDelay: '0.5s'}}>💡</div>
-                <div className="text-lg font-bold text-blue-300">Keep Learning</div>
-              </div>
-              
-              <div className="bg-purple-500/20 rounded-xl p-6 border border-purple-400/30">
-                <div className="text-4xl mb-4 animate-float" style={{animationDelay: '1s'}}>🏗️</div>
-                <div className="text-lg font-bold text-purple-300">Keep Building</div>
-              </div>
+            <div className="text-2xl text-gray-300 leading-relaxed">
+              See you next week!
             </div>
           </div>
         </div>
