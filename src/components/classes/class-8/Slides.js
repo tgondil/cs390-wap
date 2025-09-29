@@ -67,8 +67,8 @@ const UseEffectTimingDemo = () => {
         >
           {isRunning ? "Running Demo..." : "▶️ Run Timing Demo"}
         </button>
-      </div>
-
+          </div>
+          
       <div className="flex justify-center space-x-8">
         {steps.map((stepItem, index) => (
           <div key={stepItem.id} className="text-center">
@@ -81,11 +81,11 @@ const UseEffectTimingDemo = () => {
             <p className="text-white/70 text-sm">{stepItem.description}</p>
           </div>
         ))}
-      </div>
+        </div>
 
       {step > 0 && (
         <div className="mt-8 bg-white/10 rounded-lg p-6 animate-slide-in">
-          <div className="text-center">
+            <div className="text-center">
             <div className="text-2xl font-bold text-white mb-2">
               Currently: {steps[step - 1]?.title}
             </div>
@@ -137,7 +137,7 @@ const DependencyArrayDemo = () => {
         <div className="bg-white/10 rounded-xl p-6 border border-white/20">
           <h4 className="text-2xl font-bold text-white mb-6">🎮 Interactive Demo</h4>
           
-          <div className="space-y-4">
+        <div className="space-y-4">
             <div>
               <label className="text-white font-bold block mb-2">Dependency Pattern:</label>
               <select 
@@ -152,12 +152,12 @@ const DependencyArrayDemo = () => {
             </div>
 
             <div className="space-y-3">
-              <button 
+            <button
                 onClick={() => setCount(c => c + 1)}
                 className="w-full bg-blue-500 hover:bg-blue-600 px-4 py-3 rounded font-bold text-white"
-              >
+            >
                 Count: {count} (Click to increment)
-              </button>
+            </button>
               
               <input 
                 type="text" 
@@ -167,15 +167,15 @@ const DependencyArrayDemo = () => {
                 placeholder="Change name..."
               />
               
-              <button 
+            <button
                 onClick={resetDemo}
                 className="w-full bg-red-500 hover:bg-red-600 px-4 py-3 rounded font-bold text-white"
-              >
+            >
                 🔄 Reset Demo
-              </button>
+            </button>
+            </div>
             </div>
           </div>
-        </div>
 
         {/* Results */}
         <div className="bg-white/10 rounded-xl p-6 border border-white/20">
@@ -213,7 +213,7 @@ const DataFetchingDemo = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const mockUsers = [
+      const mockUsers = [
     { id: 1, name: 'Alice Johnson', email: 'alice@example.com', role: 'Developer' },
     { id: 2, name: 'Bob Smith', email: 'bob@example.com', role: 'Designer' },
     { id: 3, name: 'Carol Davis', email: 'carol@example.com', role: 'Manager' }
@@ -227,26 +227,26 @@ const DataFetchingDemo = () => {
     // Simulate network delay
     setTimeout(() => {
       if (Math.random() > 0.2) { // 80% success rate
-        setUsers(mockUsers);
+      setUsers(mockUsers);
         setLoading(false);
       } else {
         setError('Failed to fetch users. Please try again.');
-        setLoading(false);
-      }
+      setLoading(false);
+    }
     }, 2000);
   };
 
   return (
     <div className="max-w-4xl mx-auto">
       <div className="text-center mb-8">
-        <button 
+            <button
           onClick={simulateFetch}
-          disabled={loading}
+              disabled={loading}
           className="bg-emerald-500 hover:bg-emerald-600 disabled:bg-gray-500 px-8 py-4 rounded-lg font-bold text-white text-xl transition-colors"
-        >
+            >
           {loading ? "🔄 Loading..." : "🌐 Fetch Users"}
-        </button>
-      </div>
+            </button>
+          </div>
 
       <div className="bg-white/10 rounded-xl p-6 border border-white/20 min-h-64">
         {loading && (
@@ -274,23 +274,23 @@ const DataFetchingDemo = () => {
             </div>
             
             <div className="space-y-4">
-              {users.map(user => (
+            {users.map(user => (
                 <div key={user.id} className="bg-gray-800/50 rounded-lg p-4 flex items-center space-x-4">
                   <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
                     {user.name.charAt(0)}
                   </div>
                   <div className="flex-1">
                     <div className="text-white font-bold">{user.name}</div>
-                    <div className="text-white/70 text-sm">{user.email}</div>
+                <div className="text-white/70 text-sm">{user.email}</div>
                   </div>
                   <div className="bg-purple-500/30 text-purple-300 px-3 py-1 rounded-full text-sm">
                     {user.role}
                   </div>
-                </div>
-              ))}
+              </div>
+            ))}
             </div>
-          </div>
-        )}
+              </div>
+            )}
 
         {!loading && !error && users.length === 0 && (
           <div className="text-center py-16">
@@ -299,7 +299,7 @@ const DataFetchingDemo = () => {
             <div className="text-white/70">Click the button above to load users</div>
           </div>
         )}
-      </div>
+        </div>
     </div>
   );
 };
@@ -322,13 +322,13 @@ const Class8Slides = () => {
             </h2>
             <div className="text-2xl text-blue-200">
               Class 8: useEffect & Side Effects
-            </div>
-          </div>
+              </div>
+              </div>
           
           <div className="mt-16">
             <div className="text-2xl font-medium text-white">Tanay Gondil</div>
-          </div>
-        </div>
+              </div>
+            </div>
       ),
       bgGradient: 'from-blue-600 to-purple-700'
     },
@@ -347,16 +347,16 @@ const Class8Slides = () => {
               <div className="text-left space-y-6 text-xl leading-relaxed">
                 <div className="text-white font-semibold">
                   What's the first movie you remember watching in theaters?
-                </div>
+            </div>
                 
                 <div className="text-white font-semibold">
                   What was your favorite cartoon growing up?
-                </div>
+        </div>
                 
                 <div className="text-white font-semibold">
                   What's the most embarrassing trend you've ever been part of?
-                </div>
-              </div>
+      </div>
+    </div>
             </div>
           </div>
         </div>
@@ -453,7 +453,7 @@ const Class8Slides = () => {
           <style>{customStyles}</style>
           <h2 className="text-5xl font-extrabold mb-8">What Are Side Effects?</h2>
           
-          <div className="max-w-6xl mx-auto">
+    <div className="max-w-6xl mx-auto">
             <div className="text-8xl mb-8 animate-float">🎯</div>
             <h3 className="text-3xl font-bold mb-12 text-blue-300">The Core Definition</h3>
             
@@ -582,12 +582,12 @@ const Class8Slides = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
               <div className="bg-green-500/20 rounded-xl p-8 border-2 border-green-400">
                 <h4 className="text-2xl font-bold text-green-300 mb-6">✅ Pure Component</h4>
-                <div className="space-y-6">
+        <div className="space-y-6">
                   <div className="bg-green-600/20 rounded-lg p-6">
                     <div className="text-4xl mb-4">🎯</div>
                     <div className="text-lg font-bold mb-2">Predictable</div>
                     <div className="text-green-200 text-sm">Same props + state = Same output</div>
-                  </div>
+              </div>
                   <div className="bg-green-600/20 rounded-lg p-6">
                     <div className="text-4xl mb-4">🔒</div>
                     <div className="text-lg font-bold mb-2">No Side Effects</div>
@@ -598,8 +598,8 @@ const Class8Slides = () => {
                     <div className="text-lg font-bold mb-2">Fast Re-renders</div>
                     <div className="text-green-200 text-sm">React can optimize safely</div>
                   </div>
-                </div>
-              </div>
+            </div>
+          </div>
 
               <div className="bg-red-500/20 rounded-xl p-8 border-2 border-red-400">
                 <h4 className="text-2xl font-bold text-red-300 mb-6">❌ Impure Component</h4>
@@ -608,7 +608,7 @@ const Class8Slides = () => {
                     <div className="text-4xl mb-4">🎲</div>
                     <div className="text-lg font-bold mb-2">Unpredictable</div>
                     <div className="text-red-200 text-sm">Different results each render</div>
-                  </div>
+              </div>
                   <div className="bg-red-600/20 rounded-lg p-6">
                     <div className="text-4xl mb-4">💥</div>
                     <div className="text-lg font-bold mb-2">Side Effects</div>
@@ -618,10 +618,10 @@ const Class8Slides = () => {
                     <div className="text-4xl mb-4">🐌</div>
                     <div className="text-lg font-bold mb-2">Performance Issues</div>
                     <div className="text-red-200 text-sm">Infinite loops, memory leaks</div>
-                  </div>
-                </div>
               </div>
             </div>
+          </div>
+        </div>
 
             <div className="bg-purple-500/20 rounded-xl p-8 border border-purple-400/30">
               <div className="text-2xl font-bold text-purple-300 mb-4">🧠 The Mental Model</div>
@@ -630,7 +630,7 @@ const Class8Slides = () => {
                 given the same inputs, they always produce the same output. 
                 Side effects break this assumption and cause chaos.
               </div>
-            </div>
+              </div>
           </div>
         </div>
       ),
@@ -655,8 +655,8 @@ const Class8Slides = () => {
               <div className="text-xl leading-relaxed space-y-4">
                 <p>React wants <strong>pure components</strong>, but useful apps need <strong>side effects</strong>!</p>
                 <p>Without side effects, your app would be a static, isolated bubble that never changes.</p>
-              </div>
-            </div>
+      </div>
+    </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               <div className="bg-blue-500/20 rounded-xl p-8 border border-blue-400/30">
@@ -756,9 +756,9 @@ const Class8Slides = () => {
                   <div className="ml-4 text-white">fetch('/api/user').then(setUser);</div>
                   <div className="ml-4 text-white">return &lt;div&gt;&#123;user?.name&#125;&lt;/div&gt;;</div>
                   <div className="text-blue-300">&#125;</div>
-                </div>
-              </div>
-              
+            </div>
+          </div>
+          
               <div className="text-2xl font-bold text-red-300 mb-4">🔄 Infinite Loop Chaos!</div>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div className="bg-red-600/30 rounded-lg p-4 text-center">
@@ -853,26 +853,26 @@ const Class8Slides = () => {
                   <div className="text-green-300">useEffect(() =&gt; &#123;</div>
                   <div className="ml-4 text-yellow-300">fetch('/api/users').then(setUsers);</div>
                   <div className="text-green-300">&#125;, []);</div>
-                </div>
-              </div>
+                  </div>
+                  </div>
               
               <div className="text-lg text-blue-200">
                 🎯 Runs <strong>after</strong> render, not during!
-              </div>
-            </div>
+                </div>
+                  </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-green-500/20 rounded-lg p-6">
                 <div className="text-4xl mb-4">🎯</div>
                 <div className="text-lg font-bold mb-2">Separation</div>
                 <div className="text-green-200 text-sm">Side effects separate from render</div>
-              </div>
+                  </div>
               
               <div className="bg-purple-500/20 rounded-lg p-6">
                 <div className="text-4xl mb-4">⏰</div>
                 <div className="text-lg font-bold mb-2">Perfect Timing</div>
                 <div className="text-purple-200 text-sm">Runs after DOM updates</div>
-              </div>
+                </div>
               
               <div className="bg-yellow-500/20 rounded-lg p-6">
                 <div className="text-4xl mb-4">🧹</div>
@@ -906,10 +906,10 @@ const Class8Slides = () => {
               <div className="text-lg text-blue-100">
                 useEffect runs <strong>after</strong> the DOM is updated, ensuring you can safely 
                 interact with rendered elements and won't block the user interface.
-              </div>
-            </div>
-          </div>
-        </div>
+                </div>
+                </div>
+                </div>
+                </div>
       ),
       bgGradient: 'from-indigo-600 to-blue-600'
     },
@@ -1425,7 +1425,7 @@ const Class8Slides = () => {
                     <div>
                       <div className="font-bold">Background Sync</div>
                       <div className="text-yellow-200 text-sm">React Query, SWR</div>
-                    </div>
+                </div>
                   </div>
                 </div>
               </div>
@@ -1463,10 +1463,10 @@ const Class8Slides = () => {
               <div className="text-lg text-orange-100">
                 useEffect for data fetching is <strong>just the beginning</strong>. As your app grows, 
                 you'll need more sophisticated solutions. But understanding useEffect first is crucial!
-              </div>
-            </div>
-          </div>
-        </div>
+                  </div>
+                  </div>
+                  </div>
+                </div>
       ),
       bgGradient: 'from-emerald-600 to-teal-600'
     },
@@ -2103,4 +2103,4 @@ const Class8Slides = () => {
   );
 };
 
-export default Class8Slides;
+export default Class8Slides; 

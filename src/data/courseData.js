@@ -133,7 +133,6 @@ export const courseData = {
       week: 5,
       title: "React Side Effects & Advanced Patterns",
       description: "Master useEffect for data fetching and side effect management",
-      holiday: "Columbus Day (Mon, Oct 14) - No class",
       classes: [
         {
           classNumber: 8,
@@ -158,16 +157,17 @@ export const courseData = {
       classes: [
         {
           classNumber: 9,
-          title: "Intro to Node.js and Express",
+          title: "Introduction to Node.js",
           objectives: [
-            "Understand Node.js runtime and its uses",
-            "Set up basic Express server",
-            "Create simple API endpoints",
-            "Return JSON responses"
+            "Understand what Node.js is and why it exists",
+            "Learn how Node.js differs from browser JavaScript",
+            "Explore the Node.js ecosystem and npm",
+            "Understand the event loop and non-blocking I/O",
+            "Set up Node.js development environment"
           ],
-          toolsIntroduced: ["Express.js", "Nodemon", "Postman"],
-          topics: ["Server-side JavaScript", "HTTP methods", "API endpoints", "JSON"],
-          homework: "Build basic Express server with endpoints"
+          toolsIntroduced: ["Node.js Runtime", "npm", "Node Package Manager", "Module System"],
+          topics: ["JavaScript runtime", "Event loop", "Module system", "npm ecosystem", "Full-stack development"],
+          homework: "Install Node.js and create your first Node.js script"
         },
         {
           classNumber: 10,
