@@ -1502,11 +1502,70 @@ const Class9Slides = () => {
       bgGradient: 'from-yellow-600 to-orange-600'
     },
 
+    // Slide 16: Example Package.json
+    {
+      id: 'example-package-json',
+      title: 'Example Package.json',
+      content: (
+        <div className="text-white animate-fade-in text-center">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-8">A Real Package.json</h2>
+          
+          <div className="max-w-5xl mx-auto">
+            <div className="text-8xl mb-8 animate-float">📄</div>
+            <h3 className="text-3xl font-bold mb-8 text-green-300">Let's see what one looks like</h3>
+            
+            <div className="bg-gray-900/90 backdrop-blur rounded-xl p-8 border border-gray-600 text-left">
+              <div className="text-sm font-mono leading-relaxed">
+                <div className="text-gray-400">{`{`}</div>
+                <div className="ml-4 text-blue-300">"name"<span className="text-white">:</span> <span className="text-green-300">"my-node-app"</span><span className="text-white">,</span></div>
+                <div className="ml-4 text-blue-300">"version"<span className="text-white">:</span> <span className="text-green-300">"1.0.0"</span><span className="text-white">,</span></div>
+                <div className="ml-4 text-blue-300">"description"<span className="text-white">:</span> <span className="text-green-300">"My first Node.js application"</span><span className="text-white">,</span></div>
+                <div className="ml-4 text-blue-300">"main"<span className="text-white">:</span> <span className="text-green-300">"app.js"</span><span className="text-white">,</span></div>
+                <div className="ml-4 text-blue-300">"scripts"<span className="text-white">: {`{`}</span></div>
+                <div className="ml-8 text-blue-300">"start"<span className="text-white">:</span> <span className="text-green-300">"node app.js"</span><span className="text-white">,</span></div>
+                <div className="ml-8 text-blue-300">"dev"<span className="text-white">:</span> <span className="text-green-300">"nodemon app.js"</span></div>
+                <div className="ml-4 text-white">{`},`}</div>
+                <div className="ml-4 text-blue-300">"dependencies"<span className="text-white">: {`{`}</span></div>
+                <div className="ml-8 text-blue-300">"express"<span className="text-white">:</span> <span className="text-green-300">"^4.18.2"</span></div>
+                <div className="ml-4 text-white">{`},`}</div>
+                <div className="ml-4 text-blue-300">"devDependencies"<span className="text-white">: {`{`}</span></div>
+                <div className="ml-8 text-blue-300">"nodemon"<span className="text-white">:</span> <span className="text-green-300">"^2.0.20"</span></div>
+                <div className="ml-4 text-white">{`},`}</div>
+                <div className="ml-4 text-blue-300">"author"<span className="text-white">:</span> <span className="text-green-300">"Your Name"</span><span className="text-white">,</span></div>
+                <div className="ml-4 text-blue-300">"license"<span className="text-white">:</span> <span className="text-green-300">"MIT"</span></div>
+                <div className="text-gray-400">{`}`}</div>
+              </div>
+            </div>
+            
+            <div className="mt-8 bg-blue-500/20 rounded-xl p-6 border border-blue-400/30">
+              <h4 className="text-2xl font-bold text-blue-300 mb-4">🎯 What You're Looking At</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                <div>
+                  <div className="font-bold text-yellow-300 mb-2">📝 Basic Info</div>
+                  <ul className="space-y-1 text-sm text-gray-200">
+                    <li><span className="text-blue-300">name:</span> Your project's name</li>
+                    <li><span className="text-blue-300">version:</span> Current version number</li>
+                    <li><span className="text-blue-300">main:</span> Entry point file</li>
+                  </ul>
+                </div>
+                <div>
+                  <div className="font-bold text-green-300 mb-2">⚙️ Commands & Packages</div>
+                  <ul className="space-y-1 text-sm text-gray-200">
+                    <li><span className="text-blue-300">scripts:</span> Custom commands</li>
+                    <li><span className="text-blue-300">dependencies:</span> Production packages</li>
+                    <li><span className="text-blue-300">devDependencies:</span> Development tools</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-gray-600 to-slate-600'
+    },
 
-
-
-
-    // Slide 16: Package.json Deep Dive
+    // Slide 17: Package.json Deep Dive
     {
       id: 'package-json-deep-dive',
       title: 'Package.json Deep Dive',
@@ -1622,7 +1681,7 @@ const Class9Slides = () => {
       bgGradient: 'from-yellow-600 to-green-600'
     },
 
-    // Slide 17: Working with Files
+    // Slide 18: Working with Files
     {
       id: 'working-with-files',
       title: 'Working with Files',
@@ -1742,7 +1801,7 @@ const Class9Slides = () => {
       bgGradient: 'from-purple-600 to-blue-600'
     },
 
-    // Slide 18: Creating Your First Server
+    // Slide 19: Creating Your First Server
     {
       id: 'first-server',
       title: 'Creating Your First Server',
@@ -1864,7 +1923,7 @@ const Class9Slides = () => {
       bgGradient: 'from-green-600 to-teal-600'
     },
 
-    // Slide 19: Callback Hell Problem
+    // Slide 20: Callback Hell Problem
     {
       id: 'callback-hell',
       title: 'Callback Hell Problem',
@@ -1973,7 +2032,7 @@ const Class9Slides = () => {
       bgGradient: 'from-red-600 to-red-800'
     },
 
-    // Slide 20: Promises Solution
+    // Slide 21: Promises Solution
     {
       id: 'promises-solution',
       title: 'Promises to the Rescue',
@@ -2097,7 +2156,7 @@ const Class9Slides = () => {
       bgGradient: 'from-yellow-600 to-orange-600'
     },
 
-    // Slide 21: Async/Await Modern Solution
+    // Slide 22: Async/Await Modern Solution
     {
       id: 'async-await-modern',
       title: 'Async/Await: The Modern Way',
@@ -2230,7 +2289,7 @@ const Class9Slides = () => {
       bgGradient: 'from-green-600 to-blue-600'
     },
 
-    // Slide 22: Development Pain Point
+    // Slide 23: Development Pain Point
     {
       id: 'development-pain',
       title: 'Development Pain Point',
@@ -2321,7 +2380,7 @@ const Class9Slides = () => {
       bgGradient: 'from-red-600 to-orange-600'
     },
 
-    // Slide 23: Nodemon Solution
+    // Slide 24: Nodemon Solution
     {
       id: 'nodemon-solution',
       title: 'Nodemon to the Rescue',
@@ -2432,7 +2491,7 @@ const Class9Slides = () => {
       bgGradient: 'from-green-600 to-blue-600'
     },
 
-    // Slide 24: Thank You
+    // Slide 25: Thank You
     {
       id: 'thank-you',
       title: 'Thank You!',

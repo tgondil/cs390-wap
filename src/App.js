@@ -7,6 +7,7 @@ import PSOCSSDINERSlides from './components/classes/pso-css-diner/Slides';
 import PSOUntrustedSlides from './components/classes/pso-untrusted/Slides';
 import PSOWordleSlides from './components/classes/pso-wordle/Slides';
 import PSOWordle2Slides from './components/classes/pso-wordle2/Slides';
+import PSOLeetCodeSlides from './components/classes/pso-leetcode/Slides';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/pso/untrusted" element={<PSOUntrustedSlides />} />
           <Route path="/pso/wordle" element={<PSOWordleSlides />} />
           <Route path="/pso/wordle2" element={<PSOWordle2Slides />} />
+          <Route path="/pso/leetcode" element={<PSOLeetCodeSlides />} />
         </Routes>
       </div>
     </Router>
