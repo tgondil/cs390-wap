@@ -171,16 +171,18 @@ export const courseData = {
         },
         {
           classNumber: 10,
-          title: "Building RESTful APIs (Express continued)",
+          title: "Introduction to MongoDB",
           objectives: [
-            "Implement full CRUD operations",
-            "Handle different HTTP methods (GET, POST, PUT, DELETE)",
-            "Use middleware for JSON parsing",
-            "Handle errors and status codes"
+            "Understand NoSQL databases and when to use them",
+            "Learn MongoDB document structure and BSON",
+            "Set up MongoDB Atlas cloud database",
+            "Master Mongoose schemas, models, and validation",
+            "Implement basic CRUD operations with MongoDB"
           ],
-          toolsIntroduced: ["REST API principles", "HTTP status codes"],
-          topics: ["CRUD operations", "RESTful design", "Error handling", "Middleware"],
-          homework: "Create complete REST API for chosen resource"
+          toolsIntroduced: ["MongoDB", "MongoDB Atlas", "Mongoose", "BSON", "NoSQL"],
+          topics: ["NoSQL vs SQL", "Document databases", "MongoDB Atlas", "Mongoose ODM", "Schemas and Models", "CRUD operations", "Query operators"],
+          homework: "Set up MongoDB Atlas and create first schema with CRUD operations",
+          hasSlides: true
         }
       ]
     },
