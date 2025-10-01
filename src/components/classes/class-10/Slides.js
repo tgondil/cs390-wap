@@ -1895,13 +1895,13 @@ const Class10Slides = () => {
             <div className="bg-white/10 backdrop-blur rounded-xl p-8 border border-white/20">
               <h3 className="text-2xl font-bold text-yellow-300 mb-6 text-center">📝 Example Schema</h3>
               <div className="bg-gray-900 rounded-lg p-6 font-mono text-sm">
-                <div className="text-green-400 mb-2">// Define the blueprint</div>
+                <div className="text-green-400 mb-2">{`// Define the blueprint`}</div>
                 <div className="text-blue-300">const userSchema = new Schema(&#123;</div>
                 <div className="ml-4 text-white">name: &#123; type: String, required: true &#125;,</div>
                 <div className="ml-4 text-white">email: &#123; type: String, required: true, unique: true &#125;,</div>
                 <div className="ml-4 text-white">age: &#123; type: Number, min: 0, max: 120 &#125;</div>
                 <div className="text-blue-300">&#125;);</div>
-                <div className="mt-4 text-green-400">// Create the factory</div>
+                <div className="mt-4 text-green-400">{`// Create the factory`}</div>
                 <div className="text-yellow-300">const User = mongoose.model('User', userSchema);</div>
               </div>
             </div>
@@ -2179,7 +2179,7 @@ const Class10Slides = () => {
               <div className="bg-blue-500/20 rounded-xl p-6 border border-blue-400">
                 <h3 className="text-2xl font-bold text-blue-300 mb-4">📝 The Schema</h3>
                 <div className="bg-gray-900 rounded-lg p-4 font-mono text-xs">
-                  <div className="text-green-400 mb-2">// models/Post.js</div>
+                  <div className="text-green-400 mb-2">{`// models/Post.js`}</div>
                   <div className="text-blue-300">const postSchema = new Schema(&#123;</div>
                   <div className="ml-2 text-white">title: &#123;</div>
                   <div className="ml-4 text-white">type: String,</div>
@@ -2201,9 +2201,9 @@ const Class10Slides = () => {
               <div className="bg-green-500/20 rounded-xl p-6 border border-green-400">
                 <h3 className="text-2xl font-bold text-green-300 mb-4">🏭 The Model</h3>
                 <div className="bg-gray-900 rounded-lg p-4 font-mono text-xs">
-                  <div className="text-green-400 mb-2">// Create the model</div>
+                  <div className="text-green-400 mb-2">{`// Create the model`}</div>
                   <div className="text-yellow-300">const Post = mongoose.model('Post', postSchema);</div>
-                  <div className="mt-4 text-green-400">// Now you can use it!</div>
+                  <div className="mt-4 text-green-400">{`// Now you can use it!`}</div>
                   <div className="text-white mt-2">Post.create(...)</div>
                   <div className="text-white">Post.find(...)</div>
                   <div className="text-white">Post.findById(...)</div>
