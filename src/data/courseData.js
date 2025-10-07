@@ -193,16 +193,18 @@ export const courseData = {
       classes: [
         {
           classNumber: 11,
-          title: "Intro to Databases and MongoDB",
+          title: "Advanced MongoDB & Data Modeling",
           objectives: [
-            "Understand databases and NoSQL vs SQL",
-            "Set up MongoDB Atlas cloud database",
-            "Connect Express app to MongoDB using Mongoose",
-            "Define schemas and models"
+            "Master data modeling mindset and access-pattern-first thinking",
+            "Understand embedding vs referencing patterns and when to use each",
+            "Learn indexing strategies and query optimization with explain plans",
+            "Implement pagination at scale and advanced query operators",
+            "Explore aggregation pipeline, transactions, and production best practices"
           ],
-          toolsIntroduced: ["MongoDB", "MongoDB Atlas", "Mongoose"],
-          topics: ["Database concepts", "NoSQL", "Schema design", "ODM"],
-          homework: "Connect API to MongoDB database"
+          toolsIntroduced: ["Advanced MongoDB", "Aggregation Pipeline", "Indexes", "Transactions", "Sharding"],
+          topics: ["Data modeling patterns", "Indexing strategies", "Query optimization", "Aggregation", "Transactions", "Replication", "Sharding", "Performance", "Security"],
+          homework: "Design and optimize a MongoDB schema for a complex application",
+          hasSlides: true
         },
         {
           classNumber: 12,

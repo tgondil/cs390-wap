@@ -93,6 +93,16 @@ const WeeklyOverview = () => {
                     </Link>
                   </div>
                 )}
+                {week.week === 7 && (
+                  <div className="mt-4">
+                    <Link
+                      to="/pso/chat"
+                      className="inline-flex items-center px-4 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition-colors font-medium text-sm"
+                    >
+                      💬 PSO: Chat API (Pair Programming) →
+                    </Link>
+                  </div>
+                )}
               </div>
 
               {/* Classes in this week */}
