@@ -208,16 +208,17 @@ export const courseData = {
         },
         {
           classNumber: 12,
-          title: "CRUD with MongoDB via Mongoose",
+          title: "Mongoose in Practice – Modeling, Validation & Relationships",
           objectives: [
-            "Implement database CRUD operations",
-            "Use Mongoose methods (find, create, update, delete)",
-            "Handle async operations with promises",
-            "Add input validation"
+            "Set up Mongoose schemas with validation and defaults",
+            "Implement one-to-many relationships with references",
+            "Use .populate() to join data across collections",
+            "Build REST API endpoints with proper validation"
           ],
-          toolsIntroduced: ["Mongoose methods", "Environment variables"],
-          topics: ["Database operations", "Async/await", "Data validation", "Error handling"],
-          homework: "Extend API with additional models or query features"
+          toolsIntroduced: ["Mongoose schemas", "populate()", "Schema validation", "Subdocuments"],
+          topics: ["Schema design", "Validation", "Relationships", "Embedding vs Referencing", "REST API"],
+          homework: "Build User → Posts API with populated relationships",
+          hasSlides: true
         }
       ]
     },
