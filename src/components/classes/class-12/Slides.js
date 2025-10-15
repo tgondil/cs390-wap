@@ -71,7 +71,84 @@ const Class12Slides = () => {
       bgGradient: 'from-blue-600 to-indigo-700'
     },
 
-    // Slide 2: From Theory to Code
+    // Slide 2: Announcements
+    {
+      id: 'announcements',
+      title: 'Announcements',
+      content: (
+        <div className="text-white animate-fade-in">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-8 text-center">📢 Announcements</h2>
+          
+          <div className="max-w-5xl mx-auto space-y-6">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border-2 border-yellow-400/50">
+              <div className="text-center mb-6">
+                <h3 className="text-3xl font-bold text-yellow-300 mb-2">🎤 USB Student Forum</h3>
+                <p className="text-xl text-blue-200">Thursday, October 16th at 7:00pm in SCHM 113</p>
+              </div>
+              
+              <div className="bg-blue-500/20 rounded-xl p-6 mb-4">
+                <p className="text-lg leading-relaxed">
+                  Have concerns about classes, curriculums, professors, TAs, career resources, etc.? Join our student forum on <strong>Thursday, October 16th at 7:00pm in SCHM 113</strong> to voice out your concerns regarding your CS/DS/AI experience! We'll anonymize your concerns and present them to the CS Department! <strong className="text-yellow-300">Pizza is provided!</strong>
+                </p>
+              </div>
+              
+              <div className="text-center">
+
+                <a 
+                  href="http://bit.ly/4oyCid5" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold text-xl px-8 py-4 rounded-lg transition-colors"
+                >
+                  🔗 RSVP Here
+                </a>
+              </div>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border-2 border-purple-400/50">
+              <div className="text-center">
+                <h3 className="text-3xl font-bold text-purple-300 mb-4">📊 CS Student Experience Survey</h3>
+                <p className="text-lg mb-6">Help improve the CS program by sharing your feedback!</p>
+                <a 
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScKSuYpgKYxeaC5JofAkM2KWM4c4Pekv9HC6mr32YC7SC6xzA/viewform" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block bg-purple-500 hover:bg-purple-600 text-white font-bold text-xl px-8 py-4 rounded-lg transition-colors"
+                >
+                  📝 Take the Survey
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+      bgGradient: 'from-yellow-600 to-orange-600'
+    },
+
+    // Slide 3: GeoGuessr
+    {
+      id: 'geoguessr',
+      title: 'GeoGuessr Time!',
+      content: (
+        <div className="text-center flex flex-col items-center justify-center min-h-[60vh]">
+          <style>{customStyles}</style>
+          <div className="text-9xl mb-12 animate-float">🌍</div>
+          <h1 className="text-8xl font-bold text-white mb-8 animate-fade-in">GeoGuessr!</h1>
+          <a 
+            href="https://www.geoguessr.com/join/3GCLO?s=Url" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block bg-green-500 hover:bg-green-600 text-white font-bold text-3xl px-12 py-6 rounded-xl transition-all transform hover:scale-105 shadow-2xl animate-pulse-glow"
+          >
+            🎮 Join the Game
+          </a>
+        </div>
+      ),
+      bgGradient: 'from-green-600 to-teal-700'
+    },
+
+    // Slide 4: From Theory to Code
     {
       id: 'theory-to-code',
       title: 'From Theory to Code',
