@@ -9,6 +9,7 @@ import PSOWordleSlides from './components/classes/pso-wordle/Slides';
 import PSOWordle2Slides from './components/classes/pso-wordle2/Slides';
 import PSOLeetCodeSlides from './components/classes/pso-leetcode/Slides';
 import PSOChatSlides from './components/classes/pso-chat/Slides';
+import PSOPodcastSlides from './components/classes/pso-podcast/Slides';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/pso/wordle2" element={<PSOWordle2Slides />} />
           <Route path="/pso/leetcode" element={<PSOLeetCodeSlides />} />
           <Route path="/pso/chat" element={<PSOChatSlides />} />
+          <Route path="/pso/podcast" element={<PSOPodcastSlides />} />
         </Routes>
       </div>
     </Router>

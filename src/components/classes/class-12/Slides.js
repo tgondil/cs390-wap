@@ -159,7 +159,7 @@ const Class12Slides = () => {
           
           <div className="max-w-6xl mx-auto">
             <div className="text-8xl mb-8 animate-float">🛠️</div>
-            <h3 className="text-3xl font-bold mb-12 text-yellow-300">You've seen the "why" — now build it!</h3>
+            <h3 className="text-3xl font-bold mb-12 text-yellow-300">You've seen the "why"</h3>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
               <div className="bg-purple-500/20 rounded-xl p-8 border-2 border-purple-400">
