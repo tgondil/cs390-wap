@@ -238,7 +238,8 @@ export const courseData = {
           ],
           toolsIntroduced: ["bcrypt", "JWT concepts"],
           topics: ["Authentication", "Password security", "User registration", "Data validation"],
-          homework: "Build user registration system"
+          homework: "Build user registration system",
+          hasSlides: true
         },
         {
           classNumber: 14,
