@@ -1158,11 +1158,11 @@ if (isMatch) {
               <h3 className="text-xl font-bold text-red-300 mb-3 text-center">❌ Common Mistakes</h3>
               <div className="space-y-2 font-mono text-sm">
                 <div className="bg-red-600/30 rounded-lg p-3">
-                  <p className="text-red-300">// ❌ DON'T compare with ===</p>
+                  <p className="text-red-300">{"// ❌ DON'T compare with ==="}</p>
                   <p>if (password === user.password)</p>
                 </div>
                 <div className="bg-green-600/30 rounded-lg p-3">
-                  <p className="text-green-300">// ✅ DO use bcrypt.compare</p>
+                  <p className="text-green-300">{"// ✅ DO use bcrypt.compare"}</p>
                   <p>if (await bcrypt.compare(password, user.password))</p>
                 </div>
               </div>
