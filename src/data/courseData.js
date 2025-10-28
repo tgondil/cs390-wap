@@ -252,7 +252,8 @@ export const courseData = {
           ],
           toolsIntroduced: ["jsonwebtoken", "Auth middleware"],
           topics: ["JWT authentication", "Protected routes", "Token verification", "Security best practices"],
-          homework: "Add profile endpoint and user-specific data"
+          homework: "Add profile endpoint and user-specific data",
+          hasSlides: true
         }
       ]
     },
