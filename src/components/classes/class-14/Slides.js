@@ -94,7 +94,7 @@ const Class14Slides = () => {
             <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 border-2 border-white/30 text-center">
               <div className="text-2xl text-white mb-6">Join the game:</div>
               <a 
-                href="https://www.geoguessr.com/join/Y54MZ?s=Url" 
+                href="https://www.geoguessr.com/join/QNG35?s=Url" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-block bg-green-600 hover:bg-green-700 text-white font-bold text-3xl px-12 py-6 rounded-lg transition-all transform hover:scale-105 shadow-lg"
@@ -102,7 +102,7 @@ const Class14Slides = () => {
                 🎮 Join Game
               </a>
               <div className="text-xl text-gray-300 mt-6 font-mono">
-                geoguessr.com/join/Y54MZ
+                geoguessr.com/join/QNG35
               </div>
             </div>
           </div>
