@@ -1412,17 +1412,6 @@ const Class14Slides = () => {
               Class 14: Login & Protected Routes
             </h2>
           </div>
-          
-          <div className="mt-16 space-y-6">
-            <div className="text-2xl text-white">Next Class:</div>
-            <div className="text-3xl font-medium text-blue-200">
-              Frontend-Backend Integration
-            </div>
-          </div>
-
-          <div className="mt-12">
-            <div className="text-2xl font-medium text-white">Questions?</div>
-          </div>
         </div>
       ),
       bgGradient: 'from-blue-700 to-indigo-800'

@@ -8,11 +8,18 @@ export const courseData = {
   weeks: [
     {
       week: 1,
+      weekDates: "Aug 25-29, 2025",
       title: "Orientation, Tools Setup & Web Fundamentals",
       description: "Set up the development environment and revisit fundamental web technologies",
+      pso: {
+        day: "Tue, Aug 26, 2025",
+        title: "PSO: Getting Started",
+        description: "Pair programming session focused on course setup and fundamentals"
+      },
       classes: [
         {
           classNumber: 1,
+          date: "Mon, Aug 25, 2025",
           title: "Course Introduction & Environment Setup",
           objectives: [
             "Review course syllabus and final project expectations",
@@ -26,6 +33,7 @@ export const courseData = {
         },
         {
           classNumber: 2,
+          date: "Wed, Aug 27, 2025",
           title: "JavaScript for the Browser",
           objectives: [
             "Master DOM manipulation with JavaScript",
@@ -41,12 +49,19 @@ export const courseData = {
     },
     {
       week: 2,
-      title: "JavaScript for the Browser and API Fundamentals",
+      weekDates: "Sep 1-5, 2025",
+      title: "API Fundamentals",
       description: "Master browser JavaScript and learn to work with external APIs",
-      holiday: "Labor Day (Mon, Sep 2) - No class",
+      holiday: "Labor Day (Mon, Sep 1) - No class",
+      pso: {
+        day: "Tue, Sep 02, 2025",
+        title: "PSO: Wordle Challenge",
+        description: "Build a Wordle clone - practice DOM manipulation and game logic"
+      },
       classes: [
         {
           classNumber: 3,
+          date: "Wed, Sep 03, 2025",
           title: "Introduction to APIs",
           objectives: [
             "Understand what APIs are and how they work",
@@ -62,11 +77,13 @@ export const courseData = {
     },
     {
       week: 3,
+      weekDates: "Sep 8-12, 2025",
       title: "Databases & Scaling",
       description: "Master database fundamentals and learn how to scale modern applications",
       classes: [
         {
           classNumber: 4,
+          date: "Mon, Sep 08, 2025",
           title: "Introduction to Databases",
           objectives: [
             "Understand what databases are and why they're essential",
@@ -80,6 +97,7 @@ export const courseData = {
         },
         {
           classNumber: 5,
+          date: "Wed, Sep 10, 2025",
           title: "Scaling Modern Applications",
           objectives: [
             "Understand why scaling is critical for business survival",
@@ -96,11 +114,18 @@ export const courseData = {
     },
     {
       week: 4,
+      weekDates: "Sep 15-19, 2025",
       title: "Introduction to React",
       description: "Learn React fundamentals and build interactive user interfaces",
+      pso: {
+        day: "Tue, Sep 16, 2025",
+        title: "PSO: React Practice",
+        description: "Build interactive React components with pair programming"
+      },
       classes: [
         {
           classNumber: 6,
+          date: "Mon, Sep 15, 2025",
           title: "Introduction to React",
           objectives: [
             "Understand React's declarative programming model and mental framework",
@@ -115,6 +140,7 @@ export const courseData = {
         },
         {
           classNumber: 7,
+          date: "Wed, Sep 17, 2025",
           title: "React Interactivity & Dynamic UI",
           objectives: [
             "Implement event handlers to respond to user interactions",
@@ -131,11 +157,14 @@ export const courseData = {
     },
     {
       week: 5,
-      title: "React Side Effects & Advanced Patterns",
+      weekDates: "Sep 22-26, 2025",
+      title: "React Side Effects",
       description: "Master useEffect for data fetching and side effect management",
+      cancelled: "Mon, Sep 22 - Class cancelled (Hello World Hackathon)",
       classes: [
         {
           classNumber: 8,
+          date: "Wed, Sep 24, 2025",
           title: "useEffect & Side Effects in React",
           objectives: [
             "Understand what side effects are in React",
@@ -152,11 +181,18 @@ export const courseData = {
     },
     {
       week: 6,
-      title: "Back-End Foundations – Node.js and Express.js",
-      description: "Transition to backend development with Node.js and Express",
+      weekDates: "Sep 29-Oct 3, 2025",
+      title: "Backend Foundations – Node.js & MongoDB",
+      description: "Transition to backend development with Node.js and MongoDB",
+      pso: {
+        day: "Tue, Sep 30, 2025",
+        title: "PSO: LeetCode Practice",
+        description: "Sharpen algorithmic thinking with coding challenges"
+      },
       classes: [
         {
           classNumber: 9,
+          date: "Mon, Sep 29, 2025",
           title: "Introduction to Node.js",
           objectives: [
             "Understand what Node.js is and why it exists",
@@ -171,6 +207,7 @@ export const courseData = {
         },
         {
           classNumber: 10,
+          date: "Wed, Oct 01, 2025",
           title: "Introduction to MongoDB",
           objectives: [
             "Understand NoSQL databases and when to use them",
@@ -188,11 +225,19 @@ export const courseData = {
     },
     {
       week: 7,
-      title: "MongoDB & Mongoose – Database Integration",
-      description: "Add persistent data storage with MongoDB",
+      weekDates: "Oct 6-10, 2025",
+      title: "Advanced MongoDB & Data Modeling",
+      description: "Master advanced MongoDB patterns and data modeling strategies",
+      cancelled: "Wed, Oct 8 - Class cancelled (exam week)",
+      pso: {
+        day: "Tue, Oct 07, 2025",
+        title: "PSO: Database Design",
+        description: "Practice MongoDB schema design and Mongoose models"
+      },
       classes: [
         {
           classNumber: 11,
+          date: "Mon, Oct 06, 2025",
           title: "Advanced MongoDB & Data Modeling",
           objectives: [
             "Master data modeling mindset and access-pattern-first thinking",
@@ -205,9 +250,19 @@ export const courseData = {
           topics: ["Data modeling patterns", "Indexing strategies", "Query optimization", "Aggregation", "Transactions", "Replication", "Sharding", "Performance", "Security"],
           homework: "Design and optimize a MongoDB schema for a complex application",
           hasSlides: true
-        },
+        }
+      ]
+    },
+    {
+      week: 8,
+      weekDates: "Oct 13-17, 2025",
+      title: "Mongoose in Practice",
+      description: "Implement Mongoose schemas with validation and relationships",
+      holiday: "Columbus Day (Mon, Oct 13) - No class",
+      classes: [
         {
           classNumber: 12,
+          date: "Wed, Oct 15, 2025",
           title: "Mongoose in Practice – Modeling, Validation & Relationships",
           objectives: [
             "Set up Mongoose schemas with validation and defaults",
@@ -223,12 +278,20 @@ export const courseData = {
       ]
     },
     {
-      week: 8,
-      title: "User Authentication & Security Basics",
-      description: "Implement user authentication and security best practices",
+      week: 9,
+      weekDates: "Oct 20-24, 2025",
+      title: "User Authentication - Part 1",
+      description: "Implement user authentication with JWT and password security",
+      cancelled: "Mon, Oct 20 - Class cancelled (hackathon recovery)",
+      pso: {
+        day: "Tue, Oct 21, 2025",
+        title: "PSO: Untrusted Game",
+        description: "Solve JavaScript security puzzles and logic challenges"
+      },
       classes: [
         {
           classNumber: 13,
+          date: "Wed, Oct 22, 2025",
           title: "Authentication Concepts & Signup Route",
           objectives: [
             "Understand authentication vs authorization",
@@ -240,9 +303,24 @@ export const courseData = {
           topics: ["Authentication", "Password security", "User registration", "Data validation"],
           homework: "Build user registration system",
           hasSlides: true
-        },
+        }
+      ]
+    },
+    {
+      week: 10,
+      weekDates: "Oct 27-31, 2025",
+      title: "User Authentication - Part 2",
+      description: "Complete authentication with login and protected routes",
+      cancelled: "Mon, Oct 27 - Class cancelled (room issue)",
+      pso: {
+        day: "Tue, Oct 28, 2025",
+        title: "PSO: Podcast App - Mini Project 2",
+        description: "Build a full-stack podcast application (Due: Nov 1)"
+      },
+      classes: [
         {
           classNumber: 14,
+          date: "Wed, Oct 29, 2025",
           title: "Login & Protected Routes with JWT",
           objectives: [
             "Implement login endpoint with JWT creation",
@@ -258,13 +336,20 @@ export const courseData = {
       ]
     },
     {
-      week: 9,
+      week: 11,
+      weekDates: "Nov 3-7, 2025",
       title: "Connecting Frontend to Backend (Full-Stack Integration)",
       description: "Connect React frontend with Express backend for full-stack functionality",
+      pso: {
+        day: "Tue, Nov 04, 2025",
+        title: "PSO: Podcast Deep Dive",
+        description: "Advanced podcast features and optimization"
+      },
       classes: [
         {
           classNumber: 15,
-          title: "Fetching Data from the Backend (Read & Display)",
+          date: "Mon, Nov 03, 2025",
+          title: "Full-Stack Integration - Connecting Frontend to Backend",
           objectives: [
             "Configure CORS for cross-origin requests",
             "Make HTTP requests from React using fetch/Axios",
@@ -273,7 +358,8 @@ export const courseData = {
           ],
           toolsIntroduced: ["CORS", "Fetch API/Axios"],
           topics: ["Client-server communication", "API integration", "State management", "Error handling"],
-          homework: "Connect React app to backend API"
+          homework: "Connect React app to backend API",
+          hasSlides: true
         },
         {
           classNumber: 16,
@@ -291,9 +377,15 @@ export const courseData = {
       ]
     },
     {
-      week: 10,
+      week: 12,
+      weekDates: "Nov 10-14, 2025",
       title: "Advanced Topics & Final Project Planning",
       description: "Cover advanced React patterns and plan capstone projects",
+      pso: {
+        day: "Tue, Nov 11, 2025",
+        title: "PSO: Deployment Workshop",
+        description: "Deploy your applications to production"
+      },
       classes: [
         {
           classNumber: 17,
@@ -324,9 +416,15 @@ export const courseData = {
       ]
     },
     {
-      week: 11,
+      week: 13,
+      weekDates: "Nov 17-21, 2025",
       title: "Deployment and Mid-Project Checkpoint",
       description: "Deploy applications and reach project milestone",
+      pso: {
+        day: "Tue, Nov 18, 2025",
+        title: "PSO: Project Workshop",
+        description: "Work session for final projects with peer review"
+      },
       classes: [
         {
           classNumber: 19,
@@ -357,9 +455,15 @@ export const courseData = {
       ]
     },
     {
-      week: 12,
+      week: 14,
+      weekDates: "Nov 24-28, 2025",
       title: "Final Project Development & Polishing",
       description: "Complete and polish capstone projects",
+      pso: {
+        day: "Tue, Nov 25, 2025",
+        title: "PSO: Thanksgiving Week Session",
+        description: "Final project progress check and troubleshooting"
+      },
       classes: [
         {
           classNumber: 21,
@@ -390,9 +494,15 @@ export const courseData = {
       ]
     },
     {
-      week: 13,
+      week: 15,
+      weekDates: "Dec 1-5, 2025",
       title: "Project Milestone Demos & Feature Freeze",
       description: "Prepare milestone demos, lock down scope, and plan final tasks",
+      pso: {
+        day: "Tue, Dec 02, 2025",
+        title: "PSO: Final Polish",
+        description: "Last touches on projects before presentations"
+      },
       classes: [
         {
           classNumber: 23,
@@ -423,10 +533,15 @@ export const courseData = {
       ]
     },
     {
-      week: 14,
-      title: "Thanksgiving Week – Focused Development",
-      description: "Make focused progress and plan around the holiday",
-      holiday: "Thanksgiving (Thu, Nov 27-28) - Wed class only",
+      week: 16,
+      weekDates: "Dec 8-12, 2025",
+      title: "Performance & Quality",
+      description: "Polish your app to production quality",
+      pso: {
+        day: "Tue, Dec 09, 2025",
+        title: "PSO: Presentation Prep",
+        description: "Practice your final presentations and get feedback"
+      },
       classes: [
         {
           classNumber: 25,
@@ -444,46 +559,14 @@ export const courseData = {
       ]
     },
     {
-      week: 15,
-      title: "Performance, Accessibility & Code Quality",
-      description: "Polish your app to production quality",
+      week: 17,
+      weekDates: "Dec 15-19, 2025",
+      title: "Final Presentations - Week 1",
+      description: "Present completed projects and demonstrate your work",
+      holiday: "Finals Week",
       classes: [
         {
           classNumber: 26,
-          title: "Performance Optimization & Monitoring",
-          objectives: [
-            "Profile rendering and network performance",
-            "Apply code splitting and memoization",
-            "Optimize API usage and caching",
-            "Add basic monitoring"
-          ],
-          toolsIntroduced: ["React Profiler", "Lighthouse", "Code splitting"],
-          topics: ["Rendering performance", "Bundle size", "Caching", "Monitoring"],
-          homework: "Address top performance issues and measure improvements"
-        },
-        {
-          classNumber: 27,
-          title: "Accessibility & Quality Audits",
-          objectives: [
-            "Run a11y audits and fix issues",
-            "Ensure keyboard and screen reader support",
-            "Finalize code quality gates",
-            "Prepare release candidate"
-          ],
-          toolsIntroduced: ["Lighthouse", "Axe", "ARIA"],
-          topics: ["Accessibility", "Quality checks", "Documentation", "Release prep"],
-          homework: "Finish a11y fixes and finalize documentation"
-        }
-      ]
-    },
-    {
-      week: 16,
-      title: "Capstone Project Presentations & Wrap-Up",
-      description: "Present completed projects and celebrate achievements",
-      holiday: "Finals Week - Presentations only",
-      classes: [
-        {
-          classNumber: 28,
           title: "Final Project Presentations (Part 1)",
           objectives: [
             "Present completed full-stack projects",
@@ -496,8 +579,30 @@ export const courseData = {
           homework: "None - focus on presentations"
         },
         {
-          classNumber: 29,
-          title: "Final Project Presentations (Part 2) and Course Wrap-Up",
+          classNumber: 27,
+          title: "Final Project Presentations (Part 2)",
+          objectives: [
+            "Complete remaining project presentations",
+            "Showcase technical achievements and growth",
+            "Discuss lessons learned and next steps",
+            "Celebrate course completion"
+          ],
+          toolsIntroduced: ["Presentation skills"],
+          topics: ["Project presentation", "Course reflection", "Peer feedback"],
+          homework: "None - focus on presentations"
+        },
+      ]
+    },
+    {
+      week: 18,
+      weekDates: "Dec 22-26, 2025",
+      title: "Course Wrap-Up",
+      description: "Final presentations and course completion",
+      holiday: "Finals Week",
+      classes: [
+        {
+          classNumber: 28,
+          title: "Final Presentations & Course Wrap-Up",
           objectives: [
             "Complete remaining project presentations",
             "Reflect on learning journey and key skills acquired",
@@ -520,27 +625,27 @@ export const courseData = {
     5: "Wed, Sep 10, 2025",
     6: "Mon, Sep 15, 2025",
     7: "Wed, Sep 17, 2025",
-    8: "Wed, Sep 24, 2025",     // Was Class 9, now Class 8 - Only class in Week 5
-    9: "Mon, Sep 29, 2025",     // Was Class 10, now Class 9
-    10: "Wed, Oct 01, 2025",    // Was Class 11, now Class 10
-    11: "Mon, Oct 06, 2025",    // Was Class 12, now Class 11
-    12: "Wed, Oct 08, 2025",    // Was Class 13, now Class 12
-    13: "Wed, Oct 15, 2025",    // Was Class 14, now Class 13 - Columbus Day (Mon, Oct 14) - No class
-    14: "Mon, Oct 20, 2025",    // Was Class 15, now Class 14
-    15: "Wed, Oct 22, 2025",    // Was Class 16, now Class 15
-    16: "Mon, Oct 27, 2025",    // Was Class 17, now Class 16
-    17: "Wed, Oct 29, 2025",    // Was Class 18, now Class 17
-    18: "Mon, Nov 03, 2025",    // Was Class 19, now Class 18
-    19: "Wed, Nov 05, 2025",    // Was Class 20, now Class 19
-    20: "Mon, Nov 10, 2025",    // Was Class 21, now Class 20
-    21: "Wed, Nov 12, 2025",    // Was Class 22, now Class 21
-    22: "Mon, Nov 17, 2025",    // Was Class 23, now Class 22
-    23: "Wed, Nov 19, 2025",    // Was Class 24, now Class 23
-    24: "Wed, Nov 26, 2025",    // Was Class 25, now Class 24 - Thanksgiving (Mon, Nov 25) - No class
-    25: "Mon, Dec 01, 2025",    // Was Class 26, now Class 25
-    26: "Wed, Dec 03, 2025",    // Was Class 27, now Class 26
-    27: "Mon, Dec 08, 2025",    // Was Class 28, now Class 27
-    28: "Wed, Dec 10, 2025"     // Was Class 29, now Class 28
+    8: "Wed, Sep 24, 2025",     // Mon, Sep 22 - Cancelled (Hello World Hackathon)
+    9: "Mon, Sep 29, 2025",
+    10: "Wed, Oct 01, 2025",
+    11: "Mon, Oct 06, 2025",
+    12: "Wed, Oct 15, 2025",    // Wed, Oct 8 - Cancelled (exam week) | Mon, Oct 13 - Columbus Day
+    13: "Wed, Oct 22, 2025",    // Mon, Oct 20 - Cancelled (hackathon recovery)
+    14: "Wed, Oct 29, 2025",    // Mon, Oct 27 - Cancelled (room issue)
+    15: "Mon, Nov 03, 2025",
+    16: "Wed, Nov 05, 2025",
+    17: "Mon, Nov 10, 2025",
+    18: "Wed, Nov 12, 2025",
+    19: "Mon, Nov 17, 2025",
+    20: "Wed, Nov 19, 2025",
+    21: "Mon, Nov 24, 2025",
+    22: "Wed, Nov 26, 2025",
+    23: "Mon, Dec 01, 2025",
+    24: "Wed, Dec 03, 2025",
+    25: "Mon, Dec 08, 2025",
+    26: "Wed, Dec 10, 2025",
+    27: "Mon, Dec 15, 2025",     // Finals Week
+    28: "Wed, Dec 17, 2025"      // Finals Week
   }
 };
 
