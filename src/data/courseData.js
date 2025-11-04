@@ -342,8 +342,9 @@ export const courseData = {
       description: "Connect React frontend with Express backend for full-stack functionality",
       pso: {
         day: "Tue, Nov 04, 2025",
-        title: "PSO: Podcast Deep Dive",
-        description: "Advanced podcast features and optimization"
+        title: "PSO: Secure Login",
+        description: "Build authentication with bcrypt & MongoDB",
+        link: "/pso/login"
       },
       classes: [
         {

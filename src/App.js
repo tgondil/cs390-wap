@@ -11,6 +11,7 @@ import PSOLeetCodeSlides from './components/classes/pso-leetcode/Slides';
 import PSOChatSlides from './components/classes/pso-chat/Slides';
 import PSOPodcastSlides from './components/classes/pso-podcast/Slides';
 import PSOPodcastDepthSlides from './components/classes/pso-podcast-depth/Slides';
+import PSOLoginSlides from './components/classes/pso-login/Slides';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/pso/chat" element={<PSOChatSlides />} />
           <Route path="/pso/podcast" element={<PSOPodcastSlides />} />
           <Route path="/pso/podcast-depth" element={<PSOPodcastDepthSlides />} />
+          <Route path="/pso/login" element={<PSOLoginSlides />} />
         </Routes>
       </div>
     </Router>
