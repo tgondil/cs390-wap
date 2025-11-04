@@ -1311,17 +1311,28 @@ const PsoLoginSlides = () => {
           </div>
           
           <div className="mt-16 space-y-8">
+            <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 backdrop-blur-md rounded-2xl p-8 max-w-3xl mx-auto border-2 border-yellow-400/50">
+              <p className="text-3xl text-white mb-4 font-bold">📧 Email Me a Password!</p>
+              <p className="text-xl text-yellow-100 mb-4">
+                To get access to your grades for this PSO:
+              </p>
+              <div className="bg-yellow-600/30 rounded-lg p-6 text-left">
+                <p className="text-lg text-white mb-3">
+                  <strong>Email:</strong> <a href="mailto:tgondil@purdue.edu" className="underline hover:text-yellow-200">tgondil@purdue.edu</a>
+                </p>
+                <p className="text-lg text-white mb-3">
+                  <strong>Subject:</strong> PSO Login Password
+                </p>
+                <p className="text-lg text-white">
+                  <strong>Include:</strong> A secure password for your PSO Login assignment
+                </p>
+              </div>
+            </div>
+
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-3xl mx-auto">
               <p className="text-2xl text-white mb-4">🎉 Happy Coding!</p>
               <p className="text-xl text-purple-100">
                 Build a secure authentication system with bcrypt & MongoDB
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-md rounded-2xl p-8 max-w-3xl mx-auto border-2 border-blue-400/50">
-              <p className="text-2xl text-white mb-4">📧 Questions?</p>
-              <p className="text-lg text-blue-100">
-                Ask your partner, check the resources, or raise your hand!
               </p>
             </div>
 
