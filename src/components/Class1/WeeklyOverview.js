@@ -133,6 +133,16 @@ const WeeklyOverview = () => {
                     </Link>
                   </div>
                 )}
+                {week.week === 12 && (
+                  <div className="mt-4">
+                    <Link
+                      to="/pso/makeup"
+                      className="inline-flex items-center px-4 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors font-medium text-sm"
+                    >
+                      🎯 PSO: Makeup Opportunity (Last Chance!) →
+                    </Link>
+                  </div>
+                )}
               </div>
 
               {/* Classes in this week */}
