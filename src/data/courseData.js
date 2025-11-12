@@ -403,6 +403,7 @@ export const courseData = {
         },
         {
           classNumber: 18,
+          date: "Wed, Nov 12, 2025",
           title: "Final Project Kickoff & Design",
           objectives: [
             "Define capstone project requirements",
@@ -412,7 +413,8 @@ export const courseData = {
           ],
           toolsIntroduced: ["Project planning tools"],
           topics: ["Project planning", "Scope definition", "Timeline management", "Technical design"],
-          homework: "Submit project proposal and create initial scaffold"
+          homework: "Submit project proposal and create initial scaffold",
+          hasSlides: true
         }
       ]
     },

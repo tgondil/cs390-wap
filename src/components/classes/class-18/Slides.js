@@ -732,172 +732,6 @@ PORT=5000`}</code></pre>
       )
     },
 
-    // Example Projects
-    {
-      id: 'example-projects',
-      title: '💡 Example Projects That Hit All Requirements',
-      bgGradient: 'from-pink-600 to-rose-700',
-      content: (
-        <div className="text-white animate-fade-in">
-          <style>{customStyles}</style>
-          <h2 className="text-5xl font-extrabold mb-12 text-center">💡 Example Projects</h2>
-          <p className="text-2xl text-center mb-8 text-yellow-300">Projects that meet ALL 9 requirements</p>
-          
-          <div className="max-w-6xl mx-auto space-y-6">
-            {/* Project 1 */}
-            <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-blue-400">
-              <h3 className="text-3xl font-bold mb-4">🎙️ AI Podcast Generator</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
-                <div>
-                  <p className="font-semibold mb-2">✅ Requirements Met:</p>
-                  <ul className="space-y-1 text-sm">
-                    <li>• Auth: User accounts, login/register</li>
-                    <li>• CRUD: Create/edit/delete podcast episodes</li>
-                    <li>• MongoDB: User & Episode models</li>
-                    <li>• React: Episode list, create form, player</li>
-                    <li>• Express: API for episodes & audio generation</li>
-                    <li>• Integration: Frontend ↔ Backend with JWT</li>
-                    <li>• API: OpenAI (script) + ElevenLabs (audio)</li>
-                    <li>• Deploy: Vercel + Render + MongoDB Atlas</li>
-                    <li>• Docs: README with setup instructions</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">🎯 Value:</p>
-                  <p className="text-sm">Content creators can generate full podcast episodes from topics. Users save episodes, edit scripts, and share with others.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 2 */}
-            <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-green-400">
-              <h3 className="text-3xl font-bold mb-4">📚 Audio Study Notes</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
-                <div>
-                  <p className="font-semibold mb-2">✅ Requirements Met:</p>
-                  <ul className="space-y-1 text-sm">
-                    <li>• Auth: Student accounts, login/register</li>
-                    <li>• CRUD: Create/edit/delete study notes</li>
-                    <li>• MongoDB: User & Note models</li>
-                    <li>• React: Note list, editor, audio player</li>
-                    <li>• Express: API for notes & text-to-speech</li>
-                    <li>• Integration: Frontend ↔ Backend with JWT</li>
-                    <li>• API: Wikipedia API (content) + ElevenLabs (audio)</li>
-                    <li>• Deploy: Vercel + Render + MongoDB Atlas</li>
-                    <li>• Docs: README with setup instructions</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">🎯 Value:</p>
-                  <p className="text-sm">Students convert study material to audio. Study while commuting, exercising, or doing chores.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 3 */}
-            <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-purple-400">
-              <h3 className="text-3xl font-bold mb-4">🌍 Language Learning with Audio</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
-                <div>
-                  <p className="font-semibold mb-2">✅ Requirements Met:</p>
-                  <ul className="space-y-1 text-sm">
-                    <li>• Auth: User accounts, login/register</li>
-                    <li>• CRUD: Create/edit/delete vocabulary lists</li>
-                    <li>• MongoDB: User & Vocabulary models</li>
-                    <li>• React: Word lists, practice mode, audio player</li>
-                    <li>• Express: API for vocab & translation/audio</li>
-                    <li>• Integration: Frontend ↔ Backend with JWT</li>
-                    <li>• API: Translation API + ElevenLabs (pronunciation)</li>
-                    <li>• Deploy: Vercel + Render + MongoDB Atlas</li>
-                    <li>• Docs: README with setup instructions</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">🎯 Value:</p>
-                  <p className="text-sm">Language learners build vocabulary lists, get translations, and hear correct pronunciation. Practice with audio flashcards.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 4 */}
-            <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-yellow-400">
-              <h3 className="text-3xl font-bold mb-4">🍳 Audio Recipe Assistant</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
-                <div>
-                  <p className="font-semibold mb-2">✅ Requirements Met:</p>
-                  <ul className="space-y-1 text-sm">
-                    <li>• Auth: User accounts, login/register</li>
-                    <li>• CRUD: Create/edit/delete recipe collections</li>
-                    <li>• MongoDB: User & Recipe models</li>
-                    <li>• React: Recipe browser, favorites, audio player</li>
-                    <li>• Express: API for recipes & audio generation</li>
-                    <li>• Integration: Frontend ↔ Backend with JWT</li>
-                    <li>• API: Recipe API (Spoonacular) + ElevenLabs (instructions)</li>
-                    <li>• Deploy: Vercel + Render + MongoDB Atlas</li>
-                    <li>• Docs: README with setup instructions</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">🎯 Value:</p>
-                  <p className="text-sm">Cooks get hands-free recipe instructions. Save favorite recipes, get step-by-step audio guidance while cooking.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 5 */}
-            <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-cyan-400">
-              <h3 className="text-3xl font-bold mb-4">📰 Personalized Audio News</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
-                <div>
-                  <p className="font-semibold mb-2">✅ Requirements Met:</p>
-                  <ul className="space-y-1 text-sm">
-                    <li>• Auth: User accounts, login/register</li>
-                    <li>• CRUD: Create/edit/delete news preferences</li>
-                    <li>• MongoDB: User & Preference models</li>
-                    <li>• React: News feed, preferences, audio player</li>
-                    <li>• Express: API for news & audio generation</li>
-                    <li>• Integration: Frontend ↔ Backend with JWT</li>
-                    <li>• API: News API + ElevenLabs (audio briefing)</li>
-                    <li>• Deploy: Vercel + Render + MongoDB Atlas</li>
-                    <li>• Docs: README with setup instructions</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">🎯 Value:</p>
-                  <p className="text-sm">Busy professionals get personalized audio news briefings. Select topics, get daily audio summaries during commute.</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 6 */}
-            <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-orange-400">
-              <h3 className="text-3xl font-bold mb-4">🧘 AI Meditation Generator</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
-                <div>
-                  <p className="font-semibold mb-2">✅ Requirements Met:</p>
-                  <ul className="space-y-1 text-sm">
-                    <li>• Auth: User accounts, login/register</li>
-                    <li>• CRUD: Create/edit/delete meditation sessions</li>
-                    <li>• MongoDB: User & Meditation models</li>
-                    <li>• React: Session library, player, progress tracker</li>
-                    <li>• Express: API for sessions & content generation</li>
-                    <li>• Integration: Frontend ↔ Backend with JWT</li>
-                    <li>• API: OpenAI (scripts) + ElevenLabs (calming voice)</li>
-                    <li>• Deploy: Vercel + Render + MongoDB Atlas</li>
-                    <li>• Docs: README with setup instructions</li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="font-semibold mb-2">🎯 Value:</p>
-                  <p className="text-sm">Users get personalized meditation scripts based on mood/goals. Build personal wellness library with AI-generated content.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )
-    },
-
     // Requirement 8: Deployment
     {
       id: 'req-deployment',
@@ -1135,6 +969,222 @@ dist/`}</code></pre>
             </p>
           </div>
         </div>
+        </div>
+      )
+    },
+
+    // Example Projects
+    {
+      id: 'example-projects',
+      title: '💡 Example Projects That Hit All Requirements',
+      bgGradient: 'from-pink-600 to-rose-700',
+      content: (
+        <div className="text-white animate-fade-in">
+          <style>{customStyles}</style>
+          <h2 className="text-5xl font-extrabold mb-12 text-center">💡 Example Projects</h2>
+          <p className="text-2xl text-center mb-8 text-yellow-300">Projects that meet ALL 9 requirements</p>
+          
+          <div className="max-w-6xl mx-auto space-y-6">
+            {/* Project 1 */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-blue-400">
+              <h3 className="text-3xl font-bold mb-4">🎲 AI Dungeon Master</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
+                <div>
+                  <p className="font-semibold mb-2">✅ Requirements Met:</p>
+                  <ul className="space-y-1 text-sm">
+                    <li>• Auth: Player accounts, login/register</li>
+                    <li>• CRUD: Create/edit/delete campaigns & characters</li>
+                    <li>• MongoDB: User, Campaign, Character models</li>
+                    <li>• React: Campaign dashboard, character sheets, story viewer</li>
+                    <li>• Express: API for campaigns & AI story generation</li>
+                    <li>• Integration: Frontend ↔ Backend with JWT</li>
+                    <li>• API: OpenAI (story generation) + ElevenLabs (NPC voices)</li>
+                    <li>• Deploy: Vercel + Render + MongoDB Atlas</li>
+                    <li>• Docs: README with setup instructions</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">🎯 The Crazy Part:</p>
+                  <p className="text-sm">Generate infinite D&D campaigns with AI. Players make choices, AI creates branching narratives with unique NPCs that speak in different voices. Each campaign is completely unique and adapts to player decisions in real-time.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 2 */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-green-400">
+              <h3 className="text-3xl font-bold mb-4">🤖 AI Code Review Assistant</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
+                <div>
+                  <p className="font-semibold mb-2">✅ Requirements Met:</p>
+                  <ul className="space-y-1 text-sm">
+                    <li>• Auth: Developer accounts, login/register</li>
+                    <li>• CRUD: Create/edit/delete code reviews</li>
+                    <li>• MongoDB: User & Review models</li>
+                    <li>• React: Code editor, review history, suggestions</li>
+                    <li>• Express: API for reviews & AI analysis</li>
+                    <li>• Integration: Frontend ↔ Backend with JWT</li>
+                    <li>• API: OpenAI (code analysis) + ElevenLabs (audio explanations)</li>
+                    <li>• Deploy: Vercel + Render + MongoDB Atlas</li>
+                    <li>• Docs: README with setup instructions</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">🎯 The Crazy Part:</p>
+                  <p className="text-sm">Upload code, get AI-powered reviews with explanations. The AI doesn't just find bugs—it explains WHY they're problems, suggests fixes, and can even explain code in audio format. Learn from every review.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 3 */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-purple-400">
+              <h3 className="text-3xl font-bold mb-4">💭 Dream Journal Analyzer</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
+                <div>
+                  <p className="font-semibold mb-2">✅ Requirements Met:</p>
+                  <ul className="space-y-1 text-sm">
+                    <li>• Auth: User accounts, login/register</li>
+                    <li>• CRUD: Create/edit/delete dream entries</li>
+                    <li>• MongoDB: User & Dream models</li>
+                    <li>• React: Dream journal, analytics dashboard, insights</li>
+                    <li>• Express: API for dreams & AI analysis</li>
+                    <li>• Integration: Frontend ↔ Backend with JWT</li>
+                    <li>• API: OpenAI (pattern analysis) + ElevenLabs (narrated insights)</li>
+                    <li>• Deploy: Vercel + Render + MongoDB Atlas</li>
+                    <li>• Docs: README with setup instructions</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">🎯 The Crazy Part:</p>
+                  <p className="text-sm">Log your dreams, AI finds patterns you never noticed. "You dream about water 3x more when stressed." "Your dreams get more creative after reading fiction." Get audio summaries of your subconscious patterns and personalized insights.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 4 */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-yellow-400">
+              <h3 className="text-3xl font-bold mb-4">🎤 AI Standup Comedy Writer</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
+                <div>
+                  <p className="font-semibold mb-2">✅ Requirements Met:</p>
+                  <ul className="space-y-1 text-sm">
+                    <li>• Auth: Comedian accounts, login/register</li>
+                    <li>• CRUD: Create/edit/delete comedy routines</li>
+                    <li>• MongoDB: User & Routine models</li>
+                    <li>• React: Routine builder, joke library, timer</li>
+                    <li>• Express: API for routines & joke generation</li>
+                    <li>• Integration: Frontend ↔ Backend with JWT</li>
+                    <li>• API: OpenAI (joke writing) + ElevenLabs (delivery practice)</li>
+                    <li>• Deploy: Vercel + Render + MongoDB Atlas</li>
+                    <li>• Docs: README with setup instructions</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">🎯 The Crazy Part:</p>
+                  <p className="text-sm">AI writes jokes based on your style, topics, and audience. Practice delivery with AI voice feedback. Build complete 5-minute sets. The AI learns what makes YOU funny and generates material that matches your voice.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 5 */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-cyan-400">
+              <h3 className="text-3xl font-bold mb-4">💸 AI Personal Finance Coach</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
+                <div>
+                  <p className="font-semibold mb-2">✅ Requirements Met:</p>
+                  <ul className="space-y-1 text-sm">
+                    <li>• Auth: User accounts, login/register</li>
+                    <li>• CRUD: Create/edit/delete transactions & budgets</li>
+                    <li>• MongoDB: User, Transaction, Budget models</li>
+                    <li>• React: Dashboard, spending tracker, goals</li>
+                    <li>• Express: API for finances & AI advice</li>
+                    <li>• Integration: Frontend ↔ Backend with JWT</li>
+                    <li>• API: Financial API (rates) + OpenAI (personalized advice)</li>
+                    <li>• Deploy: Vercel + Render + MongoDB Atlas</li>
+                    <li>• Docs: README with setup instructions</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">🎯 The Crazy Part:</p>
+                  <p className="text-sm">Track spending, get AI that understands YOUR financial situation. "You spend $200/month on coffee—here's how to invest that instead." "Based on your income, you could retire 5 years earlier if..." Personalized, actionable financial advice.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 6 */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-orange-400">
+              <h3 className="text-3xl font-bold mb-4">🎯 AI Interview Prep Platform</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
+                <div>
+                  <p className="font-semibold mb-2">✅ Requirements Met:</p>
+                  <ul className="space-y-1 text-sm">
+                    <li>• Auth: User accounts, login/register</li>
+                    <li>• CRUD: Create/edit/delete practice sessions</li>
+                    <li>• MongoDB: User & Session models</li>
+                    <li>• React: Interview simulator, feedback dashboard</li>
+                    <li>• Express: API for sessions & AI evaluation</li>
+                    <li>• Integration: Frontend ↔ Backend with JWT</li>
+                    <li>• API: OpenAI (questions & feedback) + ElevenLabs (interviewer voice)</li>
+                    <li>• Deploy: Vercel + Render + MongoDB Atlas</li>
+                    <li>• Docs: README with setup instructions</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">🎯 The Crazy Part:</p>
+                  <p className="text-sm">Practice interviews with AI that asks real questions for your field. Get instant feedback on your answers, body language tips, and confidence scores. The AI adapts difficulty based on your performance. Be ready for any interview.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 7 */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-pink-400">
+              <h3 className="text-3xl font-bold mb-4">🎨 AI Meme Generator with Context</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
+                <div>
+                  <p className="font-semibold mb-2">✅ Requirements Met:</p>
+                  <ul className="space-y-1 text-sm">
+                    <li>• Auth: User accounts, login/register</li>
+                    <li>• CRUD: Create/edit/delete memes</li>
+                    <li>• MongoDB: User & Meme models</li>
+                    <li>• React: Meme editor, gallery, trending</li>
+                    <li>• Express: API for memes & AI generation</li>
+                    <li>• Integration: Frontend ↔ Backend with JWT</li>
+                    <li>• API: DALL-E/Stability AI (images) + OpenAI (trending topics)</li>
+                    <li>• Deploy: Vercel + Render + MongoDB Atlas</li>
+                    <li>• Docs: README with setup instructions</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">🎯 The Crazy Part:</p>
+                  <p className="text-sm">AI understands current events and trends, generates memes that are actually relevant. "Make a meme about the new iPhone" → AI knows what's funny about it right now. Create viral content that's actually timely and contextually aware.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 8 */}
+            <div className="bg-white/10 backdrop-blur rounded-xl p-6 border-2 border-indigo-400">
+              <h3 className="text-3xl font-bold mb-4">🐾 Virtual Pet with AI Personality</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90">
+                <div>
+                  <p className="font-semibold mb-2">✅ Requirements Met:</p>
+                  <ul className="space-y-1 text-sm">
+                    <li>• Auth: User accounts, login/register</li>
+                    <li>• CRUD: Create/edit/delete pets & interactions</li>
+                    <li>• MongoDB: User & Pet models</li>
+                    <li>• React: Pet dashboard, interaction log, stats</li>
+                    <li>• Express: API for pets & AI personality</li>
+                    <li>• Integration: Frontend ↔ Backend with JWT</li>
+                    <li>• API: OpenAI (personality) + ElevenLabs (pet voice)</li>
+                    <li>• Deploy: Vercel + Render + MongoDB Atlas</li>
+                    <li>• Docs: README with setup instructions</li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">🎯 The Crazy Part:</p>
+                  <p className="text-sm">Virtual pet that actually learns and evolves. It remembers your interactions, develops unique personality traits, and talks to you in a voice that matches its personality. Neglect it? It gets sad. Play with it? It develops new quirks. Each pet is completely unique.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       )
     },
