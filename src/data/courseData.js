@@ -431,16 +431,18 @@ export const courseData = {
       classes: [
         {
           classNumber: 19,
-          title: "Deploying the Front-End to Vercel",
+          date: "Mon, Nov 17, 2025",
+          title: "Deploying the Front-End to Netlify",
           objectives: [
-            "Deploy React app to Vercel",
-            "Deploy Express API to Render",
+            "Deploy React app to Netlify",
+            "Deploy Express API to Railway",
             "Configure production environment variables",
             "Test deployed full-stack application"
           ],
-          toolsIntroduced: ["Vercel", "Render", "Production deployment"],
+          toolsIntroduced: ["Netlify", "Railway", "Production deployment"],
           topics: ["Deployment strategies", "Environment configuration", "Production testing"],
-          homework: "Deploy your project and test live version"
+          homework: "Deploy your project and test live version",
+          hasSlides: true
         },
         {
           classNumber: 20,
