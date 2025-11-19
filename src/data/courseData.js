@@ -446,16 +446,18 @@ export const courseData = {
         },
         {
           classNumber: 20,
-          title: "Project Work – Build & Troubleshoot",
+          date: "Wed, Nov 19, 2025",
+          title: "Adding Life to Your UI",
           objectives: [
-            "Workshop time for project development",
-            "Debug deployment and integration issues",
-            "Implement core MVP features",
-            "Conduct peer testing and feedback"
+            "Learn modern UI design principles beyond basic layouts",
+            "Understand glassmorphism and when to use it",
+            "Discover typography and color inspiration techniques",
+            "Apply Notion × Apple hybrid design aesthetic"
           ],
-          toolsIntroduced: ["Debugging tools", "Testing strategies"],
-          topics: ["Project development", "Debugging", "Testing", "Peer review"],
-          homework: "Complete MVP features by end of week"
+          toolsIntroduced: ["Glassmorphism", "Pinterest for design", "UI design prompts"],
+          topics: ["UI design", "Typography", "Color palettes", "Glassmorphism", "Design inspiration"],
+          homework: "Redesign a component using new UI principles",
+          hasSlides: true
         }
       ]
     },
