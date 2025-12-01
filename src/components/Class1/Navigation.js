@@ -21,6 +21,12 @@ const Navigation = () => {
           </div>
           
           <div className="flex items-center space-x-4">
+            <Link
+              to="/grades"
+              className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+            >
+              Grades
+            </Link>
             {!isHomePage && (
               <Link
                 to="/"
