@@ -199,7 +199,6 @@ const GradesPage = () => {
     };
   };
 
-  const miniProjectScore = calculateMiniProjectScore();
   const attendanceScore = calculateAttendanceScore();
   const overallGrade = categorized ? calculateOverallGrade() : null;
 
