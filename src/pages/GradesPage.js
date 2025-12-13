@@ -8,7 +8,7 @@ const GradesPage = () => {
   const [error, setError] = useState('');
 
   // Google Apps Script Web App URL
-  const APPS_SCRIPT_URL = process.env.REACT_APP_GRADES_API_URL || 'https://script.google.com/macros/s/AKfycbzePTL3xxjZMu5QiH3ju5z7nwpU9zfOSLHMa0Ob0_EEI8eLVaJ6Qb4tu75K0GO6brPz/exec';
+  const APPS_SCRIPT_URL = process.env.REACT_APP_GRADES_API_URL || 'https://script.google.com/macros/s/AKfycbyqPgOLPVyadHkir7kjejtCPGrUg5-K1c7gNJYAanYXKzGOhANOYscz3SdJewM53ZwO/exec';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,14 +17,30 @@ const GradesPage = () => {
     setGrades(null);
 
     try {
+      // Try GET request first
       const url = `${APPS_SCRIPT_URL}?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
+      
+      console.log('Fetching from:', APPS_SCRIPT_URL);
+      console.log('Full URL:', url);
       
       const response = await fetch(url, {
         method: 'GET',
-        redirect: 'follow'
+        redirect: 'follow',
+        mode: 'cors',
+        headers: {
+          'Accept': 'application/json',
+        }
       });
 
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
+      console.log('Response data:', data);
 
       if (data.success) {
         setGrades(data.grades);
@@ -32,8 +48,25 @@ const GradesPage = () => {
         setError(data.message || 'Invalid email or password');
       }
     } catch (err) {
-      setError('Failed to fetch grades. Please try again.');
-      console.error('Error:', err);
+      console.error('Fetch error details:', err);
+      console.error('Error name:', err.name);
+      console.error('Error message:', err.message);
+      
+      // More specific error messages
+      if (err.message.includes('Failed to fetch') || err.name === 'TypeError') {
+        setError(
+          'CORS Error: Unable to connect to grades server. ' +
+          'Please verify: (1) The Google Apps Script is deployed with "Anyone" access, ' +
+          '(2) The script includes the doOptions() function for CORS preflight, ' +
+          '(3) The deployment URL is correct and ends with /exec. ' +
+          'You may need to create a NEW deployment (not just a new version). ' +
+          'Current URL: ' + APPS_SCRIPT_URL
+        );
+      } else if (err.message.includes('HTTP error')) {
+        setError(`Server error: ${err.message}`);
+      } else {
+        setError(`Failed to fetch grades: ${err.message}`);
+      }
     } finally {
       setLoading(false);
     }
