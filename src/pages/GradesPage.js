@@ -79,6 +79,7 @@ const GradesPage = () => {
     const psos = [];
     const miniProjects = [];
     const attendance = [];
+    let finalProject = null;
 
     Object.entries(gradesData).forEach(([key, value]) => {
       if (key === 'name' || key === 'email') return;
@@ -88,6 +89,8 @@ const GradesPage = () => {
       } else if (key.startsWith('Mini Project')) {
         const projectNumber = key.includes('1') ? 1 : 2;
         miniProjects.push({ name: key, grade: value, number: projectNumber });
+      } else if (key === 'Final Project') {
+        finalProject = value;
       } else if (key.match(/^\w{3}\s+\w{3}\s+\d{1,2}\s+\d{4}/)) {
         // Date format: "Mon Aug 25 2025 00:00:00 GMT-0400 (Eastern Daylight Time)"
         // Extract just the date part for display
@@ -97,7 +100,7 @@ const GradesPage = () => {
       }
     });
 
-    return { psos, miniProjects, attendance };
+    return { psos, miniProjects, attendance, finalProject };
   };
 
   const categorized = grades ? categorizeGrades(grades) : null;
@@ -158,29 +161,61 @@ const GradesPage = () => {
     return { average, projects: projectScores };
   };
 
-  // Calculate Attendance Score (drop 5 lowest)
+  // Calculate Attendance Score (drop 5 lowest, present with extra credit = 1.1 points)
   const calculateAttendanceScore = () => {
     const attendance = categorized?.attendance || [];
-    if (attendance.length === 0) return { percentage: 100, absences: 0, droppedAbsences: 0 };
+    if (attendance.length === 0) return { percentage: 100, absences: 0, droppedAbsences: 0, presentDays: 0, totalPoints: 0, maxPoints: 0 };
     
-    const absenceCount = attendance.filter(record => {
+    // Assign points to each day: Present = 1.1 points (extra credit), Absent/Excused = 0
+    const dayPoints = attendance.map(record => {
       const status = record.status?.toString().toUpperCase();
-      return status === 'A' || status === 'ABSENT' || status === '0' || status === 0;
-    }).length;
+      const isPresent = status === 'P' || status === 'PRESENT' || status === '1' || status === 1;
+      return {
+        date: record.date,
+        points: isPresent ? 1.1 : 0,
+        status: status
+      };
+    });
     
-    // Drop 5 absences
-    const countedAbsences = Math.max(0, absenceCount - 5);
-    const totalClasses = attendance.length;
-    const attendedClasses = totalClasses - countedAbsences;
-    const percentage = totalClasses > 0 ? (attendedClasses / totalClasses) * 100 : 100;
+    // Sort by points (lowest first) and drop 5 lowest
+    const sortedDays = [...dayPoints].sort((a, b) => a.points - b.points);
+    const droppedDays = sortedDays.slice(0, Math.min(5, sortedDays.length));
+    const countedDays = sortedDays.slice(Math.min(5, sortedDays.length));
+    
+    // Calculate total points earned and max possible
+    const totalPoints = countedDays.reduce((sum, day) => sum + day.points, 0);
+    const maxPossiblePoints = countedDays.length * 1.1; // Each day can earn max 1.1 points
+    
+    // Calculate percentage (can exceed 100% if all days have extra credit)
+    const percentage = countedDays.length > 0 ? (totalPoints / countedDays.length) * 100 : 100;
+    
+    const absenceCount = dayPoints.filter(day => day.points === 0).length;
+    const presentCount = dayPoints.filter(day => day.points > 0).length;
     
     return {
       percentage: percentage,
       absences: absenceCount,
-      droppedAbsences: Math.min(5, absenceCount),
-      countedAbsences: countedAbsences,
-      totalClasses: totalClasses
+      droppedAbsences: droppedDays.filter(day => day.points === 0).length,
+      countedAbsences: countedDays.filter(day => day.points === 0).length,
+      totalClasses: attendance.length,
+      presentDays: presentCount,
+      totalPoints: totalPoints.toFixed(2),
+      maxPoints: maxPossiblePoints.toFixed(2)
     };
+  };
+
+  // Calculate Final Project Score
+  const calculateFinalProjectScore = () => {
+    const finalProject = categorized?.finalProject;
+    if (!finalProject || finalProject === '-' || finalProject === '') {
+      return { grade: null, percentage: null };
+    }
+    
+    const maxScore = 100;
+    const grade = parseFloat(finalProject) || 0;
+    const percentage = (grade / maxScore) * 100;
+    
+    return { grade, maxScore, percentage };
   };
 
   // Calculate Overall Grade
@@ -188,20 +223,25 @@ const GradesPage = () => {
     const pso = parseFloat(psoScore?.average || 0);
     const miniProjects = calculateMiniProjectScore();
     const attendance = calculateAttendanceScore();
+    const finalProject = calculateFinalProjectScore();
     
-    // Weights: PSOs 35%, Mini Projects 25%, Capstone 30%, Attendance 10%
-    // Since capstone isn't done yet, calculate relative to available components
+    // Weights: PSOs 35%, Mini Projects 25%, Final Project 30%, Attendance 10%
     const psoWeight = 35;
     const miniProjectWeight = 25;
+    const finalProjectWeight = 30;
     const attendanceWeight = 10;
-    // const capstoneWeight = 30; // Not available yet
     
-    const totalAvailableWeight = psoWeight + miniProjectWeight + attendanceWeight;
-    
-    const weightedScore = 
+    let totalAvailableWeight = psoWeight + miniProjectWeight + attendanceWeight;
+    let weightedScore = 
       (pso * psoWeight) +
       (miniProjects.average * miniProjectWeight) +
       (attendance.percentage * attendanceWeight);
+    
+    // Include final project if available
+    if (finalProject.percentage !== null) {
+      totalAvailableWeight += finalProjectWeight;
+      weightedScore += (finalProject.percentage * finalProjectWeight);
+    }
     
     const percentage = weightedScore / totalAvailableWeight;
     
@@ -227,6 +267,7 @@ const GradesPage = () => {
       components: {
         pso: pso.toFixed(1),
         miniProjects: miniProjects.average.toFixed(1),
+        finalProject: finalProject.percentage !== null ? finalProject.percentage.toFixed(1) : null,
         attendance: attendance.percentage.toFixed(1)
       }
     };
@@ -338,9 +379,33 @@ const GradesPage = () => {
               </div>
             </div>
 
+            {/* Congratulations Message */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 border-2 border-indigo-200">
+              <div className="flex justify-center gap-4 mb-6">
+                <img 
+                  src="/class.jpg" 
+                  alt="Class" 
+                  className="w-96 h-auto rounded-lg"
+                />
+                <img 
+                  src="/class2.jpg" 
+                  alt="Class" 
+                  className="w-96 h-auto rounded-lg"
+                />
+              </div>
+              <p className="text-gray-800 leading-relaxed text-center max-w-3xl mx-auto">
+                Congrats on finishing class (and doing so well!). I'm so grateful to have had you as part of this class. 
+                I hope you felt challenged, but never stressed, that you were able to learn a lot of really cool new tools, 
+                and that you built a project you can be proud of. Above all, I hope you continue to develop a love for 
+                building and take it wherever you go from here. Please know that I'll be cheering you on in whatever you 
+                choose to do next, and I'm sure you're going to do incredible things :)
+              </p>
+              <p className="text-gray-600 text-center mt-4 italic">~Tanay</p>
+            </div>
+
             {/* Grade Overview Cards */}
             {overallGrade && (
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
                 {/* PSO Score */}
                 <div className="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl p-6 text-white shadow-lg">
                   <div className="text-5xl font-bold mb-2">{overallGrade.components.pso}%</div>
@@ -355,6 +420,17 @@ const GradesPage = () => {
                   <div className="text-sm opacity-75 mt-1">25% of grade</div>
                 </div>
 
+                {/* Final Project Score */}
+                <div className="bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl p-6 text-white shadow-lg">
+                  <div className="text-5xl font-bold mb-2">
+                    {overallGrade.components.finalProject !== null 
+                      ? `${overallGrade.components.finalProject}%` 
+                      : '−'}
+                  </div>
+                  <div className="text-lg font-medium opacity-90">Final Project</div>
+                  <div className="text-sm opacity-75 mt-1">30% of grade</div>
+                </div>
+
                 {/* Attendance Score */}
                 <div className="bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl p-6 text-white shadow-lg">
                   <div className="text-5xl font-bold mb-2">{overallGrade.components.attendance}%</div>
@@ -367,7 +443,7 @@ const GradesPage = () => {
                   <div className="relative z-10">
                     <div className="text-6xl font-bold mb-1">{overallGrade.letterGrade}</div>
                     <div className="text-3xl font-semibold mb-2">{overallGrade.percentage}%</div>
-                    <div className="text-sm font-medium opacity-90">Current Grade</div>
+                    <div className="text-sm font-medium opacity-90">Final Grade</div>
                     <div className="text-xs opacity-75 mt-1">Based on completed work</div>
                   </div>
                   <div className="absolute top-0 right-0 text-9xl opacity-10 font-bold">
@@ -377,14 +453,6 @@ const GradesPage = () => {
               </div>
             )}
 
-            {/* Extra Credit Notice */}
-            {overallGrade && (
-              <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg">
-                <p className="text-sm text-blue-800">
-                  <span className="font-semibold">Note:</span> This grade does not account for extra credit opportunities.
-                </p>
-              </div>
-            )}
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {/* PSO Assignments */}
@@ -464,6 +532,9 @@ const GradesPage = () => {
                     </div>
                     <div className="text-xs text-gray-500">
                       {attendanceScore.countedAbsences} counting against grade
+                    </div>
+                    <div className="text-xs text-green-600 font-semibold mt-1">
+                      {attendanceScore.totalPoints} / {attendanceScore.maxPoints} points ({attendanceScore.presentDays} days with extra credit)
                     </div>
                   </div>
                 )}
